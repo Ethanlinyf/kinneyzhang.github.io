@@ -1,7 +1,7 @@
 #+STARTUP: showall indent
 #+TITLE:emacs学习笔记 
 #+DATE: 2019-03-30
-#+filetags: emacs
+
 * 文件操作
  * C-x d 进入Dired-mode
  * + 新建文件夹

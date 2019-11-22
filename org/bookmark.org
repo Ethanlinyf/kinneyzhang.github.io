@@ -1,7 +1,6 @@
 #+STARTUP: content
 #+TITLE: 链接收藏
 #+DATE: 2019-01-01
-#+filetags: bookmark
 
 * SSR节点
 ** *IP*: 124.156.176.145

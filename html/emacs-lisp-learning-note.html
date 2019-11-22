@@ -1,84 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<link rel="alternate"
-      type="application/rss+xml"
-      href="https://blog.geekinney.com/rss.xml"
-      title="RSS feed for https://blog.geekinney.com/"/>
+<!-- 2019-11-22 Fri 22:39 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp学习笔记</title>
+<meta name="generator" content="Org mode">
 <meta name="author" content="Kinney Zhang">
-<meta name="referrer" content="no-referrer">
-<link href= "static/style2.css" rel="stylesheet" type="text/css" />
-<link rel="icon" href="static/favicon.ico"></head>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+<script>var hlf=function(){Array.prototype.forEach.call(document.querySelectorAll("pre.src"),function(t){var e;e=t.getAttribute("class").toLowerCase(),e=e.replace(/src-(w+)/,"src-$1 $1"),console.log(e),t.setAttribute("class",e),hljs.highlightBlock(t)})};addEventListener("DOMContentLoaded",hlf);</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/googlecode.min.css"/>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
 <body>
-<div id="preamble" class="status">
-<div class="header">
-<a href="https://blog.geekinney.com">Geekinney's Blog</a>
-</div></div>
 <div id="content">
-<div class="post-date">22 Nov 2019</div><h1 class="post-title"><a href="https://blog.geekinney.com/2019-11-12-emacs-lisp-learning-note.html">elisp学习笔记</a></h1>
-<nav id="table-of-contents">
+<header>
+<h1 class="title">elisp学习笔记</h1>
+</header><nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0d76a17">1. Elisp</a>
+<li><a href="#org19230e4">1. Elisp</a>
 <ul>
-<li><a href="#org811cd19">1.1. 概览</a>
+<li><a href="#org3087978">1.1. 概览</a>
 <ul>
-<li><a href="#org88b8ce1">1.1.1. 运行emacs-lisp的几种方式</a></li>
-<li><a href="#orge9f063b">1.1.2. 创建命令（interactive函数）</a></li>
-<li><a href="#orgc483c89">1.1.3. emacs探索</a></li>
+<li><a href="#orgf6865f7">1.1.1. 运行emacs-lisp的几种方式</a></li>
+<li><a href="#orgdd374d6">1.1.2. 创建命令（interactive函数）</a></li>
+<li><a href="#orgbe4919e">1.1.3. emacs探索</a></li>
 </ul>
 </li>
-<li><a href="#orge559dcf">1.2. elisp编程的基本设置</a></li>
-<li><a href="#orgd9bd866">1.3. 基本运算</a>
+<li><a href="#orgf0de877">1.2. elisp编程的基本设置</a></li>
+<li><a href="#orgef0d8b0">1.3. 基本运算</a>
 <ul>
-<li><a href="#org0ea75ba">1.3.1. 算术</a></li>
-<li><a href="#org64a8dcb">1.3.2. 比较</a></li>
-<li><a href="#orgecf21bc">1.3.3. 列表</a></li>
+<li><a href="#orgf3f5417">1.3.1. 算术</a></li>
+<li><a href="#orgf4dfc27">1.3.2. 比较</a></li>
+<li><a href="#orge9d0725">1.3.3. 列表</a></li>
 </ul>
 </li>
-<li><a href="#orgd3624c7">1.4. 类型判断和Literals</a>
+<li><a href="#orgdc48228">1.4. 类型判断和Literals</a>
 <ul>
-<li><a href="#orgf16ab69">1.4.1. Emacs Literals</a></li>
-<li><a href="#org428f128">1.4.2. 基本类型判断</a></li>
-<li><a href="#org861163b">1.4.3. 获取对象类型</a></li>
+<li><a href="#org6a81365">1.4.1. Emacs Literals</a></li>
+<li><a href="#orgf76d904">1.4.2. 基本类型判断</a></li>
+<li><a href="#org6e2f06c">1.4.3. 获取对象类型</a></li>
 </ul>
 </li>
-<li><a href="#orgf921f45">1.5. 变量定义</a></li>
-<li><a href="#orgd621fe8">1.6. 函数定义</a>
+<li><a href="#org6a7a877">1.5. 变量定义</a></li>
+<li><a href="#org91c94ff">1.6. 函数定义</a>
 <ul>
-<li><a href="#orgfa10b18">1.6.1. 定义简单函数</a></li>
-<li><a href="#org3f2a81d">1.6.2. 匿名函数/Lambda函数</a></li>
-<li><a href="#org4286a72">1.6.3. 函数作为参数</a></li>
-<li><a href="#org97bac4a">1.6.4. 多参函数</a></li>
-<li><a href="#org918ac05">1.6.5. 可选参数函数</a></li>
-<li><a href="#org75bda3d">1.6.6. 含属性列表参数函数</a></li>
-<li><a href="#orgb5bff7b">1.6.7. Closures</a></li>
+<li><a href="#org394611c">1.6.1. 定义简单函数</a></li>
+<li><a href="#org5c629f1">1.6.2. 匿名函数/Lambda函数</a></li>
+<li><a href="#orgbcaa43e">1.6.3. 函数作为参数</a></li>
+<li><a href="#org89f1750">1.6.4. 多参函数</a></li>
+<li><a href="#org9be5943">1.6.5. 可选参数函数</a></li>
+<li><a href="#orgbdd4ff9">1.6.6. 含属性列表参数函数</a></li>
+<li><a href="#org34bbe4d">1.6.7. Closures</a></li>
 </ul>
 </li>
-<li><a href="#orgf63fd92">1.7. 列表操作</a></li>
-<li><a href="#org1e36f19">1.8. 关联列表和属性列表</a>
+<li><a href="#org18ed0be">1.7. 列表操作</a></li>
+<li><a href="#org5ed6db8">1.8. 关联列表和属性列表</a>
 <ul>
-<li><a href="#org4671569">1.8.1. 概览</a></li>
-<li><a href="#org77dcd34">1.8.2. 关联列表/Alist</a></li>
-<li><a href="#orga57ab92">1.8.3. 属性列表</a></li>
-<li><a href="#orge4aa961">1.8.4. 转换Alist成Plist和vice-versa</a></li>
+<li><a href="#org7332a06">1.8.1. 概览</a></li>
+<li><a href="#org829fcfd">1.8.2. 关联列表/Alist</a></li>
+<li><a href="#org4e3bc5b">1.8.3. 属性列表</a></li>
+<li><a href="#org28e30f5">1.8.4. 转换Alist成Plist和vice-versa</a></li>
 </ul>
 </li>
-<li><a href="#org6b41d16">1.9. 字符串</a></li>
-<li><a href="#org847bd09">1.10. 符号</a></li>
-<li><a href="#org50b9ac2">1.11. 类型转换</a></li>
-<li><a href="#orgd55856c">1.12. 求值</a></li>
-<li><a href="#org4ddf532">1.13. Defalias</a></li>
-<li><a href="#orgf28d4a4">1.14. 控制结构</a>
+<li><a href="#orgb0532e2">1.9. 字符串</a></li>
+<li><a href="#org93e8dec">1.10. 符号</a></li>
+<li><a href="#orgb4b0b66">1.11. 类型转换</a></li>
+<li><a href="#org1bcf31c">1.12. 求值</a></li>
+<li><a href="#org82f48f8">1.13. Defalias</a></li>
+<li><a href="#orga4637de">1.14. 控制结构</a>
 <ul>
-<li><a href="#org3960a99">1.14.1. Conditional Statement</a></li>
-<li><a href="#orgdb2ebe0">1.14.2. Cond - Case Switch</a></li>
-<li><a href="#org5ff0ad3">1.14.3. CL-Case - Case Switch</a></li>
-<li><a href="#orge0b755b">1.14.4. 循环</a></li>
-<li><a href="#orgf4c80dc">1.14.5. 函数式编程</a></li>
+<li><a href="#org67c401d">1.14.1. Conditional Statement</a></li>
+<li><a href="#org0b998bc">1.14.2. Cond - Case Switch</a></li>
+<li><a href="#org25e11c8">1.14.3. CL-Case - Case Switch</a></li>
+<li><a href="#org9491921">1.14.4. 循环</a></li>
+<li><a href="#org5632b7b">1.14.5. 函数式编程</a></li>
 </ul>
 </li>
 </ul>
@@ -90,16 +305,16 @@
 学习来源： <a href="http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html">Elisp Programming</a>
 </p>
 
-<div id="outline-container-org0d76a17" class="outline-2">
-<h2 id="org0d76a17"><span class="section-number-2">1</span> Elisp</h2>
+<div id="outline-container-org19230e4" class="outline-2">
+<h2 id="org19230e4"><span class="section-number-2">1</span> Elisp</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org811cd19" class="outline-3">
-<h3 id="org811cd19"><span class="section-number-3">1.1</span> 概览</h3>
+<div id="outline-container-org3087978" class="outline-3">
+<h3 id="org3087978"><span class="section-number-3">1.1</span> 概览</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org88b8ce1" class="outline-4">
-<h4 id="org88b8ce1"><span class="section-number-4">1.1.1</span> 运行emacs-lisp的几种方式</h4>
+<div id="outline-container-orgf6865f7" class="outline-4">
+<h4 id="orgf6865f7"><span class="section-number-4">1.1.1</span> 运行emacs-lisp的几种方式</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <table>
 
@@ -147,8 +362,8 @@
 </div>
 </div>
 
-<div id="outline-container-orge9f063b" class="outline-4">
-<h4 id="orge9f063b"><span class="section-number-4">1.1.2</span> 创建命令（interactive函数）</h4>
+<div id="outline-container-orgdd374d6" class="outline-4">
+<h4 id="orgdd374d6"><span class="section-number-4">1.1.2</span> 创建命令（interactive函数）</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <div class="col-auto">
 <pre><code class="emacs-lisp"><span style="color: #b22222;">;; </span><span style="color: #b22222;">example</span>
@@ -161,8 +376,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgc483c89" class="outline-4">
-<h4 id="orgc483c89"><span class="section-number-4">1.1.3</span> emacs探索</h4>
+<div id="outline-container-orgbe4919e" class="outline-4">
+<h4 id="orgbe4919e"><span class="section-number-4">1.1.3</span> emacs探索</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <table>
 
@@ -205,8 +420,8 @@
 </div>
 </div>
 
-<div id="outline-container-orge559dcf" class="outline-3">
-<h3 id="orge559dcf"><span class="section-number-3">1.2</span> elisp编程的基本设置</h3>
+<div id="outline-container-orgf0de877" class="outline-3">
+<h3 id="orgf0de877"><span class="section-number-3">1.2</span> elisp编程的基本设置</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 三个有用的pcakage:
@@ -219,12 +434,12 @@
 </div>
 </div>
 
-<div id="outline-container-orgd9bd866" class="outline-3">
-<h3 id="orgd9bd866"><span class="section-number-3">1.3</span> 基本运算</h3>
+<div id="outline-container-orgef0d8b0" class="outline-3">
+<h3 id="orgef0d8b0"><span class="section-number-3">1.3</span> 基本运算</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org0ea75ba" class="outline-4">
-<h4 id="org0ea75ba"><span class="section-number-4">1.3.1</span> 算术</h4>
+<div id="outline-container-orgf3f5417" class="outline-4">
+<h4 id="orgf3f5417"><span class="section-number-4">1.3.1</span> 算术</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <pre class="example">
 ELISP&gt; (+ 20 30)
@@ -267,8 +482,8 @@ ELISP&gt;
 </div>
 </div>
 
-<div id="outline-container-org64a8dcb" class="outline-4">
-<h4 id="org64a8dcb"><span class="section-number-4">1.3.2</span> 比较</h4>
+<div id="outline-container-orgf4dfc27" class="outline-4">
+<h4 id="orgf4dfc27"><span class="section-number-4">1.3.2</span> 比较</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <pre class="example">
 ;;;; Compare Numbers
@@ -297,8 +512,8 @@ t
 </div>
 </div>
 
-<div id="outline-container-orgecf21bc" class="outline-4">
-<h4 id="orgecf21bc"><span class="section-number-4">1.3.3</span> 列表</h4>
+<div id="outline-container-orge9d0725" class="outline-4">
+<h4 id="orge9d0725"><span class="section-number-4">1.3.3</span> 列表</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <pre class="example">
 ELISP&gt; '(10 20 30 40)
@@ -312,12 +527,12 @@ ELISP&gt; '(10 203 40 "hello" () ("empty" 65))
 </div>
 </div>
 
-<div id="outline-container-orgd3624c7" class="outline-3">
-<h3 id="orgd3624c7"><span class="section-number-3">1.4</span> 类型判断和Literals</h3>
+<div id="outline-container-orgdc48228" class="outline-3">
+<h3 id="orgdc48228"><span class="section-number-3">1.4</span> 类型判断和Literals</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-orgf16ab69" class="outline-4">
-<h4 id="orgf16ab69"><span class="section-number-4">1.4.1</span> Emacs Literals</h4>
+<div id="outline-container-org6a81365" class="outline-4">
+<h4 id="org6a81365"><span class="section-number-4">1.4.1</span> Emacs Literals</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <pre class="example">
 ;;; Numbers
@@ -399,8 +614,8 @@ ELISP&gt; [1 2 3 4 (+ 1 2 3 54)]
 </div>
 </div>
 
-<div id="outline-container-org428f128" class="outline-4">
-<h4 id="org428f128"><span class="section-number-4">1.4.2</span> 基本类型判断</h4>
+<div id="outline-container-orgf76d904" class="outline-4">
+<h4 id="orgf76d904"><span class="section-number-4">1.4.2</span> 基本类型判断</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <table>
 
@@ -554,8 +769,8 @@ ELISP&gt;
 </div>
 </div>
 
-<div id="outline-container-org861163b" class="outline-4">
-<h4 id="org861163b"><span class="section-number-4">1.4.3</span> 获取对象类型</h4>
+<div id="outline-container-org6e2f06c" class="outline-4">
+<h4 id="org6e2f06c"><span class="section-number-4">1.4.3</span> 获取对象类型</h4>
 <div class="outline-text-4" id="text-1-4-3">
 <pre class="example">
 ELISP&gt; (type-of (current-buffer))
@@ -574,8 +789,8 @@ ELISP&gt;
 </div>
 </div>
 </div>
-<div id="outline-container-orgf921f45" class="outline-3">
-<h3 id="orgf921f45"><span class="section-number-3">1.5</span> 变量定义</h3>
+<div id="outline-container-org6a7a877" class="outline-3">
+<h3 id="org6a7a877"><span class="section-number-3">1.5</span> 变量定义</h3>
 <div class="outline-text-3" id="text-1-5">
 <pre class="example">
 ;;; Constants
@@ -646,12 +861,12 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-orgd621fe8" class="outline-3">
-<h3 id="orgd621fe8"><span class="section-number-3">1.6</span> 函数定义</h3>
+<div id="outline-container-org91c94ff" class="outline-3">
+<h3 id="org91c94ff"><span class="section-number-3">1.6</span> 函数定义</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-orgfa10b18" class="outline-4">
-<h4 id="orgfa10b18"><span class="section-number-4">1.6.1</span> 定义简单函数</h4>
+<div id="outline-container-org394611c" class="outline-4">
+<h4 id="org394611c"><span class="section-number-4">1.6.1</span> 定义简单函数</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <p>
 语法: (defun &lt;function name&gt; (&lt;parameters&gt;) (&lt;body&gt;))
@@ -697,8 +912,8 @@ ELISP
 </pre>
 </div>
 </div>
-<div id="outline-container-org3f2a81d" class="outline-4">
-<h4 id="org3f2a81d"><span class="section-number-4">1.6.2</span> 匿名函数/Lambda函数</h4>
+<div id="outline-container-org5c629f1" class="outline-4">
+<h4 id="org5c629f1"><span class="section-number-4">1.6.2</span> 匿名函数/Lambda函数</h4>
 <div class="outline-text-4" id="text-1-6-2">
 <p>
 语法: (lambda (&lt;parameters&gt;) (&lt;body&gt;))
@@ -748,8 +963,8 @@ ELISP&gt; (mapcar (lambda (x) (+ x 3))  '(1 2 3 4 5))
 </pre>
 </div>
 </div>
-<div id="outline-container-org4286a72" class="outline-4">
-<h4 id="org4286a72"><span class="section-number-4">1.6.3</span> 函数作为参数</h4>
+<div id="outline-container-orgbcaa43e" class="outline-4">
+<h4 id="orgbcaa43e"><span class="section-number-4">1.6.3</span> 函数作为参数</h4>
 <div class="outline-text-4" id="text-1-6-3">
 <p>
 语法: (caller-function #'&lt;function-1&gt; #'&lt;function-1&gt; arg1 arg2 &#x2026;)
@@ -799,8 +1014,8 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-org97bac4a" class="outline-4">
-<h4 id="org97bac4a"><span class="section-number-4">1.6.4</span> 多参函数</h4>
+<div id="outline-container-org89f1750" class="outline-4">
+<h4 id="org89f1750"><span class="section-number-4">1.6.4</span> 多参函数</h4>
 <div class="outline-text-4" id="text-1-6-4">
 <pre class="example">
 (defun sum (&amp;rest numbers)
@@ -839,8 +1054,8 @@ ELISP&gt; (sum-prod 1 1 2 3 4 5)
 </pre>
 </div>
 </div>
-<div id="outline-container-org918ac05" class="outline-4">
-<h4 id="org918ac05"><span class="section-number-4">1.6.5</span> 可选参数函数</h4>
+<div id="outline-container-org9be5943" class="outline-4">
+<h4 id="org9be5943"><span class="section-number-4">1.6.5</span> 可选参数函数</h4>
 <div class="outline-text-4" id="text-1-6-5">
 <pre class="example">
 (defun test-optional (a &amp;optional b)
@@ -894,8 +1109,8 @@ ELISP&gt; (test-optional-default-b 1 nil)
 </pre>
 </div>
 </div>
-<div id="outline-container-org75bda3d" class="outline-4">
-<h4 id="org75bda3d"><span class="section-number-4">1.6.6</span> 含属性列表参数函数</h4>
+<div id="outline-container-orgbdd4ff9" class="outline-4">
+<h4 id="orgbdd4ff9"><span class="section-number-4">1.6.6</span> 含属性列表参数函数</h4>
 <div class="outline-text-4" id="text-1-6-6">
 <pre class="example">
 (defun make-shell-interface (&amp;rest params)
@@ -966,8 +1181,8 @@ ELISP&gt; (make-shell-interface :buffer "pyshell"  :path "/usr/bin/python" :type
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb5bff7b" class="outline-4">
-<h4 id="orgb5bff7b"><span class="section-number-4">1.6.7</span> Closures</h4>
+<div id="outline-container-org34bbe4d" class="outline-4">
+<h4 id="org34bbe4d"><span class="section-number-4">1.6.7</span> Closures</h4>
 <div class="outline-text-4" id="text-1-6-7">
 <p>
 elisp方言默认不支持closure，所以下面的代码不会像Scheme或Common Lisp一样执行。
@@ -1063,8 +1278,8 @@ ELISP&gt; (map (make-sum-fun sin cos) '(1 2 3 4 5))
 </div>
 </div>
 </div>
-<div id="outline-container-orgf63fd92" class="outline-3">
-<h3 id="orgf63fd92"><span class="section-number-3">1.7</span> 列表操作</h3>
+<div id="outline-container-org18ed0be" class="outline-3">
+<h3 id="org18ed0be"><span class="section-number-3">1.7</span> 列表操作</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 参考：
@@ -1290,12 +1505,12 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-org1e36f19" class="outline-3">
-<h3 id="org1e36f19"><span class="section-number-3">1.8</span> 关联列表和属性列表</h3>
+<div id="outline-container-org5ed6db8" class="outline-3">
+<h3 id="org5ed6db8"><span class="section-number-3">1.8</span> 关联列表和属性列表</h3>
 <div class="outline-text-3" id="text-1-8">
 </div>
-<div id="outline-container-org4671569" class="outline-4">
-<h4 id="org4671569"><span class="section-number-4">1.8.1</span> 概览</h4>
+<div id="outline-container-org7332a06" class="outline-4">
+<h4 id="org7332a06"><span class="section-number-4">1.8.1</span> 概览</h4>
 <div class="outline-text-4" id="text-1-8-1">
 <p>
 关联列表是一系列cons对，这里我可以称作 <code>clist</code> 或者 由两个元素组成的列表的集合，可以称为 <code>alist</code>
@@ -1369,8 +1584,8 @@ ELISP&gt; '(:key1 value1 :key2 value2 :key3 1002.23 :key4 (a b c d e))
 </pre>
 </div>
 </div>
-<div id="outline-container-org77dcd34" class="outline-4">
-<h4 id="org77dcd34"><span class="section-number-4">1.8.2</span> 关联列表/Alist</h4>
+<div id="outline-container-org829fcfd" class="outline-4">
+<h4 id="org829fcfd"><span class="section-number-4">1.8.2</span> 关联列表/Alist</h4>
 <div class="outline-text-4" id="text-1-8-2">
 <pre class="example">
 ELISP&gt; (setq dict
@@ -1614,8 +1829,8 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-orga57ab92" class="outline-4">
-<h4 id="orga57ab92"><span class="section-number-4">1.8.3</span> 属性列表</h4>
+<div id="outline-container-org4e3bc5b" class="outline-4">
+<h4 id="org4e3bc5b"><span class="section-number-4">1.8.3</span> 属性列表</h4>
 <div class="outline-text-4" id="text-1-8-3">
 <pre class="example">
 ELISP&gt; (defvar plst (list :buffer (current-buffer) :line 10 :pos 2000))
@@ -1654,8 +1869,8 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-orge4aa961" class="outline-4">
-<h4 id="orge4aa961"><span class="section-number-4">1.8.4</span> 转换Alist成Plist和vice-versa</h4>
+<div id="outline-container-org28e30f5" class="outline-4">
+<h4 id="org28e30f5"><span class="section-number-4">1.8.4</span> 转换Alist成Plist和vice-versa</h4>
 <div class="outline-text-4" id="text-1-8-4">
 <pre class="example">
 ;; Alist to plist
@@ -1741,8 +1956,8 @@ ELISP&gt;
 </div>
 </div>
 </div>
-<div id="outline-container-org6b41d16" class="outline-3">
-<h3 id="org6b41d16"><span class="section-number-3">1.9</span> 字符串</h3>
+<div id="outline-container-orgb0532e2" class="outline-3">
+<h3 id="orgb0532e2"><span class="section-number-3">1.9</span> 字符串</h3>
 <div class="outline-text-3" id="text-1-9">
 <pre class="example">
 ;; Split String
@@ -1847,8 +2062,8 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-org847bd09" class="outline-3">
-<h3 id="org847bd09"><span class="section-number-3">1.10</span> 符号</h3>
+<div id="outline-container-org93e8dec" class="outline-3">
+<h3 id="org93e8dec"><span class="section-number-3">1.10</span> 符号</h3>
 <div class="outline-text-3" id="text-1-10">
 <pre class="example">
 ;;; Convert a string to symbol
@@ -1955,8 +2170,8 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-org50b9ac2" class="outline-3">
-<h3 id="org50b9ac2"><span class="section-number-3">1.11</span> 类型转换</h3>
+<div id="outline-container-orgb4b0b66" class="outline-3">
+<h3 id="orgb4b0b66"><span class="section-number-3">1.11</span> 类型转换</h3>
 <div class="outline-text-3" id="text-1-11">
 <p>
 <b>类型查询</b>
@@ -2121,8 +2336,8 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-orgd55856c" class="outline-3">
-<h3 id="orgd55856c"><span class="section-number-3">1.12</span> 求值</h3>
+<div id="outline-container-org1bcf31c" class="outline-3">
+<h3 id="org1bcf31c"><span class="section-number-3">1.12</span> 求值</h3>
 <div class="outline-text-3" id="text-1-12">
 <p>
 <b>S表达式求值</b>
@@ -2236,8 +2451,8 @@ ELISP&gt;
 </table>
 </div>
 </div>
-<div id="outline-container-org4ddf532" class="outline-3">
-<h3 id="org4ddf532"><span class="section-number-3">1.13</span> Defalias</h3>
+<div id="outline-container-org82f48f8" class="outline-3">
+<h3 id="org82f48f8"><span class="section-number-3">1.13</span> Defalias</h3>
 <div class="outline-text-3" id="text-1-13">
 <p>
 内置宏 <code>defalias</code> 可以为emaca函数定义简短的名字。
@@ -2306,12 +2521,12 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-orgf28d4a4" class="outline-3">
-<h3 id="orgf28d4a4"><span class="section-number-3">1.14</span> 控制结构</h3>
+<div id="outline-container-orga4637de" class="outline-3">
+<h3 id="orga4637de"><span class="section-number-3">1.14</span> 控制结构</h3>
 <div class="outline-text-3" id="text-1-14">
 </div>
-<div id="outline-container-org3960a99" class="outline-4">
-<h4 id="org3960a99"><span class="section-number-4">1.14.1</span> Conditional Statement</h4>
+<div id="outline-container-org67c401d" class="outline-4">
+<h4 id="org67c401d"><span class="section-number-4">1.14.1</span> Conditional Statement</h4>
 <div class="outline-text-4" id="text-1-14-1">
 <p>
 <b>If Else 语句</b>
@@ -2428,8 +2643,8 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-orgdb2ebe0" class="outline-4">
-<h4 id="orgdb2ebe0"><span class="section-number-4">1.14.2</span> Cond - Case Switch</h4>
+<div id="outline-container-org0b998bc" class="outline-4">
+<h4 id="org0b998bc"><span class="section-number-4">1.14.2</span> Cond - Case Switch</h4>
 <div class="outline-text-4" id="text-1-14-2">
 <pre class="example">
 ELISP&gt; (setq a 3)       ;; a = 3
@@ -2448,8 +2663,8 @@ ELISP&gt;
 </div>
 </div>
 
-<div id="outline-container-org5ff0ad3" class="outline-4">
-<h4 id="org5ff0ad3"><span class="section-number-4">1.14.3</span> CL-Case - Case Switch</h4>
+<div id="outline-container-org25e11c8" class="outline-4">
+<h4 id="org25e11c8"><span class="section-number-4">1.14.3</span> CL-Case - Case Switch</h4>
 <div class="outline-text-4" id="text-1-14-3">
 <pre class="example">
 (defun test-cl-case (operation x y)
@@ -2477,8 +2692,8 @@ nil
 </div>
 </div>
 
-<div id="outline-container-orge0b755b" class="outline-4">
-<h4 id="orge0b755b"><span class="section-number-4">1.14.4</span> 循环</h4>
+<div id="outline-container-org9491921" class="outline-4">
+<h4 id="org9491921"><span class="section-number-4">1.14.4</span> 循环</h4>
 <div class="outline-text-4" id="text-1-14-4">
 <p>
 <b>Dolist</b>
@@ -2682,8 +2897,8 @@ nil
 </div>
 </div>
 
-<div id="outline-container-orgf4c80dc" class="outline-4">
-<h4 id="orgf4c80dc"><span class="section-number-4">1.14.5</span> 函数式编程</h4>
+<div id="outline-container-org5632b7b" class="outline-4">
+<h4 id="org5632b7b"><span class="section-number-4">1.14.5</span> 函数式编程</h4>
 <div class="outline-text-4" id="text-1-14-5">
 <p>
 <a href="https://github.com/magnars/dash.el.git">Dash</a> 是emacs经常使用的函数式编程库。
@@ -2918,8 +3133,6 @@ ELISP&gt; (filter #'odd? '(1 2 3 4 5 6))
 </div>
 </div>
 </div>
-<div class="taglist"><a href="https://blog.geekinney.com/tags.html">Tags</a>: <a href="https://blog.geekinney.com/tag-emacs.html">emacs</a> <a href="https://blog.geekinney.com/tag-elisp.html">elisp</a> </div></div>
-<div id="postamble" class="status"><div id="archive"><a href="https://blog.geekinney.com/archive.html">Other posts</a></div>
-<center><a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="https://purl.org/dc/terms/" href="https://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">bastibe.de</span> by <a xmlns:cc="https://creativecommons.org/ns#" href="https://bastibe.de" property="cc:attributionName" rel="cc:attributionURL">Bastian Bechtold</a> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</center></div>
+</div>
 </body>
 </html>
