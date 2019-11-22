@@ -3,4 +3,4 @@
 
 * archive
 ** 2019
-   * 201903 [[https://blog.geekinney.com/emacs-learning-note.html][emacs学习笔记]]
+   * 201903 [[https://blog.geekinney.com/html/emacs-learning-note.html][emacs学习笔记]]
