@@ -1,0 +1,4064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://blog.geekinney.com/rss.xml"
+      title="RSS feed for https://blog.geekinney.com/"/>
+<title>Geekinney's Blog</title>
+<meta name="author" content="Kinney Zhang">
+<meta name="referrer" content="no-referrer">
+<link href= "static/style2.css" rel="stylesheet" type="text/css" />
+<link rel="icon" href="static/favicon.ico"></head>
+<body>
+<div id="preamble" class="status"><div class="header">
+<a href="https://blog.geekinney.com">Geekinney's Blog</a>
+</div></div>
+<div id="content">
+<h1 class="title">Posts tagged "emacs":</h1>
+<div class="post-date">22 Nov 2019</div><h1 class="post-title"><a href="https://blog.geekinney.com/2019-03-30-emacs-learning-note.html">emacs学习笔记 </a></h1>
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga0ef4fc">1. 文件操作</a></li>
+<li><a href="#org37ef286">2. 列表</a></li>
+<li><a href="#orgb7bdb04">3. 表格</a></li>
+<li><a href="#org4f1a1b1">4. 链接</a></li>
+<li><a href="#org8aeabec">5. 待做列表</a></li>
+<li><a href="#org21c23f0">6. 时间</a></li>
+<li><a href="#org50e331b">7. 特殊文本格式</a></li>
+<li><a href="#orge708f1e">8. 富文本导出</a>
+<ul>
+<li><a href="#org250e8b0">8.1. 设置标题和目录</a></li>
+<li><a href="#org8da7bd9">8.2. 居中</a></li>
+<li><a href="#org57b4fb4">8.3. 注释</a></li>
+<li><a href="#orge57a275">8.4. 分隔符</a></li>
+<li><a href="#orgaf45e9e">8.5. 引用</a></li>
+<li><a href="#orgf91ba9f">8.6. 多行换行</a></li>
+</ul>
+</li>
+<li><a href="#org051cfcc">9. org-clock</a></li>
+<li><a href="#org01dd8e0">10. 标题间跳转</a></li>
+<li><a href="#org0d8835c">11. how to study emacs</a></li>
+<li><a href="#org4a9f3de">12. 查找替换</a></li>
+<li><a href="#org5247fa9">13. proced</a></li>
+</ul>
+</div>
+</nav>
+<div id="outline-container-orga0ef4fc" class="outline-2">
+<h2 id="orga0ef4fc"><span class="section-number-2">1</span> 文件操作</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>C-x d 进入Dired-mode</li>
+<li>+ 新建文件夹</li>
+<li>C-x C-f 新建文件</li>
+<li>C 复制</li>
+<li>D 删除</li>
+<li>d 标记删除，x执行，u取消</li>
+<li>R 重命名文件</li>
+<li>C-x C-j 打开当前文件的目录</li>
+<li>C-c p f 在当前git中查找</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org37ef286" class="outline-2">
+<h2 id="org37ef286"><span class="section-number-2">2</span> 列表</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="example">
+1. [50%] 任务1
+   - [X] t1
+   - [ ] t2
+2. [1/3] 任务2
+   - [ ] t1
+   - [X] t2
+   - [ ] t3
+3. [ ] 任务3
+4. [X] 任务4
+
+</pre>
+<ol class="org-ol">
+<li><code>[50%]</code> 任务1
+<ul class="org-ul">
+<li class="on"><code>[X]</code> t1</li>
+<li class="off"><code>[&#xa0;]</code> t2</li>
+</ul></li>
+<li><code>[1/3]</code> 任务2
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> t1</li>
+<li class="on"><code>[X]</code> t2</li>
+<li class="off"><code>[&#xa0;]</code> t3</li>
+</ul></li>
+<li class="off"><code>[&#xa0;]</code> 任务3</li>
+<li class="on"><code>[X]</code> 任务4</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgb7bdb04" class="outline-2">
+<h2 id="orgb7bdb04"><span class="section-number-2">3</span> 表格</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>C-c | 通过输入大小的方式插入表格</li>
+<li>C-c C-c 对齐表格</li>
+<li>Tab 调到右边一个表格</li>
+<li>enter 跳到下方的表格</li>
+<li>M-up/right/left/right 上下左右移动行（列）</li>
+<li>M-S-up/right/left/right 移动当前行（列）,并插入空行</li>
+</ul>
+
+<pre class="example">
+| Name | Phone | sub1 | sub2 | total |
+|------+-------+------+------+-------|
+|kinney|  111  |  111 |  111 |  111  |
+</pre>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-right">Phone</th>
+<th scope="col" class="org-right">sub1</th>
+<th scope="col" class="org-right">sub2</th>
+<th scope="col" class="org-right">total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">kinney</td>
+<td class="org-right">111</td>
+<td class="org-right">111</td>
+<td class="org-right">111</td>
+<td class="org-right">111</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org4f1a1b1" class="outline-2">
+<h2 id="org4f1a1b1"><span class="section-number-2">4</span> 链接</h2>
+<div class="outline-text-2" id="text-4">
+<pre class="example">
+[[http://orgmode.org/orgguide.pdf]grgguid.pdf]]
+[[file:/Users/kinney/Desktop/屏幕快照\2018-08-10\19.33.36.png][链接写法]]
+</pre>
+<p>
+直接显示的图片在Emacs里默认不显示，需按C-c C-x C-v才能显示，在输出成其他格式（html、pdf……）后也能看到.常用快捷键:- C-c C-x C-v 直接预览图片。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8aeabec" class="outline-2">
+<h2 id="org8aeabec"><span class="section-number-2">5</span> 待做列表</h2>
+<div class="outline-text-2" id="text-5">
+<pre class="example">
+*DONE [ ] 任务1
+*TODO [#A] 任务2
+</pre>
+
+<p>
+一些常用操作如下： 
+</p>
+<ul class="org-ul">
+<li>C-c C-t 变换TODO的状态</li>
+<li>C-c / t以树的形式展示所有的 TODO</li>
+<li>C-c C-c 改变 checkbox状态</li>
+<li>C-c, 设置优先级（方括号里的ABC）</li>
+<li>M-S-RET 插入同级TODO标签</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org21c23f0" class="outline-2">
+<h2 id="org21c23f0"><span class="section-number-2">6</span> 时间</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+输入C-c . 会出现一个日历，我们点选相应的时间即可插入。
+</p>
+<pre class="example">
+DEADLINE: &lt;2018-08-10 Fri&gt;
+SCHEDULED: &lt;2018-08-18 Sat&gt;
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org50e331b" class="outline-2">
+<h2 id="org50e331b"><span class="section-number-2">7</span> 特殊文本格式</h2>
+<div class="outline-text-2" id="text-7">
+<pre class="example">
+*bold*
+/italic/ 
+_underline_
+=code=
+~verbatim~
++strike-through+
+</pre>
+<p>
+<b>bold</b> <br>
+<i>italic</i> <br>
+<span class="underline">underline</span> <br>
+<code>code</code> <br>
+<code>verbatim</code> <br>
+<del>strike-through</del>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge708f1e" class="outline-2">
+<h2 id="orge708f1e"><span class="section-number-2">8</span> 富文本导出</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org250e8b0" class="outline-3">
+<h3 id="org250e8b0"><span class="section-number-3">8.1</span> 设置标题和目录</h3>
+<div class="outline-text-3" id="text-8-1">
+<pre class="example">
+#+TITLE: This is the title of the document
+#+OPTIONS: toc:2 (only to two levels in TOC)
+#+OPTIONS: toc:nil (no TOC at all)
+</pre>
+</div>
+</div>
+<div id="outline-container-org8da7bd9" class="outline-3">
+<h3 id="org8da7bd9"><span class="section-number-3">8.2</span> 居中</h3>
+<div class="outline-text-3" id="text-8-2">
+<pre class="example">
+#+BEGIN_CENTER
+这里是居中的内容
+#+END_CENTER
+</pre>
+
+<div class="org-center">
+<p>
+这里是居中的内容
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org57b4fb4" class="outline-3">
+<h3 id="org57b4fb4"><span class="section-number-3">8.3</span> 注释</h3>
+<div class="outline-text-3" id="text-8-3">
+<pre class="example">
+#+BEGIN_COMMENT
+这里的注视不会被导出
+#+END_COMMENT
+</pre>
+</div>
+</div>
+<div id="outline-container-orge57a275" class="outline-3">
+<h3 id="orge57a275"><span class="section-number-3">8.4</span> 分隔符</h3>
+<div class="outline-text-3" id="text-8-4">
+<pre class="example">
+------
+</pre>
+<hr>
+</div>
+</div>
+
+<div id="outline-container-orgaf45e9e" class="outline-3">
+<h3 id="orgaf45e9e"><span class="section-number-3">8.5</span> 引用</h3>
+<div class="outline-text-3" id="text-8-5">
+<pre class="example">
+#+BEGIN_QUOTE
+这里是引用的内容
+#+END_QUOTE
+</pre>
+
+<blockquote>
+<p>
+这里是引用的内容
+</p>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-orgf91ba9f" class="outline-3">
+<h3 id="orgf91ba9f"><span class="section-number-3">8.6</span> 多行换行</h3>
+<div class="outline-text-3" id="text-8-6">
+<pre class="example">
+#+BEGIN_VERSE
+这里面的
+每一行
+都可以自动换行
+#+END_VERSE
+单行换行，在句尾加"\\"
+</pre>
+
+<p class="verse">
+这里面的<br>
+每一行<br>
+都可以自动换行<br>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org051cfcc" class="outline-2">
+<h2 id="org051cfcc"><span class="section-number-2">9</span> org-clock</h2>
+<div class="outline-text-2" id="text-9">
+<ul class="org-ul">
+<li>org-clock-in(C-c C-x C-i)</li>
+<li>org-clock-out(C-c C-x C-o)</li>
+<li>org-clock-display(C-c C-x C-d)</li>
+<li>org-clock-cancle(C-c C-x C-q)</li>
+<li>org-clock-report(C-c C-x C-r)</li>
+<li>org-dblock-update(C-c C-c), 光标放在#+Begin位置</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org01dd8e0" class="outline-2">
+<h2 id="org01dd8e0"><span class="section-number-2">10</span> 标题间跳转</h2>
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>C-c C-n / C-c C-p</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0d8835c" class="outline-2">
+<h2 id="org0d8835c"><span class="section-number-2">11</span> how to study emacs</h2>
+<div class="outline-text-2" id="text-11">
+<ul class="org-ul">
+<li><a href="https://emacs-china.org/t/emacs/7532/16?u=kinneyzhang">https://emacs-china.org/t/emacs/7532/16?u=kinneyzhang</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4a9f3de" class="outline-2">
+<h2 id="org4a9f3de"><span class="section-number-2">12</span> 查找替换</h2>
+<div class="outline-text-2" id="text-12">
+<ul class="org-ul">
+<li>M-%</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5247fa9" class="outline-2">
+<h2 id="org5247fa9"><span class="section-number-2">13</span> proced</h2>
+<div class="outline-text-2" id="text-13">
+<ul class="org-ul">
+<li>查看系统进程情况</li>
+<li>m标记，x选择向进程发送的命令</li>
+<li>按键s前缀选择展现方式</li>
+</ul>
+</div>
+</div>
+<div class="taglist"><a href="https://blog.geekinney.com/tags.html">Tags</a>: <a href="https://blog.geekinney.com/tag-emacs.html">emacs</a> </div>
+<div class="post-date">22 Nov 2019</div><h1 class="post-title"><a href="https://blog.geekinney.com/2019-08-18-get-started-with-emacs.html">Get Started With Emacs </a></h1>
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga7e1b3d">1. 介绍</a></li>
+<li><a href="#org671d03f">2. 安装</a>
+<ul>
+<li><a href="#org236cb6b">2.1. 安装emacs</a></li>
+<li><a href="#orga7025a3">2.2. 克隆配置文件</a></li>
+<li><a href="#org2f13f80">2.3. 启动emacs，等待所有package安装完毕</a></li>
+</ul>
+</li>
+<li><a href="#org85a6e1d">3. 使用</a>
+<ul>
+<li><a href="#orge565904">3.1. 常用快捷键</a></li>
+</ul>
+</li>
+<li><a href="#org68f006e">4. visual thinking</a></li>
+</ul>
+</div>
+</nav>
+<blockquote>
+<p>
+懒猫说：“Emacs是开源社区的典范, 也是全球顶尖黑客的思想结晶。没有Emacs, 我真的不会这么多年坚持做开源软件。Emacs时刻提醒我, 这个世界上有太多太多的聪明人比我更勤奋和有趣, 它就像一个每天都在增长的金字塔, 只有自己不断努力, 才能看到顶尖黑客是怎么切磋的.”
+</p>
+</blockquote>
+
+<p>
+都说emacs的学习曲线很陡峭，我觉得这得看情况。对于程序员或乐于折腾的人，配置舒服的开发环境，编写自己的插件确实需要可观的时间成本。但对于普通的学习、办公人员，emacs也同样可以成为称手的效率工具。事实上，我一直觉得，计算机领域的很多工具与想法值得被更多的非程序员所了解并使用。比如说，emacs！
+</p>
+
+<p>
+这是一个系列blog的开篇，我将从个人理解的角度介绍一些实用的emacs workflow。期望非程序员在日常办公学习中也能很好的使用这个“神之编辑器”。当然，对于初次了解emacs的程序员，这也可以作为一个很好的开始，并且我相信，你一定会爱上它的。happy hacking emacs!
+</p>
+
+<p>
+自从入坑emacs，它几乎就成了我每天必用的app(or os?)。我主要用emacs来做笔记、敲代码、管理时间、管理目录、管理代码、听音乐和podcast、学英语、hacking emacs&#x2026;
+</p>
+
+<div id="outline-container-orga7e1b3d" class="outline-2">
+<h2 id="orga7e1b3d"><span class="section-number-2">1</span> 介绍</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+你一定很好奇，这个emacs究竟是个什么东西，竟然可以同时拥有如此多的功能。其实它并不神秘，从本质上说，emacs就是一个文本编辑器。我们熟悉的文本编辑器有word, vim, atom, vscode等。
+</p>
+
+<p>
+简单的说，emacs能够实现以上很多的功能依赖于emacs-lisp语言，通过编写elisp程序可以定制几乎所有的功能。而很多的功能前人已经造好了轮子，这些轮子就是emacs的插件。比如，用于文本编辑、任务管理的org-mode；用于目录管理的dired-mode，用于git管理的magit等。各种编程语言都有自己的插件，python-mode, js2-mode, web-mode&#x2026;
+</p>
+
+<p>
+对于初学者，不需要学习elisp语言，可以克隆他人成熟的配置先用起来。当你对emacs足够了解，自然会想要学习elisp定制一些功能和编写自己的插件。这是一个水到渠成的过程。
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org671d03f" class="outline-2">
+<h2 id="org671d03f"><span class="section-number-2">2</span> 安装</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org236cb6b" class="outline-3">
+<h3 id="org236cb6b"><span class="section-number-3">2.1</span> 安装emacs</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+可以从 <a href="https://www.gnu.org/software/emacs/">GNU Emacs 官网</a> 下载合适的版本。MacOS用户也可以通过homebrew安装。
+</p>
+
+<div class="col-auto">
+<pre><code class="shell">$ brew cask install emacs
+</code></pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orga7025a3" class="outline-3">
+<h3 id="orga7025a3"><span class="section-number-3">2.2</span> 克隆配置文件</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+可以使用我的emacs配置。第一行代码是备份，防止自己的 <code>.emacs.d</code> 被覆盖(如果是初次接触emacs，则无所谓)。第二行代码是克隆配置文件夹.emacs.d到用户主目录。
+</p>
+
+<div class="col-auto">
+<pre><code class="shell">$ mv ~/.emacs.d ~/.emacs.d.bak
+$ git clone --depth=1 https://github.com/Kinneyzhang/.emacs.d.git ~/.emacs.d --recursive
+</code></pre>
+</div>
+
+
+<p>
+如果你不知道如何使用命令行，一个简单的办法就是访问 <a href="https://github.com/Kinneyzhang/.emacs.d">.emacs.d</a> ，点击 <code>Clone or download</code> 中的 <code>Download ZIP</code> 下载到本地，然后解压到用户主目录。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2f13f80" class="outline-3">
+<h3 id="org2f13f80"><span class="section-number-3">2.3</span> 启动emacs，等待所有package安装完毕</h3>
+</div>
+</div>
+
+<div id="outline-container-org85a6e1d" class="outline-2">
+<h2 id="org85a6e1d"><span class="section-number-2">3</span> 使用</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Emacs 快捷键基本中的基本是这几个：
+</p>
+
+<ul class="org-ul">
+<li>C（ <code>Ctrl</code> 或者 <code>control</code> 键）</li>
+<li>M（Meta，PC 中对应 <code>Alt</code> ，Mac 上对应 <code>option</code> ），Meta 键来自 Solaris，常见 PC 都不具备该键</li>
+<li>S（uper，PC 对应 <code>Win</code> 键，Mac 对应 <code>command</code> ）</li>
+</ul>
+
+<p>
+在 Emacs 中，快捷键通常都是多个快捷键的组合，在前面的快捷（或组合）通常称为 prefix key，比如最常用的 <code>C-x C-c</code> 的 prefix key 就是 <code>C-x</code> 。相同 prefix key 的快捷键在功能上通常都有相似之处。
+</p>
+</div>
+
+<div id="outline-container-orge565904" class="outline-3">
+<h3 id="orge565904"><span class="section-number-3">3.1</span> 常用快捷键</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>Ctrl + a：移到行首</li>
+<li>Ctrl + e：移到行尾</li>
+<li>Ctrl + p/n：光标上下移动</li>
+<li>Ctrl + f：按字符前移（右向）</li>
+<li>Ctrl + b：按字符后移（左向）</li>
+<li>Meta + f：按单词前移（右向）</li>
+<li>Meta + b：按单词后移（左向）</li>
+<li>Ctrl + k：从光标处剪切至行尾</li>
+<li>Ctrl + w：剪切</li>
+<li>Meta + w: 复制</li>
+<li>Ctrl + y：粘贴</li>
+<li>Ctrl + g：取消输入</li>
+</ul>
+
+<p>
+详细快捷键信息参见 <a href="https://caiorss.github.io/Emacs-Elisp-Programming/Keybindings.html">Emacs Key Bindings</a>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org68f006e" class="outline-2">
+<h2 id="org68f006e"><span class="section-number-2">4</span> visual thinking</h2>
+<div class="outline-text-2" id="text-4">
+
+<figure>
+<img src="https://emacs.sexy/img/How-to-Learn-Emacs-v2-Large.png" alt="How-to-Learn-Emacs-v2-Large.png">
+
+</figure>
+</div>
+</div>
+<div class="taglist"><a href="https://blog.geekinney.com/tags.html">Tags</a>: <a href="https://blog.geekinney.com/tag-emacs.html">emacs</a> </div>
+<div class="post-date">22 Nov 2019</div><h1 class="post-title"><a href="https://blog.geekinney.com/2019-08-31-listen-music-in-emacs.html">Emacs中使用mpd+mingus听音乐</a></h1>
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7768666">1. mpd安装及配置(macos)</a>
+<ul>
+<li><a href="#org618fc6f">1.1. 安装</a></li>
+<li><a href="#org7003558">1.2. 检查依赖</a></li>
+<li><a href="#orga8f94b1">1.3. 创建配置文件</a></li>
+<li><a href="#orgcfeadde">1.4. 编辑配置</a></li>
+<li><a href="#org6a84fdf">1.5. 使用命令</a></li>
+<li><a href="#org0483042">1.6. 注意点</a></li>
+</ul>
+</li>
+<li><a href="#orga8f5645">2. mingus安装及使用</a>
+<ul>
+<li><a href="#org0340d03">2.1. 安装</a></li>
+<li><a href="#org9344a08">2.2. 使用</a></li>
+</ul>
+</li>
+<li><a href="#orga756286">3. 效果</a></li>
+<li><a href="#orgc557c22">4. 参考文档</a></li>
+</ul>
+</div>
+</nav>
+<p>
+在emacs中收听音乐的方案不止一个，我之前用过<a href="https://github.com/emacsmirror/emms">emms</a>和<a href="https://github.com/dbrock/bongo">bongo</a>，但它们在某些方面不能满足我的需求。在逛Reddit时看到使用mpd配合mingus播放音乐的帖子，折腾了一下发现这正是我想要的！总结安装配置和踩坑经验，和大家分享。
+</p>
+
+<p>
+Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音乐播放器。它可以播放音乐、管理播放列表、维护音乐数据库等。mpd作为服务端程序，需要与客户端配合才能展现其强大的功能。最常使用的mpd客户端有mpc, ncmpcpp等。
+</p>
+
+<p>
+而emacs的<a href="https://github.com/pft/mingus.git">mingus package</a>就相当于mpd在emacs中的client端。下面介绍mpd和mingus的安装和使用。
+</p>
+
+<div id="outline-container-org7768666" class="outline-2">
+<h2 id="org7768666"><span class="section-number-2">1</span> mpd安装及配置(macos)</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org618fc6f" class="outline-3">
+<h3 id="org618fc6f"><span class="section-number-3">1.1</span> 安装</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Mac用户可以很方便的使用homebrew安装mpd
+</p>
+
+<div class="col-auto">
+<pre><code class="shell">$ brew install mpd
+</code></pre>
+</div>
+
+<p>
+也可以到<a href="https://www.musicpd.org">MPD官网</a>下载解压安装
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7003558" class="outline-3">
+<h3 id="org7003558"><span class="section-number-3">1.2</span> 检查依赖</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+安装完成后查看安装信息，检查是否编译成功。如果有依赖包没有安装，需要单独安装。
+</p>
+
+<div class="col-auto">
+<pre><code class="shell">$ brew info mpd
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga8f94b1" class="outline-3">
+<h3 id="orga8f94b1"><span class="section-number-3">1.3</span> 创建配置文件</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+mpd默认的配置文件查找路经为 <code>~/.mpd/mpd.conf</code> 或 <code>~/.mpdconf</code> ，这里建议将所有配置及相关数据文件放在一个.mpd文件夹中。
+</p>
+
+<div class="col-auto">
+<pre><code class="shell">$ mkdir -p ~/.mpd/playlists
+$ touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcfeadde" class="outline-3">
+<h3 id="orgcfeadde"><span class="section-number-3">1.4</span> 编辑配置</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+进入 <code>~/.mpd/mpd.conf</code> ，粘贴如下配置
+</p>
+
+<div class="col-auto">
+<pre><code class="TOML">music_directory "~/Music"  # 音乐文件目录
+playlist_directory "~/.mpd/playlists"  # 播放列表目录
+db_file "~/.mpd/mpd.db"  # 数据库
+log_file "~/.mpd/mpd.log"  # 日志文件
+pid_file "~/.mpd/mpd.pid"  # 进程文件
+state_file "~/.mpd/mpdstate"  # 保存播放状态，下次继续播放
+auto_update "yes"
+auto_update_depth "2"
+follow_outside_symlinks "yes"
+follow_inside_symlinks "yes"
+
+audio_output {
+ type "osx"
+ name "CoreAudio"
+ mixer_type "software"
+}
+
+decoder {
+ plugin "mp4ff"
+ enabled "no"
+}
+
+bind_to_address "127.0.0.1"  # 服务器地址
+port "6600"  # 服务器监听端口
+
+audio_output {
+ type "fifo"
+ name "my_fifo"
+ path "/tmp/mpd.fifo"
+ format "44100:16:2"
+ auto_resample "no"
+ use_mmap "yes"
+}
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6a84fdf" class="outline-3">
+<h3 id="org6a84fdf"><span class="section-number-3">1.5</span> 使用命令</h3>
+<div class="outline-text-3" id="text-1-5">
+<div class="col-auto">
+<pre><code class="shell">$ mpd  <span style="color: #b22222;"># </span><span style="color: #b22222;">&#21551;&#21160;&#26381;&#21153;</span>
+$ mpd --kill  <span style="color: #b22222;"># </span><span style="color: #b22222;">&#26432;&#27515;&#36827;&#31243;</span>
+$ mpd update  <span style="color: #b22222;"># </span><span style="color: #b22222;">&#26356;&#26032;</span>
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0483042" class="outline-3">
+<h3 id="org0483042"><span class="section-number-3">1.6</span> 注意点</h3>
+<div class="outline-text-3" id="text-1-6">
+<ul class="org-ul">
+<li>本配置及安装过程仅适用于macos系统。</li>
+<li>linux系统参考 <a href="https://wiki.archlinux.org/index.php/Music_Player_Daemon">arch-wiki/Music Player Daemon</a></li>
+<li>如果你连接了蓝牙耳机，初次启动mpd时建议断开连接，能够正常播放后再连接蓝牙。（防止音乐声音断断续续）</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga8f5645" class="outline-2">
+<h2 id="orga8f5645"><span class="section-number-2">2</span> mingus安装及使用</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org0340d03" class="outline-3">
+<h3 id="org0340d03"><span class="section-number-3">2.1</span> 安装</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界面。
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">use-package</span> <span style="color: #008b8b;">mingus</span>
+  <span style="color: #483d8b;">:ensure</span> t
+  <span style="color: #483d8b;">:defer</span> t
+  <span style="color: #483d8b;">:bind</span> ((<span style="color: #8b2252;">"C-c m"</span> . mingus)))
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9344a08" class="outline-3">
+<h3 id="org9344a08"><span class="section-number-3">2.2</span> 使用</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+mingus功能十分强大，内置大量快捷键，可以一键满足音乐播放方方面面的需求。使用 <code>M-x mingus</code> 启动mingus后，便可使用这些快捷键。
+</p>
+
+<p>
+mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用数字键 <code>1</code> <code>2</code> <code>3</code> 进行切换。"Mingus Help"是帮助信息界面，介绍了所有的快捷键使用。"Mingus"是播放列表界面。"Mingus Browser"是搜索浏览界面，可以在音乐目录下进行分类搜索，将歌曲添加到播放列表中。
+</p>
+
+<p>
+具体功能使用查看"Mingus Help"，不再赘述。值得一提的是，对于同类别的歌曲可以使用 <code>C-x C-s</code> 保存为playlist, 下次可以一键load歌单到播放列表中。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga756286" class="outline-2">
+<h2 id="orga756286"><span class="section-number-2">3</span> 效果</h2>
+<div class="outline-text-2" id="text-3">
+
+<figure>
+<img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/blog-img/mingus.png" alt="mingus.png">
+
+</figure>
+</div>
+</div>
+
+<div id="outline-container-orgc557c22" class="outline-2">
+<h2 id="orgc557c22"><span class="section-number-2">4</span> 参考文档</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<a href="https://computingforgeeks.com/install-configure-mpd-ncmpcpp-macos">Install and configure mpd and ncmpcpp on MacOS</a>
+</p>
+</div>
+</div>
+<div class="taglist"><a href="https://blog.geekinney.com/tags.html">Tags</a>: <a href="https://blog.geekinney.com/tag-emacs.html">emacs</a> <a href="https://blog.geekinney.com/tag-mpd.html">mpd</a> <a href="https://blog.geekinney.com/tag-mingus.html">mingus</a> </div>
+<div class="post-date">22 Nov 2019</div><h1 class="post-title"><a href="https://blog.geekinney.com/2019-09-03-using-org-to-blog-with-jekyll.html">使用org-mode撰写Jekyll blog </a></h1>
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5ae8846">1. WorkFlow</a></li>
+<li><a href="#org5a8ae49">2. 流程分析</a>
+<ul>
+<li><a href="#orgbc90c25">2.1. 目录结构</a></li>
+<li><a href="#org5d735c5">2.2. 创建draft文件</a></li>
+<li><a href="#orgcb16123">2.3. 从draft到post</a></li>
+<li><a href="#org9c44c7a">2.4. 项目发布</a></li>
+<li><a href="#org2bb4460">2.5. 添加缺失样式</a></li>
+<li><a href="#org8e7163d">2.6. elisp代码</a></li>
+</ul>
+</li>
+<li><a href="#org2add3e7">3. 参考文档</a></li>
+<li><a href="#org139552e">4. 更新!</a>
+<ul>
+<li><a href="#org7438964">4.1. Oct 21, 2019</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<p>
+<b>Jekyll</b> 是使用ruby开发的静态网站生成器，它可以将不同的文本标记语言转变为静态html页面。Jekyll生成的静态站点可以被几乎所有的web server使用并且不需要额外的组件。Github Page就是使用Jekyll构建的。
+</p>
+
+<p>
+这篇文章将讨论如何使用org-mode撰写，发布jekyll blog，我不会面面俱到地介绍每个概念，比如：什么是org-mode，什么是jekyll以及如何安装使用它们等。如果你对以上问题存疑，可以自行研究，参考 <a href="http://doc.norang.ca/org-mode.html">Org Mode - Organize Your Life In Plain Text!</a> 和 <a href="https://jekyllrb.com/">jekyll官网</a>。
+</p>
+
+<p>
+Org-mode原生支持功能强大的HTML导出，但是没有内置关于blog的操作。
+</p>
+
+<p>
+使用Org发布jekyll blog分为三步：
+</p>
+
+<ul class="org-ul">
+<li>使用org-mode撰写blog内容</li>
+<li>将org文件导出为html并放置在Jekyll项目中</li>
+<li>启动jekyll服务，将html格式的文章解析呈现</li>
+</ul>
+
+<p>
+接下来，着重介绍使用org-mode管理jekyll的原理和workflow，包括必要的elisp代码及折腾心得。
+</p>
+
+
+<div id="outline-container-org5ae8846" class="outline-2">
+<h2 id="org5ae8846"><span class="section-number-2">1</span> WorkFlow</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+首先，总体浏览一下workflow。这个流程不算完美，但对于日常使用emacs的用户已经可以很方便的使用org-mode撰写、发布jekyll blog了。
+</p>
+
+<ul class="org-ul">
+<li>打开emacs, <code>M-x jekyll-draft-post</code> ,输入文章标题。emacs会在 <code>_draft</code> 目标下新建带有YAML信息的org文件。</li>
+<li>文章编辑完成后, <code>M-x jekyll-publish-post</code> 。emacs会将文章移动到 <code>_post</code> 目录下，并修改文件名为符合jekyll规范的名称(<sub>yyyy</sub>-mm-dd-title.org_)。</li>
+<li>按键 <code>C-c C-e</code> 选择项目进行发布。发布后的org会转换成html格式保存在jekyll项目对应的 <code>_post</code> 目录下。</li>
+<li>访问 <span class="underline"><a href="https://localhost:4000">https://localhost:4000</a></span> ，本地预览文章效果。如果需要修改，修改后重新发布项目。</li>
+<li>确认无误后，git push 上传修改代码到github。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5a8ae49" class="outline-2">
+<h2 id="org5a8ae49"><span class="section-number-2">2</span> 流程分析</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+看了以上的workflow，读者可能会有些疑惑，下面对流程具体讲解并附上必要的代码。
+</p>
+</div>
+<div id="outline-container-orgbc90c25" class="outline-3">
+<h3 id="orgbc90c25"><span class="section-number-3">2.1</span> 目录结构</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+注意区分两个概念：Jekyll Blog目录 和 Jekyll项目目录。Jekyll Blog中存在的是原始的Org文件，Jekyll项目中存放的是用于Jekyll解析的HTML文件。我将Org文件存储在云盘中，项目文件托管在Github Page。当然你也可以将两者放在同一个目录下托管，whatever~
+</p>
+
+<p>
+我的Jekyll Blog目录放在 <code>~/iCloud/blog</code> 文件夹中，其中 <code>_drafts</code> 中为草稿，不会被导出, <code>_post</code> 中为待发布的post。当发布项目时, <code>_post</code> 中所有的org文件转换为HTML并发布到Jekyll项目根目录的 <code>_posts</code> 文件夹中。
+</p>
+
+<p>
+Jekyll Blog目录结构如下：
+</p>
+
+<div class="col-auto">
+<pre><code class="nohighlight">.
+├── _drafts
+│   └── using-org-to-blog-with-jekyll.org
+├── _pages
+│   └── bookmark.org
+├── _posts
+│   ├── 2019-03-30-emacs-learning-note.org
+│   └── 2019-08-31-listen-music-in-emacs.org
+└── assets
+    ├── css
+    ├── img
+    └── js
+</code></pre>
+</div>
+
+<p>
+目录结构变量定义的elisp代码：
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">jekyll-directory</span> (expand-file-name <span style="color: #8b2252;">"~/iCloud/blog/"</span>)
+  <span style="color: #8b2252;">"Path to Jekyll blog."</span>)
+(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">jekyll-drafts-dir</span> <span style="color: #8b2252;">"_drafts/"</span>
+  <span style="color: #8b2252;">"Relative path to drafts directory."</span>)
+(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">jekyll-posts-dir</span> <span style="color: #8b2252;">"_posts/"</span>
+  <span style="color: #8b2252;">"Relative path to posts directory."</span>)
+(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">jekyll-post-ext</span> <span style="color: #8b2252;">".org"</span>
+  <span style="color: #8b2252;">"File extension of Jekyll posts."</span>)
+</code></pre>
+</div>
+
+<p>
+Jekyll项目目录结构如下：
+</p>
+
+<div class="col-auto">
+<pre><code class="nohighlight">.
+|__ config.yml
+|__ _includes
+|__ _layouts
+|    |- default.html
+|    |- post.html
+|__ _posts
+|    |- 2019-03-30-emacs-learning-note.html
+|    |- 2019-08-31-listen-music-in-emacs.html
+|__ _site
+|__ index.html
+|__ assets
+     |- js
+     |- css
+	|- style.css
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5d735c5" class="outline-3">
+<h3 id="org5d735c5"><span class="section-number-3">2.2</span> 创建draft文件</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+根据 <code>jekyll-post-template</code> 变量的内容和输入信息，生成org文件。elisp代码如下：
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">jekyll-post-template</span>
+  <span style="color: #8b2252;">"#+STARTUP: showall indent\n#+STARTUP: hidestars\n#+begin_export html\n---\ndate: \nlayout: post\ntitle: %s\nsubtitle: \nauthor: Geekinney\nheader-img: \ntags: \ncatalog: \n---\n#+end_export\n\n"</span>
+  <span style="color: #8b2252;">"Default template for Jekyll posts. %s will be replace by the post title."</span>
+  )
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">jekyll-make-slug</span> (s)
+  <span style="color: #8b2252;">"Turn a string into a slug."</span>
+  (replace-regexp-in-string
+   <span style="color: #8b2252;">" "</span> <span style="color: #8b2252;">"-"</span> (downcase
+            (replace-regexp-in-string
+             <span style="color: #8b2252;">"[</span><span style="color: #8b2252;">^</span><span style="color: #8b2252;">A-Za-z0-9 ]"</span> <span style="color: #8b2252;">""</span> s))))
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">jekyll-yaml-escape</span> (s)
+  <span style="color: #8b2252;">"Escape a string for YAML."</span>
+  (<span style="color: #a020f0;">if</span> (<span style="color: #a020f0;">or</span> (string-match <span style="color: #8b2252;">":"</span> s)
+          (string-match <span style="color: #8b2252;">"\""</span> s))
+      (concat <span style="color: #8b2252;">"\""</span> (replace-regexp-in-string <span style="color: #8b2252;">"\""</span> <span style="color: #8b2252;">"\\\\\""</span> s) <span style="color: #8b2252;">"\""</span>)
+    s))
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">jekyll-draft-post</span> (title)
+  <span style="color: #8b2252;">"Create a new Jekyll blog post."</span>
+  (<span style="color: #a020f0;">interactive</span> <span style="color: #8b2252;">"sPost Title: "</span>)
+  (<span style="color: #a020f0;">let</span> ((draft-file (concat jekyll-directory jekyll-drafts-dir
+                            (jekyll-make-slug title)
+                            jekyll-post-ext)))
+    (<span style="color: #a020f0;">if</span> (file-exists-p draft-file)
+        (find-file draft-file)
+      (find-file draft-file)
+      (insert (format jekyll-post-template (jekyll-yaml-escape title))))))
+</code></pre>
+</div>
+
+<p>
+值得注意的是，模版中的YAML信息被包裹在了 <code>#+begin_export html</code> 和 <code>#+end_export</code> 标签之间。该标签之间的文本在Org转为HTML时会以原始文本导出，这为Jekyll解析HTML文件提供了保证。
+</p>
+
+<p>
+带有合法YAML信息的markdown或html文件才能被Jekyll正常解析，我的YAML模版为：
+</p>
+
+<div class="col-auto">
+<pre><code class="YAML">---
+date: 
+layout: post
+title: 
+subtitle: 
+author: Geekinney
+header-img: 
+tags: 
+catalog: 
+---
+</code></pre>
+</div>
+
+<p>
+读者可以根据自己的项目需求修改 <code>jekyll-post-template</code> 变量。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcb16123" class="outline-3">
+<h3 id="orgcb16123"><span class="section-number-3">2.3</span> 从draft到post</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+将 <code>_drafts</code> 目录中的Org文件移到 <code>_posts</code> 中，在文件名前面加上日期。elisp代码如下：
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">jekyll-publish-post</span> ()
+  <span style="color: #8b2252;">"Move a draft post to the posts directory, and rename it so that it</span>
+<span style="color: #8b2252;"> contains the date."</span>
+  (<span style="color: #a020f0;">interactive</span>)
+  (<span style="color: #a020f0;">cond</span>
+   ((not (equal
+          (file-name-directory (buffer-file-name (current-buffer)))
+          (concat jekyll-directory jekyll-drafts-dir)))
+    (message <span style="color: #8b2252;">"This is not a draft post."</span>))
+   ((buffer-modified-p)
+    (message <span style="color: #8b2252;">"Can't publish post; buffer has modifications."</span>))
+   (t
+    (<span style="color: #a020f0;">let</span> ((filename
+           (concat jekyll-directory jekyll-posts-dir
+                   (format-time-string <span style="color: #8b2252;">"%Y-%m-%d-"</span>)
+                   (file-name-nondirectory
+                    (buffer-file-name (current-buffer)))))
+          (old-point (point)))
+      (rename-file (buffer-file-name (current-buffer))
+                   filename)
+      (kill-buffer nil)
+      (find-file filename)
+      (set-window-point (selected-window) old-point)))))
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9c44c7a" class="outline-3">
+<h3 id="org9c44c7a"><span class="section-number-3">2.4</span> 项目发布</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Org-mode使用原生的项目发布功能就可以将 <code>_posts</code> 目录下的Org文件发布至Jekyll。配置 <code>org-publish-project-alist</code> 变量即可。变量参数设置如下：
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">setq</span> org-publish-project-alist
+      '(
+        (<span style="color: #8b2252;">"jekyll-post"</span>
+         <span style="color: #483d8b;">:base-directory</span> <span style="color: #8b2252;">"~/iCloud/blog/_posts"</span>
+         <span style="color: #483d8b;">:base-extension</span> <span style="color: #8b2252;">"org"</span>
+         <span style="color: #483d8b;">:publishing-directory</span> <span style="color: #8b2252;">"~/iCloud/huxBlog/_posts"</span>
+         <span style="color: #483d8b;">:recursive</span> nil
+         <span style="color: #483d8b;">:publishing-function</span> org-html-publish-to-html
+         <span style="color: #483d8b;">:with-toc</span> nil
+         <span style="color: #483d8b;">:headline-levels</span> 4
+         <span style="color: #483d8b;">:auto-preamble</span> nil
+         <span style="color: #483d8b;">:auto-sitemap</span> nil
+         <span style="color: #483d8b;">:html-extension</span> <span style="color: #8b2252;">"html"</span>
+         <span style="color: #483d8b;">:table-of-contents</span> nil
+         <span style="color: #483d8b;">:section-numbers</span> 2
+         <span style="color: #483d8b;">:body-only</span> t
+         )
+
+        (<span style="color: #8b2252;">"jekyll-static"</span>
+         <span style="color: #483d8b;">:base-directory</span> <span style="color: #8b2252;">"~/iCloud/blog/assets/"</span>
+         <span style="color: #483d8b;">:base-extension</span> <span style="color: #8b2252;">"css</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">js</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">png</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">jpg</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">gif</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">pdf</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">mp3</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">ogg</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">swf</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">php"</span>
+         <span style="color: #483d8b;">:publishing-directory</span> <span style="color: #8b2252;">"~/iCloud/huxBlog/assets"</span>
+         <span style="color: #483d8b;">:recursive</span> t
+         <span style="color: #483d8b;">:publishing-function</span> org-publish-attachment)
+
+        (<span style="color: #8b2252;">"jekyll"</span>
+         <span style="color: #483d8b;">:components</span> (<span style="color: #8b2252;">"jekyll-post"</span> <span style="color: #8b2252;">"jekyll-static"</span>))
+        ))
+
+</code></pre>
+</div>
+
+<p>
+org-publish参数设置参考 <a href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">HTML publishing tutorial</a>
+</p>
+
+<p>
+<code>:body-only t</code> 表示只导出body标签之间的部分，因为其余的部分Jekyll已经构建好了。但是，由于Org导出的HTML的body标签之外包含一些CSS样式，这就埋下了一个隐患：部分org语法不能正常解析。需要手动添加缺失的CSS到Jekyll项目中。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2bb4460" class="outline-3">
+<h3 id="org2bb4460"><span class="section-number-3">2.5</span> 添加缺失样式</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+主要缺失的样式有：代码块，表格，下划线，以及org-mode特有的keyword，timestamp等。下面给出添加的CSS参考：
+</p>
+
+<div class="col-auto">
+<pre><code class="css"><span style="color: #0000ff;">pre </span>{
+    <span style="color: #a020f0;">background</span>: <span style="color: #ffffff; background-color: #333;">#333</span>;
+    <span style="color: #a020f0;">color</span>: <span style="color: #000000; background-color: #ddd;">#ddd</span>;
+    <span style="color: #a020f0;">overflow</span>: auto;
+    <span style="color: #a020f0;">padding</span>: 8pt;
+    <span style="color: #a020f0;">border</span>: 1px solid <span style="color: #ffffff; background-color: #666;">#666</span>;
+    <span style="color: #a020f0;">border-radius</span>: 5px;
+    <span style="color: #a020f0;">font-size</span>: 10pt;
+    <span style="color: #a020f0;">font-family</span>: <span style="color: #8b2252;">'PT Mono'</span>, <span style="color: #8b2252;">'PT Mono'</span>, monospace;
+    <span style="color: #a020f0;">margin-top</span>: 1em;
+    <span style="color: #a020f0;">margin-bottom</span>: 1em;
+}
+<span style="color: #0000ff;">table </span>{
+    <span style="color: #a020f0;">font-size</span>: 100%;
+    <span style="color: #a020f0;">border-collapse</span>: collapse;
+    <span style="color: #a020f0;">margin</span>: .5em 0;
+}
+<span style="color: #0000ff;">th, td </span>{
+    <span style="color: #a020f0;">border</span>: 1px solid <span style="color: #ffffff; background-color: #777;">#777</span>;
+    <span style="color: #a020f0;">padding</span>: .3em;
+    <span style="color: #a020f0;">margin</span>: 2px;
+}
+<span style="color: #0000ff;">th </span>{
+    <span style="color: #a020f0;">background</span>: <span style="color: #000000; background-color: #eee;">#eee</span>;
+}
+<span style="color: #0000ff;">table </span>{ <span style="color: #a020f0;">border-collapse</span>: collapse; }
+<span style="color: #0000ff;">td, th </span>{
+    <span style="color: #a020f0;">vertical-align</span>: top;
+}
+<span style="color: #0000ff;">.todo  </span>{ <span style="color: #a020f0;">color</span>: <span style="color: #ffffff; background-color: #ff0000;">red</span>; }
+<span style="color: #0000ff;">.done </span>{ <span style="color: #a020f0;">color</span>: <span style="color: #ffffff; background-color: #008000;">green</span>; }
+<span style="color: #0000ff;">.priority </span>{ <span style="color: #a020f0;">font-family</span>: monospace; <span style="color: #a020f0;">color</span>: <span style="color: #ffffff; background-color: #ffa500;">orange</span>; }
+<span style="color: #0000ff;">p.verse </span>{ <span style="color: #a020f0;">margin-left</span>: 3%; }
+<span style="color: #0000ff;">.timestamp </span>{ <span style="color: #a020f0;">color</span>: <span style="color: #ffffff; background-color: #808080;">gray</span> }
+<span style="color: #0000ff;">.timestamp-kwd </span>{ <span style="color: #a020f0;">color</span>: <span style="color: #000000; background-color: #f59ea0;">#f59ea0</span>; }
+<span style="color: #0000ff;">.target </span>{ <span style="color: #a020f0;">background-color</span>: <span style="color: #ffffff; background-color: #551a8b;">#551a8b</span>; }
+<span style="color: #0000ff;">.underline </span>{ <span style="color: #a020f0;">text-decoration</span>: underline; }
+<span style="color: #0000ff;">.org-right  </span>{ <span style="color: #a020f0;">margin-left</span>: auto; <span style="color: #a020f0;">margin-right</span>: 0px;  <span style="color: #a020f0;">text-align</span>: right; }
+<span style="color: #0000ff;">.org-left   </span>{<span style="color: #a020f0;">margin-left</span>: 0px;  <span style="color: #a020f0;">margin-right</span>: auto; <span style="color: #a020f0;">text-align</span>: left; }
+<span style="color: #0000ff;">.org-center </span>{ <span style="color: #a020f0;">margin-left</span>: auto; <span style="color: #a020f0;">margin-right</span>: auto; <span style="color: #a020f0;">text-align</span>: center; }
+</code></pre>
+</div>
+
+<p>
+当然，你可以定制自己喜欢的样式，比如代码块的高亮可以使用 <a href="https://highlightjs.org">highlight.js</a>。关于org导出为HTML的CSS设置参考 <a href="https://orgmode.org/org.html#CSS-support">The Org Manual | CSS support</a>。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8e7163d" class="outline-3">
+<h3 id="org8e7163d"><span class="section-number-3">2.6</span> elisp代码</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+完整的elisp package参考我的 <a href="https://github.com/Kinneyzhang/.emacs.d/blob/master/elisp/init-org-jekyll.el#L15">init-org-jekyll.el</a>。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2add3e7" class="outline-2">
+<h2 id="org2add3e7"><span class="section-number-2">3</span> 参考文档</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><a href="https://orgmode.org/worg/org-tutorials/org-jekyll.html">Using org to Blog with Jekyll | by Worg</a></li>
+<li><a href="http://xshaun.github.io/jekyll-bootstrap/2014/08/27/jekyllbootstrap5-jekyll-introduction">Jekyll简介及工作原理</a></li>
+<li><a href="https://segmentfault.com/a/1190000008313904">用Org-mode和Jekyll写博客</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org139552e" class="outline-2">
+<h2 id="org139552e"><span class="section-number-2">4</span> 更新!</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org7438964" class="outline-3">
+<h3 id="org7438964"><span class="section-number-3">4.1</span> Oct 21, 2019</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+我的workflow使用了 <a href="https://huangxuan.me/">Hux Blog</a> 默认的CSS，而默认的样式为markdown转html提供了相关样式支持，没有对org-mode的支持，这是需要添加“缺失样式“的原因。但是，这种方法太不优雅，并且我并不喜欢hux的默认样式。我希望自己可以控制整个org-mode导出效果，这样可以使用很多 <a href="https://emacs-china.org/t/org-mode-html/10120">漂亮的样式</a> 来渲染orgmode。
+</p>
+
+<div class="col-auto">
+<pre><code class="plaintext">.
+├── bootstrap.css
+├── bootstrap.min.css
+├── hux-blog.css
+├── hux-blog.min.css
+└── my-org.css
+</code></pre>
+</div>
+
+<p>
+以上为css目录的内容，hux-blog文件中存放了站点的所有样式，包括网站的基本结构和文章的渲染。
+</p>
+
+<p>
+解决方法：
+</p>
+<ul class="org-ul">
+<li>找出默认hux-blog CSS中与文章渲染的相关css注释掉。在hux中，所有包含 <code>.post-container</code> 的样式为文章渲染样式。</li>
+<li>将用于orgmode导出渲染的 <code>my-org.css</code> 所有样式前面加上 <code>.post-container</code> 。</li>
+<li>在html的header中引入 <code>my-org.css</code> 样式文件。</li>
+</ul>
+
+<p>
+以上方案，仅以hux为例，读者可以作为思路的参考。具体问题请具体分析。
+</p>
+</div>
+</div>
+</div>
+<div class="taglist"><a href="https://blog.geekinney.com/tags.html">Tags</a>: <a href="https://blog.geekinney.com/tag-emacs.html">emacs</a> <a href="https://blog.geekinney.com/tag-orgmode.html">orgmode</a> <a href="https://blog.geekinney.com/tag-jekyll.html">jekyll</a> </div>
+<div class="post-date">22 Nov 2019</div><h1 class="post-title"><a href="https://blog.geekinney.com/2019-11-12-emacs-lisp-learning-note.html">elisp学习笔记</a></h1>
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org68ba3c5">1. Elisp</a>
+<ul>
+<li><a href="#org2b14281">1.1. 概览</a>
+<ul>
+<li><a href="#orgbb44fbb">1.1.1. 运行emacs-lisp的几种方式</a></li>
+<li><a href="#org3e05859">1.1.2. 创建命令（interactive函数）</a></li>
+<li><a href="#orgfebbd12">1.1.3. emacs探索</a></li>
+</ul>
+</li>
+<li><a href="#orgc8d0d94">1.2. elisp编程的基本设置</a></li>
+<li><a href="#org30f488b">1.3. 基本运算</a>
+<ul>
+<li><a href="#org0d6d4a6">1.3.1. 算术</a></li>
+<li><a href="#org23efaae">1.3.2. 比较</a></li>
+<li><a href="#org69161ab">1.3.3. 列表</a></li>
+</ul>
+</li>
+<li><a href="#orgf93f339">1.4. 类型判断和Literals</a>
+<ul>
+<li><a href="#org958dc35">1.4.1. Emacs Literals</a></li>
+<li><a href="#org36ad6fd">1.4.2. 基本类型判断</a></li>
+<li><a href="#org1232bbd">1.4.3. 获取对象类型</a></li>
+</ul>
+</li>
+<li><a href="#orgc3ddb52">1.5. 变量定义</a></li>
+<li><a href="#org035fcef">1.6. 函数定义</a>
+<ul>
+<li><a href="#orgc2b1dc5">1.6.1. 定义简单函数</a></li>
+<li><a href="#orgc818c44">1.6.2. 匿名函数/Lambda函数</a></li>
+<li><a href="#orgd9588d5">1.6.3. 函数作为参数</a></li>
+<li><a href="#orgc8b2c37">1.6.4. 多参函数</a></li>
+<li><a href="#org08aeb90">1.6.5. 可选参数函数</a></li>
+<li><a href="#orgb15d394">1.6.6. 含属性列表参数函数</a></li>
+<li><a href="#org59f8816">1.6.7. Closures</a></li>
+</ul>
+</li>
+<li><a href="#orgb56b358">1.7. 列表操作</a></li>
+<li><a href="#orgdd36a53">1.8. 关联列表和属性列表</a>
+<ul>
+<li><a href="#org9069935">1.8.1. 概览</a></li>
+<li><a href="#org8bfb82c">1.8.2. 关联列表/Alist</a></li>
+<li><a href="#org6a455d1">1.8.3. 属性列表</a></li>
+<li><a href="#org054a836">1.8.4. 转换Alist成Plist和vice-versa</a></li>
+</ul>
+</li>
+<li><a href="#orga4db899">1.9. 字符串</a></li>
+<li><a href="#orgc1b7307">1.10. 符号</a></li>
+<li><a href="#orgb3689a6">1.11. 类型转换</a></li>
+<li><a href="#org8eacb6c">1.12. 求值</a></li>
+<li><a href="#org0f64cb7">1.13. Defalias</a></li>
+<li><a href="#org6614a8f">1.14. 控制结构</a>
+<ul>
+<li><a href="#org767223d">1.14.1. Conditional Statement</a></li>
+<li><a href="#org4cbb15c">1.14.2. Cond - Case Switch</a></li>
+<li><a href="#orgc2911da">1.14.3. CL-Case - Case Switch</a></li>
+<li><a href="#org935516a">1.14.4. 循环</a></li>
+<li><a href="#org8a25672">1.14.5. 函数式编程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<p>
+学习来源： <a href="http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html">Elisp Programming</a>
+</p>
+
+<div id="outline-container-org68ba3c5" class="outline-2">
+<h2 id="org68ba3c5"><span class="section-number-2">1</span> Elisp</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org2b14281" class="outline-3">
+<h3 id="org2b14281"><span class="section-number-3">1.1</span> 概览</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orgbb44fbb" class="outline-4">
+<h4 id="orgbb44fbb"><span class="section-number-4">1.1.1</span> 运行emacs-lisp的几种方式</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">key</th>
+<th scope="col" class="org-left">command</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>C-x C-e</code></td>
+<td class="org-left"><code>eval-last-sexp</code></td>
+<td class="org-left">在S表达式结尾运行，在minibuffer显示结果</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-j</code></td>
+<td class="org-left"><code>eval-print-last-sexp</code></td>
+<td class="org-left">在S表达式结尾运行，打印运行结果</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-:</code></td>
+<td class="org-left"><code>eval-expression</code></td>
+<td class="org-left">在minibuffer输入命令并执行</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>M-x ielm</code></td>
+<td class="org-left"><code>ielm</code></td>
+<td class="org-left">使用IELM解释器运行代码</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org3e05859" class="outline-4">
+<h4 id="org3e05859"><span class="section-number-4">1.1.2</span> 创建命令（interactive函数）</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<div class="col-auto">
+<pre><code class="emacs-lisp"><span style="color: #b22222;">;; </span><span style="color: #b22222;">example</span>
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">buffer/insert-filename</span> ()
+  <span style="color: #8b2252;">"Insert file path of current buffer at current point"</span>
+  (<span style="color: #a020f0;">interactive</span>)
+  (insert (buffer-file-name (current-buffer))))
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfebbd12" class="outline-4">
+<h4 id="orgfebbd12"><span class="section-number-4">1.1.3</span> emacs探索</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">key</th>
+<th scope="col" class="org-left">command</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>C-h k</code></td>
+<td class="org-left"><code>describe-key</code></td>
+<td class="org-left">运行命令后，继续按键，查看此时按键绑定的函数</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-h b</code></td>
+<td class="org-left"><code>describe-bindings</code></td>
+<td class="org-left">在*Help*界面搜索 <code>Major Mode Bindings:</code> 可以查看所有与当前major mode相关的按键。</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>C-h f</code></td>
+<td class="org-left"><code>describe-function</code></td>
+<td class="org-left">查看函数文档及详细代码</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc8d0d94" class="outline-3">
+<h3 id="orgc8d0d94"><span class="section-number-3">1.2</span> elisp编程的基本设置</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+三个有用的pcakage:
+</p>
+<ul class="org-ul">
+<li>rainbow-delimiters: 不同颜色区分不同层级的括号</li>
+<li>paredit: 检查括号匹配</li>
+<li>company: elisp代码补全</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org30f488b" class="outline-3">
+<h3 id="org30f488b"><span class="section-number-3">1.3</span> 基本运算</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org0d6d4a6" class="outline-4">
+<h4 id="org0d6d4a6"><span class="section-number-4">1.3.1</span> 算术</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<pre class="example">
+ELISP&gt; (+ 20 30)
+50
+ELISP&gt; (- 100 80)
+20
+ELISP&gt; (+ 1 2 3 4 5 6)
+21
+ELISP&gt; (* 1 2 3 4 5 6)
+720
+ELISP&gt; (/ 1 100)
+0
+
+ELISP&gt; (&gt; 10 1) ;; ?? 10 &gt; 1
+t
+ELISP&gt; (&lt; 2 8) ;; ?? 2 &lt; 8
+t
+ELISP&gt; (&lt; 8 2) ;; ?? 8 &lt; 2
+nil
+
+ELISP&gt; (= 2 2)
+t
+ELISP&gt; (= 2 4)
+nil
+
+ELISP&gt; (/= 2 2)
+nil
+ELISP&gt; (exp -1)
+0.36787944117144233
+ELISP&gt; (log 10)
+2.302585092994046
+ELISP&gt; (sin pi)
+1.2246467991473532e-16
+ELISP&gt; (cos pi)
+-1.0
+ELISP&gt; (tan (/ pi 2))
+1.633123935319537e+16
+ELISP&gt;
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org23efaae" class="outline-4">
+<h4 id="org23efaae"><span class="section-number-4">1.3.2</span> 比较</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<pre class="example">
+;;;; Compare Numbers
+ELISP&gt; (= 2 (+ 1 1))
+t
+
+;;; Compare Symbols and Numbers
+ELISP&gt; (eq 1 1)
+t
+ELISP&gt; (eq 1 2)
+nil
+ELISP&gt;
+
+ELISP&gt; (eq 'x 'x)
+t
+ELISP&gt;
+
+;;; Compare Elements of a List
+ELISP&gt; (equal (list 1 2 3 4) (list 1 2 3 4))
+t
+
+;;; Compare Strings
+ELISP&gt; (string= "hello" "hello")
+t
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org69161ab" class="outline-4">
+<h4 id="org69161ab"><span class="section-number-4">1.3.3</span> 列表</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<pre class="example">
+ELISP&gt; '(10 20 30 40)
+(10 20 30 40)
+
+ELISP&gt; '(10 203 40 "hello" () ("empty" 65))
+(10 203 40 "hello" nil
+    ("empty" 65))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf93f339" class="outline-3">
+<h3 id="orgf93f339"><span class="section-number-3">1.4</span> 类型判断和Literals</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org958dc35" class="outline-4">
+<h4 id="org958dc35"><span class="section-number-4">1.4.1</span> Emacs Literals</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<pre class="example">
+;;; Numbers
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ELISP&gt; 1e3
+1000.0
+
+;;; String
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ELISP&gt; "Hello World Emacs Literals"
+"Hello World Emacs Literals"
+ELISP&gt;
+
+;;; Symbol
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+ELISP&gt; 'this-a-symbol
+this-a-symbol
+
+ELISP&gt; 'vector-&gt;list
+vector-&gt;list
+
+ELISP&gt; 'symbol?
+symbol\?
+ELISP&gt;
+
+;; Boolean t and nil
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ELISP&gt; t
+t
+ELISP&gt; nil
+nil
+ELISP&gt;
+
+ ;;; Everything that is not "nil" is true:
+ ;;-----------------------------------------
+ELISP&gt; (if t "It is true (not nil)" "It is false (it is nil)")
+"It is true (not nil)"
+ELISP&gt;
+ELISP&gt; (if 100e3 "It is true (not nil)" "It is false (it is nil)")
+"It is true (not nil)"
+ELISP&gt; (if '(a b c d)  "It is true (not nil)" "It is false (it is nil)")
+"It is true (not nil)"
+ELISP&gt;
+
+ELISP&gt; (if nil  "It is true (not nil)" "It is false (it is nil)")
+"It is false (it is nil)"
+ELISP&gt;
+
+;;; Pair / Cons Cell
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ELISP&gt; '(a . b)
+(a . b)
+
+ELISP&gt; '(a . 2999)
+(a . 2999)
+
+;;; List
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ELISP&gt; '(1 2 3 (3 4) (5 6 (+ 3 4)) 10 'a 'b "hello" )
+(1 2 3
+   (3 4)
+   (5 6
+      (+ 3 4))
+   10 'a 'b "hello")
+
+ELISP&gt; '(+ 1 2 3 4 5)
+(+ 1 2 3 4 5)
+
+ELISP&gt; '(cos 10)
+(cos 10)
+
+;;; Vectors
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ELISP&gt; [1 2 3 4 (+ 1 2 3 54)]
+[1 2 3 4
+   (+ 1 2 3 54)]
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org36ad6fd" class="outline-4">
+<h4 id="org36ad6fd"><span class="section-number-4">1.4.2</span> 基本类型判断</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">Predicate</th>
+<th scope="col" class="org-left">Literal</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Nil</td>
+<td class="org-left">null</td>
+<td class="org-left">nil '()</td>
+<td class="org-left">Test if argument is nil</td>
+</tr>
+
+<tr>
+<td class="org-left">Numbers</td>
+<td class="org-left">numberp</td>
+<td class="org-left">100, 200e3</td>
+<td class="org-left">Test if it is number.</td>
+</tr>
+
+<tr>
+<td class="org-left">String</td>
+<td class="org-left">stringp</td>
+<td class="org-left">"hello"</td>
+<td class="org-left">Test if it is string</td>
+</tr>
+
+<tr>
+<td class="org-left">Symbol</td>
+<td class="org-left">symbolp</td>
+<td class="org-left">'sym :keyworkd</td>
+<td class="org-left">Test if it is a symbol.</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Atom</td>
+<td class="org-left">atom</td>
+<td class="org-left">'x "h" :key 200</td>
+<td class="org-left">Everything that is not a list or pair is an atom.</td>
+</tr>
+
+<tr>
+<td class="org-left">List</td>
+<td class="org-left">listp</td>
+<td class="org-left">'(1 2 x y)</td>
+<td class="org-left">Test if it is a list</td>
+</tr>
+
+<tr>
+<td class="org-left">Pair</td>
+<td class="org-left">consp</td>
+<td class="org-left">'(a . 200)</td>
+<td class="org-left">Test if it is a pair (cons cell)</td>
+</tr>
+
+<tr>
+<td class="org-left">Vector</td>
+<td class="org-left">vectorp</td>
+<td class="org-left">[1 200 'sym]</td>
+<td class="org-left">Test if it is a vector</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Object</th>
+<th scope="col" class="org-left">Predicate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Buffer</td>
+<td class="org-left">bufferp</td>
+</tr>
+
+<tr>
+<td class="org-left">Window</td>
+<td class="org-left">windowp</td>
+</tr>
+
+<tr>
+<td class="org-left">Frame</td>
+<td class="org-left">framep</td>
+</tr>
+
+<tr>
+<td class="org-left">Process</td>
+<td class="org-left">processp</td>
+</tr>
+</tbody>
+</table>
+
+<pre class="example">
+ELISP&gt; (null nil)
+t
+ELISP&gt;
+ELISP&gt; (null '())
+t
+
+ELISP&gt; (null 10)
+nil
+
+ELISP&gt; (atom 10)
+t
+ELISP&gt; (atom '(a . b))
+nil
+ELISP&gt; (atom "hello world")
+t
+ELISP&gt;
+
+ELISP&gt; (bufferp (current-buffer))
+t
+ELISP&gt; (bufferp (selected-window))
+nil
+ELISP&gt; (windowp (selected-window))
+t
+ELISP&gt;
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1232bbd" class="outline-4">
+<h4 id="org1232bbd"><span class="section-number-4">1.4.3</span> 获取对象类型</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<pre class="example">
+ELISP&gt; (type-of (current-buffer))
+buffer
+ELISP&gt;
+ELISP&gt; (type-of (selected-window))
+window
+ELISP&gt;
+
+ELISP&gt; (equal 'buffer (type-of (current-buffer)))
+t
+ELISP&gt; (equal 'buffer (type-of (selected-window)))
+nil
+ELISP&gt;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc3ddb52" class="outline-3">
+<h3 id="orgc3ddb52"><span class="section-number-3">1.5</span> 变量定义</h3>
+<div class="outline-text-3" id="text-1-5">
+<pre class="example">
+;;; Constants
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+ELISP&gt; (defconst zsh-shell "/usr/bin/zsh")
+zsh-shell
+
+ELISP&gt; zsh-shell
+"/usr/bin/zsh"
+ELISP&gt;
+
+;;; Define a variable
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;; Set is not used very much
+;;
+ELISP&gt; (set 'avar "hello world")
+"hello world"
+
+ELISP&gt; avar
+"hello world"
+ELISP&gt;
+
+;;;;; The most used command for assignment is setq
+;;
+ELISP&gt; (setq x 10)
+10
+
+ELISP&gt; (setq avar "hello world")
+"hello world"
+
+ELISP&gt; x
+10
+
+ELISP&gt; avar
+"hello world"
+ELISP&gt;
+
+ELISP&gt; (setq my-list '(10 20 30 40))
+(10 20 30 40)
+
+ELISP&gt; my-list
+(10 20 30 40)
+
+;;; Multiple Assignment
+;;
+ELISP&gt; (setq a 10 b 20 c "Emacs")
+"Emacs"
+ELISP&gt; a
+10
+ELISP&gt; b
+20
+ELISP&gt; c
+"Emacs"
+ELISP&gt;
+
+;; Dynamic Scoping  (Local Variables)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+ELISP&gt; (let ((x 1) (y 10)) (+ (* 4 x) (* 5 y)) )
+54
+ELISP&gt; x
+    ** Eval error **  Symbol's value as variable is void: x
+ELISP&gt; y
+    ** Eval error **  Symbol's value as variable is void: y
+ELISP&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-org035fcef" class="outline-3">
+<h3 id="org035fcef"><span class="section-number-3">1.6</span> 函数定义</h3>
+<div class="outline-text-3" id="text-1-6">
+</div>
+<div id="outline-container-orgc2b1dc5" class="outline-4">
+<h4 id="orgc2b1dc5"><span class="section-number-4">1.6.1</span> 定义简单函数</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<p>
+语法: (defun &lt;function name&gt; (&lt;parameters&gt;) (&lt;body&gt;))
+</p>
+<pre class="example">
+ELISP&gt; (defun afunction (a b c) (+ a b c))
+afunction
+
+ELISP&gt; (afunction 10 20 30)
+60
+
+ELISP&gt; (defun myfun () (message "Hello Emacs"))
+myfun
+ELISP&gt; (myfun)
+"Hello Emacs"
+ELISP&gt;
+
+
+ELISP&gt;
+ELISP&gt; (defun signum (n)
+     (cond ((&gt; n 0) 1 )
+           ((&lt; n 0) -1)
+           (0)))
+signum
+ELISP&gt; (signum 10)
+1
+ELISP&gt; (signum 0)
+0
+ELISP&gt; (signum -23)
+-1
+ELISP&gt;
+
+
+ELISP&gt; (defun factorial (n)
+     (if (= n 0)
+         1
+         (* n (factorial (- n 1)))))
+factorial
+
+ELISP&gt; (factorial 5)
+120
+ELISP
+</pre>
+</div>
+</div>
+<div id="outline-container-orgc818c44" class="outline-4">
+<h4 id="orgc818c44"><span class="section-number-4">1.6.2</span> 匿名函数/Lambda函数</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<p>
+语法: (lambda (&lt;parameters&gt;) (&lt;body&gt;))
+</p>
+<pre class="example">
+ELISP&gt; (lambda (x) (+ x 3))
+(lambda
+  (x)
+  (+ x 3))
+
+;;; Applying Lambda Functions
+;;
+
+ELISP&gt; ((lambda (x) (+ x 3)) 4)
+7
+ELISP&gt; (funcall (lambda (x) (+ x 3)) 4)
+7
+ELISP&gt;
+
+;;; Storing Lambda Function in Variable
+;;
+;;
+
+ELISP&gt; (defvar add3 (lambda (x) (+ x 3)))
+add3
+
+
+ELISP&gt; add3
+(lambda
+  (x)
+  (+ x 3))
+
+ELISP&gt; (funcall add3 10)
+13
+
+ELISP&gt; (add3 10)
+    ** Eval error **  Symbol's function definition is void: add3
+
+ELISP&gt; (funcall #'add3 10)
+    ** Eval error **  Symbol's function definition is void: add3
+ELISP&gt;
+
+;;; Passing Lambda Function to functions
+;;
+ELISP&gt; (mapcar (lambda (x) (+ x 3))  '(1 2 3 4 5))
+(4 5 6 7 8)
+</pre>
+</div>
+</div>
+<div id="outline-container-orgd9588d5" class="outline-4">
+<h4 id="orgd9588d5"><span class="section-number-4">1.6.3</span> 函数作为参数</h4>
+<div class="outline-text-4" id="text-1-6-3">
+<p>
+语法: (caller-function #'&lt;function-1&gt; #'&lt;function-1&gt; arg1 arg2 &#x2026;)
+</p>
+
+<p>
+在函数内部，使用 <code>funcall</code> 调用函数作为参数
+</p>
+
+<pre class="example">
+ELISP&gt; (mapcar log '(1 10 100 1000))
+    ** Eval error **  Symbol's value as variable is void: log
+
+
+ELISP&gt; (mapcar #'log10 '(1 10 100 1000))
+(0.0 1.0 2.0 3.0)
+
+(defun sum-fun (f1 f2 x)
+  (+ (funcall f1 x) (funcall f2 x)))
+
+ELISP&gt; (sum-fun #'log #'exp 3)
+21.18414921185578
+ELISP&gt;
+
+ELISP&gt; (+ (log 3) (exp 3))
+21.18414921185578
+ELISP&gt;
+
+ELISP&gt; (sum-fun (lambda (x) (* 3 x))
+        (lambda (x) (* 4 x))
+        5)
+35
+ELISP&gt;
+
+ELISP&gt; (defun 1+ (x) (+ 1 x))
+1+
+ELISP&gt; (defun 3* (x) (* 3 x))
+3*
+
+ELISP&gt; (sum-fun #'1+  #'3* 4)
+17
+ELISP&gt;
+
+ELISP&gt; (sum-fun #'1+  (lambda (x) (* 3 x)) 4)
+17
+ELISP&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-orgc8b2c37" class="outline-4">
+<h4 id="orgc8b2c37"><span class="section-number-4">1.6.4</span> 多参函数</h4>
+<div class="outline-text-4" id="text-1-6-4">
+<pre class="example">
+(defun sum (&amp;rest numbers)
+  (apply #'+ numbers))
+
+ELISP&gt; (sum 1 2 3 4 5 6)
+21
+
+
+ELISP&gt; (apply #'sum '(1 2 3 5 6))
+17
+
+ELISP&gt; (apply #'sum (list 1 2 3 5 (+ 6 5 2)))
+24
+
+ELISP&gt; (apply #'sum '())
+0
+
+ELISP&gt; (apply #'sum nil)
+0
+
+ELISP&gt; (sum nil)
+    ** Eval error **  Wrong type argument: number-or-marker-p, ni
+
+;;----------------------------------
+
+(defun sum-prod (a &amp;rest xs)
+  (* a (apply #'+ xs)))
+
+
+ELISP&gt; (sum-prod 3 1 2 3 4 5)
+45
+
+ELISP&gt; (sum-prod 1 1 2 3 4 5)
+15
+</pre>
+</div>
+</div>
+<div id="outline-container-org08aeb90" class="outline-4">
+<h4 id="org08aeb90"><span class="section-number-4">1.6.5</span> 可选参数函数</h4>
+<div class="outline-text-4" id="text-1-6-5">
+<pre class="example">
+(defun test-optional (a &amp;optional b)
+  (list a b))
+
+ELISP&gt; (test-optional 10 20)
+(10 20)
+
+ELISP&gt; (test-optional 10 )
+(10 nil)
+
+;--------------------------------;
+
+(defun test-optional2 (a b &amp;optional b c d e)
+  (list :a a :b b :c c :d d :e e))
+
+ELISP&gt; (test-optional2 0 1 2 3 4 5 )
+(:a 0 :b 2 :c 3 :d 4 :e 5)
+
+
+ELISP&gt; (test-optional2 0 1 2 3 4  )
+(:a 0 :b 2 :c 3 :d 4 :e nil)
+
+ELISP&gt; (test-optional2 0 1 2 3   )
+(:a 0 :b 2 :c 3 :d nil :e nil)
+
+ELISP&gt; (test-optional2 0 1 2    )
+(:a 0 :b 2 :c nil :d nil :e nil)
+
+ELISP&gt; (test-optional2 0 1  )
+(:a 0 :b nil :c nil :d nil :e nil)
+
+ELISP&gt; (test-optional2 0 1)
+(:a 0 :b nil :c nil :d nil :e nil)
+
+;--------------------------------;
+
+(defun test-optional-default-b (a &amp;optional b)
+  (if b
+      (list a b)
+      (list a "b is null")))
+
+ELISP&gt; (test-optional-default-b 1 2)
+(1 2)
+
+ELISP&gt; (test-optional-default-b 1)
+(1 "b is null")
+
+ELISP&gt; (test-optional-default-b 1 nil)
+(1 "b is null")
+</pre>
+</div>
+</div>
+<div id="outline-container-orgb15d394" class="outline-4">
+<h4 id="orgb15d394"><span class="section-number-4">1.6.6</span> 含属性列表参数函数</h4>
+<div class="outline-text-4" id="text-1-6-6">
+<pre class="example">
+(defun make-shell-interface (&amp;rest params)
+  "
+  Create a shell interface.
+
+  Possible parameters:
+
+    :name      Name of shell
+    :type      ['sh, 'bash, ...]
+    :path      Path to program
+    :buffer    Name of buffer
+
+  "
+  (let
+       ((name   (plist-get params :name ))
+        (type   (plist-get params :type))
+        (path   (plist-get params :path))
+        (buffer (plist-get params :buffer)))
+    (list
+     (cons 'name buffer)
+     (cons 'type type)
+     (cons 'path path)
+     (cons 'buffer buffer))))
+
+
+ELISP&gt; (make-shell-interface :name "pylaucher" :path "/usr/bin/python" :type 'sh :buffer "pyshell")
+((name . "pyshell")
+ (type . sh)
+ (path . "/usr/bin/python")
+ (buffer . "pyshell"))
+
+ELISP&gt; (make-shell-interface :name "pylaucher" :path "/usr/bin/python" :type 'sh)
+((name)
+ (type . sh)
+ (path . "/usr/bin/python")
+ (buffer))
+
+ELISP&gt; (make-shell-interface :name "pylaucher" :path "/usr/bin/python" :type 'bash)
+((name)
+ (type . bash)
+ (path . "/usr/bin/python")
+ (buffer))
+
+ELISP&gt; (make-shell-interface :name "pylaucher" :path "/usr/bin/python")
+((name)
+ (type)
+ (path . "/usr/bin/python")
+ (buffer))
+
+ELISP&gt; (make-shell-interface :name "pylaucher" )
+((name)
+ (type)
+ (path)
+ (buffer))
+
+ELISP&gt; (make-shell-interface  )
+((name)
+ (type)
+ (path)
+ (buffer))
+
+ELISP&gt; (make-shell-interface :buffer "pyshell"  :path "/usr/bin/python" :type 'sh :name "pylaucher")
+((name . "pyshell")
+ (type . sh)
+ (path . "/usr/bin/python")
+ (buffer . "pyshell"))
+</pre>
+</div>
+</div>
+<div id="outline-container-org59f8816" class="outline-4">
+<h4 id="org59f8816"><span class="section-number-4">1.6.7</span> Closures</h4>
+<div class="outline-text-4" id="text-1-6-7">
+<p>
+elisp方言默认不支持closure，所以下面的代码不会像Scheme或Common Lisp一样执行。
+</p>
+
+<p>
+参考：
+</p>
+<ul class="org-ul">
+<li><a href="https://www.emacswiki.org/emacs/LexicalBinding">EmacsWiki: Lexical Binding</a></li>
+<li><a href="https://www.emacswiki.org/emacs/DynamicBindingVsLexicalBinding">EmacsWiki: Dynamic Binding Vs Lexical Binding</a></li>
+<li><a href="https://nullprogram.com/blog/2013/12/30/">Emacs Lisp Readable Closures « null program</a></li>
+<li><a href="https://www.jamesporter.me/2013/06/14/emacs-lisp-closures-exposed.html">https://www.jamesporter.me/2013/06/14/emacs-lisp-closures-exposed.html</a></li>
+<li><a href="http://technical-dresese.blogspot.com/2011/04/brief-demonstration-of-emacs-new.html">Technical Dresese: A brief demonstration of emacs new lexical bindings</a></li>
+</ul>
+
+<pre class="example">
+(defun make-adder (x)
+  (lambda (y) (+ x y)))
+
+
+ELISP&gt;
+ELISP&gt; (make-adder 3)
+(lambda
+  (y)
+  (+ x y))
+
+ELISP&gt; ((make-adder 3) 4)
+    ** Eval error **  Invalid function: (make-adder 3)
+ELISP&gt; (funcall (make-adder 3) 4)
+    ** Eval error **  Symbol's value as variable is void: x
+ELISP&gt; (map (make-adder 3) '(1 2 3 4 5))
+    ** Eval error **  Symbol's value as variable is void: x
+ELISP&gt;
+</pre>
+
+<p>
+支持closure的代码：
+</p>
+<pre class="example">
+(setq lexical-binding t)
+
+(defun make-adder (x)
+  (lambda (y) (+ x y)))
+
+ELISP&gt; (make-adder 3)
+(closure
+ ((x . 3)
+  t)
+ (y)
+ (+ x y))
+
+ELISP&gt; ((make-adder 3) 4)
+    ** Eval error **  Invalid function: (make-adder 3)
+ELISP&gt;
+
+ELISP&gt; (funcall (make-adder 3) 4)
+7
+ELISP&gt;
+
+ELISP&gt; (mapcar (make-adder 3) '(1 2 3 4 5))
+(4 5 6 7 8)
+
+
+;;;; Sometimes is better to create macro rather than a higher order function
+
+
+(defmacro make-sum-fun (f1 f2)
+  `(lambda (x) (+ (,f1 x) (,f2 x))))
+
+ELISP&gt;
+ELISP&gt; (funcall (make-sum-fun sin cos) 3)
+-0.8488724885405782
+ELISP&gt;
+ELISP&gt; (make-sum-fun sin cos)
+(closure
+ (t)
+ (x)
+ (+
+  (sin x)
+  (cos x)))
+
+ELISP&gt; (map (make-sum-fun sin cos) '(1 2 3 4 5))
+(1.3817732906760363 0.4931505902785393 -0.8488724885405782 -1.4104461161715403 -0.6752620891999122)
+</pre>
+
+<p>
+在 <code>~/.emacs.d/init.el</code> 中添加如下配置以支持closure.
+</p>
+<pre class="example">
+(setq lexical-binding t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb56b358" class="outline-3">
+<h3 id="orgb56b358"><span class="section-number-3">1.7</span> 列表操作</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+参考：
+</p>
+<ul class="org-ul">
+<li><a href="https://www.fincher.org/tips/Languages/Emacs.shtml">https://www.fincher.org/tips/Languages/Emacs.shtml</a></li>
+</ul>
+
+<pre class="example">
+;; Defining a List
+;;
+;; An emacs list can contain elements of almost any type.
+;;
+ELISP&gt; '( "a" 2323 "b" 21.2323 "hello" "emacs" nil () (34 134) '(+ 2 3 5))
+("a" 2323 "b" 21.2323 "hello" "emacs" nil nil
+ (34 134)
+ '(+ 2 3 5))
+
+ELISP&gt; (quote (1 3 3 4 5))
+(1 3 3 4 5)
+
+;;;;; Empty List
+;;
+ELISP&gt; nil
+nil
+ELISP&gt; '()
+nil
+ELISP&gt;
+
+;; Length of a list
+ELISP&gt; (length '(1 2 3 4 5 6))
+6
+ELISP&gt;
+
+
+;; nth element of a list
+;;
+ELISP&gt; (nth 0 '(0 1 2 3 4 5))
+0
+ELISP&gt; (nth 2 '(0 1 2 3 4 5))
+2
+ELISP&gt; (nth 5 '(0 1 2 3 4 5))
+5
+ELISP&gt; (nth 10 '(0 1 2 3 4 5))
+nil
+ELISP&gt;
+
+
+;; Membership test
+;; member returns null if the element is not member of the list
+;;
+ELISP&gt; (member 2 '(0 1 2 3 4 5))
+(2 3 4 5)
+
+ELISP&gt; (member 10 '(0 1 2 3 4 5))
+nil
+ELISP&gt;
+
+;; Position of list element (prior to emacs 24.4)
+;;
+ELISP&gt; (position 7 '(5 6 7 8))
+2
+
+ELISP&gt; (position 17 '(5 6 7 8))
+nil
+ELISP&gt;
+
+;; Position of list element (emacs 24.4 or later)
+;;
+ELISP&gt; (cl-position 7 '(5 6 7 8))
+2
+
+ELISP&gt; (cl-position 17 '(5 6 7 8))
+nil
+ELISP&gt;
+
+;; cdr
+;;
+;; Removes first element of the list, returns the list tail.
+;;
+ELISP&gt; (cdr '(1 2 3 4 5))
+(2 3 4 5)
+
+;; car
+;;
+;; Returns the first list element
+;;
+ELISP&gt; (car '(1 2 3 4 5))
+1
+ELISP&gt;
+
+
+;; cons
+;;
+;; List constructor
+;;
+ELISP&gt; (cons 10 '(1 2 3 4))
+(10 1 2 3 4)
+
+ELISP&gt; (cons 1 (cons 2 (cons 3 (cons 4 (cons 5 '())))))
+(1 2 3 4 5)
+
+;; Last element of a list
+;;
+;;
+ELISP&gt; (car (last '(1 2 3 4 5)))
+5
+ELISP&gt;
+
+
+;; Reverse a list
+;;
+ELISP&gt; (reverse '(1 2 3 4 5))
+(5 4 3 2 1)
+
+
+;; Append lists
+;;
+;; Note: nil also means an empty list
+;;
+ELISP&gt; (append '(1 2) '( "a" "b" "c" "d"))
+(1 2 "a" "b" "c" "d")
+
+ELISP&gt; (append '(1 2) nil '( "a" "b" "c" "d") nil)
+(1 2 "a" "b" "c" "d")
+
+
+
+;; Filter list elements given a predicate function
+;;
+;;
+ELISP&gt; (remove-if-not (lambda (x) (&gt; x 2)) '(1 2 3 4 5 6 7 8 9 10))
+(3 4 5 6 7 8 9 10)
+
+;; Test if list is empty
+;;
+ELISP&gt; (null '(1 2 3 4 5))
+nil
+ELISP&gt; (null '())
+t
+ELISP&gt; (null nil)
+t
+ELISP&gt;
+
+;; Drop the firsts n elements of a list
+;;
+;;
+ELISP&gt; (nthcdr 2 '(1 2 3 4))
+(3 4)
+
+ELISP&gt; (nthcdr 3 '(1 2 3 4))
+(4)
+
+ELISP&gt; (nthcdr 13 '(1 2 3 4))
+nil
+ELISP&gt;
+
+;; Delete an element of a list
+;;
+;;
+ELISP&gt; (delq 1 '(1 2 3 4))
+(2 3 4)
+
+
+ELISP&gt; (delq 10 '(1 2 3 4))
+(1 2 3 4)
+
+;; It doesn't work to delete sublists
+;;
+ELISP&gt; (delq (5) '(1 2 (5) 3 4))
+    ** Eval error **  Invalid function: 5
+ELISP&gt; (delq '(5) '(1 2 (5) 3 4))
+(1 2
+   (5)
+   3 4)
+
+ELISP&gt; (delete '(5) '(1 2 (5) 3 4))
+(1 2 3 4)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Convert Vector to List
+;;
+;;
+ELISP&gt; (coerce [1 2 3] 'list)
+(1 2 3)
+
+;; Convert List to Vector
+;;
+ELISP&gt; (coerce '(1 2 3) 'vector)
+[1 2 3]
+
+ELISP&gt; (number-sequence 0 10 2)
+(0 2 4 6 8 10)
+
+ELISP&gt; (number-sequence 9 4 -1)
+(9 8 7 6 5 4)
+
+
+;; Modify list variables.
+;;
+ELISP&gt; alist
+(a b c d e)
+
+ELISP&gt; (push 'f alist)
+(f a b c d e)
+
+ELISP&gt; alist
+(f a b c d e)
+
+ELISP&gt; (pop alist)
+f
+
+ELISP&gt; alist
+(a b c d e)
+
+ELISP&gt; (pop alist)
+a
+ELISP&gt; alist
+(b c d e)
+
+ELISP&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-orgdd36a53" class="outline-3">
+<h3 id="orgdd36a53"><span class="section-number-3">1.8</span> 关联列表和属性列表</h3>
+<div class="outline-text-3" id="text-1-8">
+</div>
+<div id="outline-container-org9069935" class="outline-4">
+<h4 id="org9069935"><span class="section-number-4">1.8.1</span> 概览</h4>
+<div class="outline-text-4" id="text-1-8-1">
+<p>
+关联列表是一系列cons对，这里我可以称作 <code>clist</code> 或者 由两个元素组成的列表的集合，可以称为 <code>alist</code>
+</p>
+
+<p>
+<b>关联列表类型：clist</b>
+</p>
+
+<p>
+键: a, x, 2 and 4 值: b, y, 3 and (1 2 3 4 5)
+</p>
+<pre class="example">
+ELISP&gt; '((a . b) (x . y) (2 . 3) (4 . (1 2 3 4 5)))
+((a . b)
+ (x . y)
+ (2 . 3)
+ (4 1 2 3 4 5)
+
+ELISP&gt; (cons 'a 'b)
+(a . b)
+
+ELISP&gt; (cons 'a (cons 'b (cons 'c nil)))
+(a b c)
+</pre>
+
+<p>
+<b>关联列表类型：alist</b>
+</p>
+<pre class="example">
+ELISP&gt; '((a  b) (x  y) (2  3) (4  (1 2 3 4 5)))
+((a b)
+ (x y)
+ (2 3)
+ (4
+  (1 2 3 4 5)))
+
+ELISP&gt; (list (list 'a 'b) (list 'x 'y) (list 2 3) (list 2 '(1 2 3 4 5)))
+((a b)
+ (x y)
+ (2 3)
+ (2
+  (1 2 3 4 5)))
+</pre>
+<p>
+<code>alist</code> 不像 <code>clist</code> 有歧义。
+</p>
+
+<p>
+<b>属性列表：Plist</b>
+</p>
+
+<p>
+属性列表是连续的键值对集合，它的优势是括号少和可读性高。
+</p>
+<pre class="example">
+'(:key1 value1 :key2 value2 :key3 1002.23 :key4 (a b c d e))
+
+ELISP&gt; '(:key1 value1 :key2 value2 :key3 1002.23 :key4 (a b c d e))
+(:key1 value1 :key2 value2 :key3 1002.23 :key4
+       (a b c d e))
+
+;;; It is more useful in configuration files
+
+(
+:key1  value1
+:key2  value2
+:key3  value3
+:key4  (a b c d e )
+)
+</pre>
+</div>
+</div>
+<div id="outline-container-org8bfb82c" class="outline-4">
+<h4 id="org8bfb82c"><span class="section-number-4">1.8.2</span> 关联列表/Alist</h4>
+<div class="outline-text-4" id="text-1-8-2">
+<pre class="example">
+ELISP&gt; (setq dict
+'((pine . cones)
+ (oak . acorns)
+ (maple . seeds)))
+((pine . cones)
+ (oak . acorns)
+ (maple . seeds))
+
+ELISP&gt; dict
+((pine . cones)
+ (oak . acorns)
+ (maple . seeds))
+
+;; Get a cell associated with a key
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ELISP&gt;
+ELISP&gt; (assoc 'oak dict)
+(oak . acorns)
+
+ELISP&gt; (assoc 'wrong dict)
+nil
+
+;; Get a Key
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+ELISP&gt; (car (assoc 'oak dict))
+oak
+ELISP&gt; (cdr (assoc 'oak dict))
+acorns
+ELISP&gt;
+
+
+ELISP&gt; (car (assoc 'oak dict))
+oak
+ELISP&gt;
+
+;; Get all keys
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+ELISP&gt; (mapcar #'car dict)
+(pine oak maple)
+
+;; Get all values
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+ELISP&gt; (mapcar #'cdr dict)
+(cones acorns seeds)
+</pre>
+
+<p>
+例：过滤多个键
+</p>
+<pre class="example">
+ELISP&gt; (defvar language-list
+  '(
+   ("io" . ((:command . "io")
+             (:description . "Run IO Language script")))
+    ("lua" . ((:command . "lua")
+              (:description . "Run Lua script")))
+    ("groovy" . ((:command . "groovy")
+                 (:description . "Run Groovy")))
+    ("scala" . ((:command . "scala")
+                (:cmdopt . "-Dfile.encoding=UTF-8")
+                (:description . "Run Scala file with scala command")))
+
+    ("haml" . ((:command . "haml")
+               (:exec    . "%c %o %s")
+               (:description . "Convert HAML to HTML")))
+    ("sass" . ((:command . "sass")
+               (:exec    . "%c %o --no-cac")))
+ ))
+language-list
+
+
+ELISP&gt; (assoc  "scala"  language-list )
+("scala"
+ (:command . "scala")
+ (:cmdopt . "-Dfile.encoding=UTF-8")
+ (:description . "Run Scala file with scala command"))
+
+ELISP&gt; (assoc  "lua"  language-list )
+("lua"
+ (:command . "lua")
+ (:description . "Run Lua script"))
+
+ELISP&gt; (assoc  "wrong"  language-list )
+nil
+
+ELISP&gt; (assoc ':command (assoc  "scala"  language-list ))
+(:command . "scala")
+
+ELISP&gt; (cdr (assoc ':command (assoc  "scala"  language-list )))
+"scala"
+ELISP&gt;
+
+ELISP&gt; (assoc ':description (assoc  "scala"  language-list ))
+(:description . "Run Scala file with scala command")
+
+ELISP&gt; (cdr (assoc ':description (assoc  "scala"  language-list )))
+"Run Scala file with scala command"
+ELISP&gt;
+
+ELISP&gt; (mapcar 'car language-list)
+("io" "lua" "groovy" "scala" "haml" "sass")
+
+ELISP&gt; (mapcar 'cdr language-list)
+(((:command . "io")
+  (:description . "Run IO Language script"))
+ ((:command . "lua")
+  (:description . "Run Lua script"))
+ ((:command . "groovy")
+  (:description . "Run Groovy"))
+ ((:command . "scala")
+  (:cmdopt . "-Dfile.encoding=UTF-8")
+  (:description . "Run Scala file with scala command"))
+ ((:command . "haml")
+  (:exec . "%c %o %s")
+  (:description . "Convert HAML to HTML"))
+ ((:command . "sass")
+  (:exec . "%c %o --no-cac")))
+
+ELISP&gt;
+
+ELISP&gt; (mapcar (lambda (x) (
+                             list
+                             (car x)
+                             (cdr x)
+                             ))
+                            language-list)
+(("io"
+  ((:command . "io")
+   (:description . "Run IO Language script")))
+ ("lua"
+  ((:command . "lua")
+   (:description . "Run Lua script")))
+ ("groovy"
+  ((:command . "groovy")
+   (:description . "Run Groovy")))
+ ("scala"
+  ((:command . "scala")
+   (:cmdopt . "-Dfile.encoding=UTF-8")
+   (:description . "Run Scala file with scala command")))
+ ("haml"
+  ((:command . "haml")
+   (:exec . "%c %o %s")
+   (:description . "Convert HAML to HTML")))
+ ("sass"
+  ((:command . "sass")
+   (:exec . "%c %o --no-cac"))))
+
+ELISP&gt;
+
+ELISP&gt; (mapcar (lambda (x) (
+     list
+     (car x)
+     (assoc ':command       (cdr x))
+     (assoc ':cmdopt        (cdr x))
+     (assoc ':description   (cdr x))
+     ))
+    language-list)
+
+(("io"
+  (:command . "io")
+  nil
+  (:description . "Run IO Language script"))
+ ("lua"
+  (:command . "lua")
+  nil
+  (:description . "Run Lua script"))
+ ("groovy"
+  (:command . "groovy")
+  nil
+  (:description . "Run Groovy"))
+ ("scala"
+  (:command . "scala")
+  (:cmdopt . "-Dfile.encoding=UTF-8")
+  (:description . "Run Scala file with scala command"))
+ ("haml"
+  (:command . "haml")
+  nil
+  (:description . "Convert HAML to HTML"))
+ ("sass"
+  (:command . "sass")
+  nil nil))
+
+ELISP&gt;
+
+
+ELISP&gt; (mapcar (lambda (x) (
+         list
+         (car x)
+         (cdr (assoc ':command   (cdr x)))
+         (cdr (assoc ':cmdopt       (cdr x)))
+         (cdr (assoc ':description   (cdr x)))
+         ))
+
+        language-list)
+(("io" "io" nil "Run IO Language script")
+ ("lua" "lua" nil "Run Lua script")
+ ("groovy" "groovy" nil "Run Groovy")
+ ("scala" "scala" "-Dfile.encoding=UTF-8" "Run Scala file with scala command")
+ ("haml" "haml" nil "Convert HAML to HTML")
+ ("sass" "sass" nil nil))
+
+ELISP&gt;
+
+ELISP&gt; (defun get-value (alist key) (cdr (assoc key alist)))
+get-value
+ELISP&gt; (get-value language-list "scala")
+((:command . "scala")
+ (:cmdopt . "-Dfile.encoding=UTF-8")
+ (:description . "Run Scala file with scala command"))
+
+ELISP&gt; (get-value language-list "lua")
+((:command . "lua")
+ (:description . "Run Lua script"))
+
+ELISP&gt;
+ELISP&gt; (get-value language-list "0")
+nil
+ELISP&gt;
+
+
+ELISP&gt; (defun get-key-value (alist key field)
+                (cdr (assoc  field  (cdr (assoc key alist))  )))
+get-key-value
+ELISP&gt;
+ELISP&gt; (get-key-value language-list "scala" ':description)
+"Run Scala file with scala command"
+ELISP&gt;
+
+ELISP&gt; (get-key-value language-list "scala" ':command)
+"scala"
+ELISP&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-org6a455d1" class="outline-4">
+<h4 id="org6a455d1"><span class="section-number-4">1.8.3</span> 属性列表</h4>
+<div class="outline-text-4" id="text-1-8-3">
+<pre class="example">
+ELISP&gt; (defvar plst (list :buffer (current-buffer) :line 10 :pos 2000))
+plst
+
+ELISP&gt;
+ELISP&gt; (plist-get plst :line)
+10
+
+ELISP&gt; (plist-get plst :pos)
+2000
+
+ELISP&gt; (plist-get plst :buffer)
+#&lt;buffer *ielm*&gt;
+ELISP&gt;
+
+ELISP&gt;
+ELISP&gt; (plist-get plst :buffdfds)
+nil
+ELISP&gt;
+
+ELISP&gt; (plist-member plst :buffer)
+(:buffer #&lt;buffer *ielm*&gt; :line 10 :pos 2000)
+
+ELISP&gt; (plist-member plst :bufferasd)
+nil
+ELISP&gt;
+
+ELISP&gt; (plist-put plst :winconf (current-window-configuration))
+(:buffer #&lt;buffer *ielm*&gt; :line 10 :pos 2000 :winconf #&lt;window-configuration&gt;)
+
+ELISP&gt; plst
+(:buffer #&lt;buffer *ielm*&gt; :line 10 :pos 2000 :winconf #&lt;window-configuration&gt;)
+
+ELISP&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-org054a836" class="outline-4">
+<h4 id="org054a836"><span class="section-number-4">1.8.4</span> 转换Alist成Plist和vice-versa</h4>
+<div class="outline-text-4" id="text-1-8-4">
+<pre class="example">
+;; Alist to plist
+(defun plist-&gt;alist (plist)
+  (if (null plist)
+      '()
+      (cons
+       (list (car plist) (cadr plist))
+       (plist-&gt;alist (cddr plist)))))
+
+ELISP&gt; (plist-&gt;alist (list :x 10 :y 20 :name "point"))
+((:x 10)
+ (:y 20)
+ (:name "point"))
+
+;;; Converts association list to plist
+(defun alist-&gt;plist (assocl)
+  (if (null assocl)
+      '()
+    (let
+    ((hd (car assocl))
+     (tl (cdr assocl)))
+      (cons (car hd)
+        (cons (cadr hd)
+          (alist-&gt;plist tl))))))
+
+;;; Converts plist to clist (List of cons pairs)
+(defun plist-&gt;clist (plist)
+  (if (null plist)
+      '()
+      (cons
+       (cons (car plist) (cadr plist))
+      (plist-&gt;clist (cddr plist)))))
+
+ELISP&gt; (plist-&gt;clist (list :x 10 :y 20 :name "point"))
+((:x . 10)
+ (:y . 20)
+ (:name . "point"))
+
+;; Separates a property list into two lists of keys and values.
+;;
+(defun plist-&gt;kv (plist)
+  (let ((alist (plist-&gt;alist plist)))
+    (cons
+     (mapcar #'car alist)
+     (mapcar #'cdr alist))))
+
+ELISP&gt; (setq al (plist-&gt;alist (list :x 10 :y 20 :name "point")))
+((:x 10)
+ (:y 20)
+ (:name "point"))
+
+ELISP&gt; (alist-&gt;plist al)
+(:x 10 :y 20 :name "point")
+
+ELISP&gt;
+
+(setq keylist
+    '("M-i"  'previous-line
+      "M-j"  'backward-char
+      "M-k"  'next-line
+      "M-l"  'forward-char))
+
+
+ELISP&gt; (setq kv (plist-&gt;kv keylist))
+(("M-i" "M-j" "M-k" "M-l")
+ ('previous-line)
+ ('backward-char)
+ ('next-line)
+ ('forward-char))
+
+ELISP&gt; (car kv)
+("M-i" "M-j" "M-k" "M-l")
+
+ELISP&gt; (cdr kv)
+(('previous-line)
+ ('backward-char)
+ ('next-line)
+ ('forward-char))
+
+ELISP&gt;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga4db899" class="outline-3">
+<h3 id="orga4db899"><span class="section-number-3">1.9</span> 字符串</h3>
+<div class="outline-text-3" id="text-1-9">
+<pre class="example">
+;; Split String
+
+ELISP&gt; (split-string "  two words ")
+("two" "words")
+
+ELISP&gt;
+
+ELISP&gt; (split-string "o\no\no" "\n" t)
+("o" "o" "o")
+
+ELISP&gt; (split-string "Soup is good food" "o*" t)
+("S" "u" "p" " " "i" "s" " " "g" "d" " " "f" "d")
+
+ELISP&gt;
+
+;; Format String
+
+ELISP&gt; (format-time-string "%Y/%m/%d %H:%M:%S" (current-time))
+"2015/06/26 06:10:04"
+ELISP&gt;
+ELISP&gt;
+
+
+;; Concatenate Strings
+
+ELISP&gt; (concat "The " "quick brown " "fox.")
+"The quick brown fox."
+ELISP&gt;
+
+ELISP&gt; (mapconcat 'identity '("aaa" "bbb" "ccc") ",")
+"aaa,bbb,ccc"
+ELISP&gt; (split-string "aaa,bbb,ccc" ",")
+ELISP&gt; (split-string "aaa,bbb,ccc" ",")
+("aaa" "bbb" "ccc")
+
+;; String Width
+
+ELISP&gt; (string-width "hello world")
+11
+ELISP&gt;
+ELISP&gt; (substring "Freedom Land" 0 5)
+"Freed"
+ELISP&gt;
+ELISP&gt; (string-match "ce" "central park")
+0
+ELISP&gt; (string-match "gt" "central park")
+nil
+ELISP&gt;
+
+
+;;;;; Misc
+
+ELISP&gt; (make-string 5 ?x)
+"xxxxx"
+ELISP&gt; (make-string 5 ?a)
+"aaaaa"
+ELISP&gt; (make-string 5 ?r)
+"rrrrr"
+ELISP&gt; (make-string 15 ?r)
+"rrrrrrrrrrrrrrr"
+ELISP&gt;
+</pre>
+
+<p>
+<b>elisp符号/字符串转换</b>
+</p>
+<pre class="example">
+; Convert a symbol to string
+ELISP&gt; (symbol-name 'wombat)
+"wombat"
+
+; Convert a String to Symbol
+ELISP&gt; (intern "wombat")
+wombat
+</pre>
+
+<p>
+<b>读取字符串中的S表达式</b>
+</p>
+<pre class="example">
+ELISP&gt; (read-from-string
+            "(
+               (POINT1  (X  10.2323)  (Y   20.2323))
+               (POINT2  (x  0.2)          (Y 923.23))
+               (POINT3  (x -10.5)       (Y 78,23))
+             )")
+(((POINT1
+   (X 10.2323)
+   (Y 20.2323))
+  (POINT2
+   (x 0.2)
+   (Y 923.23))
+  (POINT3
+   (x -10.5)
+   (Y 78
+      (\, 23))))
+ . 174)
+
+ELISP&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-orgc1b7307" class="outline-3">
+<h3 id="orgc1b7307"><span class="section-number-3">1.10</span> 符号</h3>
+<div class="outline-text-3" id="text-1-10">
+<pre class="example">
+;;; Convert a string to symbol
+
+ELISP&gt; (intern "a-symbol")
+a-synmbol
+ELISP&gt; (symbolp (intern "a-symbol"))
+t
+ELISP&gt;
+
+;;; Convert a symbol to a string
+
+ELISP&gt; (symbol-name 'symbol)
+"symbol"
+ELISP&gt;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+ELISP&gt; (setq sym '(1 2 3 4 5))
+(1 2 3 4 5)
+
+ELISP&gt; sym
+(1 2 3 4 5)
+
+;;; Test if variable is defined
+ELISP&gt; (boundp 'sym)
+t
+ELISP&gt;
+
+;;; Test if variable sym is a symbol
+ELISP&gt; (symbolp sym)
+nil
+
+;;; Test if the symbol sym is a symbol
+ELISP&gt; (symbolp 'sym)
+t
+ELISP&gt;
+
+;; Get symbol as string
+;;
+ELISP&gt; (symbol-name 'sym)
+"sym"
+
+;; Get value from a symbol
+;;
+ELISP&gt; (symbol-value 'sym)
+(1 2 3 4 5)
+
+ELISP&gt; (symbol-function 'sym)
+nil
+
+ELISP&gt; (symbol-plist 'sym)
+nil
+
+;;-------------------------;;
+
+ELISP&gt; (defun func (x y) (+ (* 3 x) (* 4 y)))
+func
+
+ELISP&gt; (func 10 2)
+38
+ELISP&gt;
+
+;;; Check if function is defined
+;;
+ELISP&gt; (fboundp 'func)
+t
+ELISP&gt; (fboundp 'sym)
+nil
+ELISP&gt;
+
+
+ELISP&gt; (symbol-name 'func)
+"func"
+
+ELISP&gt; (symbol-value 'func)
+    ** Eval error **  Symbol's value as variable is void: func
+ELISP&gt; (symbol-function 'func)
+(lambda
+  (x y)
+  (+
+   (* 3 x)
+   (* 4 y)))
+
+ELISP&gt; (symbol-plist 'func)
+nil
+ELISP&gt;
+
+;;; Function Source Code
+
+ELISP&gt; (symbol-function #'func)
+(lambda
+  (x y)
+  (+
+   (* 3 x)
+   (* 4 y)))
+
+
+;; Test if function is an elisp primitive
+
+ELISP&gt; (subrp (symbol-function 'goto-char))
+t
+ELISP&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-orgb3689a6" class="outline-3">
+<h3 id="orgb3689a6"><span class="section-number-3">1.11</span> 类型转换</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+<b>类型查询</b>
+</p>
+<pre class="example">
+ELISP&gt; (type-of 1000)
+integer
+
+ELISP&gt; (type-of 1000.3434)
+float
+ELISP&gt;
+
+ELISP&gt; (type-of "lisp")
+string
+
+ELISP&gt; (type-of '(1 2 3 4 5))
+cons
+ELISP&gt; (type-of (list 'cos 'sin 1 2 3 4 5))
+cons
+ELISP&gt;
+
+ELISP&gt; (type-of [1 2 3 4])
+vector
+
+ELISP&gt; (type-of 'elisp-mode-map)
+symbol
+ELISP&gt;
+
+ELISP&gt; (type-of #'cos)
+symbol
+ELISP&gt;
+</pre>
+
+<p>
+<b>类型判断</b>
+</p>
+<pre class="example">
+;; Test if it is a number
+;;-----------------------------------
+
+ELISP&gt; (numberp 1000)
+t
+ELISP&gt; (numberp 10e4)
+t
+ELISP&gt; (numberp '(1 2 3 4))
+nil
+ELISP&gt; (numberp "hello world")
+nil
+ELISP&gt;
+
+
+;; Test if it is a string
+;;-----------------------------------
+
+ELISP&gt; (stringp "Emacs")
+t
+ELISP&gt; (stringp '(1 2 3 4))
+nil
+ELISP&gt;
+
+;; Test if ti is a symbol
+;;------------------------------------
+ELISP&gt; (symbolp 'emacs)
+t
+ELISP&gt; (symbolp #'emacs)
+t
+ELISP&gt; (symbolp "something")
+nil
+ELISP&gt; (symbolp 10000)
+nil
+ELISP&gt;
+
+
+;; Test if it is a list
+;;-----------------------------------
+
+ELISP&gt; (listp '(1 2 3 4))
+t
+ELISP&gt; (listp [1 2 3 4])
+nil
+ELISP&gt; (listp "hello world")
+nil
+ELISP&gt;
+
+
+;; Test if it is a vector
+;;-----------------------------------
+
+ELISP&gt; (vectorp ["Lisp" "Emacs" "Scheme" "Clojure"])
+t
+ELISP&gt;
+ELISP&gt; (vectorp '(1 2 3))
+nil
+ELISP&gt; (vectorp "lisp")
+nil
+ELISP&gt;
+</pre>
+
+<p>
+<b>数字/字符串转换</b>
+</p>
+<pre class="example">
+ELISP&gt;
+ELISP&gt; (number-to-string 1000)
+"1000"
+
+ELISP&gt; (string-to-number "200")
+200
+ELISP&gt;
+ELISP&gt;
+</pre>
+
+<p>
+<b>符号/字符串转换</b>
+</p>
+<pre class="example">
+ELISP&gt; (symbol-name 'my-symbol)
+"my-symbol"
+
+ELISP&gt; (symbol-name :my-symbol)
+":my-symbol"
+ELISP&gt;
+
+ELISP&gt; (intern "some-symbol")
+some-symbol
+</pre>
+
+<p>
+<b>S表达式/字符串转换</b>
+</p>
+<ul class="org-ul">
+<li>read: 解析S表达式</li>
+</ul>
+<pre class="example">
+ELISP&gt;
+ELISP&gt; (setq raw "(:x 10 :y 20 :z 30 :w \"hello world\")")
+"(:x 10 :y 20 :z 30 :w \"hello world\")"
+ELISP&gt;
+ELISP&gt; (read raw)
+(:x 10 :y 20 :z 30 :w "hello world")
+
+ELISP&gt; (plist-get (read raw) :x)
+10
+ELISP&gt; (plist-get (read raw) :w)
+"hello world"
+ELISP&gt;
+</pre>
+
+<ul class="org-ul">
+<li>prin1-to-string: 序列化S表达式</li>
+</ul>
+<pre class="example">
+ELISP&gt; (setq sexp '(:x 10 :y 20 :z 30 :w "hello world"))
+(:x 10 :y 20 :z 30 :w "hello world")
+
+ELISP&gt; sexp
+(:x 10 :y 20 :z 30 :w "hello world")
+
+ELISP&gt; (prin1-to-string sexp)
+"(:x 10 :y 20 :z 30 :w \"hello world\")"
+ELISP&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-org8eacb6c" class="outline-3">
+<h3 id="org8eacb6c"><span class="section-number-3">1.12</span> 求值</h3>
+<div class="outline-text-3" id="text-1-12">
+<p>
+<b>S表达式求值</b>
+</p>
+<pre class="example">
+ELISP&gt; (eval '(+ 1 2 3 4 5))
+15
+ELISP&gt;
+
+
+ELISP&gt; '(defun func1(x)(* 10 x))
+(defun func1
+    (x)
+  (* 10 x))
+
+ELISP&gt;
+
+ELISP&gt; '((+ 1 3) (* 4 5) (- 8 9))
+((+ 1 3)
+ (* 4 5)
+ (- 8 9))
+
+ELISP&gt; (eval '(defun func1(x)(* 10 x)))
+func1
+ELISP&gt; (func1 5)
+50
+ELISP&gt;
+
+
+ELISP&gt; (mapcar 'eval '((+ 1 3) (* 4 5) (- 8 9)))
+(4 20 -1)
+</pre>
+
+<p>
+<b>字符串求值</b>
+</p>
+<pre class="example">
+ELISP&gt; (defun eval-string (str) (eval (read str)))
+eval-string
+
+ELISP&gt; (eval-string "(+ 1 2 3 4 5 6)")
+21
+ELISP&gt;
+
+ELISP&gt; (eval-string "(defun func2(x)(* 10 x)))")
+func2
+ELISP&gt; (func2 6)
+60
+ELISP&gt;
+</pre>
+
+<p>
+<b>S表达式格式化为字符串</b>
+</p>
+<pre class="example">
+ELISP&gt; (setq sexp1 '(+ 1 (* 2 3)))
+(+ 1
+   (* 2 3))
+
+ELISP&gt; (eval sexp1)
+7
+
+ELISP&gt; (format "%S" sexp1)
+"(+ 1 (* 2 3))"
+ELISP&gt;
+</pre>
+
+<p>
+<b>Elisp中的求值命令</b>
+</p>
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">命令</th>
+<th scope="col" class="org-left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">M-x eval-defun</td>
+<td class="org-left">函数求值</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x eval-region</td>
+<td class="org-left">区域内表达式求值</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x eval-buffer</td>
+<td class="org-left">buffer内表达式求值</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x eval-expression</td>
+<td class="org-left">输入框输入求值</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x load-file</td>
+<td class="org-left">文件加载</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org0f64cb7" class="outline-3">
+<h3 id="org0f64cb7"><span class="section-number-3">1.13</span> Defalias</h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+内置宏 <code>defalias</code> 可以为emaca函数定义简短的名字。
+</p>
+
+<p>
+参考：<a href="http://ergoemacs.org/emacs/emacs_alias.html">Emacs: Use Alias for Fast M-x</a>
+</p>
+
+<pre class="example">
+ELISP&gt; (require 'cl)
+cl
+ELISP&gt;
+
+ELISP&gt; (defalias 'map 'mapcar)
+map
+ELISP&gt; (map (lambda (x) (* 3 x)) (list 1 2 3 4 5 6))
+(3 6 9 12 15 18)
+
+ELISP&gt; (defalias 'filter 'remove-if-not) ;; remove-if-not comes from "cl" library
+filter
+
+;;; Filter all buffers bounded to a file
+;;
+ELISP&gt; (filter #'buffer-file-name (buffer-list))
+(#&lt;buffer README.org&gt; #&lt;buffer Projects.wiki.org&gt; #&lt;buffer Index.wiki.org&gt; #&lt;buffer settings.org&gt; #&lt;buffer project.org&gt;)
+
+;;; Reject all buffers which are not bounded to a file
+ELISP&gt; (reject #'buffer-file-name (buffer-list))
+(#&lt;buffer *ielm*&gt; #&lt;buffer *Help*&gt; #&lt;buffer  *Minibuf-1*&gt; #&lt;buffer emacs&gt; #&lt;buffer *scratch*&gt; ..)
+
+;;; The command M-x org-html-export-to-htm will export this document (README.org) to html
+;;  the command M-x org2html will do so too.
+;;
+(defalias #'org2html #'org-html-export-to-html)
+
+;;
+;;  It is also useful to create more convenient names for Emacs API
+;; in a namsepace-like fashion that makes easier to find functions and
+;; autocomplete functions, for instance:
+;;
+(defalias 'file/extension         'file-name-extension)
+(defalias 'file/extension-sans    'file-name-sans-extension)
+(defalias 'file/path-expand       'expand-file-name)
+(defalias 'file/filename          'file-name-nondirectory)
+(defalias 'file/path-relative     'file-relative-name)
+(defalias 'file/rename            'rename-file)
+(defalias 'file/delete            'delete-file)
+(defalias 'file/copy              'copy-file)
+
+;;; To find the documentation of a function group defined in this fashion
+;; Enter M-x apropos  and then type file/
+(apropos "file/")
+
+ELISP&gt; (set-buffer "README.org")
+#&lt;buffer README.org&gt;
+ELISP&gt; (buffer-file-name)
+"/home/tux/PycharmProjects/emacs/README.org"
+ELISP&gt; (file/basename (buffer-file-name))
+"README"
+ELISP&gt; (file/extension (buffer-file-name))
+"org"
+ELISP&gt; (file/filename (buffer-file-name))
+"README.org"
+ELISP&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-org6614a8f" class="outline-3">
+<h3 id="org6614a8f"><span class="section-number-3">1.14</span> 控制结构</h3>
+<div class="outline-text-3" id="text-1-14">
+</div>
+<div id="outline-container-org767223d" class="outline-4">
+<h4 id="org767223d"><span class="section-number-4">1.14.1</span> Conditional Statement</h4>
+<div class="outline-text-4" id="text-1-14-1">
+<p>
+<b>If Else 语句</b>
+</p>
+<pre class="example">
+;;
+;; Any value different from nil or '() is true, otherwise false.
+;;
+
+;; True
+;;
+ELISP&gt; (if t 5 6)
+5
+
+ELISP&gt; (if 10 5 6)
+5
+
+ELISP&gt; (if 0 5 6)
+5
+
+;; False
+ELISP&gt; (if nil 5 6)
+6
+
+ELISP&gt; (if '() 5 6)
+6
+
+
+;; Inverting Predicate
+;;
+ELISP&gt; (if (not t) 5 6)
+6
+
+ELISP&gt; (if (not nil) 5 6)
+5
+
+
+ELISP&gt; (if (&lt; 5 10)  (message "less than 10") (message "greater or equal to 10") )
+"less than 10"
+
+ELISP&gt; (if (&lt; 30 10)  (message "less than 10") (message "greater or equal to 10") )
+"greater or equal to 10"
+ELISP&gt;
+
+;;; If else with multiple statements
+
+ELISP&gt; (setq x 10)
+10
+
+ELISP&gt; (if (&gt; x 5)
+       ;; Then Statement
+       (progn
+
+         (message "Positive Number")
+         (print "Greater than five")
+         (split-window-vertically)
+         78 ;;  Return Value
+        )
+     ;; Else Statement
+     (progn
+       (print "Less than five")
+       (split-window-horizontally)
+       12 ;;  Return Value
+     ))
+
+"Greater than five"
+
+78
+ELISP&gt;
+</pre>
+
+<p>
+<b>When语句</b>
+</p>
+<pre class="example">
+ELISP&gt; (when t 3)
+3
+
+ELISP&gt; (when nil 3)
+nil
+
+
+ELISP&gt; (setq x 5)
+5
+
+ELISP&gt; (when (&gt; x 3)
+         (message "Less than 3"))
+"Less than 3"
+ELISP&gt;
+
+ELISP&gt; (setq x 1)
+1
+
+ELISP&gt; (when (&gt; x 3)
+         (message "Less than 3"))
+nil
+ELISP&gt;
+
+
+;;;;; When with Multiple Statements
+
+ELISP&gt; (setq x 10)
+10
+
+ELISP&gt; (when (&gt; x 7)
+     (progn
+       (message "Greater than 7 OK.")
+       (message "Print message 2")
+       (split-window-horizontally)
+      ))
+
+ #&lt;window 8 on *ielm*&gt;
+ELISP&gt;
+</pre>
+</div>
+</div>
+<div id="outline-container-org4cbb15c" class="outline-4">
+<h4 id="org4cbb15c"><span class="section-number-4">1.14.2</span> Cond - Case Switch</h4>
+<div class="outline-text-4" id="text-1-14-2">
+<pre class="example">
+ELISP&gt; (setq a 3)       ;; a = 3
+3
+ELISP&gt;
+
+ELISP&gt; (cond
+        ((evenp a) a)       ;; if   (a % 2 == 0)    ==&gt; a
+        ((&gt; a 7) (/ a 2))   ;; elif (a &gt; 7)         ==&gt; a/2
+        ((&lt; a 5) (- a 1))   ;; elif (a &lt; 5)         ==&gt; a-1
+        (t 7)               ;; else                 ==&gt; 7
+        )
+2
+ELISP&gt;
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgc2911da" class="outline-4">
+<h4 id="orgc2911da"><span class="section-number-4">1.14.3</span> CL-Case - Case Switch</h4>
+<div class="outline-text-4" id="text-1-14-3">
+<pre class="example">
+(defun test-cl-case (operation x y)
+  (cl-case operation
+    (:mul (* x y))
+    (:add (+ x y))
+    (:sub (- x y))
+    (:div (/ x y))
+    (otherwise nil)))
+
+ELISP&gt; (test-cl-case :mul 2 10)
+20
+
+ELISP&gt; (test-cl-case :sub 10 2)
+8
+
+ELISP&gt; (test-cl-case :add 10 2)
+12
+ELISP&gt; (test-cl-case :div 10 2)
+5
+
+ELISP&gt; (test-cl-case 'dummy 20 10)
+nil
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org935516a" class="outline-4">
+<h4 id="org935516a"><span class="section-number-4">1.14.4</span> 循环</h4>
+<div class="outline-text-4" id="text-1-14-4">
+<p>
+<b>Dolist</b>
+</p>
+<pre class="example">
+ELISP&gt; (dolist (h '(a b c)) (print h))
+
+a
+
+b
+
+c
+
+nil
+
+ELISP&gt; (dolist (x '(1 2 3)) (print (* 2 x)))
+
+2
+
+4
+
+6
+
+nil
+ELISP&gt;
+
+ELISP&gt; (dolist (x '(1 2 3))
+         (dolist (y '(a b))
+            (print (list x y))))
+(1 a)
+
+(1 b)
+
+(2 a)
+
+(2 b)
+
+(3 a)
+
+(3 b)
+
+nil
+ELISP&gt;
+</pre>
+
+<p>
+<b>Dotimes</b>
+</p>
+<pre class="example">
+ELISP&gt; (dotimes (i 3) (print i))
+
+0
+
+1
+
+2
+
+nil
+ELISP
+
+ELISP&gt; (dotimes (i 3) (print (* 2 i)))
+
+0
+
+2
+
+4
+
+nil
+ELISP&gt;
+</pre>
+
+<p>
+<b>Loop</b>
+</p>
+
+<p>
+最好使用 <code>map</code> 和 <code>filter</code> 代替 <code>loops</code> , 详见 Functional Programming
+</p>
+
+<pre class="example">
+ELISP&gt; (setq a 4)
+4
+
+ELISP&gt; (loop
+        (setq a (+ a 1))
+        (when (&gt; a 7) (return a)))
+8
+
+ELISP&gt; a
+8
+ELISP&gt;
+
+ELISP&gt; (loop
+   (setq a (- a 1))
+   (when (&lt; a 3) (return)))
+nil
+ELISP&gt; a
+2
+ELISP&gt;
+</pre>
+
+<p>
+<b>Loop Collecting / Summing / For</b>
+</p>
+<pre class="example">
+ELISP&gt; (loop for i from 1 to 10 collecting i)
+(1 2 3 4 5 6 7 8 9 10)
+
+ELISP&gt; (loop for i from 1 to 10 collecting (* 3 i))
+(3 6 9 12 15 18 21 24 27 30)
+
+ELISP&gt; (loop for x from 1 to 10 summing (expt x 2))
+385
+
+ELISP&gt; (loop for x from 1 to 10 collecting (* 2 x))
+(2 4 6 8 10 12 14 16 18 20)
+
+ELISP&gt; (loop for x from 1 to 10 summing (* 2 x))
+110
+ELISP&gt;
+
+ELISP&gt; (apply #'+ '(2 4 6 8 10 12 14 16 18 20))
+110
+
+ELISP&gt; (loop for i below 10 collecting i)
+(0 1 2 3 4 5 6 7 8 9)
+
+ELISP&gt;  (loop for x in '(1 2 3)
+      do (print x) )
+
+1
+
+2
+
+3
+
+nil
+
+(loop
+       for x in '(a b c)
+       for y in '(1 2 3 4 5 6)
+       collect (list x y))
+((a 1)
+ (b 2)
+ (c 3))
+
+ELISP&gt; (loop for (a b) in '((x 1) (y 2) (z 3))
+      collect (list b a))
+((1 x)
+ (2 y)
+ (3 z))
+
+ELISP&gt; (loop for i upto 20
+      if (oddp i)
+        collect i into odds
+      else
+        collect i into evens
+      finally (return (values evens odds)))
+((0 2 4 6 8 10 12 14 16 18 20)
+ (1 3 5 7 9 11 13 15 17 19))
+</pre>
+
+<p>
+<b>Do Loop</b>
+</p>
+<pre class="example">
+(do (variable-definition*)
+    (end-test-form result-form*)
+  statement*)
+</pre>
+
+<pre class="example">
+(do
+   ;; Variables Definitions
+   ((i 0 (1+ i)))
+
+   ;; Test form
+    ((&gt;= i 4))
+
+  ;; Statement form
+  (print i))
+
+0
+
+1
+
+2
+
+3
+nil
+
+;; Fibbonaci Computing Loop
+;;
+(do ((n 0 (1+ n))
+     (cur 0 next)
+     (next 1 (+ cur next)))
+    ((= 10 n) cur))
+55
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org8a25672" class="outline-4">
+<h4 id="org8a25672"><span class="section-number-4">1.14.5</span> 函数式编程</h4>
+<div class="outline-text-4" id="text-1-14-5">
+<p>
+<a href="https://github.com/magnars/dash.el.git">Dash</a> 是emacs经常使用的函数式编程库。
+</p>
+
+<ul class="org-ul">
+<li>Map and Filter</li>
+</ul>
+
+<p>
+<b>Mapcar / Equivalent to map</b>
+</p>
+<pre class="example">
+ELISP&gt; (defun my-fun (x) (* x 10))
+my-fun
+ELISP&gt;
+
+ELISP&gt; (mapcar 'my-fun '(1 2 3 5 6))
+(10 20 30 50 60)
+
+ELISP&gt; (mapcar 'capitalize '("hello" "world" "emacs"))
+("Hello" "World" "Emacs")
+
+;;  Anonymous Functions
+;;
+ELISP&gt; (mapcar (lambda (x) (* x x))   '(1 2 3 4 5 6))
+(1 4 9 16 25 36)
+
+
+ELISP&gt; (setq anon (lambda (x) (* x x)))
+(lambda
+  (x)
+  (* x x))
+
+ELISP&gt; (mapcar anon '(1 2 3 4 5 6))
+(1 4 9 16 25 36)
+</pre>
+
+<p>
+<b>Filter</b>
+</p>
+<pre class="example">
+ELISP&gt; (null nil)
+t
+ELISP&gt; (null 23)
+nil
+ELISP&gt;
+
+;; Equivalent to  Haskell idiom:
+;;
+;; &gt; filter predicate list
+;;
+ELISP&gt; (remove-if-not 'null '(1 2 3 nil 5 6 nil nil ))
+(nil nil nil)
+
+;; Equivalent to Haskell idiom:
+;;
+;;   &gt; filter (\x -&gt; not (predicate x)) list
+;;
+;; a more apropriate name would be reject
+;;
+ELISP&gt; (remove-if 'null '(1 2 3 nil 5 6 nil nil ))
+(1 2 3 5 6)
+
+
+
+ELISP&gt; (defun range (step start stop)
+  (if (&gt; start stop)
+      nil
+      (cons start (range step (+ step start) stop))
+
+  );; End If
+);; End range
+
+ELISP&gt; (range 1 0 10)
+(0 1 2 3 4 5 6 7 8 9 10)
+
+ELISP&gt; (range 2 0 20)
+(0 2 4 6 8 10 12 14 16 18 20)
+
+
+ELISP&gt; (remove-if (lambda (x) (= (% x 2) 0)) (range 1 0 20))
+(1 3 5 7 9 11 13 15 17 19)
+
+ELISP&gt; (remove-if-not (lambda (x) (= (% x 2) 0)) (range 1 0 20))
+(0 2 4 6 8 10 12 14 16 18 20)
+
+
+ELISP&gt; (remove-if (lambda (x) (= (% x 3) 0)) (range 1 0 20))
+(1 2 4 5 7 8 10 11 13 14 16 17 19 20)
+
+ELISP&gt; (remove-if-not (lambda (x) (= (% x 3) 0)) (range 1 0 20))
+(0 3 6 9 12 15 18)
+
+ELISP&gt;
+</pre>
+
+<ul class="org-ul">
+<li>匿名函数/lambda函数</li>
+</ul>
+<pre class="example">
+ELISP&gt; (lambda (x)(* x 10))
+(lambda
+  (x)
+  (* x 10))
+
+ELISP&gt;
+
+ELISP&gt; (funcall (lambda (x)(* x 10)) 5)
+50
+ELISP&gt;
+
+ELISP&gt; (setq my-lambda (lambda (x) (+ (* x 10) 5))) ;; 10 * x + 5
+(lambda
+  (x)
+  (+
+   (* x 10)
+   5))
+
+ELISP&gt; (funcall my-lambda 10)
+105
+ELISP&gt; (mapcar my-lambda '(1 2 3 4 5))
+(15 25 35 45 55)
+
+
+ELISP&gt;  (setq double (function (lambda (x) (+ x x)) ))
+(lambda
+  (x)
+  (+ x x))
+
+ELISP&gt; (funcall double 22)
+44
+ELISP&gt;
+
+
+;;
+;; Apply a function to a list of arguments
+;;
+;;;;;;;;;;;
+
+ELISP&gt; (apply #'+ '(1 2 3 4 5))
+15
+ELISP&gt;
+
+ELISP&gt;
+ELISP&gt; (defun f (x y z) (+ (* 10 x) (* -4 y) (* 5 z)))
+f
+ELISP&gt; (f 2 3 5)
+33
+
+ELISP&gt; (apply 'f '(2 3 5))
+33
+
+
+ELISP&gt; (mapcar (lambda (x) (apply 'f x)) '( (2 3 5) (4 5 6) (8 9 5)))
+(33 50 69)
+
+
+
+;; Create Higher Order Functions
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+</pre>
+
+<ul class="org-ul">
+<li>Function Composition ????</li>
+</ul>
+<pre class="example">
+ELISP&gt; ;; ID: f0c736a9-afec-3e3f-455c-40997023e130
+(defun compose (&amp;rest funs)
+  "Return function composed of FUNS."
+  (lexical-let ((lex-funs funs))
+    (lambda (&amp;rest args)
+      (reduce 'funcall (butlast lex-funs)
+              :from-end t
+              :initial-value (apply (car (last lex-funs)) args)))))
+              compose
+
+ELISP&gt; (funcall (compose 'prin1-to-string 'random* 'exp) 10)
+"4757.245739507558"
+ELISP&gt;
+</pre>
+
+<ul class="org-ul">
+<li>Interactive Functions</li>
+</ul>
+<pre class="example">
+(defun some-interactive-function ()
+   "Documentation"
+  (interactive)
+  ...)
+</pre>
+
+<ul class="org-ul">
+<li>List Recursive Functions</li>
+</ul>
+<p>
+<b>Map</b>
+</p>
+<pre class="example">
+(defun map (fun xs)
+  (if (null xs)
+      '()
+    (cons (funcall fun (car xs))
+      (map fun (cdr xs)))))
+
+ELISP&gt; (map #'buffer-name (buffer-list))
+("*ielm*" "*scratch*" " *Minibuf-1*" "*Backtrace*" "*eshell*" "sclj.import.scm" "*Messages*" "*GNU Emacs*" " *Minibuf-0*" " *code-conversion-work*" " *Echo Area 0*" " *Echo Area 1*" "*Shell Command Output*" "*Completions*")
+
+ELISP&gt;
+</pre>
+
+<p>
+<b>Filter</b>
+</p>
+<pre class="example">
+(defun filter (fun xs)
+  (if (null xs)
+      '()
+    (let ((hd (car xs))
+      (tl (cdr xs)))
+      (if (funcall fun hd)
+      (cons hd (filter fun tl))
+    (filter fun tl)))))
+
+(defun odd? (x) (zerop (% x 2)))
+
+ELISP&gt; (filter #'odd? '(1 2 3 4 5 6))
+(2 4 6)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="taglist"><a href="https://blog.geekinney.com/tags.html">Tags</a>: <a href="https://blog.geekinney.com/tag-emacs.html">emacs</a> <a href="https://blog.geekinney.com/tag-elisp.html">elisp</a> </div><div id="archive">
+<a href="https://blog.geekinney.com/archive.html">Other posts</a>
+</div>
+</div>
+</body>
+</html>

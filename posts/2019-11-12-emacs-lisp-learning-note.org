@@ -1,0 +1,2361 @@
+#+STARTUP: content indent
+#+OPTIONS: H:3 num:3 toc:3
+#+TITLE: elisp学习笔记
+#+DATE: 2019-11-12
+#+filetags: emacs elisp 
+
+学习来源： [[http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html][Elisp Programming]]
+
+* Elisp
+** 概览
+*** 运行emacs-lisp的几种方式
+| key        | command                | description                             |
+|------------+------------------------+-----------------------------------------|
+| =C-x C-e=  | =eval-last-sexp=       | 在S表达式结尾运行，在minibuffer显示结果 |
+| =C-j=      | =eval-print-last-sexp= | 在S表达式结尾运行，打印运行结果         |
+| =M-:=      | =eval-expression=      | 在minibuffer输入命令并执行              |
+| =M-x ielm= | =ielm=                 | 使用IELM解释器运行代码                  |
+
+*** 创建命令（interactive函数）
+#+BEGIN_SRC emacs-lisp
+;; example
+(defun buffer/insert-filename ()
+  "Insert file path of current buffer at current point"
+  (interactive)
+  (insert (buffer-file-name (current-buffer))))
+#+END_SRC
+
+*** emacs探索
+| key     | command             | description                                                                      |
+|---------+---------------------+----------------------------------------------------------------------------------|
+| =C-h k= | =describe-key=      | 运行命令后，继续按键，查看此时按键绑定的函数                                     |
+| =C-h b= | =describe-bindings= | 在*Help*界面搜索 =Major Mode Bindings:= 可以查看所有与当前major mode相关的按键。 |
+| =C-h f= | =describe-function= | 查看函数文档及详细代码                                                           |
+
+** elisp编程的基本设置
+三个有用的pcakage:
+ * rainbow-delimiters: 不同颜色区分不同层级的括号
+ * paredit: 检查括号匹配
+ * company: elisp代码补全
+
+** 基本运算
+*** 算术
+#+begin_example
+ELISP> (+ 20 30)
+50
+ELISP> (- 100 80)
+20
+ELISP> (+ 1 2 3 4 5 6)
+21
+ELISP> (* 1 2 3 4 5 6)
+720
+ELISP> (/ 1 100)
+0
+
+ELISP> (> 10 1) ;; ?? 10 > 1
+t
+ELISP> (< 2 8) ;; ?? 2 < 8
+t
+ELISP> (< 8 2) ;; ?? 8 < 2
+nil
+
+ELISP> (= 2 2)
+t
+ELISP> (= 2 4)
+nil
+
+ELISP> (/= 2 2)
+nil
+ELISP> (exp -1)
+0.36787944117144233
+ELISP> (log 10)
+2.302585092994046
+ELISP> (sin pi)
+1.2246467991473532e-16
+ELISP> (cos pi)
+-1.0
+ELISP> (tan (/ pi 2))
+1.633123935319537e+16
+ELISP>
+#+end_example
+
+*** 比较
+#+begin_example
+;;;; Compare Numbers
+ELISP> (= 2 (+ 1 1))
+t
+
+;;; Compare Symbols and Numbers
+ELISP> (eq 1 1)
+t
+ELISP> (eq 1 2)
+nil
+ELISP>
+
+ELISP> (eq 'x 'x)
+t
+ELISP>
+
+;;; Compare Elements of a List
+ELISP> (equal (list 1 2 3 4) (list 1 2 3 4))
+t
+
+;;; Compare Strings
+ELISP> (string= "hello" "hello")
+t
+#+end_example
+
+*** 列表
+#+begin_example
+ELISP> '(10 20 30 40)
+(10 20 30 40)
+
+ELISP> '(10 203 40 "hello" () ("empty" 65))
+(10 203 40 "hello" nil
+    ("empty" 65))
+#+end_example
+
+** 类型判断和Literals
+***  Emacs Literals
+#+begin_example
+;;; Numbers
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ELISP> 1e3
+1000.0
+
+;;; String
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ELISP> "Hello World Emacs Literals"
+"Hello World Emacs Literals"
+ELISP>
+
+;;; Symbol
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+ELISP> 'this-a-symbol
+this-a-symbol
+
+ELISP> 'vector->list
+vector->list
+
+ELISP> 'symbol?
+symbol\?
+ELISP>
+
+;; Boolean t and nil
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ELISP> t
+t
+ELISP> nil
+nil
+ELISP>
+
+ ;;; Everything that is not "nil" is true:
+ ;;-----------------------------------------
+ELISP> (if t "It is true (not nil)" "It is false (it is nil)")
+"It is true (not nil)"
+ELISP>
+ELISP> (if 100e3 "It is true (not nil)" "It is false (it is nil)")
+"It is true (not nil)"
+ELISP> (if '(a b c d)  "It is true (not nil)" "It is false (it is nil)")
+"It is true (not nil)"
+ELISP>
+
+ELISP> (if nil  "It is true (not nil)" "It is false (it is nil)")
+"It is false (it is nil)"
+ELISP>
+
+;;; Pair / Cons Cell
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ELISP> '(a . b)
+(a . b)
+
+ELISP> '(a . 2999)
+(a . 2999)
+
+;;; List
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ELISP> '(1 2 3 (3 4) (5 6 (+ 3 4)) 10 'a 'b "hello" )
+(1 2 3
+   (3 4)
+   (5 6
+      (+ 3 4))
+   10 'a 'b "hello")
+
+ELISP> '(+ 1 2 3 4 5)
+(+ 1 2 3 4 5)
+
+ELISP> '(cos 10)
+(cos 10)
+
+;;; Vectors
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ELISP> [1 2 3 4 (+ 1 2 3 54)]
+[1 2 3 4
+   (+ 1 2 3 54)]
+#+end_example
+
+*** 基本类型判断
+| Type    | Predicate | Literal         | Description                                       |
+|---------+-----------+-----------------+---------------------------------------------------|
+| Nil     | null      | nil '()         | Test if argument is nil                           |
+| Numbers | numberp   | 100, 200e3      | Test if it is number.                             |
+| String  | stringp   | "hello"         | Test if it is string                              |
+| Symbol  | symbolp   | 'sym :keyworkd  | Test if it is a symbol.                           |
+|         |           |                 |                                                   |
+| Atom    | atom      | 'x "h" :key 200 | Everything that is not a list or pair is an atom. |
+| List    | listp     | '(1 2 x y)      | Test if it is a list                              |
+| Pair    | consp     | '(a . 200)      | Test if it is a pair (cons cell)                  |
+| Vector  | vectorp   | [1 200 'sym]    | Test if it is a vector                            |
+
+| Object  | Predicate |
+|---------+-----------|
+| Buffer  | bufferp   |
+| Window  | windowp   |
+| Frame   | framep    |
+| Process | processp  |
+
+#+begin_example
+ELISP> (null nil)
+t
+ELISP>
+ELISP> (null '())
+t
+
+ELISP> (null 10)
+nil
+
+ELISP> (atom 10)
+t
+ELISP> (atom '(a . b))
+nil
+ELISP> (atom "hello world")
+t
+ELISP>
+
+ELISP> (bufferp (current-buffer))
+t
+ELISP> (bufferp (selected-window))
+nil
+ELISP> (windowp (selected-window))
+t
+ELISP>
+#+end_example
+
+*** 获取对象类型
+#+begin_example
+ELISP> (type-of (current-buffer))
+buffer
+ELISP>
+ELISP> (type-of (selected-window))
+window
+ELISP>
+
+ELISP> (equal 'buffer (type-of (current-buffer)))
+t
+ELISP> (equal 'buffer (type-of (selected-window)))
+nil
+ELISP>
+#+end_example
+** 变量定义
+#+begin_example
+;;; Constants
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+ELISP> (defconst zsh-shell "/usr/bin/zsh")
+zsh-shell
+
+ELISP> zsh-shell
+"/usr/bin/zsh"
+ELISP>
+
+;;; Define a variable
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;; Set is not used very much
+;;
+ELISP> (set 'avar "hello world")
+"hello world"
+
+ELISP> avar
+"hello world"
+ELISP>
+
+;;;;; The most used command for assignment is setq
+;;
+ELISP> (setq x 10)
+10
+
+ELISP> (setq avar "hello world")
+"hello world"
+
+ELISP> x
+10
+
+ELISP> avar
+"hello world"
+ELISP>
+
+ELISP> (setq my-list '(10 20 30 40))
+(10 20 30 40)
+
+ELISP> my-list
+(10 20 30 40)
+
+;;; Multiple Assignment
+;;
+ELISP> (setq a 10 b 20 c "Emacs")
+"Emacs"
+ELISP> a
+10
+ELISP> b
+20
+ELISP> c
+"Emacs"
+ELISP>
+
+;; Dynamic Scoping  (Local Variables)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+ELISP> (let ((x 1) (y 10)) (+ (* 4 x) (* 5 y)) )
+54
+ELISP> x
+    ** Eval error **  Symbol's value as variable is void: x
+ELISP> y
+    ** Eval error **  Symbol's value as variable is void: y
+ELISP>
+#+end_example
+** 函数定义
+*** 定义简单函数
+语法: (defun <function name> (<parameters>) (<body>))
+#+begin_example
+ELISP> (defun afunction (a b c) (+ a b c))
+afunction
+
+ELISP> (afunction 10 20 30)
+60
+
+ELISP> (defun myfun () (message "Hello Emacs"))
+myfun
+ELISP> (myfun)
+"Hello Emacs"
+ELISP>
+
+
+ELISP>
+ELISP> (defun signum (n)
+     (cond ((> n 0) 1 )
+           ((< n 0) -1)
+           (0)))
+signum
+ELISP> (signum 10)
+1
+ELISP> (signum 0)
+0
+ELISP> (signum -23)
+-1
+ELISP>
+
+
+ELISP> (defun factorial (n)
+     (if (= n 0)
+         1
+         (* n (factorial (- n 1)))))
+factorial
+
+ELISP> (factorial 5)
+120
+ELISP
+#+end_example
+*** 匿名函数/Lambda函数
+语法: (lambda (<parameters>) (<body>))
+#+begin_example
+ELISP> (lambda (x) (+ x 3))
+(lambda
+  (x)
+  (+ x 3))
+
+;;; Applying Lambda Functions
+;;
+
+ELISP> ((lambda (x) (+ x 3)) 4)
+7
+ELISP> (funcall (lambda (x) (+ x 3)) 4)
+7
+ELISP>
+
+;;; Storing Lambda Function in Variable
+;;
+;;
+
+ELISP> (defvar add3 (lambda (x) (+ x 3)))
+add3
+
+
+ELISP> add3
+(lambda
+  (x)
+  (+ x 3))
+
+ELISP> (funcall add3 10)
+13
+
+ELISP> (add3 10)
+    ** Eval error **  Symbol's function definition is void: add3
+
+ELISP> (funcall #'add3 10)
+    ** Eval error **  Symbol's function definition is void: add3
+ELISP>
+
+;;; Passing Lambda Function to functions
+;;
+ELISP> (mapcar (lambda (x) (+ x 3))  '(1 2 3 4 5))
+(4 5 6 7 8)
+#+end_example
+*** 函数作为参数
+语法: (caller-function #'<function-1> #'<function-1> arg1 arg2 ...)
+
+在函数内部，使用 =funcall= 调用函数作为参数
+
+#+begin_example
+ELISP> (mapcar log '(1 10 100 1000))
+    ** Eval error **  Symbol's value as variable is void: log
+
+
+ELISP> (mapcar #'log10 '(1 10 100 1000))
+(0.0 1.0 2.0 3.0)
+
+(defun sum-fun (f1 f2 x)
+  (+ (funcall f1 x) (funcall f2 x)))
+
+ELISP> (sum-fun #'log #'exp 3)
+21.18414921185578
+ELISP>
+
+ELISP> (+ (log 3) (exp 3))
+21.18414921185578
+ELISP>
+
+ELISP> (sum-fun (lambda (x) (* 3 x))
+        (lambda (x) (* 4 x))
+        5)
+35
+ELISP>
+
+ELISP> (defun 1+ (x) (+ 1 x))
+1+
+ELISP> (defun 3* (x) (* 3 x))
+3*
+
+ELISP> (sum-fun #'1+  #'3* 4)
+17
+ELISP>
+
+ELISP> (sum-fun #'1+  (lambda (x) (* 3 x)) 4)
+17
+ELISP>
+#+end_example
+*** 多参函数
+#+begin_example
+(defun sum (&rest numbers)
+  (apply #'+ numbers))
+
+ELISP> (sum 1 2 3 4 5 6)
+21
+
+
+ELISP> (apply #'sum '(1 2 3 5 6))
+17
+
+ELISP> (apply #'sum (list 1 2 3 5 (+ 6 5 2)))
+24
+
+ELISP> (apply #'sum '())
+0
+
+ELISP> (apply #'sum nil)
+0
+
+ELISP> (sum nil)
+    ** Eval error **  Wrong type argument: number-or-marker-p, ni
+
+;;----------------------------------
+
+(defun sum-prod (a &rest xs)
+  (* a (apply #'+ xs)))
+
+
+ELISP> (sum-prod 3 1 2 3 4 5)
+45
+
+ELISP> (sum-prod 1 1 2 3 4 5)
+15
+#+end_example
+*** 可选参数函数
+#+begin_example
+(defun test-optional (a &optional b)
+  (list a b))
+
+ELISP> (test-optional 10 20)
+(10 20)
+
+ELISP> (test-optional 10 )
+(10 nil)
+
+;--------------------------------;
+
+(defun test-optional2 (a b &optional b c d e)
+  (list :a a :b b :c c :d d :e e))
+
+ELISP> (test-optional2 0 1 2 3 4 5 )
+(:a 0 :b 2 :c 3 :d 4 :e 5)
+
+
+ELISP> (test-optional2 0 1 2 3 4  )
+(:a 0 :b 2 :c 3 :d 4 :e nil)
+
+ELISP> (test-optional2 0 1 2 3   )
+(:a 0 :b 2 :c 3 :d nil :e nil)
+
+ELISP> (test-optional2 0 1 2    )
+(:a 0 :b 2 :c nil :d nil :e nil)
+
+ELISP> (test-optional2 0 1  )
+(:a 0 :b nil :c nil :d nil :e nil)
+
+ELISP> (test-optional2 0 1)
+(:a 0 :b nil :c nil :d nil :e nil)
+
+;--------------------------------;
+
+(defun test-optional-default-b (a &optional b)
+  (if b
+      (list a b)
+      (list a "b is null")))
+
+ELISP> (test-optional-default-b 1 2)
+(1 2)
+
+ELISP> (test-optional-default-b 1)
+(1 "b is null")
+
+ELISP> (test-optional-default-b 1 nil)
+(1 "b is null")
+#+end_example
+*** 含属性列表参数函数
+#+begin_example
+(defun make-shell-interface (&rest params)
+  "
+  Create a shell interface.
+
+  Possible parameters:
+
+    :name      Name of shell
+    :type      ['sh, 'bash, ...]
+    :path      Path to program
+    :buffer    Name of buffer
+
+  "
+  (let
+       ((name   (plist-get params :name ))
+        (type   (plist-get params :type))
+        (path   (plist-get params :path))
+        (buffer (plist-get params :buffer)))
+    (list
+     (cons 'name buffer)
+     (cons 'type type)
+     (cons 'path path)
+     (cons 'buffer buffer))))
+
+
+ELISP> (make-shell-interface :name "pylaucher" :path "/usr/bin/python" :type 'sh :buffer "pyshell")
+((name . "pyshell")
+ (type . sh)
+ (path . "/usr/bin/python")
+ (buffer . "pyshell"))
+
+ELISP> (make-shell-interface :name "pylaucher" :path "/usr/bin/python" :type 'sh)
+((name)
+ (type . sh)
+ (path . "/usr/bin/python")
+ (buffer))
+
+ELISP> (make-shell-interface :name "pylaucher" :path "/usr/bin/python" :type 'bash)
+((name)
+ (type . bash)
+ (path . "/usr/bin/python")
+ (buffer))
+
+ELISP> (make-shell-interface :name "pylaucher" :path "/usr/bin/python")
+((name)
+ (type)
+ (path . "/usr/bin/python")
+ (buffer))
+
+ELISP> (make-shell-interface :name "pylaucher" )
+((name)
+ (type)
+ (path)
+ (buffer))
+
+ELISP> (make-shell-interface  )
+((name)
+ (type)
+ (path)
+ (buffer))
+
+ELISP> (make-shell-interface :buffer "pyshell"  :path "/usr/bin/python" :type 'sh :name "pylaucher")
+((name . "pyshell")
+ (type . sh)
+ (path . "/usr/bin/python")
+ (buffer . "pyshell"))
+#+end_example
+*** Closures
+elisp方言默认不支持closure，所以下面的代码不会像Scheme或Common Lisp一样执行。
+
+参考：
+- [[https://www.emacswiki.org/emacs/LexicalBinding][EmacsWiki: Lexical Binding]]
+- [[https://www.emacswiki.org/emacs/DynamicBindingVsLexicalBinding][EmacsWiki: Dynamic Binding Vs Lexical Binding]]
+- [[https://nullprogram.com/blog/2013/12/30/][Emacs Lisp Readable Closures « null program]]
+- [[https://www.jamesporter.me/2013/06/14/emacs-lisp-closures-exposed.html][https://www.jamesporter.me/2013/06/14/emacs-lisp-closures-exposed.html]]
+- [[http://technical-dresese.blogspot.com/2011/04/brief-demonstration-of-emacs-new.html][Technical Dresese: A brief demonstration of emacs new lexical bindings]]
+
+#+begin_example
+(defun make-adder (x)
+  (lambda (y) (+ x y)))
+
+
+ELISP>
+ELISP> (make-adder 3)
+(lambda
+  (y)
+  (+ x y))
+
+ELISP> ((make-adder 3) 4)
+    ** Eval error **  Invalid function: (make-adder 3)
+ELISP> (funcall (make-adder 3) 4)
+    ** Eval error **  Symbol's value as variable is void: x
+ELISP> (map (make-adder 3) '(1 2 3 4 5))
+    ** Eval error **  Symbol's value as variable is void: x
+ELISP>
+#+end_example
+
+支持closure的代码：
+#+begin_example
+(setq lexical-binding t)
+
+(defun make-adder (x)
+  (lambda (y) (+ x y)))
+
+ELISP> (make-adder 3)
+(closure
+ ((x . 3)
+  t)
+ (y)
+ (+ x y))
+
+ELISP> ((make-adder 3) 4)
+    ** Eval error **  Invalid function: (make-adder 3)
+ELISP>
+
+ELISP> (funcall (make-adder 3) 4)
+7
+ELISP>
+
+ELISP> (mapcar (make-adder 3) '(1 2 3 4 5))
+(4 5 6 7 8)
+
+
+;;;; Sometimes is better to create macro rather than a higher order function
+
+
+(defmacro make-sum-fun (f1 f2)
+  `(lambda (x) (+ (,f1 x) (,f2 x))))
+
+ELISP>
+ELISP> (funcall (make-sum-fun sin cos) 3)
+-0.8488724885405782
+ELISP>
+ELISP> (make-sum-fun sin cos)
+(closure
+ (t)
+ (x)
+ (+
+  (sin x)
+  (cos x)))
+
+ELISP> (map (make-sum-fun sin cos) '(1 2 3 4 5))
+(1.3817732906760363 0.4931505902785393 -0.8488724885405782 -1.4104461161715403 -0.6752620891999122)
+#+end_example
+
+在 =~/.emacs.d/init.el= 中添加如下配置以支持closure.
+#+begin_example
+(setq lexical-binding t)
+#+end_example
+** 列表操作
+参考：
+- https://www.fincher.org/tips/Languages/Emacs.shtml
+
+#+begin_example
+;; Defining a List
+;;
+;; An emacs list can contain elements of almost any type.
+;;
+ELISP> '( "a" 2323 "b" 21.2323 "hello" "emacs" nil () (34 134) '(+ 2 3 5))
+("a" 2323 "b" 21.2323 "hello" "emacs" nil nil
+ (34 134)
+ '(+ 2 3 5))
+
+ELISP> (quote (1 3 3 4 5))
+(1 3 3 4 5)
+
+;;;;; Empty List
+;;
+ELISP> nil
+nil
+ELISP> '()
+nil
+ELISP>
+
+;; Length of a list
+ELISP> (length '(1 2 3 4 5 6))
+6
+ELISP>
+
+
+;; nth element of a list
+;;
+ELISP> (nth 0 '(0 1 2 3 4 5))
+0
+ELISP> (nth 2 '(0 1 2 3 4 5))
+2
+ELISP> (nth 5 '(0 1 2 3 4 5))
+5
+ELISP> (nth 10 '(0 1 2 3 4 5))
+nil
+ELISP>
+
+
+;; Membership test
+;; member returns null if the element is not member of the list
+;;
+ELISP> (member 2 '(0 1 2 3 4 5))
+(2 3 4 5)
+
+ELISP> (member 10 '(0 1 2 3 4 5))
+nil
+ELISP>
+
+;; Position of list element (prior to emacs 24.4)
+;;
+ELISP> (position 7 '(5 6 7 8))
+2
+
+ELISP> (position 17 '(5 6 7 8))
+nil
+ELISP>
+
+;; Position of list element (emacs 24.4 or later)
+;;
+ELISP> (cl-position 7 '(5 6 7 8))
+2
+
+ELISP> (cl-position 17 '(5 6 7 8))
+nil
+ELISP>
+
+;; cdr
+;;
+;; Removes first element of the list, returns the list tail.
+;;
+ELISP> (cdr '(1 2 3 4 5))
+(2 3 4 5)
+
+;; car
+;;
+;; Returns the first list element
+;;
+ELISP> (car '(1 2 3 4 5))
+1
+ELISP>
+
+
+;; cons
+;;
+;; List constructor
+;;
+ELISP> (cons 10 '(1 2 3 4))
+(10 1 2 3 4)
+
+ELISP> (cons 1 (cons 2 (cons 3 (cons 4 (cons 5 '())))))
+(1 2 3 4 5)
+
+;; Last element of a list
+;;
+;;
+ELISP> (car (last '(1 2 3 4 5)))
+5
+ELISP>
+
+
+;; Reverse a list
+;;
+ELISP> (reverse '(1 2 3 4 5))
+(5 4 3 2 1)
+
+
+;; Append lists
+;;
+;; Note: nil also means an empty list
+;;
+ELISP> (append '(1 2) '( "a" "b" "c" "d"))
+(1 2 "a" "b" "c" "d")
+
+ELISP> (append '(1 2) nil '( "a" "b" "c" "d") nil)
+(1 2 "a" "b" "c" "d")
+
+
+
+;; Filter list elements given a predicate function
+;;
+;;
+ELISP> (remove-if-not (lambda (x) (> x 2)) '(1 2 3 4 5 6 7 8 9 10))
+(3 4 5 6 7 8 9 10)
+
+;; Test if list is empty
+;;
+ELISP> (null '(1 2 3 4 5))
+nil
+ELISP> (null '())
+t
+ELISP> (null nil)
+t
+ELISP>
+
+;; Drop the firsts n elements of a list
+;;
+;;
+ELISP> (nthcdr 2 '(1 2 3 4))
+(3 4)
+
+ELISP> (nthcdr 3 '(1 2 3 4))
+(4)
+
+ELISP> (nthcdr 13 '(1 2 3 4))
+nil
+ELISP>
+
+;; Delete an element of a list
+;;
+;;
+ELISP> (delq 1 '(1 2 3 4))
+(2 3 4)
+
+
+ELISP> (delq 10 '(1 2 3 4))
+(1 2 3 4)
+
+;; It doesn't work to delete sublists
+;;
+ELISP> (delq (5) '(1 2 (5) 3 4))
+    ** Eval error **  Invalid function: 5
+ELISP> (delq '(5) '(1 2 (5) 3 4))
+(1 2
+   (5)
+   3 4)
+
+ELISP> (delete '(5) '(1 2 (5) 3 4))
+(1 2 3 4)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Convert Vector to List
+;;
+;;
+ELISP> (coerce [1 2 3] 'list)
+(1 2 3)
+
+;; Convert List to Vector
+;;
+ELISP> (coerce '(1 2 3) 'vector)
+[1 2 3]
+
+ELISP> (number-sequence 0 10 2)
+(0 2 4 6 8 10)
+
+ELISP> (number-sequence 9 4 -1)
+(9 8 7 6 5 4)
+
+
+;; Modify list variables.
+;;
+ELISP> alist
+(a b c d e)
+
+ELISP> (push 'f alist)
+(f a b c d e)
+
+ELISP> alist
+(f a b c d e)
+
+ELISP> (pop alist)
+f
+
+ELISP> alist
+(a b c d e)
+
+ELISP> (pop alist)
+a
+ELISP> alist
+(b c d e)
+
+ELISP>
+#+end_example
+** 关联列表和属性列表
+*** 概览
+关联列表是一系列cons对，这里我可以称作 =clist= 或者 由两个元素组成的列表的集合，可以称为 =alist=
+
+*关联列表类型：clist*
+
+键: a, x, 2 and 4 值: b, y, 3 and (1 2 3 4 5)
+#+begin_example
+ELISP> '((a . b) (x . y) (2 . 3) (4 . (1 2 3 4 5)))
+((a . b)
+ (x . y)
+ (2 . 3)
+ (4 1 2 3 4 5)
+
+ELISP> (cons 'a 'b)
+(a . b)
+
+ELISP> (cons 'a (cons 'b (cons 'c nil)))
+(a b c)
+#+end_example
+
+*关联列表类型：alist*
+#+begin_example
+ELISP> '((a  b) (x  y) (2  3) (4  (1 2 3 4 5)))
+((a b)
+ (x y)
+ (2 3)
+ (4
+  (1 2 3 4 5)))
+
+ELISP> (list (list 'a 'b) (list 'x 'y) (list 2 3) (list 2 '(1 2 3 4 5)))
+((a b)
+ (x y)
+ (2 3)
+ (2
+  (1 2 3 4 5)))
+#+end_example
+=alist= 不像 =clist= 有歧义。
+
+*属性列表：Plist*
+
+属性列表是连续的键值对集合，它的优势是括号少和可读性高。
+#+begin_example
+'(:key1 value1 :key2 value2 :key3 1002.23 :key4 (a b c d e))
+
+ELISP> '(:key1 value1 :key2 value2 :key3 1002.23 :key4 (a b c d e))
+(:key1 value1 :key2 value2 :key3 1002.23 :key4
+       (a b c d e))
+
+;;; It is more useful in configuration files
+
+(
+:key1  value1
+:key2  value2
+:key3  value3
+:key4  (a b c d e )
+)
+#+end_example
+*** 关联列表/Alist
+#+begin_example
+ELISP> (setq dict
+'((pine . cones)
+ (oak . acorns)
+ (maple . seeds)))
+((pine . cones)
+ (oak . acorns)
+ (maple . seeds))
+
+ELISP> dict
+((pine . cones)
+ (oak . acorns)
+ (maple . seeds))
+
+;; Get a cell associated with a key
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ELISP>
+ELISP> (assoc 'oak dict)
+(oak . acorns)
+
+ELISP> (assoc 'wrong dict)
+nil
+
+;; Get a Key
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+ELISP> (car (assoc 'oak dict))
+oak
+ELISP> (cdr (assoc 'oak dict))
+acorns
+ELISP>
+
+
+ELISP> (car (assoc 'oak dict))
+oak
+ELISP>
+
+;; Get all keys
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+ELISP> (mapcar #'car dict)
+(pine oak maple)
+
+;; Get all values
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+ELISP> (mapcar #'cdr dict)
+(cones acorns seeds)
+#+end_example
+
+例：过滤多个键
+#+begin_example
+ELISP> (defvar language-list
+  '(
+   ("io" . ((:command . "io")
+             (:description . "Run IO Language script")))
+    ("lua" . ((:command . "lua")
+              (:description . "Run Lua script")))
+    ("groovy" . ((:command . "groovy")
+                 (:description . "Run Groovy")))
+    ("scala" . ((:command . "scala")
+                (:cmdopt . "-Dfile.encoding=UTF-8")
+                (:description . "Run Scala file with scala command")))
+
+    ("haml" . ((:command . "haml")
+               (:exec    . "%c %o %s")
+               (:description . "Convert HAML to HTML")))
+    ("sass" . ((:command . "sass")
+               (:exec    . "%c %o --no-cac")))
+ ))
+language-list
+
+
+ELISP> (assoc  "scala"  language-list )
+("scala"
+ (:command . "scala")
+ (:cmdopt . "-Dfile.encoding=UTF-8")
+ (:description . "Run Scala file with scala command"))
+
+ELISP> (assoc  "lua"  language-list )
+("lua"
+ (:command . "lua")
+ (:description . "Run Lua script"))
+
+ELISP> (assoc  "wrong"  language-list )
+nil
+
+ELISP> (assoc ':command (assoc  "scala"  language-list ))
+(:command . "scala")
+
+ELISP> (cdr (assoc ':command (assoc  "scala"  language-list )))
+"scala"
+ELISP>
+
+ELISP> (assoc ':description (assoc  "scala"  language-list ))
+(:description . "Run Scala file with scala command")
+
+ELISP> (cdr (assoc ':description (assoc  "scala"  language-list )))
+"Run Scala file with scala command"
+ELISP>
+
+ELISP> (mapcar 'car language-list)
+("io" "lua" "groovy" "scala" "haml" "sass")
+
+ELISP> (mapcar 'cdr language-list)
+(((:command . "io")
+  (:description . "Run IO Language script"))
+ ((:command . "lua")
+  (:description . "Run Lua script"))
+ ((:command . "groovy")
+  (:description . "Run Groovy"))
+ ((:command . "scala")
+  (:cmdopt . "-Dfile.encoding=UTF-8")
+  (:description . "Run Scala file with scala command"))
+ ((:command . "haml")
+  (:exec . "%c %o %s")
+  (:description . "Convert HAML to HTML"))
+ ((:command . "sass")
+  (:exec . "%c %o --no-cac")))
+
+ELISP>
+
+ELISP> (mapcar (lambda (x) (
+                             list
+                             (car x)
+                             (cdr x)
+                             ))
+                            language-list)
+(("io"
+  ((:command . "io")
+   (:description . "Run IO Language script")))
+ ("lua"
+  ((:command . "lua")
+   (:description . "Run Lua script")))
+ ("groovy"
+  ((:command . "groovy")
+   (:description . "Run Groovy")))
+ ("scala"
+  ((:command . "scala")
+   (:cmdopt . "-Dfile.encoding=UTF-8")
+   (:description . "Run Scala file with scala command")))
+ ("haml"
+  ((:command . "haml")
+   (:exec . "%c %o %s")
+   (:description . "Convert HAML to HTML")))
+ ("sass"
+  ((:command . "sass")
+   (:exec . "%c %o --no-cac"))))
+
+ELISP>
+
+ELISP> (mapcar (lambda (x) (
+     list
+     (car x)
+     (assoc ':command       (cdr x))
+     (assoc ':cmdopt        (cdr x))
+     (assoc ':description   (cdr x))
+     ))
+    language-list)
+
+(("io"
+  (:command . "io")
+  nil
+  (:description . "Run IO Language script"))
+ ("lua"
+  (:command . "lua")
+  nil
+  (:description . "Run Lua script"))
+ ("groovy"
+  (:command . "groovy")
+  nil
+  (:description . "Run Groovy"))
+ ("scala"
+  (:command . "scala")
+  (:cmdopt . "-Dfile.encoding=UTF-8")
+  (:description . "Run Scala file with scala command"))
+ ("haml"
+  (:command . "haml")
+  nil
+  (:description . "Convert HAML to HTML"))
+ ("sass"
+  (:command . "sass")
+  nil nil))
+
+ELISP>
+
+
+ELISP> (mapcar (lambda (x) (
+         list
+         (car x)
+         (cdr (assoc ':command   (cdr x)))
+         (cdr (assoc ':cmdopt       (cdr x)))
+         (cdr (assoc ':description   (cdr x)))
+         ))
+
+        language-list)
+(("io" "io" nil "Run IO Language script")
+ ("lua" "lua" nil "Run Lua script")
+ ("groovy" "groovy" nil "Run Groovy")
+ ("scala" "scala" "-Dfile.encoding=UTF-8" "Run Scala file with scala command")
+ ("haml" "haml" nil "Convert HAML to HTML")
+ ("sass" "sass" nil nil))
+
+ELISP>
+
+ELISP> (defun get-value (alist key) (cdr (assoc key alist)))
+get-value
+ELISP> (get-value language-list "scala")
+((:command . "scala")
+ (:cmdopt . "-Dfile.encoding=UTF-8")
+ (:description . "Run Scala file with scala command"))
+
+ELISP> (get-value language-list "lua")
+((:command . "lua")
+ (:description . "Run Lua script"))
+
+ELISP>
+ELISP> (get-value language-list "0")
+nil
+ELISP>
+
+
+ELISP> (defun get-key-value (alist key field)
+                (cdr (assoc  field  (cdr (assoc key alist))  )))
+get-key-value
+ELISP>
+ELISP> (get-key-value language-list "scala" ':description)
+"Run Scala file with scala command"
+ELISP>
+
+ELISP> (get-key-value language-list "scala" ':command)
+"scala"
+ELISP>
+#+end_example
+*** 属性列表
+#+begin_example
+ELISP> (defvar plst (list :buffer (current-buffer) :line 10 :pos 2000))
+plst
+
+ELISP>
+ELISP> (plist-get plst :line)
+10
+
+ELISP> (plist-get plst :pos)
+2000
+
+ELISP> (plist-get plst :buffer)
+#<buffer *ielm*>
+ELISP>
+
+ELISP>
+ELISP> (plist-get plst :buffdfds)
+nil
+ELISP>
+
+ELISP> (plist-member plst :buffer)
+(:buffer #<buffer *ielm*> :line 10 :pos 2000)
+
+ELISP> (plist-member plst :bufferasd)
+nil
+ELISP>
+
+ELISP> (plist-put plst :winconf (current-window-configuration))
+(:buffer #<buffer *ielm*> :line 10 :pos 2000 :winconf #<window-configuration>)
+
+ELISP> plst
+(:buffer #<buffer *ielm*> :line 10 :pos 2000 :winconf #<window-configuration>)
+
+ELISP>
+#+end_example
+*** 转换Alist成Plist和vice-versa
+#+begin_example
+;; Alist to plist
+(defun plist->alist (plist)
+  (if (null plist)
+      '()
+      (cons
+       (list (car plist) (cadr plist))
+       (plist->alist (cddr plist)))))
+
+ELISP> (plist->alist (list :x 10 :y 20 :name "point"))
+((:x 10)
+ (:y 20)
+ (:name "point"))
+
+;;; Converts association list to plist
+(defun alist->plist (assocl)
+  (if (null assocl)
+      '()
+    (let
+    ((hd (car assocl))
+     (tl (cdr assocl)))
+      (cons (car hd)
+        (cons (cadr hd)
+          (alist->plist tl))))))
+
+;;; Converts plist to clist (List of cons pairs)
+(defun plist->clist (plist)
+  (if (null plist)
+      '()
+      (cons
+       (cons (car plist) (cadr plist))
+      (plist->clist (cddr plist)))))
+
+ELISP> (plist->clist (list :x 10 :y 20 :name "point"))
+((:x . 10)
+ (:y . 20)
+ (:name . "point"))
+
+;; Separates a property list into two lists of keys and values.
+;;
+(defun plist->kv (plist)
+  (let ((alist (plist->alist plist)))
+    (cons
+     (mapcar #'car alist)
+     (mapcar #'cdr alist))))
+
+ELISP> (setq al (plist->alist (list :x 10 :y 20 :name "point")))
+((:x 10)
+ (:y 20)
+ (:name "point"))
+
+ELISP> (alist->plist al)
+(:x 10 :y 20 :name "point")
+
+ELISP>
+
+(setq keylist
+    '("M-i"  'previous-line
+      "M-j"  'backward-char
+      "M-k"  'next-line
+      "M-l"  'forward-char))
+
+
+ELISP> (setq kv (plist->kv keylist))
+(("M-i" "M-j" "M-k" "M-l")
+ ('previous-line)
+ ('backward-char)
+ ('next-line)
+ ('forward-char))
+
+ELISP> (car kv)
+("M-i" "M-j" "M-k" "M-l")
+
+ELISP> (cdr kv)
+(('previous-line)
+ ('backward-char)
+ ('next-line)
+ ('forward-char))
+
+ELISP>
+#+end_example
+** 字符串
+#+begin_example
+;; Split String
+
+ELISP> (split-string "  two words ")
+("two" "words")
+
+ELISP>
+
+ELISP> (split-string "o\no\no" "\n" t)
+("o" "o" "o")
+
+ELISP> (split-string "Soup is good food" "o*" t)
+("S" "u" "p" " " "i" "s" " " "g" "d" " " "f" "d")
+
+ELISP>
+
+;; Format String
+
+ELISP> (format-time-string "%Y/%m/%d %H:%M:%S" (current-time))
+"2015/06/26 06:10:04"
+ELISP>
+ELISP>
+
+
+;; Concatenate Strings
+
+ELISP> (concat "The " "quick brown " "fox.")
+"The quick brown fox."
+ELISP>
+
+ELISP> (mapconcat 'identity '("aaa" "bbb" "ccc") ",")
+"aaa,bbb,ccc"
+ELISP> (split-string "aaa,bbb,ccc" ",")
+ELISP> (split-string "aaa,bbb,ccc" ",")
+("aaa" "bbb" "ccc")
+
+;; String Width
+
+ELISP> (string-width "hello world")
+11
+ELISP>
+ELISP> (substring "Freedom Land" 0 5)
+"Freed"
+ELISP>
+ELISP> (string-match "ce" "central park")
+0
+ELISP> (string-match "gt" "central park")
+nil
+ELISP>
+
+
+;;;;; Misc
+
+ELISP> (make-string 5 ?x)
+"xxxxx"
+ELISP> (make-string 5 ?a)
+"aaaaa"
+ELISP> (make-string 5 ?r)
+"rrrrr"
+ELISP> (make-string 15 ?r)
+"rrrrrrrrrrrrrrr"
+ELISP>
+#+end_example
+
+*elisp符号/字符串转换*
+#+begin_example
+; Convert a symbol to string
+ELISP> (symbol-name 'wombat)
+"wombat"
+
+; Convert a String to Symbol
+ELISP> (intern "wombat")
+wombat
+#+end_example
+
+*读取字符串中的S表达式*
+#+begin_example
+ELISP> (read-from-string
+            "(
+               (POINT1  (X  10.2323)  (Y   20.2323))
+               (POINT2  (x  0.2)          (Y 923.23))
+               (POINT3  (x -10.5)       (Y 78,23))
+             )")
+(((POINT1
+   (X 10.2323)
+   (Y 20.2323))
+  (POINT2
+   (x 0.2)
+   (Y 923.23))
+  (POINT3
+   (x -10.5)
+   (Y 78
+      (\, 23))))
+ . 174)
+
+ELISP>
+#+end_example
+** 符号
+#+begin_example
+;;; Convert a string to symbol
+
+ELISP> (intern "a-symbol")
+a-synmbol
+ELISP> (symbolp (intern "a-symbol"))
+t
+ELISP>
+
+;;; Convert a symbol to a string
+
+ELISP> (symbol-name 'symbol)
+"symbol"
+ELISP>
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+ELISP> (setq sym '(1 2 3 4 5))
+(1 2 3 4 5)
+
+ELISP> sym
+(1 2 3 4 5)
+
+;;; Test if variable is defined
+ELISP> (boundp 'sym)
+t
+ELISP>
+
+;;; Test if variable sym is a symbol
+ELISP> (symbolp sym)
+nil
+
+;;; Test if the symbol sym is a symbol
+ELISP> (symbolp 'sym)
+t
+ELISP>
+
+;; Get symbol as string
+;;
+ELISP> (symbol-name 'sym)
+"sym"
+
+;; Get value from a symbol
+;;
+ELISP> (symbol-value 'sym)
+(1 2 3 4 5)
+
+ELISP> (symbol-function 'sym)
+nil
+
+ELISP> (symbol-plist 'sym)
+nil
+
+;;-------------------------;;
+
+ELISP> (defun func (x y) (+ (* 3 x) (* 4 y)))
+func
+
+ELISP> (func 10 2)
+38
+ELISP>
+
+;;; Check if function is defined
+;;
+ELISP> (fboundp 'func)
+t
+ELISP> (fboundp 'sym)
+nil
+ELISP>
+
+
+ELISP> (symbol-name 'func)
+"func"
+
+ELISP> (symbol-value 'func)
+    ** Eval error **  Symbol's value as variable is void: func
+ELISP> (symbol-function 'func)
+(lambda
+  (x y)
+  (+
+   (* 3 x)
+   (* 4 y)))
+
+ELISP> (symbol-plist 'func)
+nil
+ELISP>
+
+;;; Function Source Code
+
+ELISP> (symbol-function #'func)
+(lambda
+  (x y)
+  (+
+   (* 3 x)
+   (* 4 y)))
+
+
+;; Test if function is an elisp primitive
+
+ELISP> (subrp (symbol-function 'goto-char))
+t
+ELISP>
+#+end_example
+** 类型转换
+*类型查询*
+#+begin_example
+ELISP> (type-of 1000)
+integer
+
+ELISP> (type-of 1000.3434)
+float
+ELISP>
+
+ELISP> (type-of "lisp")
+string
+
+ELISP> (type-of '(1 2 3 4 5))
+cons
+ELISP> (type-of (list 'cos 'sin 1 2 3 4 5))
+cons
+ELISP>
+
+ELISP> (type-of [1 2 3 4])
+vector
+
+ELISP> (type-of 'elisp-mode-map)
+symbol
+ELISP>
+
+ELISP> (type-of #'cos)
+symbol
+ELISP>
+#+end_example
+
+*类型判断*
+#+begin_example
+;; Test if it is a number
+;;-----------------------------------
+
+ELISP> (numberp 1000)
+t
+ELISP> (numberp 10e4)
+t
+ELISP> (numberp '(1 2 3 4))
+nil
+ELISP> (numberp "hello world")
+nil
+ELISP>
+
+
+;; Test if it is a string
+;;-----------------------------------
+
+ELISP> (stringp "Emacs")
+t
+ELISP> (stringp '(1 2 3 4))
+nil
+ELISP>
+
+;; Test if ti is a symbol
+;;------------------------------------
+ELISP> (symbolp 'emacs)
+t
+ELISP> (symbolp #'emacs)
+t
+ELISP> (symbolp "something")
+nil
+ELISP> (symbolp 10000)
+nil
+ELISP>
+
+
+;; Test if it is a list
+;;-----------------------------------
+
+ELISP> (listp '(1 2 3 4))
+t
+ELISP> (listp [1 2 3 4])
+nil
+ELISP> (listp "hello world")
+nil
+ELISP>
+
+
+;; Test if it is a vector
+;;-----------------------------------
+
+ELISP> (vectorp ["Lisp" "Emacs" "Scheme" "Clojure"])
+t
+ELISP>
+ELISP> (vectorp '(1 2 3))
+nil
+ELISP> (vectorp "lisp")
+nil
+ELISP>
+#+end_example
+
+*数字/字符串转换*
+#+begin_example
+ELISP>
+ELISP> (number-to-string 1000)
+"1000"
+
+ELISP> (string-to-number "200")
+200
+ELISP>
+ELISP>
+#+end_example
+
+*符号/字符串转换*
+#+begin_example
+ELISP> (symbol-name 'my-symbol)
+"my-symbol"
+
+ELISP> (symbol-name :my-symbol)
+":my-symbol"
+ELISP>
+
+ELISP> (intern "some-symbol")
+some-symbol
+#+end_example
+
+*S表达式/字符串转换*
+ * read: 解析S表达式
+#+begin_example
+ELISP>
+ELISP> (setq raw "(:x 10 :y 20 :z 30 :w \"hello world\")")
+"(:x 10 :y 20 :z 30 :w \"hello world\")"
+ELISP>
+ELISP> (read raw)
+(:x 10 :y 20 :z 30 :w "hello world")
+
+ELISP> (plist-get (read raw) :x)
+10
+ELISP> (plist-get (read raw) :w)
+"hello world"
+ELISP>
+#+end_example 
+
+ * prin1-to-string: 序列化S表达式
+#+begin_example
+ELISP> (setq sexp '(:x 10 :y 20 :z 30 :w "hello world"))
+(:x 10 :y 20 :z 30 :w "hello world")
+
+ELISP> sexp
+(:x 10 :y 20 :z 30 :w "hello world")
+
+ELISP> (prin1-to-string sexp)
+"(:x 10 :y 20 :z 30 :w \"hello world\")"
+ELISP>
+#+end_example
+** 求值
+*S表达式求值*
+#+begin_example
+ELISP> (eval '(+ 1 2 3 4 5))
+15
+ELISP>
+
+
+ELISP> '(defun func1(x)(* 10 x))
+(defun func1
+    (x)
+  (* 10 x))
+
+ELISP>
+
+ELISP> '((+ 1 3) (* 4 5) (- 8 9))
+((+ 1 3)
+ (* 4 5)
+ (- 8 9))
+
+ELISP> (eval '(defun func1(x)(* 10 x)))
+func1
+ELISP> (func1 5)
+50
+ELISP>
+
+
+ELISP> (mapcar 'eval '((+ 1 3) (* 4 5) (- 8 9)))
+(4 20 -1)
+#+end_example
+
+*字符串求值*
+#+begin_example
+ELISP> (defun eval-string (str) (eval (read str)))
+eval-string
+
+ELISP> (eval-string "(+ 1 2 3 4 5 6)")
+21
+ELISP>
+
+ELISP> (eval-string "(defun func2(x)(* 10 x)))")
+func2
+ELISP> (func2 6)
+60
+ELISP>
+#+end_example
+
+*S表达式格式化为字符串*
+#+begin_example
+ELISP> (setq sexp1 '(+ 1 (* 2 3)))
+(+ 1
+   (* 2 3))
+
+ELISP> (eval sexp1)
+7
+
+ELISP> (format "%S" sexp1)
+"(+ 1 (* 2 3))"
+ELISP>
+#+end_example
+
+*Elisp中的求值命令*
+| 命令                | 功能               |
+|---------------------+--------------------|
+| M-x eval-defun      | 函数求值           |
+| M-x eval-region     | 区域内表达式求值   |
+| M-x eval-buffer     | buffer内表达式求值 |
+| M-x eval-expression | 输入框输入求值     |
+| M-x load-file       | 文件加载           |
+** Defalias
+内置宏 =defalias= 可以为emaca函数定义简短的名字。
+
+参考：[[http://ergoemacs.org/emacs/emacs_alias.html][Emacs: Use Alias for Fast M-x]]
+
+#+begin_example
+ELISP> (require 'cl)
+cl
+ELISP>
+
+ELISP> (defalias 'map 'mapcar)
+map
+ELISP> (map (lambda (x) (* 3 x)) (list 1 2 3 4 5 6))
+(3 6 9 12 15 18)
+
+ELISP> (defalias 'filter 'remove-if-not) ;; remove-if-not comes from "cl" library
+filter
+
+;;; Filter all buffers bounded to a file
+;;
+ELISP> (filter #'buffer-file-name (buffer-list))
+(#<buffer README.org> #<buffer Projects.wiki.org> #<buffer Index.wiki.org> #<buffer settings.org> #<buffer project.org>)
+
+;;; Reject all buffers which are not bounded to a file
+ELISP> (reject #'buffer-file-name (buffer-list))
+(#<buffer *ielm*> #<buffer *Help*> #<buffer  *Minibuf-1*> #<buffer emacs> #<buffer *scratch*> ..)
+
+;;; The command M-x org-html-export-to-htm will export this document (README.org) to html
+;;  the command M-x org2html will do so too.
+;;
+(defalias #'org2html #'org-html-export-to-html)
+
+;;
+;;  It is also useful to create more convenient names for Emacs API
+;; in a namsepace-like fashion that makes easier to find functions and
+;; autocomplete functions, for instance:
+;;
+(defalias 'file/extension         'file-name-extension)
+(defalias 'file/extension-sans    'file-name-sans-extension)
+(defalias 'file/path-expand       'expand-file-name)
+(defalias 'file/filename          'file-name-nondirectory)
+(defalias 'file/path-relative     'file-relative-name)
+(defalias 'file/rename            'rename-file)
+(defalias 'file/delete            'delete-file)
+(defalias 'file/copy              'copy-file)
+
+;;; To find the documentation of a function group defined in this fashion
+;; Enter M-x apropos  and then type file/
+(apropos "file/")
+
+ELISP> (set-buffer "README.org")
+#<buffer README.org>
+ELISP> (buffer-file-name)
+"/home/tux/PycharmProjects/emacs/README.org"
+ELISP> (file/basename (buffer-file-name))
+"README"
+ELISP> (file/extension (buffer-file-name))
+"org"
+ELISP> (file/filename (buffer-file-name))
+"README.org"
+ELISP>
+#+end_example
+** 控制结构
+*** Conditional Statement
+*If Else 语句*
+#+begin_example
+;;
+;; Any value different from nil or '() is true, otherwise false.
+;;
+
+;; True
+;;
+ELISP> (if t 5 6)
+5
+
+ELISP> (if 10 5 6)
+5
+
+ELISP> (if 0 5 6)
+5
+
+;; False
+ELISP> (if nil 5 6)
+6
+
+ELISP> (if '() 5 6)
+6
+
+
+;; Inverting Predicate
+;;
+ELISP> (if (not t) 5 6)
+6
+
+ELISP> (if (not nil) 5 6)
+5
+
+
+ELISP> (if (< 5 10)  (message "less than 10") (message "greater or equal to 10") )
+"less than 10"
+
+ELISP> (if (< 30 10)  (message "less than 10") (message "greater or equal to 10") )
+"greater or equal to 10"
+ELISP>
+
+;;; If else with multiple statements
+
+ELISP> (setq x 10)
+10
+
+ELISP> (if (> x 5)
+       ;; Then Statement
+       (progn
+
+         (message "Positive Number")
+         (print "Greater than five")
+         (split-window-vertically)
+         78 ;;  Return Value
+        )
+     ;; Else Statement
+     (progn
+       (print "Less than five")
+       (split-window-horizontally)
+       12 ;;  Return Value
+     ))
+
+"Greater than five"
+
+78
+ELISP>
+#+end_example
+
+*When语句*
+#+begin_example
+ELISP> (when t 3)
+3
+
+ELISP> (when nil 3)
+nil
+
+
+ELISP> (setq x 5)
+5
+
+ELISP> (when (> x 3)
+         (message "Less than 3"))
+"Less than 3"
+ELISP>
+
+ELISP> (setq x 1)
+1
+
+ELISP> (when (> x 3)
+         (message "Less than 3"))
+nil
+ELISP>
+
+
+;;;;; When with Multiple Statements
+
+ELISP> (setq x 10)
+10
+
+ELISP> (when (> x 7)
+     (progn
+       (message "Greater than 7 OK.")
+       (message "Print message 2")
+       (split-window-horizontally)
+      ))
+
+ #<window 8 on *ielm*>
+ELISP>
+#+end_example
+*** Cond - Case Switch
+#+begin_example
+ELISP> (setq a 3)       ;; a = 3
+3
+ELISP>
+
+ELISP> (cond
+        ((evenp a) a)       ;; if   (a % 2 == 0)    ==> a
+        ((> a 7) (/ a 2))   ;; elif (a > 7)         ==> a/2
+        ((< a 5) (- a 1))   ;; elif (a < 5)         ==> a-1
+        (t 7)               ;; else                 ==> 7
+        )
+2
+ELISP>
+#+end_example
+
+*** CL-Case - Case Switch
+#+begin_example
+(defun test-cl-case (operation x y)
+  (cl-case operation
+    (:mul (* x y))
+    (:add (+ x y))
+    (:sub (- x y))
+    (:div (/ x y))
+    (otherwise nil)))
+
+ELISP> (test-cl-case :mul 2 10)
+20
+
+ELISP> (test-cl-case :sub 10 2)
+8
+
+ELISP> (test-cl-case :add 10 2)
+12
+ELISP> (test-cl-case :div 10 2)
+5
+
+ELISP> (test-cl-case 'dummy 20 10)
+nil
+#+end_example
+
+*** 循环
+*Dolist*
+#+begin_example
+ELISP> (dolist (h '(a b c)) (print h))
+
+a
+
+b
+
+c
+
+nil
+
+ELISP> (dolist (x '(1 2 3)) (print (* 2 x)))
+
+2
+
+4
+
+6
+
+nil
+ELISP>
+
+ELISP> (dolist (x '(1 2 3))
+         (dolist (y '(a b))
+            (print (list x y))))
+(1 a)
+
+(1 b)
+
+(2 a)
+
+(2 b)
+
+(3 a)
+
+(3 b)
+
+nil
+ELISP>
+#+end_example
+
+*Dotimes*
+#+begin_example
+ELISP> (dotimes (i 3) (print i))
+
+0
+
+1
+
+2
+
+nil
+ELISP
+
+ELISP> (dotimes (i 3) (print (* 2 i)))
+
+0
+
+2
+
+4
+
+nil
+ELISP>
+#+end_example
+
+*Loop*
+
+最好使用 =map= 和 =filter= 代替 =loops= , 详见 Functional Programming
+
+#+begin_example
+ELISP> (setq a 4)
+4
+
+ELISP> (loop
+        (setq a (+ a 1))
+        (when (> a 7) (return a)))
+8
+
+ELISP> a
+8
+ELISP>
+
+ELISP> (loop
+   (setq a (- a 1))
+   (when (< a 3) (return)))
+nil
+ELISP> a
+2
+ELISP>
+#+end_example
+
+*Loop Collecting / Summing / For*
+#+begin_example
+ELISP> (loop for i from 1 to 10 collecting i)
+(1 2 3 4 5 6 7 8 9 10)
+
+ELISP> (loop for i from 1 to 10 collecting (* 3 i))
+(3 6 9 12 15 18 21 24 27 30)
+
+ELISP> (loop for x from 1 to 10 summing (expt x 2))
+385
+
+ELISP> (loop for x from 1 to 10 collecting (* 2 x))
+(2 4 6 8 10 12 14 16 18 20)
+
+ELISP> (loop for x from 1 to 10 summing (* 2 x))
+110
+ELISP>
+
+ELISP> (apply #'+ '(2 4 6 8 10 12 14 16 18 20))
+110
+
+ELISP> (loop for i below 10 collecting i)
+(0 1 2 3 4 5 6 7 8 9)
+
+ELISP>  (loop for x in '(1 2 3)
+      do (print x) )
+
+1
+
+2
+
+3
+
+nil
+
+(loop
+       for x in '(a b c)
+       for y in '(1 2 3 4 5 6)
+       collect (list x y))
+((a 1)
+ (b 2)
+ (c 3))
+
+ELISP> (loop for (a b) in '((x 1) (y 2) (z 3))
+      collect (list b a))
+((1 x)
+ (2 y)
+ (3 z))
+
+ELISP> (loop for i upto 20
+      if (oddp i)
+        collect i into odds
+      else
+        collect i into evens
+      finally (return (values evens odds)))
+((0 2 4 6 8 10 12 14 16 18 20)
+ (1 3 5 7 9 11 13 15 17 19))
+#+end_example
+
+*Do Loop*
+#+begin_example
+(do (variable-definition*)
+    (end-test-form result-form*)
+  statement*)
+#+end_example
+
+#+begin_example
+(do
+   ;; Variables Definitions
+   ((i 0 (1+ i)))
+
+   ;; Test form
+    ((>= i 4))
+
+  ;; Statement form
+  (print i))
+
+0
+
+1
+
+2
+
+3
+nil
+
+;; Fibbonaci Computing Loop
+;;
+(do ((n 0 (1+ n))
+     (cur 0 next)
+     (next 1 (+ cur next)))
+    ((= 10 n) cur))
+55
+#+end_example
+
+*** 函数式编程
+[[https://github.com/magnars/dash.el.git][Dash]] 是emacs经常使用的函数式编程库。
+
+ * Map and Filter
+
+ *Mapcar / Equivalent to map*
+#+begin_example
+ELISP> (defun my-fun (x) (* x 10))
+my-fun
+ELISP>
+
+ELISP> (mapcar 'my-fun '(1 2 3 5 6))
+(10 20 30 50 60)
+
+ELISP> (mapcar 'capitalize '("hello" "world" "emacs"))
+("Hello" "World" "Emacs")
+
+;;  Anonymous Functions
+;;
+ELISP> (mapcar (lambda (x) (* x x))   '(1 2 3 4 5 6))
+(1 4 9 16 25 36)
+
+
+ELISP> (setq anon (lambda (x) (* x x)))
+(lambda
+  (x)
+  (* x x))
+
+ELISP> (mapcar anon '(1 2 3 4 5 6))
+(1 4 9 16 25 36)
+#+end_example
+   
+*Filter*
+#+begin_example
+ELISP> (null nil)
+t
+ELISP> (null 23)
+nil
+ELISP>
+
+;; Equivalent to  Haskell idiom:
+;;
+;; > filter predicate list
+;;
+ELISP> (remove-if-not 'null '(1 2 3 nil 5 6 nil nil ))
+(nil nil nil)
+
+;; Equivalent to Haskell idiom:
+;;
+;;   > filter (\x -> not (predicate x)) list
+;;
+;; a more apropriate name would be reject
+;;
+ELISP> (remove-if 'null '(1 2 3 nil 5 6 nil nil ))
+(1 2 3 5 6)
+
+
+
+ELISP> (defun range (step start stop)
+  (if (> start stop)
+      nil
+      (cons start (range step (+ step start) stop))
+
+  );; End If
+);; End range
+
+ELISP> (range 1 0 10)
+(0 1 2 3 4 5 6 7 8 9 10)
+
+ELISP> (range 2 0 20)
+(0 2 4 6 8 10 12 14 16 18 20)
+
+
+ELISP> (remove-if (lambda (x) (= (% x 2) 0)) (range 1 0 20))
+(1 3 5 7 9 11 13 15 17 19)
+
+ELISP> (remove-if-not (lambda (x) (= (% x 2) 0)) (range 1 0 20))
+(0 2 4 6 8 10 12 14 16 18 20)
+
+
+ELISP> (remove-if (lambda (x) (= (% x 3) 0)) (range 1 0 20))
+(1 2 4 5 7 8 10 11 13 14 16 17 19 20)
+
+ELISP> (remove-if-not (lambda (x) (= (% x 3) 0)) (range 1 0 20))
+(0 3 6 9 12 15 18)
+
+ELISP>
+#+end_example
+
+ * 匿名函数/lambda函数
+#+begin_example
+ELISP> (lambda (x)(* x 10))
+(lambda
+  (x)
+  (* x 10))
+
+ELISP>
+
+ELISP> (funcall (lambda (x)(* x 10)) 5)
+50
+ELISP>
+
+ELISP> (setq my-lambda (lambda (x) (+ (* x 10) 5))) ;; 10 * x + 5
+(lambda
+  (x)
+  (+
+   (* x 10)
+   5))
+
+ELISP> (funcall my-lambda 10)
+105
+ELISP> (mapcar my-lambda '(1 2 3 4 5))
+(15 25 35 45 55)
+
+
+ELISP>  (setq double (function (lambda (x) (+ x x)) ))
+(lambda
+  (x)
+  (+ x x))
+
+ELISP> (funcall double 22)
+44
+ELISP>
+
+
+;;
+;; Apply a function to a list of arguments
+;;
+;;;;;;;;;;;
+
+ELISP> (apply #'+ '(1 2 3 4 5))
+15
+ELISP>
+
+ELISP>
+ELISP> (defun f (x y z) (+ (* 10 x) (* -4 y) (* 5 z)))
+f
+ELISP> (f 2 3 5)
+33
+
+ELISP> (apply 'f '(2 3 5))
+33
+
+
+ELISP> (mapcar (lambda (x) (apply 'f x)) '( (2 3 5) (4 5 6) (8 9 5)))
+(33 50 69)
+
+
+
+;; Create Higher Order Functions
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#+end_example 
+
+ * Function Composition ????
+#+begin_example
+ELISP> ;; ID: f0c736a9-afec-3e3f-455c-40997023e130
+(defun compose (&rest funs)
+  "Return function composed of FUNS."
+  (lexical-let ((lex-funs funs))
+    (lambda (&rest args)
+      (reduce 'funcall (butlast lex-funs)
+              :from-end t
+              :initial-value (apply (car (last lex-funs)) args)))))
+              compose
+
+ELISP> (funcall (compose 'prin1-to-string 'random* 'exp) 10)
+"4757.245739507558"
+ELISP>
+#+end_example 
+
+ * Interactive Functions
+#+begin_example
+(defun some-interactive-function ()
+   "Documentation"
+  (interactive)
+  ...)
+#+end_example
+
+ * List Recursive Functions
+ *Map*
+ #+begin_example
+(defun map (fun xs)
+  (if (null xs)
+      '()
+    (cons (funcall fun (car xs))
+      (map fun (cdr xs)))))
+
+ELISP> (map #'buffer-name (buffer-list))
+("*ielm*" "*scratch*" " *Minibuf-1*" "*Backtrace*" "*eshell*" "sclj.import.scm" "*Messages*" "*GNU Emacs*" " *Minibuf-0*" " *code-conversion-work*" " *Echo Area 0*" " *Echo Area 1*" "*Shell Command Output*" "*Completions*")
+
+ELISP>
+#+end_example
+
+*Filter*
+#+begin_example
+(defun filter (fun xs)
+  (if (null xs)
+      '()
+    (let ((hd (car xs))
+      (tl (cdr xs)))
+      (if (funcall fun hd)
+      (cons hd (filter fun tl))
+    (filter fun tl)))))
+
+(defun odd? (x) (zerop (% x 2)))
+
+ELISP> (filter #'odd? '(1 2 3 4 5 6))
+(2 4 6)
+#+end_example
+

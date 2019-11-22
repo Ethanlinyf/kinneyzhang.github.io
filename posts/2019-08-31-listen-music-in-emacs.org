@@ -1,0 +1,113 @@
+#+STARTUP: showall indent
+#+TITLE:  Emacs中使用mpd+mingus听音乐
+#+DATE: 2019-08-31
+#+filetags: emacs mpd mingus
+
+在emacs中收听音乐的方案不止一个，我之前用过[[https://github.com/emacsmirror/emms][emms]]和[[https://github.com/dbrock/bongo][bongo]]，但它们在某些方面不能满足我的需求。在逛Reddit时看到使用mpd配合mingus播放音乐的帖子，折腾了一下发现这正是我想要的！总结安装配置和踩坑经验，和大家分享。
+
+Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音乐播放器。它可以播放音乐、管理播放列表、维护音乐数据库等。mpd作为服务端程序，需要与客户端配合才能展现其强大的功能。最常使用的mpd客户端有mpc, ncmpcpp等。
+
+而emacs的[[https://github.com/pft/mingus.git][mingus package]]就相当于mpd在emacs中的client端。下面介绍mpd和mingus的安装和使用。
+
+* mpd安装及配置(macos)
+
+** 安装
+Mac用户可以很方便的使用homebrew安装mpd
+
+#+BEGIN_SRC shell
+$ brew install mpd
+#+END_SRC
+
+也可以到[[https://www.musicpd.org][MPD官网]]下载解压安装
+
+** 检查依赖
+安装完成后查看安装信息，检查是否编译成功。如果有依赖包没有安装，需要单独安装。
+
+#+BEGIN_SRC shell
+$ brew info mpd
+#+END_SRC
+
+** 创建配置文件
+mpd默认的配置文件查找路经为 =~/.mpd/mpd.conf= 或 =~/.mpdconf= ，这里建议将所有配置及相关数据文件放在一个.mpd文件夹中。
+
+#+BEGIN_SRC shell
+  $ mkdir -p ~/.mpd/playlists
+  $ touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
+#+END_SRC
+
+** 编辑配置
+进入 =~/.mpd/mpd.conf= ，粘贴如下配置
+
+#+BEGIN_SRC TOML
+music_directory "~/Music"  # 音乐文件目录
+playlist_directory "~/.mpd/playlists"  # 播放列表目录
+db_file "~/.mpd/mpd.db"  # 数据库
+log_file "~/.mpd/mpd.log"  # 日志文件
+pid_file "~/.mpd/mpd.pid"  # 进程文件
+state_file "~/.mpd/mpdstate"  # 保存播放状态，下次继续播放
+auto_update "yes"
+auto_update_depth "2"
+follow_outside_symlinks "yes"
+follow_inside_symlinks "yes"
+
+audio_output {
+ type "osx"
+ name "CoreAudio"
+ mixer_type "software"
+}
+
+decoder {
+ plugin "mp4ff"
+ enabled "no"
+}
+
+bind_to_address "127.0.0.1"  # 服务器地址
+port "6600"  # 服务器监听端口
+
+audio_output {
+ type "fifo"
+ name "my_fifo"
+ path "/tmp/mpd.fifo"
+ format "44100:16:2"
+ auto_resample "no"
+ use_mmap "yes"
+}
+#+END_SRC
+
+** 使用命令
+
+#+BEGIN_SRC shell
+  $ mpd  # 启动服务
+  $ mpd --kill  # 杀死进程
+  $ mpd update  # 更新
+#+END_SRC
+
+** 注意点
+ * 本配置及安装过程仅适用于macos系统。
+ * linux系统参考 [[https://wiki.archlinux.org/index.php/Music_Player_Daemon][arch-wiki/Music Player Daemon]]
+ * 如果你连接了蓝牙耳机，初次启动mpd时建议断开连接，能够正常播放后再连接蓝牙。（防止音乐声音断断续续）
+
+* mingus安装及使用
+
+** 安装
+mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界面。
+
+#+BEGIN_SRC emacs-lisp
+  (use-package mingus
+    :ensure t
+    :defer t
+    :bind (("C-c m" . mingus)))
+#+END_SRC
+
+** 使用
+mingus功能十分强大，内置大量快捷键，可以一键满足音乐播放方方面面的需求。使用 =M-x mingus= 启动mingus后，便可使用这些快捷键。
+
+mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用数字键 =1= =2= =3= 进行切换。"Mingus Help"是帮助信息界面，介绍了所有的快捷键使用。"Mingus"是播放列表界面。"Mingus Browser"是搜索浏览界面，可以在音乐目录下进行分类搜索，将歌曲添加到播放列表中。
+
+具体功能使用查看"Mingus Help"，不再赘述。值得一提的是，对于同类别的歌曲可以使用 =C-x C-s= 保存为playlist, 下次可以一键load歌单到播放列表中。
+
+* 效果
+https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/blog-img/mingus.png
+
+* 参考文档
+[[https://computingforgeeks.com/install-configure-mpd-ncmpcpp-macos][Install and configure mpd and ncmpcpp on MacOS]]
