@@ -1,5 +1,5 @@
-#+TITLE:Geekblog
-#+OPTIONS: toc:nil
+#+TITLE:Geekinney Blog
+#+OPTIONS: toc:nil H:2 num:2
 
 * Archive
 ** 2019
