@@ -22,63 +22,63 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org68ba3c5">1. Elisp</a>
+<li><a href="#org57accca">1. Elisp</a>
 <ul>
-<li><a href="#org2b14281">1.1. 概览</a>
+<li><a href="#orgcf5e884">1.1. 概览</a>
 <ul>
-<li><a href="#orgbb44fbb">1.1.1. 运行emacs-lisp的几种方式</a></li>
-<li><a href="#org3e05859">1.1.2. 创建命令（interactive函数）</a></li>
-<li><a href="#orgfebbd12">1.1.3. emacs探索</a></li>
+<li><a href="#org5555dac">1.1.1. 运行emacs-lisp的几种方式</a></li>
+<li><a href="#orge64d561">1.1.2. 创建命令（interactive函数）</a></li>
+<li><a href="#orgd65dda3">1.1.3. emacs探索</a></li>
 </ul>
 </li>
-<li><a href="#orgc8d0d94">1.2. elisp编程的基本设置</a></li>
-<li><a href="#org30f488b">1.3. 基本运算</a>
+<li><a href="#org17ec146">1.2. elisp编程的基本设置</a></li>
+<li><a href="#org5afa701">1.3. 基本运算</a>
 <ul>
-<li><a href="#org0d6d4a6">1.3.1. 算术</a></li>
-<li><a href="#org23efaae">1.3.2. 比较</a></li>
-<li><a href="#org69161ab">1.3.3. 列表</a></li>
+<li><a href="#org882b420">1.3.1. 算术</a></li>
+<li><a href="#org12dbde5">1.3.2. 比较</a></li>
+<li><a href="#org405f3cc">1.3.3. 列表</a></li>
 </ul>
 </li>
-<li><a href="#orgf93f339">1.4. 类型判断和Literals</a>
+<li><a href="#org3654f65">1.4. 类型判断和Literals</a>
 <ul>
-<li><a href="#org958dc35">1.4.1. Emacs Literals</a></li>
-<li><a href="#org36ad6fd">1.4.2. 基本类型判断</a></li>
-<li><a href="#org1232bbd">1.4.3. 获取对象类型</a></li>
+<li><a href="#org994f5b4">1.4.1. Emacs Literals</a></li>
+<li><a href="#orgc9d2dc3">1.4.2. 基本类型判断</a></li>
+<li><a href="#orgf8574e8">1.4.3. 获取对象类型</a></li>
 </ul>
 </li>
-<li><a href="#orgc3ddb52">1.5. 变量定义</a></li>
-<li><a href="#org035fcef">1.6. 函数定义</a>
+<li><a href="#orga477271">1.5. 变量定义</a></li>
+<li><a href="#org5c51cbd">1.6. 函数定义</a>
 <ul>
-<li><a href="#orgc2b1dc5">1.6.1. 定义简单函数</a></li>
-<li><a href="#orgc818c44">1.6.2. 匿名函数/Lambda函数</a></li>
-<li><a href="#orgd9588d5">1.6.3. 函数作为参数</a></li>
-<li><a href="#orgc8b2c37">1.6.4. 多参函数</a></li>
-<li><a href="#org08aeb90">1.6.5. 可选参数函数</a></li>
-<li><a href="#orgb15d394">1.6.6. 含属性列表参数函数</a></li>
-<li><a href="#org59f8816">1.6.7. Closures</a></li>
+<li><a href="#orgbcd4ccb">1.6.1. 定义简单函数</a></li>
+<li><a href="#org23d8042">1.6.2. 匿名函数/Lambda函数</a></li>
+<li><a href="#orgaccc938">1.6.3. 函数作为参数</a></li>
+<li><a href="#org0bc7327">1.6.4. 多参函数</a></li>
+<li><a href="#org3e21663">1.6.5. 可选参数函数</a></li>
+<li><a href="#org3f1dbd2">1.6.6. 含属性列表参数函数</a></li>
+<li><a href="#org13abdb6">1.6.7. Closures</a></li>
 </ul>
 </li>
-<li><a href="#orgb56b358">1.7. 列表操作</a></li>
-<li><a href="#orgdd36a53">1.8. 关联列表和属性列表</a>
+<li><a href="#org8cf8273">1.7. 列表操作</a></li>
+<li><a href="#org160a9d7">1.8. 关联列表和属性列表</a>
 <ul>
-<li><a href="#org9069935">1.8.1. 概览</a></li>
-<li><a href="#org8bfb82c">1.8.2. 关联列表/Alist</a></li>
-<li><a href="#org6a455d1">1.8.3. 属性列表</a></li>
-<li><a href="#org054a836">1.8.4. 转换Alist成Plist和vice-versa</a></li>
+<li><a href="#org5b6cef5">1.8.1. 概览</a></li>
+<li><a href="#org540a6e8">1.8.2. 关联列表/Alist</a></li>
+<li><a href="#org8c07df8">1.8.3. 属性列表</a></li>
+<li><a href="#org82cc9d4">1.8.4. 转换Alist成Plist和vice-versa</a></li>
 </ul>
 </li>
-<li><a href="#orga4db899">1.9. 字符串</a></li>
-<li><a href="#orgc1b7307">1.10. 符号</a></li>
-<li><a href="#orgb3689a6">1.11. 类型转换</a></li>
-<li><a href="#org8eacb6c">1.12. 求值</a></li>
-<li><a href="#org0f64cb7">1.13. Defalias</a></li>
-<li><a href="#org6614a8f">1.14. 控制结构</a>
+<li><a href="#org8d28447">1.9. 字符串</a></li>
+<li><a href="#orgd8aaec4">1.10. 符号</a></li>
+<li><a href="#orgd9ba9c3">1.11. 类型转换</a></li>
+<li><a href="#org18d3852">1.12. 求值</a></li>
+<li><a href="#org17d79a1">1.13. Defalias</a></li>
+<li><a href="#org7e3ac16">1.14. 控制结构</a>
 <ul>
-<li><a href="#org767223d">1.14.1. Conditional Statement</a></li>
-<li><a href="#org4cbb15c">1.14.2. Cond - Case Switch</a></li>
-<li><a href="#orgc2911da">1.14.3. CL-Case - Case Switch</a></li>
-<li><a href="#org935516a">1.14.4. 循环</a></li>
-<li><a href="#org8a25672">1.14.5. 函数式编程</a></li>
+<li><a href="#org5cf5ab2">1.14.1. Conditional Statement</a></li>
+<li><a href="#orga03bd99">1.14.2. Cond - Case Switch</a></li>
+<li><a href="#org0b48d9d">1.14.3. CL-Case - Case Switch</a></li>
+<li><a href="#orgaa1a91d">1.14.4. 循环</a></li>
+<li><a href="#org547e7a9">1.14.5. 函数式编程</a></li>
 </ul>
 </li>
 </ul>
@@ -90,16 +90,16 @@
 学习来源： <a href="http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html">Elisp Programming</a>
 </p>
 
-<div id="outline-container-org68ba3c5" class="outline-2">
-<h2 id="org68ba3c5"><span class="section-number-2">1</span> Elisp</h2>
+<div id="outline-container-org57accca" class="outline-2">
+<h2 id="org57accca"><span class="section-number-2">1</span> Elisp</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org2b14281" class="outline-3">
-<h3 id="org2b14281"><span class="section-number-3">1.1</span> 概览</h3>
+<div id="outline-container-orgcf5e884" class="outline-3">
+<h3 id="orgcf5e884"><span class="section-number-3">1.1</span> 概览</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgbb44fbb" class="outline-4">
-<h4 id="orgbb44fbb"><span class="section-number-4">1.1.1</span> 运行emacs-lisp的几种方式</h4>
+<div id="outline-container-org5555dac" class="outline-4">
+<h4 id="org5555dac"><span class="section-number-4">1.1.1</span> 运行emacs-lisp的几种方式</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <table>
 
@@ -147,8 +147,8 @@
 </div>
 </div>
 
-<div id="outline-container-org3e05859" class="outline-4">
-<h4 id="org3e05859"><span class="section-number-4">1.1.2</span> 创建命令（interactive函数）</h4>
+<div id="outline-container-orge64d561" class="outline-4">
+<h4 id="orge64d561"><span class="section-number-4">1.1.2</span> 创建命令（interactive函数）</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <div class="col-auto">
 <pre><code class="emacs-lisp"><span style="color: #b22222;">;; </span><span style="color: #b22222;">example</span>
@@ -161,8 +161,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgfebbd12" class="outline-4">
-<h4 id="orgfebbd12"><span class="section-number-4">1.1.3</span> emacs探索</h4>
+<div id="outline-container-orgd65dda3" class="outline-4">
+<h4 id="orgd65dda3"><span class="section-number-4">1.1.3</span> emacs探索</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <table>
 
@@ -205,8 +205,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgc8d0d94" class="outline-3">
-<h3 id="orgc8d0d94"><span class="section-number-3">1.2</span> elisp编程的基本设置</h3>
+<div id="outline-container-org17ec146" class="outline-3">
+<h3 id="org17ec146"><span class="section-number-3">1.2</span> elisp编程的基本设置</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 三个有用的pcakage:
@@ -219,12 +219,12 @@
 </div>
 </div>
 
-<div id="outline-container-org30f488b" class="outline-3">
-<h3 id="org30f488b"><span class="section-number-3">1.3</span> 基本运算</h3>
+<div id="outline-container-org5afa701" class="outline-3">
+<h3 id="org5afa701"><span class="section-number-3">1.3</span> 基本运算</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-org0d6d4a6" class="outline-4">
-<h4 id="org0d6d4a6"><span class="section-number-4">1.3.1</span> 算术</h4>
+<div id="outline-container-org882b420" class="outline-4">
+<h4 id="org882b420"><span class="section-number-4">1.3.1</span> 算术</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <pre class="example">
 ELISP&gt; (+ 20 30)
@@ -267,8 +267,8 @@ ELISP&gt;
 </div>
 </div>
 
-<div id="outline-container-org23efaae" class="outline-4">
-<h4 id="org23efaae"><span class="section-number-4">1.3.2</span> 比较</h4>
+<div id="outline-container-org12dbde5" class="outline-4">
+<h4 id="org12dbde5"><span class="section-number-4">1.3.2</span> 比较</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <pre class="example">
 ;;;; Compare Numbers
@@ -297,8 +297,8 @@ t
 </div>
 </div>
 
-<div id="outline-container-org69161ab" class="outline-4">
-<h4 id="org69161ab"><span class="section-number-4">1.3.3</span> 列表</h4>
+<div id="outline-container-org405f3cc" class="outline-4">
+<h4 id="org405f3cc"><span class="section-number-4">1.3.3</span> 列表</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <pre class="example">
 ELISP&gt; '(10 20 30 40)
@@ -312,12 +312,12 @@ ELISP&gt; '(10 203 40 "hello" () ("empty" 65))
 </div>
 </div>
 
-<div id="outline-container-orgf93f339" class="outline-3">
-<h3 id="orgf93f339"><span class="section-number-3">1.4</span> 类型判断和Literals</h3>
+<div id="outline-container-org3654f65" class="outline-3">
+<h3 id="org3654f65"><span class="section-number-3">1.4</span> 类型判断和Literals</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
-<div id="outline-container-org958dc35" class="outline-4">
-<h4 id="org958dc35"><span class="section-number-4">1.4.1</span> Emacs Literals</h4>
+<div id="outline-container-org994f5b4" class="outline-4">
+<h4 id="org994f5b4"><span class="section-number-4">1.4.1</span> Emacs Literals</h4>
 <div class="outline-text-4" id="text-1-4-1">
 <pre class="example">
 ;;; Numbers
@@ -399,8 +399,8 @@ ELISP&gt; [1 2 3 4 (+ 1 2 3 54)]
 </div>
 </div>
 
-<div id="outline-container-org36ad6fd" class="outline-4">
-<h4 id="org36ad6fd"><span class="section-number-4">1.4.2</span> 基本类型判断</h4>
+<div id="outline-container-orgc9d2dc3" class="outline-4">
+<h4 id="orgc9d2dc3"><span class="section-number-4">1.4.2</span> 基本类型判断</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <table>
 
@@ -554,8 +554,8 @@ ELISP&gt;
 </div>
 </div>
 
-<div id="outline-container-org1232bbd" class="outline-4">
-<h4 id="org1232bbd"><span class="section-number-4">1.4.3</span> 获取对象类型</h4>
+<div id="outline-container-orgf8574e8" class="outline-4">
+<h4 id="orgf8574e8"><span class="section-number-4">1.4.3</span> 获取对象类型</h4>
 <div class="outline-text-4" id="text-1-4-3">
 <pre class="example">
 ELISP&gt; (type-of (current-buffer))
@@ -574,8 +574,8 @@ ELISP&gt;
 </div>
 </div>
 </div>
-<div id="outline-container-orgc3ddb52" class="outline-3">
-<h3 id="orgc3ddb52"><span class="section-number-3">1.5</span> 变量定义</h3>
+<div id="outline-container-orga477271" class="outline-3">
+<h3 id="orga477271"><span class="section-number-3">1.5</span> 变量定义</h3>
 <div class="outline-text-3" id="text-1-5">
 <pre class="example">
 ;;; Constants
@@ -646,12 +646,12 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-org035fcef" class="outline-3">
-<h3 id="org035fcef"><span class="section-number-3">1.6</span> 函数定义</h3>
+<div id="outline-container-org5c51cbd" class="outline-3">
+<h3 id="org5c51cbd"><span class="section-number-3">1.6</span> 函数定义</h3>
 <div class="outline-text-3" id="text-1-6">
 </div>
-<div id="outline-container-orgc2b1dc5" class="outline-4">
-<h4 id="orgc2b1dc5"><span class="section-number-4">1.6.1</span> 定义简单函数</h4>
+<div id="outline-container-orgbcd4ccb" class="outline-4">
+<h4 id="orgbcd4ccb"><span class="section-number-4">1.6.1</span> 定义简单函数</h4>
 <div class="outline-text-4" id="text-1-6-1">
 <p>
 语法: (defun &lt;function name&gt; (&lt;parameters&gt;) (&lt;body&gt;))
@@ -697,8 +697,8 @@ ELISP
 </pre>
 </div>
 </div>
-<div id="outline-container-orgc818c44" class="outline-4">
-<h4 id="orgc818c44"><span class="section-number-4">1.6.2</span> 匿名函数/Lambda函数</h4>
+<div id="outline-container-org23d8042" class="outline-4">
+<h4 id="org23d8042"><span class="section-number-4">1.6.2</span> 匿名函数/Lambda函数</h4>
 <div class="outline-text-4" id="text-1-6-2">
 <p>
 语法: (lambda (&lt;parameters&gt;) (&lt;body&gt;))
@@ -748,8 +748,8 @@ ELISP&gt; (mapcar (lambda (x) (+ x 3))  '(1 2 3 4 5))
 </pre>
 </div>
 </div>
-<div id="outline-container-orgd9588d5" class="outline-4">
-<h4 id="orgd9588d5"><span class="section-number-4">1.6.3</span> 函数作为参数</h4>
+<div id="outline-container-orgaccc938" class="outline-4">
+<h4 id="orgaccc938"><span class="section-number-4">1.6.3</span> 函数作为参数</h4>
 <div class="outline-text-4" id="text-1-6-3">
 <p>
 语法: (caller-function #'&lt;function-1&gt; #'&lt;function-1&gt; arg1 arg2 &#x2026;)
@@ -799,8 +799,8 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-orgc8b2c37" class="outline-4">
-<h4 id="orgc8b2c37"><span class="section-number-4">1.6.4</span> 多参函数</h4>
+<div id="outline-container-org0bc7327" class="outline-4">
+<h4 id="org0bc7327"><span class="section-number-4">1.6.4</span> 多参函数</h4>
 <div class="outline-text-4" id="text-1-6-4">
 <pre class="example">
 (defun sum (&amp;rest numbers)
@@ -839,8 +839,8 @@ ELISP&gt; (sum-prod 1 1 2 3 4 5)
 </pre>
 </div>
 </div>
-<div id="outline-container-org08aeb90" class="outline-4">
-<h4 id="org08aeb90"><span class="section-number-4">1.6.5</span> 可选参数函数</h4>
+<div id="outline-container-org3e21663" class="outline-4">
+<h4 id="org3e21663"><span class="section-number-4">1.6.5</span> 可选参数函数</h4>
 <div class="outline-text-4" id="text-1-6-5">
 <pre class="example">
 (defun test-optional (a &amp;optional b)
@@ -894,8 +894,8 @@ ELISP&gt; (test-optional-default-b 1 nil)
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb15d394" class="outline-4">
-<h4 id="orgb15d394"><span class="section-number-4">1.6.6</span> 含属性列表参数函数</h4>
+<div id="outline-container-org3f1dbd2" class="outline-4">
+<h4 id="org3f1dbd2"><span class="section-number-4">1.6.6</span> 含属性列表参数函数</h4>
 <div class="outline-text-4" id="text-1-6-6">
 <pre class="example">
 (defun make-shell-interface (&amp;rest params)
@@ -966,8 +966,8 @@ ELISP&gt; (make-shell-interface :buffer "pyshell"  :path "/usr/bin/python" :type
 </pre>
 </div>
 </div>
-<div id="outline-container-org59f8816" class="outline-4">
-<h4 id="org59f8816"><span class="section-number-4">1.6.7</span> Closures</h4>
+<div id="outline-container-org13abdb6" class="outline-4">
+<h4 id="org13abdb6"><span class="section-number-4">1.6.7</span> Closures</h4>
 <div class="outline-text-4" id="text-1-6-7">
 <p>
 elisp方言默认不支持closure，所以下面的代码不会像Scheme或Common Lisp一样执行。
@@ -1063,8 +1063,8 @@ ELISP&gt; (map (make-sum-fun sin cos) '(1 2 3 4 5))
 </div>
 </div>
 </div>
-<div id="outline-container-orgb56b358" class="outline-3">
-<h3 id="orgb56b358"><span class="section-number-3">1.7</span> 列表操作</h3>
+<div id="outline-container-org8cf8273" class="outline-3">
+<h3 id="org8cf8273"><span class="section-number-3">1.7</span> 列表操作</h3>
 <div class="outline-text-3" id="text-1-7">
 <p>
 参考：
@@ -1290,12 +1290,12 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-orgdd36a53" class="outline-3">
-<h3 id="orgdd36a53"><span class="section-number-3">1.8</span> 关联列表和属性列表</h3>
+<div id="outline-container-org160a9d7" class="outline-3">
+<h3 id="org160a9d7"><span class="section-number-3">1.8</span> 关联列表和属性列表</h3>
 <div class="outline-text-3" id="text-1-8">
 </div>
-<div id="outline-container-org9069935" class="outline-4">
-<h4 id="org9069935"><span class="section-number-4">1.8.1</span> 概览</h4>
+<div id="outline-container-org5b6cef5" class="outline-4">
+<h4 id="org5b6cef5"><span class="section-number-4">1.8.1</span> 概览</h4>
 <div class="outline-text-4" id="text-1-8-1">
 <p>
 关联列表是一系列cons对，这里我可以称作 <code>clist</code> 或者 由两个元素组成的列表的集合，可以称为 <code>alist</code>
@@ -1369,8 +1369,8 @@ ELISP&gt; '(:key1 value1 :key2 value2 :key3 1002.23 :key4 (a b c d e))
 </pre>
 </div>
 </div>
-<div id="outline-container-org8bfb82c" class="outline-4">
-<h4 id="org8bfb82c"><span class="section-number-4">1.8.2</span> 关联列表/Alist</h4>
+<div id="outline-container-org540a6e8" class="outline-4">
+<h4 id="org540a6e8"><span class="section-number-4">1.8.2</span> 关联列表/Alist</h4>
 <div class="outline-text-4" id="text-1-8-2">
 <pre class="example">
 ELISP&gt; (setq dict
@@ -1614,8 +1614,8 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-org6a455d1" class="outline-4">
-<h4 id="org6a455d1"><span class="section-number-4">1.8.3</span> 属性列表</h4>
+<div id="outline-container-org8c07df8" class="outline-4">
+<h4 id="org8c07df8"><span class="section-number-4">1.8.3</span> 属性列表</h4>
 <div class="outline-text-4" id="text-1-8-3">
 <pre class="example">
 ELISP&gt; (defvar plst (list :buffer (current-buffer) :line 10 :pos 2000))
@@ -1654,8 +1654,8 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-org054a836" class="outline-4">
-<h4 id="org054a836"><span class="section-number-4">1.8.4</span> 转换Alist成Plist和vice-versa</h4>
+<div id="outline-container-org82cc9d4" class="outline-4">
+<h4 id="org82cc9d4"><span class="section-number-4">1.8.4</span> 转换Alist成Plist和vice-versa</h4>
 <div class="outline-text-4" id="text-1-8-4">
 <pre class="example">
 ;; Alist to plist
@@ -1741,8 +1741,8 @@ ELISP&gt;
 </div>
 </div>
 </div>
-<div id="outline-container-orga4db899" class="outline-3">
-<h3 id="orga4db899"><span class="section-number-3">1.9</span> 字符串</h3>
+<div id="outline-container-org8d28447" class="outline-3">
+<h3 id="org8d28447"><span class="section-number-3">1.9</span> 字符串</h3>
 <div class="outline-text-3" id="text-1-9">
 <pre class="example">
 ;; Split String
@@ -1847,8 +1847,8 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-orgc1b7307" class="outline-3">
-<h3 id="orgc1b7307"><span class="section-number-3">1.10</span> 符号</h3>
+<div id="outline-container-orgd8aaec4" class="outline-3">
+<h3 id="orgd8aaec4"><span class="section-number-3">1.10</span> 符号</h3>
 <div class="outline-text-3" id="text-1-10">
 <pre class="example">
 ;;; Convert a string to symbol
@@ -1955,8 +1955,8 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-orgb3689a6" class="outline-3">
-<h3 id="orgb3689a6"><span class="section-number-3">1.11</span> 类型转换</h3>
+<div id="outline-container-orgd9ba9c3" class="outline-3">
+<h3 id="orgd9ba9c3"><span class="section-number-3">1.11</span> 类型转换</h3>
 <div class="outline-text-3" id="text-1-11">
 <p>
 <b>类型查询</b>
@@ -2121,8 +2121,8 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-org8eacb6c" class="outline-3">
-<h3 id="org8eacb6c"><span class="section-number-3">1.12</span> 求值</h3>
+<div id="outline-container-org18d3852" class="outline-3">
+<h3 id="org18d3852"><span class="section-number-3">1.12</span> 求值</h3>
 <div class="outline-text-3" id="text-1-12">
 <p>
 <b>S表达式求值</b>
@@ -2236,8 +2236,8 @@ ELISP&gt;
 </table>
 </div>
 </div>
-<div id="outline-container-org0f64cb7" class="outline-3">
-<h3 id="org0f64cb7"><span class="section-number-3">1.13</span> Defalias</h3>
+<div id="outline-container-org17d79a1" class="outline-3">
+<h3 id="org17d79a1"><span class="section-number-3">1.13</span> Defalias</h3>
 <div class="outline-text-3" id="text-1-13">
 <p>
 内置宏 <code>defalias</code> 可以为emaca函数定义简短的名字。
@@ -2306,12 +2306,12 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-org6614a8f" class="outline-3">
-<h3 id="org6614a8f"><span class="section-number-3">1.14</span> 控制结构</h3>
+<div id="outline-container-org7e3ac16" class="outline-3">
+<h3 id="org7e3ac16"><span class="section-number-3">1.14</span> 控制结构</h3>
 <div class="outline-text-3" id="text-1-14">
 </div>
-<div id="outline-container-org767223d" class="outline-4">
-<h4 id="org767223d"><span class="section-number-4">1.14.1</span> Conditional Statement</h4>
+<div id="outline-container-org5cf5ab2" class="outline-4">
+<h4 id="org5cf5ab2"><span class="section-number-4">1.14.1</span> Conditional Statement</h4>
 <div class="outline-text-4" id="text-1-14-1">
 <p>
 <b>If Else 语句</b>
@@ -2428,8 +2428,8 @@ ELISP&gt;
 </pre>
 </div>
 </div>
-<div id="outline-container-org4cbb15c" class="outline-4">
-<h4 id="org4cbb15c"><span class="section-number-4">1.14.2</span> Cond - Case Switch</h4>
+<div id="outline-container-orga03bd99" class="outline-4">
+<h4 id="orga03bd99"><span class="section-number-4">1.14.2</span> Cond - Case Switch</h4>
 <div class="outline-text-4" id="text-1-14-2">
 <pre class="example">
 ELISP&gt; (setq a 3)       ;; a = 3
@@ -2448,8 +2448,8 @@ ELISP&gt;
 </div>
 </div>
 
-<div id="outline-container-orgc2911da" class="outline-4">
-<h4 id="orgc2911da"><span class="section-number-4">1.14.3</span> CL-Case - Case Switch</h4>
+<div id="outline-container-org0b48d9d" class="outline-4">
+<h4 id="org0b48d9d"><span class="section-number-4">1.14.3</span> CL-Case - Case Switch</h4>
 <div class="outline-text-4" id="text-1-14-3">
 <pre class="example">
 (defun test-cl-case (operation x y)
@@ -2477,8 +2477,8 @@ nil
 </div>
 </div>
 
-<div id="outline-container-org935516a" class="outline-4">
-<h4 id="org935516a"><span class="section-number-4">1.14.4</span> 循环</h4>
+<div id="outline-container-orgaa1a91d" class="outline-4">
+<h4 id="orgaa1a91d"><span class="section-number-4">1.14.4</span> 循环</h4>
 <div class="outline-text-4" id="text-1-14-4">
 <p>
 <b>Dolist</b>
@@ -2682,8 +2682,8 @@ nil
 </div>
 </div>
 
-<div id="outline-container-org8a25672" class="outline-4">
-<h4 id="org8a25672"><span class="section-number-4">1.14.5</span> 函数式编程</h4>
+<div id="outline-container-org547e7a9" class="outline-4">
+<h4 id="org547e7a9"><span class="section-number-4">1.14.5</span> 函数式编程</h4>
 <div class="outline-text-4" id="text-1-14-5">
 <p>
 <a href="https://github.com/magnars/dash.el.git">Dash</a> 是emacs经常使用的函数式编程库。
