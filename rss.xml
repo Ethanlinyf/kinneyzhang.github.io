@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+<channel>
+<title><![CDATA[Geekinney's Blog]]></title>
+<description><![CDATA[Geekinney's Blog]]></description>
+<link>https://blog.geekinney.com</link>
+<lastBuildDate>Fri, 22 Nov 2019 15:27:34 +0800</lastBuildDate>
+<item>
+  <title><![CDATA[using org-mode to blog with jekyll]]></title>
+  <description><![CDATA[
+<nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org3da8983">1. WorkFlow</a></li>
+<li><a href="#org5e8b941">2. 流程分析</a>
+<ul>
+<li><a href="#orgf99f02c">2.1. 目录结构</a></li>
+<li><a href="#orga9a37d6">2.2. 创建draft文件</a></li>
+<li><a href="#org508d824">2.3. 从draft到post</a></li>
+<li><a href="#orgeaa8123">2.4. 项目发布</a></li>
+<li><a href="#org2187e55">2.5. 添加缺失样式</a></li>
+<li><a href="#org1602d8b">2.6. elisp代码</a></li>
+</ul>
+</li>
+<li><a href="#org51cbf71">3. 参考文档</a></li>
+<li><a href="#org663c382">4. 更新!</a>
+<ul>
+<li><a href="#orgf4f1a34">4.1. Oct 21, 2019</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<p>
+<b>Jekyll</b> 是使用ruby开发的静态网站生成器，它可以将不同的文本标记语言转变为静态html页面。Jekyll生成的静态站点可以被几乎所有的web server使用并且不需要额外的组件。Github Page就是使用Jekyll构建的。
+</p>
+
+<p>
+这篇文章将讨论如何使用org-mode撰写，发布jekyll blog，我不会面面俱到地介绍每个概念，比如：什么是org-mode，什么是jekyll以及如何安装使用它们等。如果你对以上问题存疑，可以自行研究，参考 <a href="http://doc.norang.ca/org-mode.html">Org Mode - Organize Your Life In Plain Text!</a> 和 <a href="https://jekyllrb.com/">jekyll官网</a>。
+</p>
+
+<p>
+Org-mode原生支持功能强大的HTML导出，但是没有内置关于blog的操作。
+</p>
+
+<p>
+使用Org发布jekyll blog分为三步：
+</p>
+
+<ul class="org-ul">
+<li>使用org-mode撰写blog内容</li>
+<li>将org文件导出为html并放置在Jekyll项目中</li>
+<li>启动jekyll服务，将html格式的文章解析呈现</li>
+</ul>
+
+<p>
+接下来，着重介绍使用org-mode管理jekyll的原理和workflow，包括必要的elisp代码及折腾心得。
+</p>
+
+
+<div id="outline-container-org3da8983" class="outline-2">
+<h2 id="org3da8983"><span class="section-number-2">1</span> WorkFlow</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+首先，总体浏览一下workflow。这个流程不算完美，但对于日常使用emacs的用户已经可以很方便的使用org-mode撰写、发布jekyll blog了。
+</p>
+
+<ul class="org-ul">
+<li>打开emacs, <code>M-x jekyll-draft-post</code> ,输入文章标题。emacs会在 <code>_draft</code> 目标下新建带有YAML信息的org文件。</li>
+<li>文章编辑完成后, <code>M-x jekyll-publish-post</code> 。emacs会将文章移动到 <code>_post</code> 目录下，并修改文件名为符合jekyll规范的名称(<sub>yyyy</sub>-mm-dd-title.org_)。</li>
+<li>按键 <code>C-c C-e</code> 选择项目进行发布。发布后的org会转换成html格式保存在jekyll项目对应的 <code>_post</code> 目录下。</li>
+<li>访问 <span class="underline"><a href="https://localhost:4000">https://localhost:4000</a></span> ，本地预览文章效果。如果需要修改，修改后重新发布项目。</li>
+<li>确认无误后，git push 上传修改代码到github。</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5e8b941" class="outline-2">
+<h2 id="org5e8b941"><span class="section-number-2">2</span> 流程分析</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+看了以上的workflow，读者可能会有些疑惑，下面对流程具体讲解并附上必要的代码。
+</p>
+</div>
+<div id="outline-container-orgf99f02c" class="outline-3">
+<h3 id="orgf99f02c"><span class="section-number-3">2.1</span> 目录结构</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+注意区分两个概念：Jekyll Blog目录 和 Jekyll项目目录。Jekyll Blog中存在的是原始的Org文件，Jekyll项目中存放的是用于Jekyll解析的HTML文件。我将Org文件存储在云盘中，项目文件托管在Github Page。当然你也可以将两者放在同一个目录下托管，whatever~
+</p>
+
+<p>
+我的Jekyll Blog目录放在 <code>~/iCloud/blog</code> 文件夹中，其中 <code>_drafts</code> 中为草稿，不会被导出, <code>_post</code> 中为待发布的post。当发布项目时, <code>_post</code> 中所有的org文件转换为HTML并发布到Jekyll项目根目录的 <code>_posts</code> 文件夹中。
+</p>
+
+<p>
+Jekyll Blog目录结构如下：
+</p>
+
+<div class="col-auto">
+<pre><code class="nohighlight">.
+├── _drafts
+│   └── using-org-to-blog-with-jekyll.org
+├── _pages
+│   └── bookmark.org
+├── _posts
+│   ├── 2019-03-30-emacs-learning-note.org
+│   └── 2019-08-31-listen-music-in-emacs.org
+└── assets
+    ├── css
+    ├── img
+    └── js
+</code></pre>
+</div>
+
+<p>
+目录结构变量定义的elisp代码：
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">jekyll-directory</span> (expand-file-name <span style="color: #8b2252;">"~/iCloud/blog/"</span>)
+  <span style="color: #8b2252;">"Path to Jekyll blog."</span>)
+(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">jekyll-drafts-dir</span> <span style="color: #8b2252;">"_drafts/"</span>
+  <span style="color: #8b2252;">"Relative path to drafts directory."</span>)
+(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">jekyll-posts-dir</span> <span style="color: #8b2252;">"_posts/"</span>
+  <span style="color: #8b2252;">"Relative path to posts directory."</span>)
+(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">jekyll-post-ext</span> <span style="color: #8b2252;">".org"</span>
+  <span style="color: #8b2252;">"File extension of Jekyll posts."</span>)
+</code></pre>
+</div>
+
+<p>
+Jekyll项目目录结构如下：
+</p>
+
+<div class="col-auto">
+<pre><code class="nohighlight">.
+|__ config.yml
+|__ _includes
+|__ _layouts
+|    |- default.html
+|    |- post.html
+|__ _posts
+|    |- 2019-03-30-emacs-learning-note.html
+|    |- 2019-08-31-listen-music-in-emacs.html
+|__ _site
+|__ index.html
+|__ assets
+     |- js
+     |- css
+	|- style.css
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga9a37d6" class="outline-3">
+<h3 id="orga9a37d6"><span class="section-number-3">2.2</span> 创建draft文件</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+根据 <code>jekyll-post-template</code> 变量的内容和输入信息，生成org文件。elisp代码如下：
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">jekyll-post-template</span>
+  <span style="color: #8b2252;">"#+STARTUP: showall indent\n#+STARTUP: hidestars\n#+begin_export html\n---\ndate: \nlayout: post\ntitle: %s\nsubtitle: \nauthor: Geekinney\nheader-img: \ntags: \ncatalog: \n---\n#+end_export\n\n"</span>
+  <span style="color: #8b2252;">"Default template for Jekyll posts. %s will be replace by the post title."</span>
+  )
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">jekyll-make-slug</span> (s)
+  <span style="color: #8b2252;">"Turn a string into a slug."</span>
+  (replace-regexp-in-string
+   <span style="color: #8b2252;">" "</span> <span style="color: #8b2252;">"-"</span> (downcase
+            (replace-regexp-in-string
+             <span style="color: #8b2252;">"[</span><span style="color: #8b2252;">^</span><span style="color: #8b2252;">A-Za-z0-9 ]"</span> <span style="color: #8b2252;">""</span> s))))
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">jekyll-yaml-escape</span> (s)
+  <span style="color: #8b2252;">"Escape a string for YAML."</span>
+  (<span style="color: #a020f0;">if</span> (<span style="color: #a020f0;">or</span> (string-match <span style="color: #8b2252;">":"</span> s)
+          (string-match <span style="color: #8b2252;">"\""</span> s))
+      (concat <span style="color: #8b2252;">"\""</span> (replace-regexp-in-string <span style="color: #8b2252;">"\""</span> <span style="color: #8b2252;">"\\\\\""</span> s) <span style="color: #8b2252;">"\""</span>)
+    s))
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">jekyll-draft-post</span> (title)
+  <span style="color: #8b2252;">"Create a new Jekyll blog post."</span>
+  (<span style="color: #a020f0;">interactive</span> <span style="color: #8b2252;">"sPost Title: "</span>)
+  (<span style="color: #a020f0;">let</span> ((draft-file (concat jekyll-directory jekyll-drafts-dir
+                            (jekyll-make-slug title)
+                            jekyll-post-ext)))
+    (<span style="color: #a020f0;">if</span> (file-exists-p draft-file)
+        (find-file draft-file)
+      (find-file draft-file)
+      (insert (format jekyll-post-template (jekyll-yaml-escape title))))))
+</code></pre>
+</div>
+
+<p>
+值得注意的是，模版中的YAML信息被包裹在了 <code>#+begin_export html</code> 和 <code>#+end_export</code> 标签之间。该标签之间的文本在Org转为HTML时会以原始文本导出，这为Jekyll解析HTML文件提供了保证。
+</p>
+
+<p>
+带有合法YAML信息的markdown或html文件才能被Jekyll正常解析，我的YAML模版为：
+</p>
+
+<div class="col-auto">
+<pre><code class="YAML">---
+date: 
+layout: post
+title: 
+subtitle: 
+author: Geekinney
+header-img: 
+tags: 
+catalog: 
+---
+</code></pre>
+</div>
+
+<p>
+读者可以根据自己的项目需求修改 <code>jekyll-post-template</code> 变量。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org508d824" class="outline-3">
+<h3 id="org508d824"><span class="section-number-3">2.3</span> 从draft到post</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+将 <code>_drafts</code> 目录中的Org文件移到 <code>_posts</code> 中，在文件名前面加上日期。elisp代码如下：
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">jekyll-publish-post</span> ()
+  <span style="color: #8b2252;">"Move a draft post to the posts directory, and rename it so that it</span>
+<span style="color: #8b2252;"> contains the date."</span>
+  (<span style="color: #a020f0;">interactive</span>)
+  (<span style="color: #a020f0;">cond</span>
+   ((not (equal
+          (file-name-directory (buffer-file-name (current-buffer)))
+          (concat jekyll-directory jekyll-drafts-dir)))
+    (message <span style="color: #8b2252;">"This is not a draft post."</span>))
+   ((buffer-modified-p)
+    (message <span style="color: #8b2252;">"Can't publish post; buffer has modifications."</span>))
+   (t
+    (<span style="color: #a020f0;">let</span> ((filename
+           (concat jekyll-directory jekyll-posts-dir
+                   (format-time-string <span style="color: #8b2252;">"%Y-%m-%d-"</span>)
+                   (file-name-nondirectory
+                    (buffer-file-name (current-buffer)))))
+          (old-point (point)))
+      (rename-file (buffer-file-name (current-buffer))
+                   filename)
+      (kill-buffer nil)
+      (find-file filename)
+      (set-window-point (selected-window) old-point)))))
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeaa8123" class="outline-3">
+<h3 id="orgeaa8123"><span class="section-number-3">2.4</span> 项目发布</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Org-mode使用原生的项目发布功能就可以将 <code>_posts</code> 目录下的Org文件发布至Jekyll。配置 <code>org-publish-project-alist</code> 变量即可。变量参数设置如下：
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">setq</span> org-publish-project-alist
+      '(
+        (<span style="color: #8b2252;">"jekyll-post"</span>
+         <span style="color: #483d8b;">:base-directory</span> <span style="color: #8b2252;">"~/iCloud/blog/_posts"</span>
+         <span style="color: #483d8b;">:base-extension</span> <span style="color: #8b2252;">"org"</span>
+         <span style="color: #483d8b;">:publishing-directory</span> <span style="color: #8b2252;">"~/iCloud/huxBlog/_posts"</span>
+         <span style="color: #483d8b;">:recursive</span> nil
+         <span style="color: #483d8b;">:publishing-function</span> org-html-publish-to-html
+         <span style="color: #483d8b;">:with-toc</span> nil
+         <span style="color: #483d8b;">:headline-levels</span> 4
+         <span style="color: #483d8b;">:auto-preamble</span> nil
+         <span style="color: #483d8b;">:auto-sitemap</span> nil
+         <span style="color: #483d8b;">:html-extension</span> <span style="color: #8b2252;">"html"</span>
+         <span style="color: #483d8b;">:table-of-contents</span> nil
+         <span style="color: #483d8b;">:section-numbers</span> 2
+         <span style="color: #483d8b;">:body-only</span> t
+         )
+
+        (<span style="color: #8b2252;">"jekyll-static"</span>
+         <span style="color: #483d8b;">:base-directory</span> <span style="color: #8b2252;">"~/iCloud/blog/assets/"</span>
+         <span style="color: #483d8b;">:base-extension</span> <span style="color: #8b2252;">"css</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">js</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">png</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">jpg</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">gif</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">pdf</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">mp3</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">ogg</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">swf</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">php"</span>
+         <span style="color: #483d8b;">:publishing-directory</span> <span style="color: #8b2252;">"~/iCloud/huxBlog/assets"</span>
+         <span style="color: #483d8b;">:recursive</span> t
+         <span style="color: #483d8b;">:publishing-function</span> org-publish-attachment)
+
+        (<span style="color: #8b2252;">"jekyll"</span>
+         <span style="color: #483d8b;">:components</span> (<span style="color: #8b2252;">"jekyll-post"</span> <span style="color: #8b2252;">"jekyll-static"</span>))
+        ))
+
+</code></pre>
+</div>
+
+<p>
+org-publish参数设置参考 <a href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">HTML publishing tutorial</a>
+</p>
+
+<p>
+<code>:body-only t</code> 表示只导出body标签之间的部分，因为其余的部分Jekyll已经构建好了。但是，由于Org导出的HTML的body标签之外包含一些CSS样式，这就埋下了一个隐患：部分org语法不能正常解析。需要手动添加缺失的CSS到Jekyll项目中。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2187e55" class="outline-3">
+<h3 id="org2187e55"><span class="section-number-3">2.5</span> 添加缺失样式</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+主要缺失的样式有：代码块，表格，下划线，以及org-mode特有的keyword，timestamp等。下面给出添加的CSS参考：
+</p>
+
+<div class="col-auto">
+<pre><code class="css"><span style="color: #0000ff;">pre </span>{
+    <span style="color: #a020f0;">background</span>: <span style="color: #ffffff; background-color: #333;">#333</span>;
+    <span style="color: #a020f0;">color</span>: <span style="color: #000000; background-color: #ddd;">#ddd</span>;
+    <span style="color: #a020f0;">overflow</span>: auto;
+    <span style="color: #a020f0;">padding</span>: 8pt;
+    <span style="color: #a020f0;">border</span>: 1px solid <span style="color: #ffffff; background-color: #666;">#666</span>;
+    <span style="color: #a020f0;">border-radius</span>: 5px;
+    <span style="color: #a020f0;">font-size</span>: 10pt;
+    <span style="color: #a020f0;">font-family</span>: <span style="color: #8b2252;">'PT Mono'</span>, <span style="color: #8b2252;">'PT Mono'</span>, monospace;
+    <span style="color: #a020f0;">margin-top</span>: 1em;
+    <span style="color: #a020f0;">margin-bottom</span>: 1em;
+}
+<span style="color: #0000ff;">table </span>{
+    <span style="color: #a020f0;">font-size</span>: 100%;
+    <span style="color: #a020f0;">border-collapse</span>: collapse;
+    <span style="color: #a020f0;">margin</span>: .5em 0;
+}
+<span style="color: #0000ff;">th, td </span>{
+    <span style="color: #a020f0;">border</span>: 1px solid <span style="color: #ffffff; background-color: #777;">#777</span>;
+    <span style="color: #a020f0;">padding</span>: .3em;
+    <span style="color: #a020f0;">margin</span>: 2px;
+}
+<span style="color: #0000ff;">th </span>{
+    <span style="color: #a020f0;">background</span>: <span style="color: #000000; background-color: #eee;">#eee</span>;
+}
+<span style="color: #0000ff;">table </span>{ <span style="color: #a020f0;">border-collapse</span>: collapse; }
+<span style="color: #0000ff;">td, th </span>{
+    <span style="color: #a020f0;">vertical-align</span>: top;
+}
+<span style="color: #0000ff;">.todo  </span>{ <span style="color: #a020f0;">color</span>: <span style="color: #ffffff; background-color: #ff0000;">red</span>; }
+<span style="color: #0000ff;">.done </span>{ <span style="color: #a020f0;">color</span>: <span style="color: #ffffff; background-color: #008000;">green</span>; }
+<span style="color: #0000ff;">.priority </span>{ <span style="color: #a020f0;">font-family</span>: monospace; <span style="color: #a020f0;">color</span>: <span style="color: #ffffff; background-color: #ffa500;">orange</span>; }
+<span style="color: #0000ff;">p.verse </span>{ <span style="color: #a020f0;">margin-left</span>: 3%; }
+<span style="color: #0000ff;">.timestamp </span>{ <span style="color: #a020f0;">color</span>: <span style="color: #ffffff; background-color: #808080;">gray</span> }
+<span style="color: #0000ff;">.timestamp-kwd </span>{ <span style="color: #a020f0;">color</span>: <span style="color: #000000; background-color: #f59ea0;">#f59ea0</span>; }
+<span style="color: #0000ff;">.target </span>{ <span style="color: #a020f0;">background-color</span>: <span style="color: #ffffff; background-color: #551a8b;">#551a8b</span>; }
+<span style="color: #0000ff;">.underline </span>{ <span style="color: #a020f0;">text-decoration</span>: underline; }
+<span style="color: #0000ff;">.org-right  </span>{ <span style="color: #a020f0;">margin-left</span>: auto; <span style="color: #a020f0;">margin-right</span>: 0px;  <span style="color: #a020f0;">text-align</span>: right; }
+<span style="color: #0000ff;">.org-left   </span>{<span style="color: #a020f0;">margin-left</span>: 0px;  <span style="color: #a020f0;">margin-right</span>: auto; <span style="color: #a020f0;">text-align</span>: left; }
+<span style="color: #0000ff;">.org-center </span>{ <span style="color: #a020f0;">margin-left</span>: auto; <span style="color: #a020f0;">margin-right</span>: auto; <span style="color: #a020f0;">text-align</span>: center; }
+</code></pre>
+</div>
+
+<p>
+当然，你可以定制自己喜欢的样式，比如代码块的高亮可以使用 <a href="https://highlightjs.org">highlight.js</a>。关于org导出为HTML的CSS设置参考 <a href="https://orgmode.org/org.html#CSS-support">The Org Manual | CSS support</a>。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1602d8b" class="outline-3">
+<h3 id="org1602d8b"><span class="section-number-3">2.6</span> elisp代码</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+完整的elisp package参考我的 <a href="https://github.com/Kinneyzhang/.emacs.d/blob/master/elisp/init-org-jekyll.el#L15">init-org-jekyll.el</a>。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org51cbf71" class="outline-2">
+<h2 id="org51cbf71"><span class="section-number-2">3</span> 参考文档</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><a href="https://orgmode.org/worg/org-tutorials/org-jekyll.html">Using org to Blog with Jekyll | by Worg</a></li>
+<li><a href="http://xshaun.github.io/jekyll-bootstrap/2014/08/27/jekyllbootstrap5-jekyll-introduction">Jekyll简介及工作原理</a></li>
+<li><a href="https://segmentfault.com/a/1190000008313904">用Org-mode和Jekyll写博客</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org663c382" class="outline-2">
+<h2 id="org663c382"><span class="section-number-2">4</span> 更新!</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgf4f1a34" class="outline-3">
+<h3 id="orgf4f1a34"><span class="section-number-3">4.1</span> Oct 21, 2019</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+我的workflow使用了 <a href="https://huangxuan.me/">Hux Blog</a> 默认的CSS，而默认的样式为markdown转html提供了相关样式支持，没有对org-mode的支持，这是需要添加“缺失样式“的原因。但是，这种方法太不优雅，并且我并不喜欢hux的默认样式。我希望自己可以控制整个org-mode导出效果，这样可以使用很多 <a href="https://emacs-china.org/t/org-mode-html/10120">漂亮的样式</a> 来渲染orgmode。
+</p>
+
+<div class="col-auto">
+<pre><code class="plaintext">.
+├── bootstrap.css
+├── bootstrap.min.css
+├── hux-blog.css
+├── hux-blog.min.css
+└── my-org.css
+</code></pre>
+</div>
+
+<p>
+以上为css目录的内容，hux-blog文件中存放了站点的所有样式，包括网站的基本结构和文章的渲染。
+</p>
+
+<p>
+解决方法：
+</p>
+<ul class="org-ul">
+<li>找出默认hux-blog CSS中与文章渲染的相关css注释掉。在hux中，所有包含 <code>.post-container</code> 的样式为文章渲染样式。</li>
+<li>将用于orgmode导出渲染的 <code>my-org.css</code> 所有样式前面加上 <code>.post-container</code> 。</li>
+<li>在html的header中引入 <code>my-org.css</code> 样式文件。</li>
+</ul>
+
+<p>
+以上方案，仅以hux为例，读者可以作为思路的参考。具体问题请具体分析。
+</p>
+</div>
+</div>
+</div>
+<div class="taglist"><a href="https://blog.geekinney.comtags.html">Tags</a>: <a href="https://blog.geekinney.comtag-jekyll.html">jekyll</a> <a href="https://blog.geekinney.comtag-org-mode.html">org-mode</a> </div>]]></description>
+  <category><![CDATA[jekyll]]></category>
+  <category><![CDATA[org-mode]]></category>
+  <link>https://blog.geekinney.com/Users/kinney/iCloud/blog_site/posts/2019-11-22-using-org-mode-to-blog-with-jekyll.html</link>
+  <pubDate>Fri, 22 Nov 2019 15:20:00 +0800</pubDate>
+</item>
+</channel>
+</rss>
