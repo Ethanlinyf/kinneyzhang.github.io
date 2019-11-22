@@ -1,5 +1,6 @@
 #+TITLE:Geekblog
+#+OPTIONS: toc:nil
 
 * archive
 ** 2019
-   * 201903 [[https://geekinney.com/2019-03-30-emacs-learning-note.html][emacs学习笔记]]
+   * 201903 [[https://blog.geekinney.com/2019-03-30-emacs-learning-note.html][emacs学习笔记]]
