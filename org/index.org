@@ -1,6 +1,6 @@
 #+TITLE:Geekinney Blog
 #+STARTUP: content
-#+OPTIONS: toc:nil H:2 num:2
+#+OPTIONS: toc:t H:2 num:2
 
 * 归档
 ** 2019
