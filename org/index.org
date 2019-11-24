@@ -1,14 +1,13 @@
 #+TITLE:Geekinney Blog
+#+DATE: 2019-11-24
+#+AUTHOR: Kinney Zhang
+#+EMAIL: kinneyzhang666@gmail.com
 #+STARTUP: content
-#+OPTIONS: toc:nil H:2 num:2
-
- * emacs爱好者
- * 个人博客站点，记录学习与思考
- * 不设评论，交流探讨欢迎 email: =kinneyzhang666@gmail.com=
-
+#+OPTIONS: toc:nil H:2 num:2 html-preamble:t html-postamble:t
 #+TOC: headlines:2
 
-* 归档
+* 归档 
+#+NAME:归档
 ** 2019
    * 201911 [[https://blog.geekinney.com/html/emacs-lisp-learning-note.html][elisp学习笔记]]
    * 201911 [[https://blog.geekinney.com/html/reading-notes-of-STORY.html][书摘|故事：材质、结构、风格和银幕剧作的原理]]
@@ -23,6 +22,7 @@
    * 201903 [[https://blog.geekinney.com/html/emacs-learning-note.html][emacs学习笔记]]
 
 * 分类
+#+NAME:分类
 ** 阅读
  * [[https://blog.geekinney.com/html/pick-up-reading-after-read-the-moon-and-sixpence.html][重拾阅读]]（月亮与六便士）
  * [[https://blog.geekinney.com/html/reading-notes-of-how-to-read-a-book-efficiently.html][书摘|如何有效阅读一本书]]
@@ -41,6 +41,7 @@
  * [[https://blog.geekinney.com/html/thinking-about-journaling.html][关于写日志]]
 
 * 链接收藏
+#+NAME: 链接收藏
 ** Emacs
 *** [[https://emacs.zeef.com/ehartc][Emacs by Ernst de Hart | ZEEF]]
 *** [[https://www.gnu.org/software/emacs/manual/][GNU Emacs Manuals Online]]

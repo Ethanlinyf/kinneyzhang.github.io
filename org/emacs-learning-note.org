@@ -1,6 +1,9 @@
-#+STARTUP: showall indent
 #+TITLE:emacs学习笔记 
 #+DATE: 2019-03-30
+#+AUTHOR: Kinney Zhang
+#+EMAIL: kinneyzhang666@gmail.com
+#+STARTUP: showall indent
+#+OPTIONS: toc:t H:2 num:2 html-preamble:t html-postamble:t
 
 * 文件操作
  * C-x d 进入Dired-mode
