@@ -1,6 +1,12 @@
 #+TITLE:Geekinney Blog
 #+STARTUP: content
-#+OPTIONS: toc:t H:2 num:2
+#+OPTIONS: toc:nil H:2 num:2
+
+ * emacs爱好者
+ * 个人博客站点，记录学习与思考
+ * 不设评论，交流探讨欢迎 email: =kinneyzhang666@gmail.com=
+
+#+TOC: headlines:2
 
 * 归档
 ** 2019
