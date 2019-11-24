@@ -4,17 +4,17 @@
 
 * 归档
 ** 2019
- * 201903 [[https://blog.geekinney.com/html/emacs-learning-note.html][emacs学习笔记]]
- * 201907 [[https://blog.geekinney.com/html/pick-up-reading-after-read-the-moon-and-sixpence.html][重拾阅读]]
- * 201908 [[https://blog.geekinney.com/html/thinking-about-cs-teaching-in-college.html][关于大学计算机科学]]
- * 201908 [[https://blog.geekinney.com/html/thinking-about-journaling.html][关于写日志]]
- * 201908 [[https://blog.geekinney.com/html/get-started-with-emacs.html][开始使用Emacs]]
- * 201908 [[https://blog.geekinney.com/html/reading-notes-of-how-to-read-a-book-efficiently.html][书摘|如何有效阅读一本书]]
- * 201908 [[https://blog.geekinney.com/html/listen-music-in-emacs.html][Emacs中使用mpd+mingus听音乐]]
- * 201909 [[https://blog.geekinney.com/html/using-org-to-blog-with-jekyll.html][使用org-mode撰写Jekyll blog]]
- * 201910 [[https://blog.geekinney.com/html/reading-notes-of-getting-things-done-one.html][书摘|搞定I：无压生活的艺术]]
- * 201911 [[https://blog.geekinney.com/html/reading-notes-of-STORY.html][书摘|故事：材质、结构、风格和银幕剧作的原理]]
- * 201911 [[https://blog.geekinney.com/html/emacs-lisp-learning-note.html][elisp学习笔记]]
+   * 201911 [[https://blog.geekinney.com/html/emacs-lisp-learning-note.html][elisp学习笔记]]
+   * 201911 [[https://blog.geekinney.com/html/reading-notes-of-STORY.html][书摘|故事：材质、结构、风格和银幕剧作的原理]]
+   * 201910 [[https://blog.geekinney.com/html/reading-notes-of-getting-things-done-one.html][书摘|搞定I：无压生活的艺术]]
+   * 201909 [[https://blog.geekinney.com/html/using-org-to-blog-with-jekyll.html][使用org-mode撰写Jekyll blog]]
+   * 201908 [[https://blog.geekinney.com/html/listen-music-in-emacs.html][Emacs中使用mpd+mingus听音乐]]
+   * 201908 [[https://blog.geekinney.com/html/reading-notes-of-how-to-read-a-book-efficiently.html][书摘|如何有效阅读一本书]]
+   * 201908 [[https://blog.geekinney.com/html/get-started-with-emacs.html][开始使用Emacs]]
+   * 201908 [[https://blog.geekinney.com/html/thinking-about-cs-teaching-in-college.html][关于大学计算机科学]]
+   * 201908 [[https://blog.geekinney.com/html/thinking-about-journaling.html][关于写日志]]
+   * 201907 [[https://blog.geekinney.com/html/pick-up-reading-after-read-the-moon-and-sixpence.html][重拾阅读]]
+   * 201903 [[https://blog.geekinney.com/html/emacs-learning-note.html][emacs学习笔记]]
 
 * 分类
 ** 阅读

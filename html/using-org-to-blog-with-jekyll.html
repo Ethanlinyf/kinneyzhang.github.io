@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-11-23 Sat 21:04 -->
+<!-- 2019-11-24 Sun 17:04 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>使用org-mode撰写Jekyll blog</title>
@@ -238,21 +238,21 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org02e29aa">1. WorkFlow</a></li>
-<li><a href="#org84c1181">2. 流程分析</a>
+<li><a href="#org52b98b1">1. WorkFlow</a></li>
+<li><a href="#org391cbaf">2. 流程分析</a>
 <ul>
-<li><a href="#orgdd75496">2.1. 目录结构</a></li>
-<li><a href="#org3c218e5">2.2. 创建draft文件</a></li>
-<li><a href="#orgfddb073">2.3. 从draft到post</a></li>
-<li><a href="#orgad33524">2.4. 项目发布</a></li>
-<li><a href="#org040a4aa">2.5. 添加缺失样式</a></li>
-<li><a href="#orgb8a21e9">2.6. elisp代码</a></li>
+<li><a href="#org215dfe9">2.1. 目录结构</a></li>
+<li><a href="#orga4d4f96">2.2. 创建draft文件</a></li>
+<li><a href="#org630a6c8">2.3. 从draft到post</a></li>
+<li><a href="#org241ada6">2.4. 项目发布</a></li>
+<li><a href="#orgbfb08c0">2.5. 添加缺失样式</a></li>
+<li><a href="#org9fca922">2.6. elisp代码</a></li>
 </ul>
 </li>
-<li><a href="#org4430630">3. 参考文档</a></li>
-<li><a href="#orgd7b35e7">4. 更新!</a>
+<li><a href="#org9f23bcd">3. 参考文档</a></li>
+<li><a href="#org27bfe86">4. 更新!</a>
 <ul>
-<li><a href="#org0829df3">4.1. Oct 21, 2019</a></li>
+<li><a href="#org93a2e94">4.1. Oct 21, 2019</a></li>
 </ul>
 </li>
 </ul>
@@ -285,8 +285,8 @@ Org-mode原生支持功能强大的HTML导出，但是没有内置关于blog的�
 </p>
 
 
-<div id="outline-container-org02e29aa" class="outline-2">
-<h2 id="org02e29aa"><span class="section-number-2">1</span> WorkFlow</h2>
+<div id="outline-container-org52b98b1" class="outline-2">
+<h2 id="org52b98b1"><span class="section-number-2">1</span> WorkFlow</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 首先，总体浏览一下workflow。这个流程不算完美，但对于日常使用emacs的用户已经可以很方便的使用org-mode撰写、发布jekyll blog了。
@@ -302,15 +302,15 @@ Org-mode原生支持功能强大的HTML导出，但是没有内置关于blog的�
 </div>
 </div>
 
-<div id="outline-container-org84c1181" class="outline-2">
-<h2 id="org84c1181"><span class="section-number-2">2</span> 流程分析</h2>
+<div id="outline-container-org391cbaf" class="outline-2">
+<h2 id="org391cbaf"><span class="section-number-2">2</span> 流程分析</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 看了以上的workflow，读者可能会有些疑惑，下面对流程具体讲解并附上必要的代码。
 </p>
 </div>
-<div id="outline-container-orgdd75496" class="outline-3">
-<h3 id="orgdd75496"><span class="section-number-3">2.1</span> 目录结构</h3>
+<div id="outline-container-org215dfe9" class="outline-3">
+<h3 id="org215dfe9"><span class="section-number-3">2.1</span> 目录结构</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 注意区分两个概念：Jekyll Blog目录 和 Jekyll项目目录。Jekyll Blog中存在的是原始的Org文件，Jekyll项目中存放的是用于Jekyll解析的HTML文件。我将Org文件存储在云盘中，项目文件托管在Github Page。当然你也可以将两者放在同一个目录下托管，whatever~
@@ -381,8 +381,8 @@ Jekyll项目目录结构如下：
 </div>
 </div>
 
-<div id="outline-container-org3c218e5" class="outline-3">
-<h3 id="org3c218e5"><span class="section-number-3">2.2</span> 创建draft文件</h3>
+<div id="outline-container-orga4d4f96" class="outline-3">
+<h3 id="orga4d4f96"><span class="section-number-3">2.2</span> 创建draft文件</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 根据 <code>jekyll-post-template</code> 变量的内容和输入信息，生成org文件。elisp代码如下：
@@ -449,8 +449,8 @@ catalog:
 </div>
 </div>
 
-<div id="outline-container-orgfddb073" class="outline-3">
-<h3 id="orgfddb073"><span class="section-number-3">2.3</span> 从draft到post</h3>
+<div id="outline-container-org630a6c8" class="outline-3">
+<h3 id="org630a6c8"><span class="section-number-3">2.3</span> 从draft到post</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 将 <code>_drafts</code> 目录中的Org文件移到 <code>_posts</code> 中，在文件名前面加上日期。elisp代码如下：
@@ -485,8 +485,8 @@ catalog:
 </div>
 </div>
 
-<div id="outline-container-orgad33524" class="outline-3">
-<h3 id="orgad33524"><span class="section-number-3">2.4</span> 项目发布</h3>
+<div id="outline-container-org241ada6" class="outline-3">
+<h3 id="org241ada6"><span class="section-number-3">2.4</span> 项目发布</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Org-mode使用原生的项目发布功能就可以将 <code>_posts</code> 目录下的Org文件发布至Jekyll。配置 <code>org-publish-project-alist</code> 变量即可。变量参数设置如下：
@@ -535,8 +535,8 @@ org-publish参数设置参考 <a href="https://orgmode.org/worg/org-tutorials/or
 </div>
 </div>
 
-<div id="outline-container-org040a4aa" class="outline-3">
-<h3 id="org040a4aa"><span class="section-number-3">2.5</span> 添加缺失样式</h3>
+<div id="outline-container-orgbfb08c0" class="outline-3">
+<h3 id="orgbfb08c0"><span class="section-number-3">2.5</span> 添加缺失样式</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 主要缺失的样式有：代码块，表格，下划线，以及org-mode特有的keyword，timestamp等。下面给出添加的CSS参考：
@@ -592,8 +592,8 @@ org-publish参数设置参考 <a href="https://orgmode.org/worg/org-tutorials/or
 </div>
 </div>
 
-<div id="outline-container-orgb8a21e9" class="outline-3">
-<h3 id="orgb8a21e9"><span class="section-number-3">2.6</span> elisp代码</h3>
+<div id="outline-container-org9fca922" class="outline-3">
+<h3 id="org9fca922"><span class="section-number-3">2.6</span> elisp代码</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 完整的elisp package参考我的 <a href="https://github.com/Kinneyzhang/.emacs.d/blob/master/elisp/init-org-jekyll.el#L15">init-org-jekyll.el</a>。
@@ -602,8 +602,8 @@ org-publish参数设置参考 <a href="https://orgmode.org/worg/org-tutorials/or
 </div>
 </div>
 
-<div id="outline-container-org4430630" class="outline-2">
-<h2 id="org4430630"><span class="section-number-2">3</span> 参考文档</h2>
+<div id="outline-container-org9f23bcd" class="outline-2">
+<h2 id="org9f23bcd"><span class="section-number-2">3</span> 参考文档</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="https://orgmode.org/worg/org-tutorials/org-jekyll.html">Using org to Blog with Jekyll | by Worg</a></li>
@@ -613,12 +613,12 @@ org-publish参数设置参考 <a href="https://orgmode.org/worg/org-tutorials/or
 </div>
 </div>
 
-<div id="outline-container-orgd7b35e7" class="outline-2">
-<h2 id="orgd7b35e7"><span class="section-number-2">4</span> 更新!</h2>
+<div id="outline-container-org27bfe86" class="outline-2">
+<h2 id="org27bfe86"><span class="section-number-2">4</span> 更新!</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org0829df3" class="outline-3">
-<h3 id="org0829df3"><span class="section-number-3">4.1</span> Oct 21, 2019</h3>
+<div id="outline-container-org93a2e94" class="outline-3">
+<h3 id="org93a2e94"><span class="section-number-3">4.1</span> Oct 21, 2019</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 我的workflow使用了 <a href="https://huangxuan.me/">Hux Blog</a> 默认的CSS，而默认的样式为markdown转html提供了相关样式支持，没有对org-mode的支持，这是需要添加“缺失样式“的原因。但是，这种方法太不优雅，并且我并不喜欢hux的默认样式。我希望自己可以控制整个org-mode导出效果，这样可以使用很多 <a href="https://emacs-china.org/t/org-mode-html/10120">漂亮的样式</a> 来渲染orgmode。
@@ -653,6 +653,9 @@ org-publish参数设置参考 <a href="https://orgmode.org/worg/org-tutorials/or
 </div>
 </div>
 </div>
+</div>
+<div id="postamble" class="status">
+Powered by emacs orgMode / Author: Kinneyzhang / Email: kinneyzhang666@gmail.com
 </div>
 </body>
 </html>
