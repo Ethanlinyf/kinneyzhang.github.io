@@ -1,10 +1,7 @@
-#+STARTUP: content
 #+TITLE: 链接收藏
 #+DATE: 2019-01-01
-#+AUTHOR: Kinney Zhang
-#+EMAIL: kinneyzhang666@gmail.com
 #+STARTUP: content
-#+OPTIONS: toc:t H:2 num:2 html-preamble:t html-postamble:t
+#+OPTIONS: toc:t H:2 num:2
 
 * SSR节点
 ** *IP*: 124.156.176.145
