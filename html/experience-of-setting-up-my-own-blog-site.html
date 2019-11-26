@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-11-26 Tue 16:52 -->
+<!-- 2019-11-26 Tue 17:01 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>记我的博客折腾经历</title>
@@ -250,11 +250,11 @@ for the JavaScript code in this tag.
 </p>
 
 <p>
-第二版使用的是 <b>jekyll+github page</b> 。静态网站和动态网站比最大的优势就是不需要和数据库接触，只需维护每个markdown文档。Github page也免去了服务器部署的麻烦。Jekyll有丰富的主题可以选择，很轻松便可搭建漂亮的网站。但是始终没有让我满意的主题。之后又尝试了其他静态博客，如 <b>Hugo</b>, <b>Hexo</b> 等，同样是主题的问题。
+第二版使用的是 <b>jekyll+github page</b> 。静态网站和动态网站比最大的优势就是不需要和数据库接触，只需维护每个markdown文档。Github page也免去了服务器部署的麻烦。Jekyll有丰富的主题可以选择，很轻松便可搭建漂亮的网站。但是没有让我满意的主题。之后又尝试了其他静态博客，如 <b>Hugo</b>, <b>Hexo</b> 等，同样是主题的问题。
 </p>
 
 <p>
-第三版结合 <b>orgmode和静态blog</b> 。使用静态网站，意味着需要学习markdown，因为绝大多数的静态blog都只支持markdown渲染。Markdown自然很强大，但是作为emacser，我还是更喜欢<a href="https://orgmode.org/org.html">org mode</a>。于是便折腾了<a href="https://blog.geekinney.com/html/using-org-to-blog-with-jekyll.html">使用org-mode撰写Jekyll blog</a>。问题是，这种方法太不优雅！
+第三版 <b>结合orgmode和静态blog</b> 。使用静态博客，意味着需要学习markdown，因为绝大多数的静态blog都只支持markdown渲染。Markdown自然很强大，但是作为emacser，我还是更喜欢<a href="https://orgmode.org/org.html">org mode</a>。于是便折腾了<a href="https://blog.geekinney.com/html/using-org-to-blog-with-jekyll.html">使用org-mode撰写Jekyll blog</a>。问题是，这种方法太不优雅！
 </p>
 
 <p>
@@ -267,12 +267,12 @@ for the JavaScript code in this tag.
 <ul class="org-ul">
 <li>白色系，主题简洁耐看。这是我不喜欢很多静态博客定制主题的原因。它们虽然一眼看上去都很漂亮，但是不耐看。我认为耐看的主题是简洁但功能强大的，给人一种“麻雀虽小，五脏俱全”的感觉。</li>
 <li>博客的受众主要是自己。除了一些技术文章，我的博客记录地更多是自己的思考与折腾经历。既然不为营销宣传，不为浏览量，自然也不需要做rss，SEO这些。</li>
-<li>不设评论系统。之前在评论系统的选择和搭建上我也花了不少精力，尝试过 Qisqus、Gitalks、Livere等。Disqus需要科学上网，Gitalks仅限Github账号登陆，Livere浏览器兼容做的不好。目前我还没有找到一款完美的评论系统。于是，我想干脆放弃评论系统，有问题邮件联系。这样也避免了没有意义的评论。</li>
+<li>不设评论系统。之前在评论系统的选择和搭建上我也花了不少精力，尝试过 Qisqus、Gitalks、Livere等。Disqus需要科学上网，Gitalks仅限Github账号登陆，Livere浏览器兼容做的不好。目前我还没有找到一款完美的评论系统。于是干脆放弃评论系统，有问题邮件联系。这样也避免了没有意义的评论。</li>
 <li>流程可控，可拓展。emacs是我最喜爱的生产力工具，将blog撰写和发布的所有流程放在emacs，我很放心。并且elisp的可拓展性是毋庸置疑的。</li>
 </ul>
 
 <p>
-最终，我决定自己从零开始使用org-mode内置的功能搭建blog。静态博客网站的本质就是一个 <code>index.html</code> 加上一堆 <code>&lt;blog_post_name&gt;.html</code> 。如果想让网站漂亮一点，再加上一个 <code>style.css</code> 文件。至于其余的功能，如：rss，SEO，标签，评论等本质也就是对html进行一些添加、修改和处理。我暂时也不需要这些功能。
+最终，我决定自己从零开始使用org-mode内置的功能搭建blog。静态博客网站的本质就是一个 <code>index.html</code> 加上一堆 <code>&lt;blog_post_name&gt;.html</code> 。如果想让网站漂亮一点，再加上一个 <code>style.css</code> 文件。至于其余的功能，如RSS，SEO，标签，评论等本质也就是对html进行一些添加、修改和处理。我暂时不需要这些功能。
 </p>
 
 <p>
