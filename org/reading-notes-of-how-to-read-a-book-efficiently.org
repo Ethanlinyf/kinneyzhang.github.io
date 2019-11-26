@@ -2,6 +2,7 @@
 #+DATE: 2019-08-28
 #+STARTUP: content
 #+OPTIONS: toc:t H:2 num:2
+#+INCLUDE: ../code/header.org
 
 
 *《如何有效阅读一本书：超实用笔记读书法》 / (日) 奥野宣之 著，张晶晶 译 / 开始阅读：August 26, 2019 / 结束阅读：August 31, 2019*

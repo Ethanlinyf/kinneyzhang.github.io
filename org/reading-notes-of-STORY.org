@@ -2,6 +2,7 @@
 #+DATE: 2019-11-12
 #+STARTUP: content
 #+OPTIONS: toc:t H:3 num:3
+#+INCLUDE: ../code/header.org
 
 
 *《故事：材质、结构、风格和银幕剧作的原理》/ [美] Robert Mckee / 周铁东 译 / 开始阅读：Nov 10, 2019*

@@ -2,6 +2,7 @@
 #+DATE: 2019-09-03
 #+STARTUP: content
 #+OPTIONS: toc:t H:2 num:2
+#+INCLUDE: ../code/header.org
 
 *Jekyll* 是使用ruby开发的静态网站生成器，它可以将不同的文本标记语言转变为静态html页面。Jekyll生成的静态站点可以被几乎所有的web server使用并且不需要额外的组件。Github Page就是使用Jekyll构建的。
 

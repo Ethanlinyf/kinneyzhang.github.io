@@ -2,6 +2,7 @@
 #+DATE: 2019-08-18
 #+STARTUP: content
 #+OPTIONS: toc:t H:2 num:2
+#+INCLUDE: ../code/header.org
 
 #+begin_quote
 懒猫说：“Emacs是开源社区的典范, 也是全球顶尖黑客的思想结晶。没有Emacs, 我真的不会这么多年坚持做开源软件。Emacs时刻提醒我, 这个世界上有太多太多的聪明人比我更勤奋和有趣, 它就像一个每天都在增长的金字塔, 只有自己不断努力, 才能看到顶尖黑客是怎么切磋的.”

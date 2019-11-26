@@ -2,6 +2,7 @@
 #+DATE: 2019-03-30
 #+STARTUP: content
 #+OPTIONS: toc:t H:2 num:2
+#+INCLUDE: ../code/header.org
 
 * 文件操作
  * C-x d 进入Dired-mode

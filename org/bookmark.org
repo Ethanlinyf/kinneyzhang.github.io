@@ -1,11 +1,12 @@
 #+TITLE: 链接收藏
 #+DATE: 2019-01-01
 #+STARTUP: content
-#+OPTIONS: toc:t H:2 num:2
+#+OPTIONS: toc:nil H:1 num:1
+#+INCLUDE: ../code/header.org
 
 * SSR节点
 ** *IP*: 124.156.176.145
-** *Port*: 672
+** *Port*: 673
 
 * Emacs
 ** [[https://emacs.zeef.com/ehartc][Emacs by Ernst de Hart | ZEEF]]

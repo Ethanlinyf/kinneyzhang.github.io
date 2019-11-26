@@ -2,6 +2,7 @@
 #+DATE: 2019-11-12
 #+STARTUP: content
 #+OPTIONS: toc:t H:3 num:3
+#+INCLUDE: ../code/header.org
 
 学习来源： [[http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html][Elisp Programming]]
 
