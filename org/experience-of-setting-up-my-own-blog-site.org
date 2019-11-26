@@ -1,4 +1,6 @@
 #+TITLE:我的博客折腾历程
 #+STARTUP: content
-#+OPTIONS: toc:t H:2 num:2
+#+OPTIONS: toc:nil H:2 num:2
 #+INCLUDE: ../code/header.org
+
+#+TOC: headlines:2

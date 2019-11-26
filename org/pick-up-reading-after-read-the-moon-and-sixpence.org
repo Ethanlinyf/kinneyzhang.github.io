@@ -1,9 +1,10 @@
 #+TITLE:重拾阅读 
 #+DATE: 2019-07-21
 #+STARTUP: content
-#+OPTIONS: toc:t H:2 num:2
+#+OPTIONS: toc:nil H:2 num:2
 #+INCLUDE: ../code/header.org
 
+#+TOC: headlines:2
 
 我相信，一本好书是值得反复阅读品鉴的。今天读完了《月亮与六便士》，想着应该写点什么，毕竟这是我时隔好久完整地读完一本书了。
 

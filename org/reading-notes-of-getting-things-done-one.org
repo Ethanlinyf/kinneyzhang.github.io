@@ -1,9 +1,9 @@
 #+TITLE: 搞定I：无压生活的艺术
 #+DATE: 2019-10-20
 #+STARTUP: content
-#+OPTIONS: toc:t H:2 num:2
+#+OPTIONS: toc:nil H:2 num:2
 #+INCLUDE: ../code/header.org
-
+#+TOC: headlines:2
 
 *《搞定I：无压工作的艺术》/ [美] David.Allen 著 / 张静 译 / 开始阅读：Oct 18, 2019*
 * 序言
