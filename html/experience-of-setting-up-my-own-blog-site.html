@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-11-26 Tue 14:54 -->
+<!-- 2019-11-26 Tue 16:37 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>我的博客折腾历程</title>
+<title>我的博客折腾经历</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="Kinney Zhang">
 <style type="text/css">
@@ -233,7 +233,7 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <header>
-<h1 class="title">我的博客折腾历程</h1>
+<h1 class="title">我的博客折腾经历</h1>
 </header><div>
   <a href="https://blog.geekinney.com/html/index.html">Home</a>
   &nbsp;|&nbsp;
@@ -241,6 +241,49 @@ for the JavaScript code in this tag.
   &nbsp;|&nbsp;
   <a href="https://github.com/Kinneyzhang">Github</a>
 </div>
+<p>
+我从暑假开始学着搭建自己的blog网站。经历了从动态网站到静态网站，从markdown到org-mode。
+</p>
+
+<p>
+第一版使用Django+mysql。自己从零开始查资料、写代码，最终折腾的像那么回事了。使用Django的优势很明显：动态网站拓展性高，后台管理系统，复习和学习了很多Django建站的知识。但缺点是需要和数据库打交道，并且在hack时经常会出现数据库迁移和服务器部署方面的问题。这可没少让我烦神。
+</p>
+
+<p>
+第二版使用的是jekyll+github page。静态网站和动态网站比最大的优势就是不需要和数据库接触，只需维护每个markdown文档。Github page也免去了服务器部署的麻烦。Jekyll有丰富的主题可以选择，很轻松便可搭建漂亮的网站。但是始终没有让我满意的主题。之后又尝试了其他静态博客，如Hugo, Hexo等，同样是主题的问题。
+</p>
+
+<p>
+第三版结合orgmode和静态blog。使用静态网站，意味着需要学习markdown，因为绝大多数的静态blog都只支持markdown渲染。Markdown自然很强大，但是作为emacser，我还是更喜欢<a href="https://orgmode.org/org.html">org mode</a>。于是便折腾了<a href="https://blog.geekinney.com/html/using-org-to-blog-with-jekyll.html">使用org-mode撰写Jekyll blog</a>。问题是，这种方法太不优雅！
+</p>
+
+<p>
+第四版尝试基于org-mode的blog系统。melpa上有很多类似的package，比较著名的有org-page，org2web等。这些我都折腾了，不满意。原因要么是主题不好看，要么是流程太复杂。
+</p>
+
+<p>
+经过了这四个阶段的折腾，我开始思考自己究竟需要什么样子的博客系统？结果总结为如下几点：
+</p>
+<ul class="org-ul">
+<li>白色系，主题简洁耐看。这是我不喜欢很多静态博客定制主题的原因。它们虽然一眼看上去都很漂亮，但是不耐看。我认为耐看的主题是简洁但功能强大的，给人一种“麻雀虽小，五脏俱全”的感觉。</li>
+<li>博客的受众主要是自己。除了一些技术文章，我的博客记录地更多是自己的思考与生活。既然不为营销宣传，不为浏览量，自然也不需要做rss，SEO这些。</li>
+<li>不设评论系统。之前在评论系统的选择和搭建上我也花了不少精力，尝试过 Qisqus、Gitalks、Livere等。Disqus需要科学上网，Gitalks仅限Github账号登陆，Livere浏览器兼容做的不好。目前我还没有找到一款完美的评论系统。于是，我想干脆放弃评论系统，有问题邮件联系。这样也避免了没有意义的评论。</li>
+<li>流程可控，可拓展。emacs是我最喜爱的生产力工具，将blog撰写和发布的所有流程放在emacs，我很放心。并且elisp的可拓展性是毋庸置疑的。</li>
+</ul>
+
+<p>
+最后，我决定自己从零开始使用org-mode内置的功能搭建blog。静态博客网站的本质就是一个 <code>index.html</code> 加上一堆 <code>&lt;blog_post_name&gt;.html</code> 。如果想让网站漂亮一点，再加上一个 <code>style.css</code> 文件。至于其余的功能，如：rss，SEO，标签，评论等本质也就是对html进行一些添加、修改和处理。文本处理可是emacs的强项！
+</p>
+
+<p>
+OrgMode原生支持HTML导出和添加导出样式，这使得基于org-mode搭建博客成为可能。最终的折腾效果如图：
+</p>
+
+
+<figure>
+<img src="../static/img/blog-theme.png" alt="blog-theme.png">
+
+</figure>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Kinney Zhang (<a href="mailto:kinneyzhang666@gmail.com">kinneyzhang666@gmail.com</a>)</p>
