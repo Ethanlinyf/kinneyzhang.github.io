@@ -6,6 +6,7 @@
 
 * 归档
 ** 2019
+   * 201911 [[https://blog.geekinney.com/html/experience-of-setting-up-my-own-blog-site.html][记我的博客折腾经历]]
    * 201911 [[https://blog.geekinney.com/html/emacs-lisp-learning-note.html][elisp学习笔记]]
    * 201911 [[https://blog.geekinney.com/html/reading-notes-of-STORY.html][书摘|故事：材质、结构、风格和银幕剧作的原理]]
    * 201910 [[https://blog.geekinney.com/html/reading-notes-of-getting-things-done-one.html][书摘|搞定I：无压生活的艺术]]
@@ -35,3 +36,6 @@
 ** 杂思
    * [[https://blog.geekinney.com/html/thinking-about-cs-teaching-in-college.html][关于大学计算机科学]]
    * [[https://blog.geekinney.com/html/thinking-about-journaling.html][关于写日志]]
+
+** 记录
+   * [[https://blog.geekinney.com/html/experience-of-setting-up-my-own-blog-site.html][记我的博客折腾经历]]
