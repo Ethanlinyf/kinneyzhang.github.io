@@ -114,13 +114,11 @@
    :PROPERTIES:
    :CREATED:  [2019-09-29 Sun 12:51]
    :END:
-
-
 ** [[https://medium.com/@thomas_summon/%25E6%25B5%2585%25E8%25B0%2588vpn-vps-proxy%25E4%25BB%25A5%25E5%258F%258Ashadowsocks%25E4%25B9%258B%25E9%2597%25B4%25E7%259A%2584%25E8%2581%2594%25E7%25B3%25BB%25E5%2592%258C%25E5%258C%25BA%25E5%2588%25AB-b0198f92db1b][浅谈vpn、vps、Proxy以及shadowsocks之间的联系和区别 - Thomas Xu - Medium]]
    :PROPERTIES:
    :CREATED:  [2019-10-27 Sun 17:08]
    :END:
-
+** [[https://zhuanlan.zhihu.com/p/62099222][心肺复苏，应对心脏骤停的“黄金4分钟”！ - 知乎]]
 * Utility
 ** [[http://www.fontawesome.com.cn/faicons/][font-awesome 图标库]]
 ** [[https://getbootstrap.net/docs/utilities/shadows/][bootstrap 4]]
