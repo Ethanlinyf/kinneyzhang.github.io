@@ -4,11 +4,11 @@
 #+OPTIONS: toc:nil H:2 num:0
 #+INCLUDE: ../code/header.org
 
-  A: get up on 7:30; 
+  A: get up before 7:30; 
 
-  B: accouting on 22:00; 
+  B: accouting before 22:00; 
 
-  C: go to sleep on 22:30; 
+  C: go to sleep before 22:30; 
   
   D: something special;
 
