@@ -1,4 +1,3 @@
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
 #+BEGIN_EXPORT html
 <div>
   <a href="https://blog.geekinney.com/post/index.html">Home</a>
