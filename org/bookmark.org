@@ -60,6 +60,7 @@
    :CREATED:  [2019-11-17 Sun 19:23]
    :END:
 ** [[https://beepb00p.xyz/pkm-search.html][Building personal search infrastructure for your knowledge and code | Mildly entertainingᵝ]]
+** [[http://juanjose.garciaripoll.com//blog/org-mode-html-templates/index.html][An HTML template system for org-mode]]
 * Solution
 ** [[https://simpleisbetterthancomplex.com/tutorial/2016/07/26/how-to-reset-migrations.html][Django migrations reset]]
 ** [[https://www.zmrenwu.com/courses/django-blog-tutorial/][Django博客教程]]
@@ -106,6 +107,7 @@
    :END:
 
 * Article
+** [[http://juanjose.garciaripoll.com//][‎juanjose.garciaripoll.com]]
 ** [[https://sachachua.com/blog/2013/08/write-about-what-you-dont-know-5-tips-to-help-you-do-research-for][Sacha Chua's blog]]
 ** [[https://letterstoanewdeveloper.com][Letters To A New Developer]]
 ** [[https://designepiclife.com][design epic life]]
