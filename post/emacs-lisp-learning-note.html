@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-12-04 Wed 12:58 -->
+<!-- 2019-12-04 Wed 13:30 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp学习笔记</title>
@@ -178,8 +178,6 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://blog.geekinney.com/static/ostyle.css"/>
-<link rel="stylesheet" type="text/css" href="https://blog.geekinney.com/static/ostyle2.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
 <script>var hlf=function(){Array.prototype.forEach.call(document.querySelectorAll("pre.src"),function(t){var e;e=t.getAttribute("class").toLowerCase(),e=e.replace(/src-(w+)/,"src-$1 $1"),console.log(e),t.setAttribute("class",e),hljs.highlightBlock(t)})};addEventListener("DOMContentLoaded",hlf);</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/googlecode.min.css"/>
@@ -231,6 +229,9 @@ for the JavaScript code in this tag.
 </script>
 </head>
 <body>
+<div id="preamble" class="status">
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+</div>
 <div id="content">
 <header>
 <h1 class="title">elisp学习笔记</h1>
@@ -248,7 +249,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#org97cac73">1. Elisp</a>
 <ul>
-<li><a href="#orgfdb24d7">1.1. 概览</a>
+<li><a href="#org02eb527">1.1. 概览</a>
 <ul>
 <li><a href="#org5ead4e7">1.1.1. 运行emacs-lisp的几种方式</a></li>
 <li><a href="#org3831871">1.1.2. 创建命令（interactive函数）</a></li>
@@ -285,7 +286,7 @@ for the JavaScript code in this tag.
 <li><a href="#org2f1427d">1.7. 列表操作</a></li>
 <li><a href="#org08c3ecb">1.8. 关联列表和属性列表</a>
 <ul>
-<li><a href="#org02eb527">1.8.1. 概览</a></li>
+<li><a href="#org64f3e4d">1.8.1. 概览</a></li>
 <li><a href="#org5723aa3">1.8.2. 关联列表/Alist</a></li>
 <li><a href="#orgfa6bfa7">1.8.3. 属性列表</a></li>
 <li><a href="#org8cd25be">1.8.4. 转换Alist成Plist和vice-versa</a></li>
@@ -319,8 +320,8 @@ for the JavaScript code in this tag.
 <h2 id="org97cac73"><span class="section-number-2">1</span> Elisp</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgfdb24d7" class="outline-3">
-<h3 id="orgfdb24d7"><span class="section-number-3">1.1</span> 概览</h3>
+<div id="outline-container-org02eb527" class="outline-3">
+<h3 id="org02eb527"><span class="section-number-3">1.1</span> 概览</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
 <div id="outline-container-org5ead4e7" class="outline-4">
@@ -1519,8 +1520,8 @@ ELISP&gt;
 <h3 id="org08c3ecb"><span class="section-number-3">1.8</span> 关联列表和属性列表</h3>
 <div class="outline-text-3" id="text-1-8">
 </div>
-<div id="outline-container-org02eb527" class="outline-4">
-<h4 id="org02eb527"><span class="section-number-4">1.8.1</span> 概览</h4>
+<div id="outline-container-org64f3e4d" class="outline-4">
+<h4 id="org64f3e4d"><span class="section-number-4">1.8.1</span> 概览</h4>
 <div class="outline-text-4" id="text-1-8-1">
 <p>
 关联列表是一系列cons对，这里我可以称作 <code>clist</code> 或者 由两个元素组成的列表的集合，可以称为 <code>alist</code>
