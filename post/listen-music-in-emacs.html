@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-12-04 Wed 13:55 -->
+<!-- 2019-12-05 Thu 14:15 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Emacs中使用mpd+mingus听音乐</title>
@@ -258,7 +258,7 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#org40c740f">2. mingus安装及使用</a>
 <ul>
-<li><a href="#orgacc0001">2.1. 安装</a></li>
+<li><a href="#orgd629992">2.1. 安装</a></li>
 <li><a href="#org34c3321">2.2. 使用</a></li>
 </ul>
 </li>
@@ -381,9 +381,9 @@ audio_output {
 <h3 id="org609787f"><span class="section-number-3">1.5</span> 使用命令</h3>
 <div class="outline-text-3" id="text-1-5">
 <div class="col-auto">
-<pre><code class="shell">$ mpd  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">&#21551;&#21160;&#26381;&#21153;</span>
-$ mpd --kill  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">&#26432;&#27515;&#36827;&#31243;</span>
-$ mpd update  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">&#26356;&#26032;</span>
+<pre><code class="shell">$ mpd  <span style="color: #b22222;"># </span><span style="color: #b22222;">&#21551;&#21160;&#26381;&#21153;</span>
+$ mpd --kill  <span style="color: #b22222;"># </span><span style="color: #b22222;">&#26432;&#27515;&#36827;&#31243;</span>
+$ mpd update  <span style="color: #b22222;"># </span><span style="color: #b22222;">&#26356;&#26032;</span>
 </code></pre>
 </div>
 </div>
@@ -405,18 +405,18 @@ $ mpd update  <span style="font-weight: bold; font-style: italic;"># </span><spa
 <h2 id="org40c740f"><span class="section-number-2">2</span> mingus安装及使用</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgacc0001" class="outline-3">
-<h3 id="orgacc0001"><span class="section-number-3">2.1</span> 安装</h3>
+<div id="outline-container-orgd629992" class="outline-3">
+<h3 id="orgd629992"><span class="section-number-3">2.1</span> 安装</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界面。
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="font-weight: bold;">use-package</span> <span style="font-weight: bold; text-decoration: underline;">mingus</span>
-  <span style="font-weight: bold;">:ensure</span> t
-  <span style="font-weight: bold;">:defer</span> t
-  <span style="font-weight: bold;">:bind</span> ((<span style="font-style: italic;">"C-c m"</span> . mingus)))
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">use-package</span> <span style="color: #008b8b;">mingus</span>
+  <span style="color: #483d8b;">:ensure</span> t
+  <span style="color: #483d8b;">:defer</span> t
+  <span style="color: #483d8b;">:bind</span> ((<span style="color: #8b2252;">"C-c m"</span> . mingus)))
 </code></pre>
 </div>
 </div>

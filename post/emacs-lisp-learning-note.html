@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-12-04 Wed 13:55 -->
+<!-- 2019-12-05 Thu 14:15 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp学习笔记</title>
@@ -285,7 +285,7 @@ for the JavaScript code in this tag.
 <li><a href="#org2f1427d">1.7. 列表操作</a></li>
 <li><a href="#org08c3ecb">1.8. 关联列表和属性列表</a>
 <ul>
-<li><a href="#orgdb3f40c">1.8.1. 概览</a></li>
+<li><a href="#orgbaac9f3">1.8.1. 概览</a></li>
 <li><a href="#org5723aa3">1.8.2. 关联列表/Alist</a></li>
 <li><a href="#orgfa6bfa7">1.8.3. 属性列表</a></li>
 <li><a href="#org8cd25be">1.8.4. 转换Alist成Plist和vice-versa</a></li>
@@ -376,10 +376,10 @@ for the JavaScript code in this tag.
 <h4 id="org3831871"><span class="section-number-4">1.1.2</span> 创建命令（interactive函数）</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <div class="col-auto">
-<pre><code class="emacs-lisp"><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">example</span>
-(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">buffer/insert-filename</span> ()
-  <span style="font-style: italic;">"Insert file path of current buffer at current point"</span>
-  (<span style="font-weight: bold;">interactive</span>)
+<pre><code class="emacs-lisp"><span style="color: #b22222;">;; </span><span style="color: #b22222;">example</span>
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">buffer/insert-filename</span> ()
+  <span style="color: #8b2252;">"Insert file path of current buffer at current point"</span>
+  (<span style="color: #a020f0;">interactive</span>)
   (insert (buffer-file-name (current-buffer))))
 </code></pre>
 </div>
@@ -1519,8 +1519,8 @@ ELISP&gt;
 <h3 id="org08c3ecb"><span class="section-number-3">1.8</span> 关联列表和属性列表</h3>
 <div class="outline-text-3" id="text-1-8">
 </div>
-<div id="outline-container-orgdb3f40c" class="outline-4">
-<h4 id="orgdb3f40c"><span class="section-number-4">1.8.1</span> 概览</h4>
+<div id="outline-container-orgbaac9f3" class="outline-4">
+<h4 id="orgbaac9f3"><span class="section-number-4">1.8.1</span> 概览</h4>
 <div class="outline-text-4" id="text-1-8-1">
 <p>
 关联列表是一系列cons对，这里我可以称作 <code>clist</code> 或者 由两个元素组成的列表的集合，可以称为 <code>alist</code>
