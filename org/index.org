@@ -39,6 +39,5 @@
 
 ** 记录
     * [[https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html][记我的博客折腾经历]]
-    * [[https://blog.geekinney.com/post/habit-recording.html][习惯打卡记录]]
 
 
