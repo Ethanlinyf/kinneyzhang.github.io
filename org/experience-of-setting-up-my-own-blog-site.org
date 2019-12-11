@@ -11,7 +11,7 @@
 
 第二版使用的是 *jekyll+github page* 。静态网站和动态网站比最大的优势就是不需要和数据库接触，只需维护每个markdown文档。Github page也免去了服务器部署的麻烦。Jekyll有丰富的主题可以选择，很轻松便可搭建漂亮的网站。但是没有让我满意的主题。之后又尝试了其他静态博客，如 *Hugo*, *Hexo* 等，同样是主题的问题。
 
-第三版 *结合orgmode和静态blog* 。使用静态博客，意味着需要学习markdown，因为绝大多数的静态blog都只支持markdown渲染。Markdown自然很强大，但是作为emacser，我还是更喜欢[[https://orgmode.org/org.html][org mode]]。于是便折腾了[[https://blog.geekinney.com/html/using-org-to-blog-with-jekyll.html][使用org-mode撰写Jekyll blog]]。问题是，这种方法太不优雅！
+第三版 *结合orgmode和静态blog* 。使用静态博客，意味着需要学习markdown，因为绝大多数的静态blog都只支持markdown渲染。Markdown自然很强大，但是作为emacser，我还是更喜欢[[https://orgmode.org/org.html][org mode]]。于是便折腾了[[https://blog.geekinney.com/post/using-org-to-blog-with-jekyll.html][使用org-mode撰写Jekyll blog]]。问题是，这种方法太不优雅！
 
 第四版尝试 *完全基于org-mode* 的blog系统。melpa上有很多类似的package，比较著名的有org-page，org2web等。这些我都折腾了，不满意。原因要么是主题不好看，要么是流程太复杂。
 
@@ -21,6 +21,9 @@
   * 不设评论系统。之前在评论系统的选择和搭建上我也花了不少精力，尝试过 Qisqus、Gitalks、Livere等。Disqus需要科学上网，Gitalks仅限Github账号登陆，Livere浏览器兼容做的不好。目前我还没有找到一款完美的评论系统。于是干脆放弃评论系统，有问题邮件联系。这样也避免了没有意义的评论。
   * 流程可控，可拓展。emacs是我最喜爱的生产力工具，将blog撰写和发布的所有流程放在emacs，我很放心。并且elisp的可拓展性是毋庸置疑的。
 
-最终，我决定自己从零开始使用org-mode内置的功能搭建blog。静态博客网站的本质就是一个 =index.html= 加上一堆 =<blog_post_name>.html= 。如果想让网站漂亮一点，再加上一个 =style.css= 文件。至于其余的功能，如RSS，SEO，标签，评论等本质也就是对html进行一些添加、修改和处理。我暂时不需要这些功能。
+最终，我决定自己从零开始使用org-mode内置的功能搭建blog。静态博客网站的本质就是一个 =index.html= 加上一堆 =<blog_post_name>.html= 。如果想让网站漂亮一点，再加上一个 =style.css= 文件。至于其余的功能，如RSS，SEO，标签，评论等本质也就是对html进行一些添加、修改和处理。我暂时不需要这些功能，后面可根据需求添加。
 
-OrgMode的 =org-publish= 原生支持批量org文件导出为HTML和添加导出样式，这使得基于org-mode搭建博客成为可能。最终的折腾效果就是现在的博客。
+OrgMode的 =org-publish= 原生支持批量org文件导出为HTML和添加导出样式，这使得基于org-mode搭建博客成为可能。最终的折腾效果见https://blog.geekinney.com。
+
+更新：
+ * 20191204增加disqus评论系统，需要科学上网才能使用。
