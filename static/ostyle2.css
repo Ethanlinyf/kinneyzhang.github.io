@@ -78,6 +78,7 @@ h6 {
 
 #org-div-home-and-up2
 {
+    border-bottom: 1px dotted grey;
     padding: 0.55em 0em;
     text-align: left;
     font-size: 100%;
