@@ -26,3 +26,4 @@ OrgMode的 =org-publish= 原生支持批量org文件导出为HTML和添加导出
 
 更新：
  * 20191204增加disqus评论系统，需要科学上网才能使用。
+ * 20191215增加google analysis，分析网站数据流量。
