@@ -1,10 +1,9 @@
 #+TITLE: 视频收藏
 #+DATE: 
 #+STARTUP: content
-#+OPTIONS: toc:t H:2 num:2
+#+OPTIONS: toc:t H:0 num:0
 
-*God knows 英文版*
- 
+* God knows 英文版
 #+BEGIN_EXPORT html
-<iframe id=sbrxp src="//player.bilibili.com/player.html?aid=18070082" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height:430px; max-width:100%"></iframe>
+<iframe id=sbrxp src="//player.bilibili.com/player.html?aid=18070082" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 100%; height:100%; max-width:100%"></iframe>
 #+END_EXPORT
