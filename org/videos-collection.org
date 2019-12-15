@@ -1,0 +1,10 @@
+#+TITLE: 视频收藏
+#+DATE: 
+#+STARTUP: content
+#+OPTIONS: toc:t H:2 num:2
+
+
+ * God knows 英文版 
+#+BEGIN_EXPORT html
+<iframe src="https://www.bilibili.com/video/av18070082?from=search&seid=1241639117763455038" width="100%" height="360px" frameborder="no" scrolling="no"></iframe>
+#+END_EXPORT

@@ -148,8 +148,3 @@
    :PROPERTIES:
    :CREATED:  [2019-10-26 Sat 18:23]
    :END:
-
-#+BEGIN_EXPORT html
-<iframe width="806" height="453" src="https://www.youtube.com/embed/Gz9cTIm6z4w?list=RDGz9cTIm6z4w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-#+END_EXPORT
-
