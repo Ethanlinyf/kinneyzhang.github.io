@@ -17,7 +17,7 @@ h1 {
     font-weight: bold;
     letter-spacing: 0.1em;
     margin: -1em -1em .2em;
-    border-bottom: 3px dotted #a5563d;
+    border-bottom: 2px dotted #a5563d;
     /* padding: 0.65em 0em; */
 }
 
@@ -83,4 +83,24 @@ h6 {
     text-align: left;
     font-size: 100%;
     white-space: nowrap;
+}
+
+.iframe-container {
+    overflow: hidden;
+    padding-top: 56.25%;
+    position: relative;
+}
+
+.iframe-container iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+/* 4x3 纵横比 */
+.iframe-container-4x3 {
+    padding-top: 75%;
 }
