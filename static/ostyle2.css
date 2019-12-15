@@ -17,6 +17,7 @@ h1 {
     font-weight: bold;
     letter-spacing: 0.1em;
     margin: -1em -1em .2em;
+    border-bottom: 3px dotted #a5563d;
     /* padding: 0.65em 0em; */
 }
 
