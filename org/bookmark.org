@@ -60,6 +60,8 @@
    :END:
 ** [[https://beepb00p.xyz/pkm-search.html][Building personal search infrastructure for your knowledge and code | Mildly entertainingᵝ]]
 ** [[http://juanjose.garciaripoll.com//blog/org-mode-html-templates/index.html][An HTML template system for org-mode]]
+* Toturial
+** [[http://zetcode.com/gui/pyqt5/][PyQt5 tutorial - learn GUI programming with Python and PyQt5]]
 * Solution
 ** [[https://simpleisbetterthancomplex.com/tutorial/2016/07/26/how-to-reset-migrations.html][Django migrations reset]]
 ** [[https://www.zmrenwu.com/courses/django-blog-tutorial/][Django博客教程]]
