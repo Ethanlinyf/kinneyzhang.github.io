@@ -23,13 +23,6 @@ $ brew install mpd
 
 也可以到[[https://www.musicpd.org][MPD官网]]下载解压安装
 
-** 检查依赖
-安装完成后查看安装信息，检查是否编译成功。如果有依赖包没有安装，需要单独安装。
-
-#+BEGIN_SRC shell
-$ brew info mpd
-#+END_SRC
-
 ** 创建配置文件
 mpd默认的配置文件查找路经为 =~/.mpd/mpd.conf= 或 =~/.mpdconf= ，这里建议将所有配置及相关数据文件放在一个.mpd文件夹中。
 

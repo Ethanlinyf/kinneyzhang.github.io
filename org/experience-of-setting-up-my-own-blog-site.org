@@ -5,7 +5,7 @@
 #+INCLUDE: ../code/header.org
 #+TOC: headlines:2
 
-我从暑假开始学着搭建自己的blog网站。经历了从动态网站到静态网站，从markdown到org-mode。
+我从2019年暑假初次学着搭建自己的blog网站。经历了从动态网站到静态网站，从markdown到org-mode。
 
 第一版使用 *Django+mysql* 。自己从零开始查资料、写代码，最终折腾的像那么回事了。使用Django的优势很明显：动态网站拓展性高，后台管理系统，复习和学习了很多Django建站的知识。但缺点是需要和数据库打交道，并且在hack时经常会出现数据库迁移和服务器部署方面的问题。这可没少让我烦神。
 

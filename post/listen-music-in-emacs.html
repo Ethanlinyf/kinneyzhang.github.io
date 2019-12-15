@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-12-11 Wed 20:50 -->
+<!-- 2019-12-15 Sun 10:38 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Emacs中使用mpd+mingus听音乐</title>
@@ -178,6 +178,18 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-149578968-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
 <link rel="stylesheet" type="text/css" href="https://blog.geekinney.com/static/ostyle.css"/>
 <link rel="stylesheet" type="text/css" href="https://blog.geekinney.com/static/ostyle2.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
@@ -248,17 +260,16 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#org744d146">1. mpd安装及配置(macos)</a>
 <ul>
-<li><a href="#org405c8f0">1.1. 安装</a></li>
-<li><a href="#org16aa317">1.2. 检查依赖</a></li>
-<li><a href="#org6a51aa1">1.3. 创建配置文件</a></li>
-<li><a href="#org4ca35b6">1.4. 编辑配置</a></li>
-<li><a href="#org609787f">1.5. 使用命令</a></li>
-<li><a href="#org56728dc">1.6. 注意点</a></li>
+<li><a href="#org58e4612">1.1. 安装</a></li>
+<li><a href="#org6a51aa1">1.2. 创建配置文件</a></li>
+<li><a href="#org4ca35b6">1.3. 编辑配置</a></li>
+<li><a href="#org609787f">1.4. 使用命令</a></li>
+<li><a href="#org56728dc">1.5. 注意点</a></li>
 </ul>
 </li>
 <li><a href="#org40c740f">2. mingus安装及使用</a>
 <ul>
-<li><a href="#org0cd5486">2.1. 安装</a></li>
+<li><a href="#orgeb1aa56">2.1. 安装</a></li>
 <li><a href="#org34c3321">2.2. 使用</a></li>
 </ul>
 </li>
@@ -284,8 +295,8 @@ Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音�
 <h2 id="org744d146"><span class="section-number-2">1</span> mpd安装及配置(macos)</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org405c8f0" class="outline-3">
-<h3 id="org405c8f0"><span class="section-number-3">1.1</span> 安装</h3>
+<div id="outline-container-org58e4612" class="outline-3">
+<h3 id="org58e4612"><span class="section-number-3">1.1</span> 安装</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Mac用户可以很方便的使用homebrew安装mpd
@@ -302,23 +313,9 @@ Mac用户可以很方便的使用homebrew安装mpd
 </div>
 </div>
 
-<div id="outline-container-org16aa317" class="outline-3">
-<h3 id="org16aa317"><span class="section-number-3">1.2</span> 检查依赖</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-安装完成后查看安装信息，检查是否编译成功。如果有依赖包没有安装，需要单独安装。
-</p>
-
-<div class="col-auto">
-<pre><code class="shell">$ brew info mpd
-</code></pre>
-</div>
-</div>
-</div>
-
 <div id="outline-container-org6a51aa1" class="outline-3">
-<h3 id="org6a51aa1"><span class="section-number-3">1.3</span> 创建配置文件</h3>
-<div class="outline-text-3" id="text-1-3">
+<h3 id="org6a51aa1"><span class="section-number-3">1.2</span> 创建配置文件</h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
 mpd默认的配置文件查找路经为 <code>~/.mpd/mpd.conf</code> 或 <code>~/.mpdconf</code> ，这里建议将所有配置及相关数据文件放在一个.mpd文件夹中。
 </p>
@@ -332,8 +329,8 @@ $ touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
 </div>
 
 <div id="outline-container-org4ca35b6" class="outline-3">
-<h3 id="org4ca35b6"><span class="section-number-3">1.4</span> 编辑配置</h3>
-<div class="outline-text-3" id="text-1-4">
+<h3 id="org4ca35b6"><span class="section-number-3">1.3</span> 编辑配置</h3>
+<div class="outline-text-3" id="text-1-3">
 <p>
 进入 <code>~/.mpd/mpd.conf</code> ，粘贴如下配置
 </p>
@@ -378,20 +375,20 @@ audio_output {
 </div>
 
 <div id="outline-container-org609787f" class="outline-3">
-<h3 id="org609787f"><span class="section-number-3">1.5</span> 使用命令</h3>
-<div class="outline-text-3" id="text-1-5">
+<h3 id="org609787f"><span class="section-number-3">1.4</span> 使用命令</h3>
+<div class="outline-text-3" id="text-1-4">
 <div class="col-auto">
-<pre><code class="shell">$ mpd  <span style="color: #b22222;"># </span><span style="color: #b22222;">&#21551;&#21160;&#26381;&#21153;</span>
-$ mpd --kill  <span style="color: #b22222;"># </span><span style="color: #b22222;">&#26432;&#27515;&#36827;&#31243;</span>
-$ mpd update  <span style="color: #b22222;"># </span><span style="color: #b22222;">&#26356;&#26032;</span>
+<pre><code class="shell">$ mpd  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">&#21551;&#21160;&#26381;&#21153;</span>
+$ mpd --kill  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">&#26432;&#27515;&#36827;&#31243;</span>
+$ mpd update  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">&#26356;&#26032;</span>
 </code></pre>
 </div>
 </div>
 </div>
 
 <div id="outline-container-org56728dc" class="outline-3">
-<h3 id="org56728dc"><span class="section-number-3">1.6</span> 注意点</h3>
-<div class="outline-text-3" id="text-1-6">
+<h3 id="org56728dc"><span class="section-number-3">1.5</span> 注意点</h3>
+<div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>本配置及安装过程仅适用于macos系统。</li>
 <li>linux系统参考 <a href="https://wiki.archlinux.org/index.php/Music_Player_Daemon">arch-wiki/Music Player Daemon</a></li>
@@ -405,18 +402,18 @@ $ mpd update  <span style="color: #b22222;"># </span><span style="color: #b22222
 <h2 id="org40c740f"><span class="section-number-2">2</span> mingus安装及使用</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org0cd5486" class="outline-3">
-<h3 id="org0cd5486"><span class="section-number-3">2.1</span> 安装</h3>
+<div id="outline-container-orgeb1aa56" class="outline-3">
+<h3 id="orgeb1aa56"><span class="section-number-3">2.1</span> 安装</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界面。
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #a020f0;">use-package</span> <span style="color: #008b8b;">mingus</span>
-  <span style="color: #483d8b;">:ensure</span> t
-  <span style="color: #483d8b;">:defer</span> t
-  <span style="color: #483d8b;">:bind</span> ((<span style="color: #8b2252;">"C-c m"</span> . mingus)))
+<pre><code class="emacs-lisp">(<span style="font-weight: bold;">use-package</span> <span style="font-weight: bold; text-decoration: underline;">mingus</span>
+  <span style="font-weight: bold;">:ensure</span> t
+  <span style="font-weight: bold;">:defer</span> t
+  <span style="font-weight: bold;">:bind</span> ((<span style="font-style: italic;">"C-c m"</span> . mingus)))
 </code></pre>
 </div>
 </div>
