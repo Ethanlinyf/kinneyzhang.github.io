@@ -13,7 +13,6 @@ li a{
 h1 {
     /* background: #369 none repeat scroll 0 0; */
     font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    color: black;
     font-size: 160%;
     font-weight: bold;
     letter-spacing: 0.1em;
@@ -22,7 +21,7 @@ h1 {
 }
 
 .title {
-    color: white;
+    color: black;
 }
 
 h2 {
