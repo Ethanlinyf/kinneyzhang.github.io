@@ -2,7 +2,6 @@
 #+DATE: 2019-11-12
 #+STARTUP: content
 #+OPTIONS: toc:nil H:3 num:3
-#+INCLUDE: ../code/header.org
 
 #+TOC: headlines:3
 

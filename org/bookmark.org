@@ -2,7 +2,6 @@
 #+DATE: 2019-01-01
 #+STARTUP: content
 #+OPTIONS: toc:nil H:1 num:1
-#+INCLUDE: ../code/header.org
 
 * SSR节点
 ** *IP*: 124.156.176.145

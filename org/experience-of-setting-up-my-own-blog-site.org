@@ -2,7 +2,6 @@
 #+DATE: 2019-11-26
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2
-#+INCLUDE: ../code/header.org
 #+TOC: headlines:2
 
 我从2019年暑假初次学着搭建自己的blog网站。经历了从动态网站到静态网站，从markdown到org-mode。

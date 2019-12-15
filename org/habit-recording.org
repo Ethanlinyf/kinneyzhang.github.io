@@ -2,7 +2,6 @@
 #+DATE: 2019-12-02
 #+STARTUP: showall
 #+OPTIONS: toc:nil H:2 num:0
-#+INCLUDE: ../code/header.org
 
   A: get up before 7:30; 
 

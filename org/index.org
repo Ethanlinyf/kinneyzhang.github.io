@@ -2,7 +2,6 @@
 #+DATE: 2019-11-24
 #+STARTUP: showall
 #+OPTIONS: toc:nil H:2 num:2
-#+INCLUDE: ../code/header.org
 
 * 归档
 ** 2019
