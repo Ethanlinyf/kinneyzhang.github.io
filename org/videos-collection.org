@@ -6,5 +6,11 @@
 
  * God knows 英文版 
 #+BEGIN_EXPORT html
-<iframe src="https://www.bilibili.com/b1c965a6-3dae-454e-a52b-232d58fddbb8" width="100%" height="450px" frameborder="no" scrolling="no"></iframe>
+<iframe src="blob:https://www.bilibili.com/b1c965a6-3dae-454e-a52b-232d58fddbb8" width="100%" height="450px" frameborder="no" scrolling="no"></iframe>
+#+END_EXPORT
+
+-------------------------------
+
+#+BEGIN_EXPORT html
+<video src="blob:https://www.bilibili.com/b1c965a6-3dae-454e-a52b-232d58fddbb8"></video>
 #+END_EXPORT
