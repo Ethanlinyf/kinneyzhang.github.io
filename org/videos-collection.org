@@ -6,5 +6,5 @@
 *God knows 英文版*
  
 #+BEGIN_EXPORT html
-<iframe src="blob:https://www.bilibili.com/2b150035-6da6-476a-a5f8-96e9fed027d5" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  style="width: 640px; height: 430px; max-width: 100%"></iframe>
+<iframe src="https://www.bilibili.com/video/av18070082" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  style="width: 640px; height: 430px; max-width: 100%"></iframe>
 #+END_EXPORT
