@@ -13,7 +13,7 @@ li a{
 h1 {
     /* background: #369 none repeat scroll 0 0; */
     font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    /* color: #ffffff; */
+    color: black;
     font-size: 160%;
     font-weight: bold;
     letter-spacing: 0.1em;
@@ -78,8 +78,7 @@ h6 {
 
 #org-div-home-and-up2
 {
-    background-color: #369;
-    color: #ffff
+    padding: 0.55em 0em;
     text-align: left;
     font-size: 100%;
     white-space: nowrap;
