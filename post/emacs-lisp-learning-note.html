@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-12-15 Sun 21:41 -->
+<!-- 2019-12-17 Tue 16:36 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp学习笔记</title>
@@ -241,6 +241,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 
@@ -259,7 +281,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#org97cac73">1. Elisp</a>
 <ul>
-<li><a href="#org6769e9c">1.1. 概览</a>
+<li><a href="#orga8ef443">1.1. 概览</a>
 <ul>
 <li><a href="#org5ead4e7">1.1.1. 运行emacs-lisp的几种方式</a></li>
 <li><a href="#org3831871">1.1.2. 创建命令（interactive函数）</a></li>
@@ -296,7 +318,7 @@ for the JavaScript code in this tag.
 <li><a href="#org2f1427d">1.7. 列表操作</a></li>
 <li><a href="#org08c3ecb">1.8. 关联列表和属性列表</a>
 <ul>
-<li><a href="#orga8ef443">1.8.1. 概览</a></li>
+<li><a href="#org7010831">1.8.1. 概览</a></li>
 <li><a href="#org5723aa3">1.8.2. 关联列表/Alist</a></li>
 <li><a href="#orgfa6bfa7">1.8.3. 属性列表</a></li>
 <li><a href="#org8cd25be">1.8.4. 转换Alist成Plist和vice-versa</a></li>
@@ -325,10 +347,10 @@ for the JavaScript code in this tag.
 <li><a href="#org0618ecb">2.2. 宏</a></li>
 </ul>
 </li>
-<li><a href="#org2dde70a">3. Emacs API</a>
+<li><a href="#orgd78b24e">3. Emacs API</a>
 <ul>
 <li><a href="#orga6240ae">3.1. Emacs术语</a></li>
-<li><a href="#orgd60c4ee">3.2. Emacs API</a></li>
+<li><a href="#org2dde70a">3.2. Emacs API</a></li>
 <li><a href="#org08dcf8f">3.3. Buffers</a>
 <ul>
 <li><a href="#org91e7131">3.3.1. Buffer Attributes</a></li>
@@ -389,19 +411,39 @@ for the JavaScript code in this tag.
 <li><a href="#org37d33f5">3.13. Network</a></li>
 </ul>
 </li>
+<li><a href="#org6679bbc">4. 正则表达式</a>
+<ul>
+<li><a href="#org1ac748d">4.1. Emacs Regex</a></li>
+<li><a href="#org8e5a72b">4.2. Regex Commands</a></li>
+<li><a href="#org16eac3b">4.3. Regex Functions</a>
+<ul>
+<li><a href="#orga39600c">4.3.1. match-string</a></li>
+<li><a href="#orgc8e111b">4.3.2. match-end</a></li>
+<li><a href="#orgc43f2b0">4.3.3. match-beginning</a></li>
+<li><a href="#org0240f2b">4.3.4. re-search</a></li>
+<li><a href="#orgbab5f52">4.3.5. re-search-forward</a></li>
+<li><a href="#orgbd9d357">4.3.6. replace-string-in-regexp</a></li>
+<li><a href="#org99b06c9">4.3.7. replace-string</a></li>
+</ul>
+</li>
+<li><a href="#org4d376bc">4.4. Build regex interactively</a></li>
+<li><a href="#org93dca40">4.5. Emacs Regex rx-notation</a></li>
+</ul>
+</li>
+<li><a href="#orgd283a93">5. Color Scheme</a></li>
+<li><a href="#orgcc79084">6. Key Bindings</a></li>
 </ul>
 </div>
 </nav>
 <p>
-学习来源： <a href="http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html">Elisp Programming</a>
+原文参考： <a href="http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html">Elisp Programming</a>
 </p>
-
 <div id="outline-container-org97cac73" class="outline-2">
 <h2 id="org97cac73"><span class="section-number-2">1</span> Elisp</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org6769e9c" class="outline-3">
-<h3 id="org6769e9c"><span class="section-number-3">1.1</span> 概览</h3>
+<div id="outline-container-orga8ef443" class="outline-3">
+<h3 id="orga8ef443"><span class="section-number-3">1.1</span> 概览</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
 <div id="outline-container-org5ead4e7" class="outline-4">
@@ -1600,8 +1642,8 @@ ELISP&gt;
 <h3 id="org08c3ecb"><span class="section-number-3">1.8</span> 关联列表和属性列表</h3>
 <div class="outline-text-3" id="text-1-8">
 </div>
-<div id="outline-container-orga8ef443" class="outline-4">
-<h4 id="orga8ef443"><span class="section-number-4">1.8.1</span> 概览</h4>
+<div id="outline-container-org7010831" class="outline-4">
+<h4 id="org7010831"><span class="section-number-4">1.8.1</span> 概览</h4>
 <div class="outline-text-4" id="text-1-8-1">
 <p>
 关联列表是一系列cons对，这里我可以称作 <code>clist</code> 或者 由两个元素组成的列表的集合，可以称为 <code>alist</code>
@@ -3868,8 +3910,8 @@ ELISP&gt;
 </div>
 </div>
 
-<div id="outline-container-org2dde70a" class="outline-2">
-<h2 id="org2dde70a"><span class="section-number-2">3</span> Emacs API</h2>
+<div id="outline-container-orgd78b24e" class="outline-2">
+<h2 id="orgd78b24e"><span class="section-number-2">3</span> Emacs API</h2>
 <div class="outline-text-2" id="text-3">
 </div>
 <div id="outline-container-orga6240ae" class="outline-3">
@@ -3962,8 +4004,8 @@ ELISP&gt;
 </p>
 </div>
 </div>
-<div id="outline-container-orgd60c4ee" class="outline-3">
-<h3 id="orgd60c4ee"><span class="section-number-3">3.2</span> Emacs API</h3>
+<div id="outline-container-org2dde70a" class="outline-3">
+<h3 id="org2dde70a"><span class="section-number-3">3.2</span> Emacs API</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 <b>API对象</b>
@@ -4910,9 +4952,760 @@ exec-directory
 <h3 id="org37d33f5"><span class="section-number-3">3.13</span> Network</h3>
 <div class="outline-text-3" id="text-3-13">
 <p>
-学习到 <a href="http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html#sec-3-15">Elisp Programming</a>
+<a href="http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html#sec-3-15">http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html#sec-3-15</a>
 </p>
 </div>
+</div>
+</div>
+
+<div id="outline-container-org6679bbc" class="outline-2">
+<h2 id="org6679bbc"><span class="section-number-2">4</span> 正则表达式</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org1ac748d" class="outline-3">
+<h3 id="org1ac748d"><span class="section-number-3">4.1</span> Emacs Regex</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+<b>Special characters</b>
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">.</td>
+<td class="org-left">any character (but newline)</td>
+</tr>
+
+<tr>
+<td class="org-left">*</td>
+<td class="org-left">previous character or group, repeated 0 or more time</td>
+</tr>
+
+<tr>
+<td class="org-left">+</td>
+<td class="org-left">previous character or group, repeated 1 or more time</td>
+</tr>
+
+<tr>
+<td class="org-left">?</td>
+<td class="org-left">previous character or group, repeated 0 or 1 time</td>
+</tr>
+
+<tr>
+<td class="org-left">^</td>
+<td class="org-left">start of line</td>
+</tr>
+
+<tr>
+<td class="org-left">$</td>
+<td class="org-left">end of line</td>
+</tr>
+
+<tr>
+<td class="org-left">[…]</td>
+<td class="org-left">any character between brackets</td>
+</tr>
+
+<tr>
+<td class="org-left">[^..]</td>
+<td class="org-left">any character not in the brackets</td>
+</tr>
+
+<tr>
+<td class="org-left">[a-z]</td>
+<td class="org-left">any character between a and z</td>
+</tr>
+
+<tr>
+<td class="org-left">\</td>
+<td class="org-left">prevents interpretation of following special char</td>
+</tr>
+
+<tr>
+<td class="org-left">\</td>
+<td class="org-left">or</td>
+</tr>
+
+<tr>
+<td class="org-left">\w</td>
+<td class="org-left">word constituent</td>
+</tr>
+
+<tr>
+<td class="org-left">\b</td>
+<td class="org-left">word boundary</td>
+</tr>
+
+<tr>
+<td class="org-left">\sc</td>
+<td class="org-left">character with c syntax (e.g. \s- for whitespace char)</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">start\end of group</td>
+</tr>
+
+<tr>
+<td class="org-left">\&lt;</td>
+<td class="org-left">\&gt; start\end of word</td>
+</tr>
+
+<tr>
+<td class="org-left">\`</td>
+<td class="org-left">\' start\end of buffer</td>
+</tr>
+
+<tr>
+<td class="org-left">\1</td>
+<td class="org-left">string matched by the first group</td>
+</tr>
+
+<tr>
+<td class="org-left">\n</td>
+<td class="org-left">string matched by the nth group</td>
+</tr>
+
+<tr>
+<td class="org-left">\{3\}</td>
+<td class="org-left">previous character or group, repeated 3 times</td>
+</tr>
+
+<tr>
+<td class="org-left">\{3,\}</td>
+<td class="org-left">previous character or group, repeated 3 or more times</td>
+</tr>
+
+<tr>
+<td class="org-left">\{3,6\}</td>
+<td class="org-left">previous character or group, repeated 3 to 6 times</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<b>POSIX Character classes</b>
+</p>
+
+
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">[:digit:]</td>
+<td class="org-left">digit, same as [0-9]</td>
+</tr>
+
+<tr>
+<td class="org-left">[:upper:]</td>
+<td class="org-left">letter in uppercase</td>
+</tr>
+
+<tr>
+<td class="org-left">[:space:]</td>
+<td class="org-left">whitespace character, as defined by the syntax table</td>
+</tr>
+
+<tr>
+<td class="org-left">[:xdigit:]</td>
+<td class="org-left">hexadecimal digit</td>
+</tr>
+
+<tr>
+<td class="org-left">[:cntrl:]</td>
+<td class="org-left">control character</td>
+</tr>
+
+<tr>
+<td class="org-left">[:ascii:]</td>
+<td class="org-left">ascii character</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<b>Syntax Classes</b>
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">\s-</td>
+<td class="org-left">whitespace character</td>
+<td class="org-left">\s/</td>
+<td class="org-left">character quote character</td>
+</tr>
+
+<tr>
+<td class="org-left">\sw</td>
+<td class="org-left">word constituent</td>
+<td class="org-left">\s$</td>
+<td class="org-left">paired delimiter</td>
+</tr>
+
+<tr>
+<td class="org-left">\s_</td>
+<td class="org-left">symbol constituent</td>
+<td class="org-left">\s'</td>
+<td class="org-left">expression prefix</td>
+</tr>
+
+<tr>
+<td class="org-left">\s.</td>
+<td class="org-left">punctuation character</td>
+<td class="org-left">\s&lt;</td>
+<td class="org-left">comment starter</td>
+</tr>
+
+<tr>
+<td class="org-left">\s(</td>
+<td class="org-left">open delimiter character</td>
+<td class="org-left">\s&gt;</td>
+<td class="org-left">comment starter</td>
+</tr>
+
+<tr>
+<td class="org-left">\s)</td>
+<td class="org-left">close delimiter character</td>
+<td class="org-left">\s!</td>
+<td class="org-left">generic comment delimiter</td>
+</tr>
+
+<tr>
+<td class="org-left">\s"</td>
+<td class="org-left">string quote character</td>
+<td class="org-left">\s</td>
+<td class="org-left">generic string delimiter</td>
+</tr>
+
+<tr>
+<td class="org-left">\s\</td>
+<td class="org-left">escape character</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<b>Emacs X Perl Regex</b>
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Emacs Regex</th>
+<th scope="col" class="org-left">Perl Regex</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">( )</td>
+<td class="org-left">Capture group</td>
+</tr>
+
+<tr>
+<td class="org-left">\{ \}</td>
+<td class="org-left">{ }</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">\s-</td>
+<td class="org-left">\s</td>
+<td class="org-left">White space</td>
+</tr>
+
+<tr>
+<td class="org-left">\1, \2, \3, \4</td>
+<td class="org-left">$1, $2, $3</td>
+<td class="org-left">Result of capture: search, replace.</td>
+</tr>
+
+<tr>
+<td class="org-left">[ ]</td>
+<td class="org-left">[ ]</td>
+<td class="org-left">Character class</td>
+</tr>
+
+<tr>
+<td class="org-left">[0-9] or [:digit:]</td>
+<td class="org-left">\d</td>
+<td class="org-left">Digit from 0 to 9</td>
+</tr>
+
+<tr>
+<td class="org-left">\b</td>
+<td class="org-left">\b</td>
+<td class="org-left">Word boundary</td>
+</tr>
+
+<tr>
+<td class="org-left">\w</td>
+<td class="org-left">\w</td>
+<td class="org-left">Word character</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org8e5a72b" class="outline-3">
+<h3 id="org8e5a72b"><span class="section-number-3">4.2</span> Regex Commands</h3>
+<div class="outline-text-3" id="text-4-2">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">C-M-s</td>
+<td class="org-left">incremental forward search matching regexp</td>
+</tr>
+
+<tr>
+<td class="org-left">C-M-r</td>
+<td class="org-left">incremental backward search matching regexp</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<b>Buffer Commands</b>
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">M-x replace-regexp</td>
+<td class="org-left">replace string matching regexp</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x query-replace-regexp</td>
+<td class="org-left">same, but query before each replacement</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x align-regexp</td>
+<td class="org-left">align, using strings matching regexp as delimiters</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x highlight-regexp</td>
+<td class="org-left">highlight strings matching regexp</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x grep</td>
+<td class="org-left">call unix grep command and put result in a buffer</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x lgrep</td>
+<td class="org-left">user-friendly interface to the grep command</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x rgrep</td>
+<td class="org-left">recursive grep</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x dired-do-copy-regexp</td>
+<td class="org-left">copy files with names matching regexp</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x dired-do-rename-regexp</td>
+<td class="org-left">rename files matching regexp</td>
+</tr>
+
+<tr>
+<td class="org-left">M-x find-grep-dired</td>
+<td class="org-left">display files containing matches for regexp with Dired</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<b>Line Commands</b>
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Command (M-x command)</th>
+<th scope="col" class="org-left">Alias</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">keep-lines</td>
+<td class="org-left">delete-non-matching-lines</td>
+<td class="org-left">Delete all lines except those containing matches</td>
+</tr>
+
+<tr>
+<td class="org-left">flush-lines</td>
+<td class="org-left">delete-matching-lines</td>
+<td class="org-left">Delete lines containing matches</td>
+</tr>
+
+<tr>
+<td class="org-left">highlight-lines-matching-regexp</td>
+<td class="org-left">hi-lock-line-face-buffer</td>
+<td class="org-left">Highlight lines matching regexp</td>
+</tr>
+
+<tr>
+<td class="org-left">occur</td>
+<td class="org-left">list-matching-lines</td>
+<td class="org-left">Show lines containing a match</td>
+</tr>
+
+<tr>
+<td class="org-left">multi-occur</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Show lines in all buffers containing a match</td>
+</tr>
+
+<tr>
+<td class="org-left">how-many</td>
+<td class="org-left">count-matches</td>
+<td class="org-left">Count the number of strings matching regexp</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org16eac3b" class="outline-3">
+<h3 id="org16eac3b"><span class="section-number-3">4.3</span> Regex Functions</h3>
+<div class="outline-text-3" id="text-4-3">
+</div>
+<div id="outline-container-orga39600c" class="outline-4">
+<h4 id="orga39600c"><span class="section-number-4">4.3.1</span> match-string</h4>
+</div>
+<div id="outline-container-orgc8e111b" class="outline-4">
+<h4 id="orgc8e111b"><span class="section-number-4">4.3.2</span> match-end</h4>
+</div>
+<div id="outline-container-orgc43f2b0" class="outline-4">
+<h4 id="orgc43f2b0"><span class="section-number-4">4.3.3</span> match-beginning</h4>
+</div>
+<div id="outline-container-org0240f2b" class="outline-4">
+<h4 id="org0240f2b"><span class="section-number-4">4.3.4</span> re-search</h4>
+</div>
+<div id="outline-container-orgbab5f52" class="outline-4">
+<h4 id="orgbab5f52"><span class="section-number-4">4.3.5</span> re-search-forward</h4>
+</div>
+<div id="outline-container-orgbd9d357" class="outline-4">
+<h4 id="orgbd9d357"><span class="section-number-4">4.3.6</span> replace-string-in-regexp</h4>
+</div>
+<div id="outline-container-org99b06c9" class="outline-4">
+<h4 id="org99b06c9"><span class="section-number-4">4.3.7</span> replace-string</h4>
+</div>
+</div>
+<div id="outline-container-org4d376bc" class="outline-3">
+<h3 id="org4d376bc"><span class="section-number-3">4.4</span> Build regex interactively</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+M-x re-builder
+</p>
+
+<p>
+M-x query-replace-regexp
+</p>
+</div>
+</div>
+<div id="outline-container-org93dca40" class="outline-3">
+<h3 id="org93dca40"><span class="section-number-3">4.5</span> Emacs Regex rx-notation</h3>
+<div class="outline-text-3" id="text-4-5">
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">require</span> '<span style="color: #008b8b;">rx</span>)
+
+<span style="color: #b22222;">;;  </span><span style="color: #b22222;">(rx &lt;patterns&gt;)</span>
+
+ELISP&gt; (<span style="color: #a020f0;">rx</span> digit)
+<span style="color: #8b2252;">"[[:digit:]]"</span>
+
+ELISP&gt; (rx-to-string '(<span style="color: #a020f0;">or</span> <span style="color: #8b2252;">"foo"</span> <span style="color: #8b2252;">"bar"</span>))
+<span style="color: #8b2252;">"</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(?:</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(?:</span><span style="color: #8b2252;">bar</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">foo</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252;">"</span>
+</code></pre>
+</div>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Description</th>
+<th scope="col" class="org-left">rx notation</th>
+<th scope="col" class="org-left">Emacs regex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Beginning of Line</td>
+<td class="org-left">bol</td>
+<td class="org-left">^</td>
+</tr>
+
+<tr>
+<td class="org-left">End of Line</td>
+<td class="org-left">eol</td>
+<td class="org-left">$</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Begining of String</td>
+<td class="org-left">bos</td>
+<td class="org-left">\\`</td>
+</tr>
+
+<tr>
+<td class="org-left">End of String</td>
+<td class="org-left">eos</td>
+<td class="org-left"><code>\\'</code></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Beginning of Word</td>
+<td class="org-left">bow</td>
+<td class="org-left">\\&lt;</td>
+</tr>
+
+<tr>
+<td class="org-left">End of Word</td>
+<td class="org-left">eow</td>
+<td class="org-left">\\&gt;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Digit 0 to 9</td>
+<td class="org-left">digit</td>
+<td class="org-left">\lbr\lbr:digit:\rbr\rbr</td>
+</tr>
+
+<tr>
+<td class="org-left">Hexadecimal digit</td>
+<td class="org-left">hex</td>
+<td class="org-left">\lbr\lbr:xdigit:\rbr\rbr</td>
+</tr>
+
+<tr>
+<td class="org-left">Match ascii character</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Match anything lower case</td>
+<td class="org-left">lower</td>
+<td class="org-left">\lbr\lbr:lower:\rbr\rbr</td>
+</tr>
+
+<tr>
+<td class="org-left">Match anything upper case</td>
+<td class="org-left">upper</td>
+<td class="org-left">\lbr\lbr:upper:\rbr\rbr</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">word</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">\sw</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<i>example</i>
+</p>
+
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">ELISP&gt; (<span style="color: #a020f0;">require</span> '<span style="color: #008b8b;">rx</span>)
+rx
+
+ELISP&gt; (<span style="color: #a020f0;">rx</span> (+ digit))
+<span style="color: #8b2252;">"[[:digit:]]+"</span>
+
+ELISP&gt; (<span style="color: #a020f0;">rx</span> digit (+ digit))
+<span style="color: #8b2252;">"[[:digit:]][[:digit:]]+"</span>
+
+ELISP&gt; (<span style="color: #a020f0;">rx</span> bol (+ digit) eol)
+<span style="color: #8b2252;">"^[[:digit:]]+$"</span>
+
+ELISP&gt; (<span style="color: #a020f0;">rx</span> (zero-or-more digit))
+<span style="color: #8b2252;">"[[:digit:]]*"</span>
+
+ELISP&gt; (<span style="color: #a020f0;">rx</span> (one-or-more digit))
+<span style="color: #8b2252;">"[[:digit:]]+"</span>
+
+ELISP&gt; (<span style="color: #a020f0;">rx</span> (<span style="color: #a020f0;">or</span> <span style="color: #8b2252;">"cat"</span> <span style="color: #8b2252;">"rat"</span> <span style="color: #8b2252;">"dog"</span>))
+<span style="color: #8b2252;">"</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(?:</span><span style="color: #8b2252;">cat</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">dog</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">rat</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252;">"</span>
+
+<span style="color: #b22222;">;; </span><span style="color: #b22222;">(replace-regexp-in-string REGEXP REP STRING</span>
+<span style="color: #b22222;">;;      </span><span style="color: #b22222;">&amp;optional FIXEDCASE LITERAL SUBEXP START)</span>
+
+ELISP&gt; (replace-regexp-in-string
+          (<span style="color: #a020f0;">rx</span> (<span style="color: #a020f0;">or</span> <span style="color: #8b2252;">"cat"</span> <span style="color: #8b2252;">"rat"</span> <span style="color: #8b2252;">"dog"</span>))
+          <span style="color: #8b2252;">""</span>
+          <span style="color: #8b2252;">"cat cata rat rat dograt dog cat2334 23rat2"</span>)
+<span style="color: #8b2252;">" a     2334 232"</span>
+
+<span style="color: #b22222;">;; </span><span style="color: #b22222;">Replaces only in the beggining of line</span>
+<span style="color: #b22222;">;;</span>
+ELISP&gt;  (replace-regexp-in-string
+          (<span style="color: #a020f0;">rx</span> bol (<span style="color: #a020f0;">or</span> <span style="color: #8b2252;">"cat"</span> <span style="color: #8b2252;">"rat"</span> <span style="color: #8b2252;">"dog"</span>))
+          <span style="color: #8b2252;">""</span>
+          <span style="color: #8b2252;">"cat cata rat rat dograt dog cat2334 23rat2"</span>)
+<span style="color: #8b2252;">" cata rat rat dograt dog cat2334 23rat2"</span>
+
+
+ELISP&gt;  (replace-regexp-in-string
+          (<span style="color: #a020f0;">rx</span> bow (<span style="color: #a020f0;">or</span> <span style="color: #8b2252;">"cat"</span> <span style="color: #8b2252;">"rat"</span> <span style="color: #8b2252;">"dog"</span>) eow)
+          <span style="color: #8b2252;">""</span>
+          <span style="color: #8b2252;">"cat cata rat rat dograt dog cat2334 23rat2"</span>)
+<span style="color: #8b2252;">" cata   dograt  cat2334 23rat2"</span>
+
+ELISP&gt;  (<span style="color: #a020f0;">rx</span> bow (<span style="color: #a020f0;">or</span> <span style="color: #8b2252;">"cat"</span> <span style="color: #8b2252;">"rat"</span> <span style="color: #8b2252;">"dog"</span>) eow)
+<span style="color: #8b2252;">"\\&lt;</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(?:</span><span style="color: #8b2252;">cat</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">dog</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">rat</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252;">\\&gt;"</span>
+
+<span style="color: #b22222;">;;  </span><span style="color: #b22222;">Removes all whitespaces</span>
+<span style="color: #b22222;">;;</span>
+ELISP&gt;  (replace-regexp-in-string
+          (<span style="color: #a020f0;">rx</span> (* whitespace))
+          <span style="color: #8b2252;">""</span>
+          <span style="color: #8b2252;">"cat cata rat rat dograt dog cat2334 23rat2"</span>)
+
+<span style="color: #8b2252;">"catcataratratdogratdogcat233423rat"</span>
+
+ELISP&gt;  (replace-regexp-in-string
+          (<span style="color: #a020f0;">rx</span> (* whitespace))
+          <span style="color: #8b2252;">""</span>
+          <span style="color: #8b2252;">"cat cata rat rat dograt dog cat2334 23rat2"</span>)
+
+<span style="color: #8b2252;">"catcataratratdogratdogcat233423rat"</span>
+
+<span style="color: #b22222;">;; </span><span style="color: #b22222;">Capture group</span>
+<span style="color: #b22222;">;;</span>
+ELISP&gt;  (replace-regexp-in-string
+          (<span style="color: #a020f0;">rx</span> (submatch bow (<span style="color: #a020f0;">or</span> <span style="color: #8b2252;">"cat"</span> <span style="color: #8b2252;">"rat"</span> <span style="color: #8b2252;">"dog"</span>) eow))
+          <span style="color: #8b2252;">"(\\1)"</span>
+          <span style="color: #8b2252;">"cat cata rat rat dograt dog cat2334 23rat2"</span>)
+
+<span style="color: #8b2252;">"(cat) cata (rat) (rat) dograt (dog) cat2334 23rat2"</span>
+
+ELISP&gt; (<span style="color: #a020f0;">rx</span> (submatch bow (<span style="color: #a020f0;">or</span> <span style="color: #8b2252;">"cat"</span> <span style="color: #8b2252;">"rat"</span> <span style="color: #8b2252;">"dog"</span>) eow))
+<span style="color: #8b2252;">"</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(</span><span style="color: #8b2252;">\\&lt;</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">(?:</span><span style="color: #8b2252;">cat</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">dog</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">|</span><span style="color: #8b2252;">rat</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252;">\\&gt;</span><span style="color: #8b2252; font-weight: bold;">\\</span><span style="color: #8b2252; font-weight: bold;">)</span><span style="color: #8b2252;">"</span>
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd283a93" class="outline-2">
+<h2 id="orgd283a93"><span class="section-number-2">5</span> Color Scheme</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+<a href="http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html#sec-5">http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html#sec-5</a>
+</p>
+</div>
+</div>
+<div id="outline-container-orgcc79084" class="outline-2">
+<h2 id="orgcc79084"><span class="section-number-2">6</span> Key Bindings</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+<a href="http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html#sec-6">http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html#sec-6</a>
+</p>
 </div>
 </div>
 </div>

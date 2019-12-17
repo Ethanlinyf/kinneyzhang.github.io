@@ -3,8 +3,7 @@
 #+TITLE: elisp学习笔记
 #+DATE: 2019-11-12
 
-学习来源： [[http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html][Elisp Programming]]
-
+原文参考： [[http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html][Elisp Programming]]
 * Elisp
 ** 概览
 *** 运行emacs-lisp的几种方式
@@ -3588,4 +3587,224 @@ exec-directory
 #+END_SRC
 
 ** Network
-学习到 [[http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html#sec-3-15][Elisp Programming]]
+http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html#sec-3-15
+
+* 正则表达式
+**  Emacs Regex
+*Special characters*
+
+| .       | any character (but newline)                            |
+| *       | previous character or group, repeated 0 or more time   |
+| +       | previous character or group, repeated 1 or more time   |
+| ?       | previous character or group, repeated 0 or 1 time      |
+| ^       | start of line                                          |
+| $       | end of line                                            |
+| […]     | any character between brackets                         |
+| [^..]   | any character not in the brackets                      |
+| [a-z]   | any character between a and z                          |
+| \       | prevents interpretation of following special char      |
+| \       | or                                                     |
+| \w      | word constituent                                       |
+| \b      | word boundary                                          |
+| \sc     | character with c syntax (e.g. \s- for whitespace char) |
+|         | start\end of group                                     |
+| \<      | \> start\end of word                                   |
+| \`      | \' start\end of buffer                                 |
+| \1      | string matched by the first group                      |
+| \n      | string matched by the nth group                        |
+| \{3\}   | previous character or group, repeated 3 times          |
+| \{3,\}  | previous character or group, repeated 3 or more times  |
+| \{3,6\} | previous character or group, repeated 3 to 6 times     |
+
+*POSIX Character classes*
+
+
+ 	 
+| [:digit:]	  | digit, same as [0-9]                                 |
+| [:upper:]	  | letter in uppercase                                  |
+| [:space:]          | whitespace character, as defined by the syntax table |
+| [:xdigit:]	 | hexadecimal digit                                    |
+| [:cntrl:]	  | control character                                    |
+| [:ascii:]	  | ascii character                                      |
+
+*Syntax Classes*
+ 	 	 	 
+| \s- | whitespace character      | \s/ | character quote character |
+| \sw | word constituent          | \s$ | paired delimiter          |
+| \s_ | symbol constituent        | \s' | expression prefix         |
+| \s. | punctuation character     | \s< | comment starter           |
+| \s( | open delimiter character  | \s> | comment starter           |
+| \s) | close delimiter character | \s! | generic comment delimiter |
+| \s" | string quote character    | \s  | generic string delimiter  |
+| \s\ | escape character          |     |                           |
+
+*Emacs X Perl Regex*
+
+| Emacs Regex        | Perl Regex | Description                         |
+|--------------------+------------+-------------------------------------|
+|                    | ( )        | Capture group                       |
+| \{ \}              | { }        |                                     |
+| \s-                | \s         | White space                         |
+| \1, \2, \3, \4     | $1, $2, $3 | Result of capture: search, replace. |
+| [ ]                | [ ]        | Character class                     |
+| [0-9] or [:digit:] | \d         | Digit from 0 to 9                   |
+| \b                 | \b         | Word boundary                       |
+| \w                 | \w         | Word character                      |
+** Regex Commands
+
+| C-M-s | incremental forward search matching regexp  |
+| C-M-r | incremental backward search matching regexp |
+
+*Buffer Commands*
+
+| M-x replace-regexp         | replace string matching regexp                         |
+| M-x query-replace-regexp   | same, but query before each replacement                |
+| M-x align-regexp           | align, using strings matching regexp as delimiters     |
+| M-x highlight-regexp       | highlight strings matching regexp                      |
+| M-x grep                   | call unix grep command and put result in a buffer      |
+| M-x lgrep                  | user-friendly interface to the grep command            |
+| M-x rgrep                  | recursive grep                                         |
+| M-x dired-do-copy-regexp   | copy files with names matching regexp                  |
+| M-x dired-do-rename-regexp | rename files matching regexp                           |
+| M-x find-grep-dired        | display files containing matches for regexp with Dired |
+
+*Line Commands*
+
+| Command (M-x command)           | Alias                     | Description                                      |
+|---------------------------------+---------------------------+--------------------------------------------------|
+| keep-lines                      | delete-non-matching-lines | Delete all lines except those containing matches |
+| flush-lines                     | delete-matching-lines     | Delete lines containing matches                  |
+| highlight-lines-matching-regexp | hi-lock-line-face-buffer  | Highlight lines matching regexp                  |
+| occur                           | list-matching-lines       | Show lines containing a match                    |
+| multi-occur                     |                           | Show lines in all buffers containing a match     |
+| how-many                        | count-matches             | Count the number of strings matching regexp      |
+** Regex Functions
+*** match-string
+*** match-end
+*** match-beginning
+*** re-search
+*** re-search-forward
+*** replace-string-in-regexp
+*** replace-string
+** Build regex interactively
+M-x re-builder
+
+M-x query-replace-regexp
+** Emacs Regex rx-notation
+
+#+BEGIN_SRC emacs-lisp
+(require 'rx)
+
+;;  (rx <patterns>)
+
+ELISP> (rx digit)
+"[[:digit:]]"
+
+ELISP> (rx-to-string '(or "foo" "bar"))
+"\\(?:\\(?:bar\\|foo\\)\\)"
+#+END_SRC
+
+| Description               | rx notation | Emacs regex              |
+|---------------------------+-------------+--------------------------|
+| Beginning of Line         | bol         | ^                        |
+| End of Line               | eol         | $                        |
+|                           |             |                          |
+| Begining of String        | bos         | \\`                      |
+| End of String             | eos         | =\\'=                    |
+|                           |             |                          |
+| Beginning of Word         | bow         | \\<                      |
+| End of Word               | eow         | \\>                      |
+|                           |             |                          |
+| Digit 0 to 9              | digit       | \lbr\lbr:digit:\rbr\rbr  |
+| Hexadecimal digit         | hex         | \lbr\lbr:xdigit:\rbr\rbr |
+| Match ascii character     |             |                          |
+| Match anything lower case | lower       | \lbr\lbr:lower:\rbr\rbr  |
+| Match anything upper case | upper       | \lbr\lbr:upper:\rbr\rbr  |
+|                           |             |                          |
+| word                      |             | \sw                      |
+
+/example/
+
+
+#+BEGIN_SRC emacs-lisp
+ELISP> (require 'rx)
+rx
+
+ELISP> (rx (+ digit))
+"[[:digit:]]+"
+
+ELISP> (rx digit (+ digit))
+"[[:digit:]][[:digit:]]+"
+
+ELISP> (rx bol (+ digit) eol)
+"^[[:digit:]]+$"
+
+ELISP> (rx (zero-or-more digit))
+"[[:digit:]]*"
+
+ELISP> (rx (one-or-more digit))
+"[[:digit:]]+"
+
+ELISP> (rx (or "cat" "rat" "dog"))
+"\\(?:cat\\|dog\\|rat\\)"
+
+;; (replace-regexp-in-string REGEXP REP STRING
+;;      &optional FIXEDCASE LITERAL SUBEXP START)
+
+ELISP> (replace-regexp-in-string
+          (rx (or "cat" "rat" "dog"))
+          ""
+          "cat cata rat rat dograt dog cat2334 23rat2")
+" a     2334 232"
+
+;; Replaces only in the beggining of line
+;;
+ELISP>  (replace-regexp-in-string
+          (rx bol (or "cat" "rat" "dog"))
+          ""
+          "cat cata rat rat dograt dog cat2334 23rat2")
+" cata rat rat dograt dog cat2334 23rat2"
+
+
+ELISP>  (replace-regexp-in-string
+          (rx bow (or "cat" "rat" "dog") eow)
+          ""
+          "cat cata rat rat dograt dog cat2334 23rat2")
+" cata   dograt  cat2334 23rat2"
+
+ELISP>  (rx bow (or "cat" "rat" "dog") eow)
+"\\<\\(?:cat\\|dog\\|rat\\)\\>"
+
+;;  Removes all whitespaces
+;;
+ELISP>  (replace-regexp-in-string
+          (rx (* whitespace))
+          ""
+          "cat cata rat rat dograt dog cat2334 23rat2")
+
+"catcataratratdogratdogcat233423rat"
+
+ELISP>  (replace-regexp-in-string
+          (rx (* whitespace))
+          ""
+          "cat cata rat rat dograt dog cat2334 23rat2")
+
+"catcataratratdogratdogcat233423rat"
+
+;; Capture group
+;;
+ELISP>  (replace-regexp-in-string
+          (rx (submatch bow (or "cat" "rat" "dog") eow))
+          "(\\1)"
+          "cat cata rat rat dograt dog cat2334 23rat2")
+
+"(cat) cata (rat) (rat) dograt (dog) cat2334 23rat2"
+
+ELISP> (rx (submatch bow (or "cat" "rat" "dog") eow))
+"\\(\\<\\(?:cat\\|dog\\|rat\\)\\>\\)"
+#+END_SRC
+
+* Color Scheme
+http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html#sec-5
+* Key Bindings
+http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html#sec-6
