@@ -93,6 +93,10 @@ h6 {
     color: black;
 }
 
+.toptitle form {
+    display: inline;
+}
+
 .topnav {
     padding: 0.3em 0em;
     border-bottom: 1px dotted grey;
