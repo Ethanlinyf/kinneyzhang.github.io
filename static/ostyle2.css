@@ -16,7 +16,6 @@ h1 {
     font-size: 180%;
     font-weight: bold;
     letter-spacing: 0.1em;
-    margin-bottom: .5em;
     /* margin: -1em -1em .2em; */
     /* padding: 0.65em 0em; */
 }
@@ -86,6 +85,7 @@ h6 {
     font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
     font-weight: bold;
     padding: 0.55em 0em;
+    margin-bottom: .5em;
     border-bottom: 1px dotted grey;
     position: relative;
 }
