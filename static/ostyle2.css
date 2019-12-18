@@ -90,11 +90,9 @@ h6 {
     position: relative;
 }
 
-.toptitle form {
-    position: absolute;
-    right: 0;
+.gcse-search {
+    display: inline;
 }
-
 
 .topnav {
     padding: 0.3em 0em;
