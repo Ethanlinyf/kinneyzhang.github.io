@@ -86,6 +86,7 @@ h6 {
     font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
     padding: 0.55em 0em;
     border-bottom: 1px dotted grey;
+    position: relative;
 }
 
 .toptitle span {
@@ -95,7 +96,8 @@ h6 {
 
 .toptitle form {
     display: inline;
-    float:right;
+    position: absolute;
+    right: 0;
 }
 
 .topnav {
