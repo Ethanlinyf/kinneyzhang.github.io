@@ -91,7 +91,7 @@ h6 {
 }
 
 .gcse-search {
-    display: inline;
+    float: right;
 }
 
 .topnav {
