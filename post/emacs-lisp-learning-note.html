@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-12-18 Wed 15:08 -->
+<!-- 2019-12-18 Wed 15:35 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp学习笔记</title>
@@ -269,7 +269,8 @@ for the JavaScript code in this tag.
 <div id="org-div-header">
 <div class="toptitle">
 <span href="/post/index.html">Geekinney Blog</span>
-<!--Google站内搜索开始--> <form method=get action="http://www.google.com/search"> <input type=text name=q> <input type=submit name=btnG value="Google 搜索"> <input type=hidden name=ie value=GB2312> <input type=hidden name=oe value=GB2312> <input type=hidden name=hl value=zh-CN> <input type=hidden name=domains value="blog.geekinney.com"> <input type=hidden name=sitesearch value="blog.geekinney.com"> </form> <!--Google站内搜索结束-->
+<!--Google站内搜索开始--> <fo
+rm method=get action="https://www.google.com/search"><input type=text size=15 name=q><input type=submit name=btnG value="Google 搜索"> <input type=hidden name=ie value=utf8><input type=hidden name=oe value=utf8><input type=hidden name=hl value=zh-CN><input type=hidden name=domains value="blog.geekinney.com"><input type=hidden name=sitesearch value="blog.geekinney.com"></form> <!--Google站内搜索结束-->
 </div>
 <div class="topnav">
 <a href="/post/index.html"> Home </a>&nbsp;|&nbsp;
@@ -287,7 +288,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#org97cac73">1. Elisp</a>
 <ul>
-<li><a href="#org6bee9ec">1.1. 概览</a>
+<li><a href="#orgb16e7cb">1.1. 概览</a>
 <ul>
 <li><a href="#org5ead4e7">1.1.1. 运行emacs-lisp的几种方式</a></li>
 <li><a href="#org3831871">1.1.2. 创建命令（interactive函数）</a></li>
@@ -324,7 +325,7 @@ for the JavaScript code in this tag.
 <li><a href="#org2f1427d">1.7. 列表操作</a></li>
 <li><a href="#org08c3ecb">1.8. 关联列表和属性列表</a>
 <ul>
-<li><a href="#orgb16e7cb">1.8.1. 概览</a></li>
+<li><a href="#org5ed8c68">1.8.1. 概览</a></li>
 <li><a href="#org5723aa3">1.8.2. 关联列表/Alist</a></li>
 <li><a href="#orgfa6bfa7">1.8.3. 属性列表</a></li>
 <li><a href="#org8cd25be">1.8.4. 转换Alist成Plist和vice-versa</a></li>
@@ -353,10 +354,10 @@ for the JavaScript code in this tag.
 <li><a href="#org0618ecb">2.2. 宏</a></li>
 </ul>
 </li>
-<li><a href="#orgcb3084d">3. Emacs API</a>
+<li><a href="#orgff8f178">3. Emacs API</a>
 <ul>
 <li><a href="#orga6240ae">3.1. Emacs术语</a></li>
-<li><a href="#org6f211f4">3.2. Emacs API</a></li>
+<li><a href="#orgcb3084d">3.2. Emacs API</a></li>
 <li><a href="#org08dcf8f">3.3. Buffers</a>
 <ul>
 <li><a href="#org91e7131">3.3.1. Buffer Attributes</a></li>
@@ -448,8 +449,8 @@ for the JavaScript code in this tag.
 <h2 id="org97cac73"><span class="section-number-2">1</span> Elisp</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org6bee9ec" class="outline-3">
-<h3 id="org6bee9ec"><span class="section-number-3">1.1</span> 概览</h3>
+<div id="outline-container-orgb16e7cb" class="outline-3">
+<h3 id="orgb16e7cb"><span class="section-number-3">1.1</span> 概览</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
 <div id="outline-container-org5ead4e7" class="outline-4">
@@ -1648,8 +1649,8 @@ ELISP&gt;
 <h3 id="org08c3ecb"><span class="section-number-3">1.8</span> 关联列表和属性列表</h3>
 <div class="outline-text-3" id="text-1-8">
 </div>
-<div id="outline-container-orgb16e7cb" class="outline-4">
-<h4 id="orgb16e7cb"><span class="section-number-4">1.8.1</span> 概览</h4>
+<div id="outline-container-org5ed8c68" class="outline-4">
+<h4 id="org5ed8c68"><span class="section-number-4">1.8.1</span> 概览</h4>
 <div class="outline-text-4" id="text-1-8-1">
 <p>
 关联列表是一系列cons对，这里我可以称作 <code>clist</code> 或者 由两个元素组成的列表的集合，可以称为 <code>alist</code>
@@ -3916,8 +3917,8 @@ ELISP&gt;
 </div>
 </div>
 
-<div id="outline-container-orgcb3084d" class="outline-2">
-<h2 id="orgcb3084d"><span class="section-number-2">3</span> Emacs API</h2>
+<div id="outline-container-orgff8f178" class="outline-2">
+<h2 id="orgff8f178"><span class="section-number-2">3</span> Emacs API</h2>
 <div class="outline-text-2" id="text-3">
 </div>
 <div id="outline-container-orga6240ae" class="outline-3">
@@ -4010,8 +4011,8 @@ ELISP&gt;
 </p>
 </div>
 </div>
-<div id="outline-container-org6f211f4" class="outline-3">
-<h3 id="org6f211f4"><span class="section-number-3">3.2</span> Emacs API</h3>
+<div id="outline-container-orgcb3084d" class="outline-3">
+<h3 id="orgcb3084d"><span class="section-number-3">3.2</span> Emacs API</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 <b>API对象</b>
