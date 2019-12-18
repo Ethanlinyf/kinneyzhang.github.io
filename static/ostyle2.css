@@ -84,6 +84,11 @@ h6 {
     white-space: nowrap;
 }
 
+#org-div-home-and-up2 span {
+    font-size: 200%;
+    font-weight: bold;
+}
+
 .iframe-container {
     overflow: hidden;
     padding-top: 56.25%;

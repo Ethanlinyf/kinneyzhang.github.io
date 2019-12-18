@@ -1,4 +1,3 @@
-#+TITLE:Geekinney Blog
 #+DATE: 2019-11-24
 #+STARTUP: showall
 #+OPTIONS: toc:nil H:2 num:2
