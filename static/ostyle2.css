@@ -94,12 +94,8 @@ h6 {
     color: black;
 }
 
-.toptitle form {
-    overflow-x: hidden;
-    display: inline;
-}
-
 .topnav {
+    margin-top: 2px;
     padding: 0.3em 0em;
     border-bottom: 1px dotted grey;
     text-align: center;
