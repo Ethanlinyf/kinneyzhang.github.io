@@ -77,12 +77,12 @@ h6 {
 
 #org-div-header
 {
-    padding: 0.55em 0em;
     font-size: 100%;
     white-space: nowrap;
 }
 
 #org-div-header .toptitle {
+    padding: 0.55em 0em;
     border-bottom: 1px dotted grey;
     text-align: left;
     font-size: 200%;
