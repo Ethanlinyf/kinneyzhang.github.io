@@ -75,18 +75,27 @@ h6 {
     background-color: magenta;
 }
 
-#org-div-home-and-up2
+#org-div-header
 {
-    border-bottom: 1px dotted grey;
     padding: 0.55em 0em;
-    text-align: left;
     font-size: 100%;
     white-space: nowrap;
 }
 
-#org-div-home-and-up2 span {
+#org-div-header .toptitle {
+    border-bottom: 1px dotted grey;
+    text-align: left;
+}
+
+#org-div-header .topnav {
+    border-bottom: 1px dotted grey;
+    text-align: center;
+}
+
+.toptitle {
     font-size: 200%;
     font-weight: bold;
+    color: black;
 }
 
 .iframe-container {
