@@ -97,8 +97,6 @@ h6 {
 .toptitle form {
     overflow-x: hidden;
     display: inline;
-    position: absolute;
-    right: 0;
 }
 
 .topnav {
