@@ -90,8 +90,8 @@ h6 {
     position: relative;
 }
 
-.gcse-search {
-    float: right;
+.google-search {
+    display:inline;
 }
 
 .topnav {
