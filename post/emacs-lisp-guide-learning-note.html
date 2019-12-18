@@ -4,7 +4,7 @@
 <!-- 2019-12-18 Wed 19:07 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Geekinney Blog</title>
+<title>elisp guide学习笔记</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="Kinney Zhang">
 <style type="text/css">
@@ -256,79 +256,213 @@ for the JavaScript code in this tag.
 </div>
 </div>
 <div id="content">
-
-<div id="outline-container-org03397a2" class="outline-2">
-<h2 id="org03397a2"><span class="section-number-2">1</span> 归档</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-orge4be55a" class="outline-3">
-<h3 id="orge4be55a"><span class="section-number-3">1.1</span> 2019</h3>
-<div class="outline-text-3" id="text-1-1">
-<ul class="org-ul">
-<li>201912 <a href="https://blog.geekinney.com/emacs-lisp-guide-learning-note.html">elisp guide 学习笔记</a></li>
-<li>201911 <a href="https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html">记我的博客折腾经历</a></li>
-<li>201911 <a href="https://blog.geekinney.com/post/emacs-lisp-learning-note.html">elisp学习笔记</a></li>
-<li>201911 <a href="https://blog.geekinney.com/post/reading-notes-of-STORY.html">书摘|故事：材质、结构、风格和银幕剧作的原理</a></li>
-<li>201910 <a href="https://blog.geekinney.com/post/reading-notes-of-getting-things-done-one.html">书摘|搞定I：无压生活的艺术</a></li>
-<li>201909 <a href="https://blog.geekinney.com/post/using-org-to-blog-with-jekyll.html">使用org-mode撰写Jekyll blog</a></li>
-<li>201908 <a href="https://blog.geekinney.com/post/listen-music-in-emacs.html">Emacs中使用mpd+mingus听音乐</a></li>
-<li>201908 <a href="https://blog.geekinney.com/post/reading-notes-of-how-to-read-a-book-efficiently.html">书摘|如何有效阅读一本书</a></li>
-<li>201908 <a href="https://blog.geekinney.com/post/get-started-with-emacs.html">开始使用Emacs</a></li>
-<li>201908 <a href="https://blog.geekinney.com/post/thinking-about-cs-teaching-in-college.html">关于大学计算机科学</a></li>
-<li>201908 <a href="https://blog.geekinney.com/post/thinking-about-journaling.html">关于写日志</a></li>
-<li>201907 <a href="https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html">重拾阅读</a></li>
-<li>201903 <a href="https://blog.geekinney.com/post/emacs-learning-note.html">emacs学习笔记</a></li>
+<header>
+<h1 class="title">elisp guide学习笔记</h1>
+</header><nav id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org70b7397">1. 基础</a></li>
+<li><a href="#orgc90e869">2. 基本概念</a>
+<ul>
+<li><a href="#orga231a96">2.1. Buffers</a></li>
+<li><a href="#org984da4b">2.2. Buffer本地变量</a></li>
+<li><a href="#org6cc486c">2.3. Project范围内设置buffer本地变量</a></li>
+<li><a href="#org2af0969">2.4. The point</a></li>
+<li><a href="#org98cb3e1">2.5. The region</a></li>
+</ul>
+</li>
 </ul>
 </div>
+</nav>
+<p>
+原文参考：<a href="https://github.com/chrisdone/elisp-guide">chrisdone/elisp-guide: A quick guide to Emacs Lisp programming</a>
+</p>
+
+
+<div id="outline-container-org70b7397" class="outline-2">
+<h2 id="org70b7397"><span class="section-number-2">1</span> 基础</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+基本运算、字符串连接、函数体、变量定义
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(* 2 3)
+
+(concat <span style="color: #8b2252;">"a"</span> <span style="color: #8b2252;">"b"</span>) <span style="color: #b22222;">;; </span><span style="color: #b22222;">&#23383;&#31526;&#20018;&#36830;&#25509;</span>
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">func</span> (arg1 arg2)
+  <span style="color: #8b2252;">"Always document your functions."</span>
+  &lt;function body&gt;)
+
+(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">var-name</span> &lt;the value&gt;
+  <span style="color: #8b2252;">"Always document your variables."</span>)
+
+(<span style="color: #a020f0;">let</span> ((x 1)
+      (y 2))
+  ...)
+</code></pre>
+</div>
+
+<p>
+使用 <code>let</code> 定义变量时，不能使用前面已经定义的变量，此时应该使用 <code>let*</code>
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">let*</span> ((x 1)
+       (y x))
+  ...)
+</code></pre>
+</div>
+
+<p>
+一个表达式中一次执行多个命令，使用 <code>progn</code>
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">progn</span> do-this
+       do-that)
+</code></pre>
+</div>
+
+<p>
+比较操作
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(eq major-mode 'a)
+(= 0 1)
+(&gt; 0 1)
+(string= <span style="color: #8b2252;">"a"</span> <span style="color: #8b2252;">"b"</span>)
+(string&gt; <span style="color: #8b2252;">"a"</span> <span style="color: #8b2252;">"b"</span>)
+</code></pre>
+</div>
+
+<p>
+详见：<a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Equality-Predicates.html">Equality Predicates - GNU Emacs Lisp Reference Manual</a>
+</p>
 </div>
 </div>
 
-<div id="outline-container-org3aec04a" class="outline-2">
-<h2 id="org3aec04a"><span class="section-number-2">2</span> 分类</h2>
+<div id="outline-container-orgc90e869" class="outline-2">
+<h2 id="orgc90e869"><span class="section-number-2">2</span> 基本概念</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org828edc9" class="outline-3">
-<h3 id="org828edc9"><span class="section-number-3">2.1</span> 阅读</h3>
+<div id="outline-container-orga231a96" class="outline-3">
+<h3 id="orga231a96"><span class="section-number-3">2.1</span> Buffers</h3>
 <div class="outline-text-3" id="text-2-1">
-<ul class="org-ul">
-<li><a href="https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html">重拾阅读</a>（月亮与六便士）</li>
-<li><a href="https://blog.geekinney.com/post/reading-notes-of-how-to-read-a-book-efficiently.html">书摘|如何有效阅读一本书</a></li>
-<li><a href="https://blog.geekinney.com/post/reading-notes-of-getting-things-done-one.html">书摘|搞定I：无压生活的艺术</a></li>
-<li><a href="https://blog.geekinney.com/post/reading-notes-of-STORY.html">书摘|故事：材质、结构、风格和银幕剧作的原理</a></li>
-</ul>
+<div class="col-auto">
+<pre><code class="emacs-lisp">(current-buffer) <span style="color: #b22222;">;; </span><span style="color: #b22222;">&#33719;&#21462;&#24403;&#21069;buffer</span>
+(<span style="color: #a020f0;">with-current-buffer</span> buffer-or-name ...) <span style="color: #b22222;">;; </span><span style="color: #b22222;">&#20020;&#26102;&#20351;&#29992;&#25351;&#23450;buffer</span>
+(set-buffer buffer-or-name) <span style="color: #b22222;">;; </span><span style="color: #b22222;">&#35774;&#32622;&#20026;&#24403;&#21069;buffer&#20294;&#19981;&#20999;&#25442;</span>
+(switch-to-buffer name) <span style="color: #b22222;">;; </span><span style="color: #b22222;">&#20999;&#25442;&#21040;&#25351;&#23450;buffer</span>
+</code></pre>
+</div>
+
+<p>
+详见：<a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Buffers.html#Buffers">Buffers - GNU Emacs Lisp Reference Manual</a>
+</p>
 </div>
 </div>
 
-<div id="outline-container-org4b2f980" class="outline-3">
-<h3 id="org4b2f980"><span class="section-number-3">2.2</span> Emacs</h3>
+<div id="outline-container-org984da4b" class="outline-3">
+<h3 id="org984da4b"><span class="section-number-3">2.2</span> Buffer本地变量</h3>
 <div class="outline-text-3" id="text-2-2">
-<ul class="org-ul">
-<li><a href="https://blog.geekinney.com/emacs-lisp-guide-learning-note.html">elisp guide 学习笔记</a></li>
-<li><a href="https://blog.geekinney.com/post/emacs-learning-note.html">emacs学习笔记</a></li>
-<li><a href="https://blog.geekinney.com/post/get-started-with-emacs.html">开始使用Emacs</a></li>
-<li><a href="https://blog.geekinney.com/post/listen-music-in-emacs.html">Emacs中使用mpd+mingus听音乐</a></li>
-<li><a href="https://blog.geekinney.com/post/using-org-to-blog-with-jekyll.html">使用org-mode撰写Jekyll blog</a></li>
-<li><a href="https://blog.geekinney.com/post/emacs-lisp-learning-note.html">elisp学习笔记</a></li>
-</ul>
+<p>
+定义buffer本地变量 
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">your-variable-name</span> nil <span style="color: #8b2252;">"Your documentation here."</span>)
+</code></pre>
+</div>
+
+<p>
+在特定的buffer，设置buffer本地变量
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(set (make-local-variable 'your-variable-name) &lt;the-value&gt;)
+</code></pre>
+</div>
+
+<p>
+详见：<a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Buffer_002dLocal-Variables.html#Buffer_002dLocal-Variables">Buffer-Local Variables - GNU Emacs Lisp Reference Manual</a>
+</p>
 </div>
 </div>
 
-<div id="outline-container-org696848f" class="outline-3">
-<h3 id="org696848f"><span class="section-number-3">2.3</span> 杂思</h3>
+<div id="outline-container-org6cc486c" class="outline-3">
+<h3 id="org6cc486c"><span class="section-number-3">2.3</span> Project范围内设置buffer本地变量</h3>
 <div class="outline-text-3" id="text-2-3">
-<ul class="org-ul">
-<li><a href="https://blog.geekinney.com/post/thinking-about-cs-teaching-in-college.html">关于大学计算机科学</a></li>
-<li><a href="https://blog.geekinney.com/post/thinking-about-journaling.html">关于写日志</a></li>
-</ul>
+<p>
+为一个文件夹下文件设置buffer-local-variable，设置 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html">.dir-locals.el 文件</a>
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">((nil . ((indent-tabs-mode . t)
+         (fill-column . 80)))
+ (c-mode . ((c-file-style . <span style="color: #8b2252;">"BSD"</span>)
+            (subdirs . nil)))
+ (<span style="color: #8b2252;">"src/imported"</span>
+  . ((nil . ((change-log-default-name
+              . <span style="color: #8b2252;">"ChangeLog.local"</span>))))))
+</code></pre>
+</div>
 </div>
 </div>
 
-<div id="outline-container-org43a2e31" class="outline-3">
-<h3 id="org43a2e31"><span class="section-number-3">2.4</span> 记录</h3>
+<div id="outline-container-org2af0969" class="outline-3">
+<h3 id="org2af0969"><span class="section-number-3">2.4</span> The point</h3>
 <div class="outline-text-3" id="text-2-4">
-<ul class="org-ul">
-<li><a href="https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html">记我的博客折腾经历</a></li>
-</ul>
+<p>
+所有的elisp代码在当前buffer都有一个当前point，它代表光标的位置，是一个数字。详见：<a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Point.html">Point - GNU Emacs Lisp Reference Manual</a>
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(point) <span style="color: #b22222;">;; </span><span style="color: #b22222;">&#24403;&#21069;point</span>
+(point-max) <span style="color: #b22222;">;; </span><span style="color: #b22222;">buffer&#30340;&#26368;&#22823;point</span>
+(point-min) <span style="color: #b22222;">;; </span><span style="color: #b22222;">buffer&#30340;&#26368;&#23567;point (&#20026;&#20160;&#20040;&#23427;&#19981;&#19968;&#23450;&#31561;&#20110;0? &#22240;&#20026;narrowing&#30340;&#23384;&#22312;).</span>
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org98cb3e1" class="outline-3">
+<h3 id="org98cb3e1"><span class="section-number-3">2.5</span> The region</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+当region处于激活状态时，可以使用elisp代码对文本进行操作。详见：<a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/The-Region.html#The-Region">The Region - GNU Emacs Lisp Reference Manual</a>
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(region-beginning) <span style="color: #b22222;">;; </span><span style="color: #b22222;">region&#30340;&#24320;&#22987;&#65292;&#26159;&#19968;&#20010;point</span>
+(region-end) <span style="color: #b22222;">;; </span><span style="color: #b22222;">region&#30340;&#32467;&#26463;&#65292;&#26159;&#19968;&#20010;point</span>
+(use-region-p) <span style="color: #b22222;">;; </span><span style="color: #b22222;">&#26159;&#21542;&#25805;&#20316;&#24403;&#21069;region</span>
+(region-active-p) <span style="color: #b22222;">;; </span><span style="color: #b22222;">region&#26159;&#21542;&#28608;&#27963;</span>
+</code></pre>
+</div>
+
+<p>
+一个使用了相关region函数的命令
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">print-upper-region</span> ()
+  <span style="color: #8b2252;">"Demo to print the uppercased version of the active region."</span>
+  (<span style="color: #a020f0;">interactive</span>)
+  (<span style="color: #a020f0;">when</span> (region-active-p)
+    (message <span style="color: #8b2252;">"%S"</span> (<span style="color: #a020f0;">let</span> ((string (buffer-substring (region-beginning)
+                                                  (region-end))))
+                    (<span style="color: #a020f0;">with-temp-buffer</span>
+                      (insert string)
+                      (upcase-region (point-min)
+                                     (point-max))
+                      (buffer-substring-no-properties (point-min)
+                                                      (point-max)))))))
+</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -346,7 +480,7 @@ s.setAttribute('data-timestamp', +new Date());
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 <p class="author">Author: Kinney Zhang (<a href="mailto:kinneyzhang666@gmail.com">kinneyzhang666@gmail.com</a>)</p>
-<p class="date">Date: 2019-11-24</p>
+<p class="date">Date: 2019-12-18</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)</p>
 </div>
 </body>
