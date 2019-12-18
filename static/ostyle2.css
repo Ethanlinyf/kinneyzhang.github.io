@@ -85,6 +85,8 @@ h6 {
 #org-div-header .toptitle {
     border-bottom: 1px dotted grey;
     text-align: left;
+    font-size: 200%;
+    color: black;
 }
 
 #org-div-header .topnav {
