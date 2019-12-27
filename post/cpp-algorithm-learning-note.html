@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-12-27 Fri 12:28 -->
+<!-- 2019-12-27 Fri 21:28 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>C++算法</title>
@@ -279,35 +279,21 @@ for the JavaScript code in this tag.
 <div id="outline-container-org7264b45" class="outline-3">
 <h3 id="org7264b45"><span class="section-number-3">1.1</span> 树</h3>
 <div class="outline-text-3" id="text-1-1">
-<p>
-<b>思路</b>
-</p>
-
-<p>
-<i>树的创建</i>
-</p>
-
-<p>
-四个参数：当前节点，待插入节点，待插入节点的值，待插入节点的位置；待插入的节点已经存在，则根据每次相对上个节点的插入位置向下遍历；直至到达最终插入位置，节点不存，则创建节点。递归结束。
-</p>
-
-<p>
-<i>树的遍历</i>
-</p>
+</div>
 <ul class="org-ul">
+<li><a id="org882aed0"></a>思路<br>
+<div class="outline-text-4" id="text-org882aed0">
+<ul class="org-ul">
+<li>四个参数：当前节点，待插入节点，待插入节点的值，待插入节点的位置；</li>
+<li>待插入的节点已经存在，则根据每次相对上个节点的插入位置向下遍历；直至到达最终插入位置，节点不存，则创建节点。递归结束。</li>
 <li>层次遍历：使用队列，队列不为空则循环，将左右节点依次写入队列，先进先出，实现层次遍历。</li>
-<li>前序遍历
-递归（根左右）</li>
-<li>中序遍历
-递归（左根右）</li>
-<li>后序遍历
-递归（左右根）</li>
+<li>前序遍历：递归（根左右）；中序遍历：递归（左根右）；后序遍历：递归（左右根）</li>
 </ul>
+</div>
+</li>
 
-<p>
-<b>实现</b>
-</p>
-
+<li><a id="org4e402b3"></a>实现<br>
+<div class="outline-text-4" id="text-org4e402b3">
 <div class="col-auto">
 <pre><code class="C++"><span style="color: #51afef; font-weight: bold;">#include</span><span style="color: #98be65;">&lt;iostream&gt;</span>
 <span style="color: #51afef; font-weight: bold;">#include</span><span style="color: #98be65;">&lt;list&gt;</span>
@@ -320,8 +306,6 @@ for the JavaScript code in this tag.
 };
 
 <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">CreateTree</span> (<span style="color: #ECBE7B;">node</span> *<span style="color: #dcaeea;">curr</span>, <span style="color: #ECBE7B;">node</span> *<span style="color: #dcaeea;">n</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">x</span>, <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">pos</span>) {
-    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#21442;&#25968;&#65306;&#24403;&#21069;&#33410;&#28857;&#65292;&#24453;&#25554;&#20837;&#33410;&#28857;&#65292;&#24453;&#25554;&#20837;&#33410;&#28857;&#30340;&#20540;&#65292;&#24453;&#25554;&#20837;&#33410;&#28857;&#30340;&#20301;&#32622;</span>
-    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#27969;&#31243;&#65306;&#24453;&#25554;&#20837;&#30340;&#33410;&#28857;&#24050;&#32463;&#23384;&#22312;&#65292;&#21017;&#26681;&#25454;&#27599;&#27425;&#30456;&#23545;&#19978;&#20010;&#33410;&#28857;&#30340;&#25554;&#20837;&#20301;&#32622;&#21521;&#19979;&#36941;&#21382;&#65307;&#30452;&#33267;&#21040;&#36798;&#26368;&#32456;&#25554;&#20837;&#20301;&#32622;&#65292;&#33410;&#28857;&#19981;&#23384;&#65292;&#21017;&#21019;&#24314;&#33410;&#28857;&#12290;&#36882;&#24402;&#32467;&#26463;&#12290;</span>
     <span style="color: #51afef;">if</span> (n != <span style="color: #a9a1e1;">NULL</span>) {
         <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">ch</span>;
         cout &lt;&lt; <span style="color: #98be65;">"\nLeft or right of "</span> &lt;&lt; n-&gt;val &lt;&lt; <span style="color: #98be65;">":"</span>;
@@ -371,7 +355,6 @@ for the JavaScript code in this tag.
 }
 
 <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#23618;&#27425;&#36941;&#21382;</span>
-<span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#21033;&#29992;&#38431;&#21015;&#65292;&#24456;&#24039;&#22937;</span>
 <span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">BFT</span> (<span style="color: #ECBE7B;">node</span> *<span style="color: #dcaeea;">n</span>) {
     <span style="color: #ECBE7B;">list</span>&lt;<span style="color: #ECBE7B;">node</span>*&gt; <span style="color: #dcaeea;">queue</span>;
     queue.push_back(n);
@@ -425,41 +408,23 @@ for the JavaScript code in this tag.
         <span style="color: #51afef;">case</span> 2:
             Pre(root);
             <span style="color: #51afef;">break</span>;
-
         <span style="color: #51afef;">case</span> 3:
             In(root);
             <span style="color: #51afef;">break</span>;
-
         <span style="color: #51afef;">case</span> 4:
             Post(root);
             <span style="color: #51afef;">break</span>;
-
         <span style="color: #51afef;">case</span> 5:
             BFT(root);
             <span style="color: #51afef;">break</span>;
         }
     }<span style="color: #51afef;">while</span> (ch != 0);
 }
-
-<span style="color: #5B6268;">/*</span>
-
-<span style="color: #5B6268;">      4</span>
-<span style="color: #5B6268;">   3     6</span>
-<span style="color: #5B6268;"> 8  9  2   1</span>
-
-<span style="color: #5B6268;">queue: </span>
-<span style="color: #5B6268;">4</span>
-<span style="color: #5B6268;">36</span>
-<span style="color: #5B6268;">689</span>
-<span style="color: #5B6268;">8921</span>
-<span style="color: #5B6268;">921</span>
-<span style="color: #5B6268;">21</span>
-<span style="color: #5B6268;">1</span>
-<span style="color: #5B6268;">^</span>
-<span style="color: #5B6268;">*/</span>
 </code></pre>
 </div>
 </div>
+</li>
+</ul>
 </div>
 </div>
 </div>
