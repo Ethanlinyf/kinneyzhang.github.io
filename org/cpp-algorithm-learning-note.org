@@ -1,0 +1,177 @@
+#+TITLE: C++算法
+#+DATE: 2019-12-27
+#+STARTUP: content
+#+OPTIONS: toc:t H:2 num:2
+
+ 
+* 数据结构
+** 树
+*** 思路
+    * 树的创建
+      四个参数：当前节点，待插入节点，待插入节点的值，待插入节点的位置;
+
+      待插入的节点已经存在，则根据每次相对上个节点的插入位置向下遍历；直至到达最终插入位置，节点不存，则创建节点。递归结束。
+
+    * 树的遍历
+      * 层次遍历
+	使用队列，队列不为空则循环，将左右节点依次写入队列，先进先出，实现层次遍历。
+      * 前序遍历
+	递归（根左右）
+      * 中序遍历
+	递归（左根右）
+      * 后序遍历
+	递归（左右根）
+*** 实现
+
+    #+BEGIN_SRC C++
+    #include<iostream>
+    #include<list>
+    using namespace std;
+
+    struct node {
+	int val;
+	node *left;
+	node *right;
+    };
+
+    void CreateTree (node *curr, node *n, int x, char pos) {
+	// 参数：当前节点，待插入节点，待插入节点的值，待插入节点的位置
+	// 流程：待插入的节点已经存在，则根据每次相对上个节点的插入位置向下遍历；直至到达最终插入位置，节点不存，则创建节点。递归结束。
+	if (n != NULL) {
+	    char ch;
+	    cout << "\nLeft or right of " << n->val << ":";
+	    cin >> ch;
+	    if (ch == 'l')
+		CreateTree(n, n->left, x, ch);
+	    else if (ch == 'r')
+		CreateTree(n, n->right, x, ch);
+	}
+	else {
+	    node *t = new node;
+	    t->val = x;
+	    t->left = NULL;
+	    t->right = NULL;
+	    if (pos == 'l') 
+		curr->left = t;
+	    else if (pos == 'r')
+		curr->right = t;
+	}
+    }
+
+    // 先序遍历：根左右
+    void Pre (node *n) {
+	if (n != NULL) {
+	    cout << n->val << " ";
+	    Pre(n->left);
+	    Pre(n->right);
+	}
+    }
+
+    //中序遍历：左根右
+    void In (node *n) {
+	if (n!= NULL) {
+	    In(n->left);
+	    cout << n->val << " ";
+	    In(n->right);
+	}
+    }
+
+    // 后序遍历：左右根
+    void Post (node *n) {
+	if(n!= NULL) {
+	    Post(n->left);
+	    Post(n->right);
+	    cout << n->val << " ";
+	}
+    }
+
+    // 层次遍历
+    //利用队列，很巧妙
+    void BFT (node *n) {
+	list<node*> queue;
+	queue.push_back(n);
+	while (!queue.empty()) {
+	    n = queue.front();
+	    cout << n->val << " ";
+	    queue.pop_front();
+
+	    if (n->left != NULL)
+		queue.push_back(n->left);
+	    if (n->right != NULL)
+		queue.push_back(n->right);
+	}
+    }
+
+    int main () {
+	int value;
+	int ch;
+	node *root = new node;
+	cout << "\nEnter the value of root node: ";
+	cin >> value;
+	root->val = value;
+	root->left = NULL;
+	root->right = NULL;
+
+	do {
+	    cout << "\n0. Quit";
+	    cout << "\n1. Insert";
+	    cout << "\n2. Preorder Depth First";
+	    cout << "\n3. Inorder Depth First";
+	    cout << "\n4. Postorder Depth First";
+	    cout << "\n5. Breadth First";
+	
+	    cout << "\nEnter your choice: ";
+	    cin >> ch;
+	    switch (ch) {
+	    case 1:
+		int x;
+		char pos;
+		cout << "\nEnter the value to be inserted: ";
+		cin >> x;
+		cout << "\nleft or right of the root: ";
+		cin >> pos;
+		if (pos == 'l')
+		    CreateTree(root, root->left, x, pos);
+		else if (pos == 'r')
+		    CreateTree(root, root->right, x, pos);
+		else
+		    cout << "\nInvalid input!";
+		break;
+	    case 2:
+		Pre(root);
+		break;
+
+	    case 3:
+		In(root);
+		break;
+
+	    case 4:
+		Post(root);
+		break;
+
+	    case 5:
+		BFT(root);
+		break;
+	    }
+	}while (ch != 0);
+    }
+
+    /*
+
+	  4
+       3     6
+     8  9  2   1
+
+    queue: 
+    4
+    36
+    689
+    8921
+    921
+    21
+    1
+    ^
+    ,*/
+    #+END_SRC
+
+

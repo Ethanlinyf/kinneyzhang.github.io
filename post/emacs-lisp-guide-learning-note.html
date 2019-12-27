@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-12-18 Wed 19:07 -->
+<!-- 2019-12-27 Fri 11:56 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp guide学习笔记</title>
@@ -290,16 +290,16 @@ for the JavaScript code in this tag.
 <div class="col-auto">
 <pre><code class="emacs-lisp">(* 2 3)
 
-(concat <span style="color: #8b2252;">"a"</span> <span style="color: #8b2252;">"b"</span>) <span style="color: #b22222;">;; </span><span style="color: #b22222;">&#23383;&#31526;&#20018;&#36830;&#25509;</span>
+(concat <span style="color: #98be65;">"a"</span> <span style="color: #98be65;">"b"</span>) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#23383;&#31526;&#20018;&#36830;&#25509;</span>
 
-(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">func</span> (arg1 arg2)
-  <span style="color: #8b2252;">"Always document your functions."</span>
+(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">func</span> (arg1 arg2)
+  <span style="color: #83898d;">"Always document your functions."</span>
   &lt;function body&gt;)
 
-(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">var-name</span> &lt;the value&gt;
-  <span style="color: #8b2252;">"Always document your variables."</span>)
+(<span style="color: #51afef;">defvar</span> <span style="color: #dcaeea;">var-name</span> &lt;the value&gt;
+  <span style="color: #98be65;">"Always document your variables."</span>)
 
-(<span style="color: #a020f0;">let</span> ((x 1)
+(<span style="color: #51afef;">let</span> ((x 1)
       (y 2))
   ...)
 </code></pre>
@@ -310,7 +310,7 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #a020f0;">let*</span> ((x 1)
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">let*</span> ((x 1)
        (y x))
   ...)
 </code></pre>
@@ -321,7 +321,7 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #a020f0;">progn</span> do-this
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">progn</span> do-this
        do-that)
 </code></pre>
 </div>
@@ -334,8 +334,8 @@ for the JavaScript code in this tag.
 <pre><code class="emacs-lisp">(eq major-mode 'a)
 (= 0 1)
 (&gt; 0 1)
-(string= <span style="color: #8b2252;">"a"</span> <span style="color: #8b2252;">"b"</span>)
-(string&gt; <span style="color: #8b2252;">"a"</span> <span style="color: #8b2252;">"b"</span>)
+(string= <span style="color: #98be65;">"a"</span> <span style="color: #98be65;">"b"</span>)
+(string&gt; <span style="color: #98be65;">"a"</span> <span style="color: #98be65;">"b"</span>)
 </code></pre>
 </div>
 
@@ -353,10 +353,10 @@ for the JavaScript code in this tag.
 <h3 id="orga231a96"><span class="section-number-3">2.1</span> Buffers</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="col-auto">
-<pre><code class="emacs-lisp">(current-buffer) <span style="color: #b22222;">;; </span><span style="color: #b22222;">&#33719;&#21462;&#24403;&#21069;buffer</span>
-(<span style="color: #a020f0;">with-current-buffer</span> buffer-or-name ...) <span style="color: #b22222;">;; </span><span style="color: #b22222;">&#20020;&#26102;&#20351;&#29992;&#25351;&#23450;buffer</span>
-(set-buffer buffer-or-name) <span style="color: #b22222;">;; </span><span style="color: #b22222;">&#35774;&#32622;&#20026;&#24403;&#21069;buffer&#20294;&#19981;&#20999;&#25442;</span>
-(switch-to-buffer name) <span style="color: #b22222;">;; </span><span style="color: #b22222;">&#20999;&#25442;&#21040;&#25351;&#23450;buffer</span>
+<pre><code class="emacs-lisp">(current-buffer) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#33719;&#21462;&#24403;&#21069;buffer</span>
+(<span style="color: #51afef;">with-current-buffer</span> buffer-or-name ...) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#20020;&#26102;&#20351;&#29992;&#25351;&#23450;buffer</span>
+(set-buffer buffer-or-name) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#35774;&#32622;&#20026;&#24403;&#21069;buffer&#20294;&#19981;&#20999;&#25442;</span>
+(switch-to-buffer name) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#20999;&#25442;&#21040;&#25351;&#23450;buffer</span>
 </code></pre>
 </div>
 
@@ -374,7 +374,7 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #a020f0;">defvar</span> <span style="color: #a0522d;">your-variable-name</span> nil <span style="color: #8b2252;">"Your documentation here."</span>)
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defvar</span> <span style="color: #dcaeea;">your-variable-name</span> nil <span style="color: #83898d;">"Your documentation here."</span>)
 </code></pre>
 </div>
 
@@ -403,11 +403,11 @@ for the JavaScript code in this tag.
 <div class="col-auto">
 <pre><code class="emacs-lisp">((nil . ((indent-tabs-mode . t)
          (fill-column . 80)))
- (c-mode . ((c-file-style . <span style="color: #8b2252;">"BSD"</span>)
+ (c-mode . ((c-file-style . <span style="color: #98be65;">"BSD"</span>)
             (subdirs . nil)))
- (<span style="color: #8b2252;">"src/imported"</span>
+ (<span style="color: #98be65;">"src/imported"</span>
   . ((nil . ((change-log-default-name
-              . <span style="color: #8b2252;">"ChangeLog.local"</span>))))))
+              . <span style="color: #98be65;">"ChangeLog.local"</span>))))))
 </code></pre>
 </div>
 </div>
@@ -421,9 +421,9 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(point) <span style="color: #b22222;">;; </span><span style="color: #b22222;">&#24403;&#21069;point</span>
-(point-max) <span style="color: #b22222;">;; </span><span style="color: #b22222;">buffer&#30340;&#26368;&#22823;point</span>
-(point-min) <span style="color: #b22222;">;; </span><span style="color: #b22222;">buffer&#30340;&#26368;&#23567;point (&#20026;&#20160;&#20040;&#23427;&#19981;&#19968;&#23450;&#31561;&#20110;0? &#22240;&#20026;narrowing&#30340;&#23384;&#22312;).</span>
+<pre><code class="emacs-lisp">(point) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#24403;&#21069;point</span>
+(point-max) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">buffer&#30340;&#26368;&#22823;point</span>
+(point-min) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">buffer&#30340;&#26368;&#23567;point (&#20026;&#20160;&#20040;&#23427;&#19981;&#19968;&#23450;&#31561;&#20110;0? &#22240;&#20026;narrowing&#30340;&#23384;&#22312;).</span>
 </code></pre>
 </div>
 </div>
@@ -437,10 +437,10 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(region-beginning) <span style="color: #b22222;">;; </span><span style="color: #b22222;">region&#30340;&#24320;&#22987;&#65292;&#26159;&#19968;&#20010;point</span>
-(region-end) <span style="color: #b22222;">;; </span><span style="color: #b22222;">region&#30340;&#32467;&#26463;&#65292;&#26159;&#19968;&#20010;point</span>
-(use-region-p) <span style="color: #b22222;">;; </span><span style="color: #b22222;">&#26159;&#21542;&#25805;&#20316;&#24403;&#21069;region</span>
-(region-active-p) <span style="color: #b22222;">;; </span><span style="color: #b22222;">region&#26159;&#21542;&#28608;&#27963;</span>
+<pre><code class="emacs-lisp">(region-beginning) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">region&#30340;&#24320;&#22987;&#65292;&#26159;&#19968;&#20010;point</span>
+(region-end) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">region&#30340;&#32467;&#26463;&#65292;&#26159;&#19968;&#20010;point</span>
+(use-region-p) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#26159;&#21542;&#25805;&#20316;&#24403;&#21069;region</span>
+(region-active-p) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">region&#26159;&#21542;&#28608;&#27963;</span>
 </code></pre>
 </div>
 
@@ -449,13 +449,13 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">print-upper-region</span> ()
-  <span style="color: #8b2252;">"Demo to print the uppercased version of the active region."</span>
-  (<span style="color: #a020f0;">interactive</span>)
-  (<span style="color: #a020f0;">when</span> (region-active-p)
-    (message <span style="color: #8b2252;">"%S"</span> (<span style="color: #a020f0;">let</span> ((string (buffer-substring (region-beginning)
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">print-upper-region</span> ()
+  <span style="color: #83898d;">"Demo to print the uppercased version of the active region."</span>
+  (<span style="color: #51afef;">interactive</span>)
+  (<span style="color: #51afef;">when</span> (region-active-p)
+    (message <span style="color: #98be65;">"%S"</span> (<span style="color: #51afef;">let</span> ((string (buffer-substring (region-beginning)
                                                   (region-end))))
-                    (<span style="color: #a020f0;">with-temp-buffer</span>
+                    (<span style="color: #51afef;">with-temp-buffer</span>
                       (insert string)
                       (upcase-region (point-min)
                                      (point-max))
