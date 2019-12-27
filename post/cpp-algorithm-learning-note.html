@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-12-27 Fri 12:01 -->
+<!-- 2019-12-27 Fri 12:27 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>C++算法</title>
@@ -279,36 +279,32 @@ for the JavaScript code in this tag.
 <div id="outline-container-org7264b45" class="outline-3">
 <h3 id="org7264b45"><span class="section-number-3">1.1</span> 树</h3>
 <div class="outline-text-3" id="text-1-1">
-</div>
-<ul class="org-ul">
-<li><a id="org0ac5ced"></a>思路<br>
-<div class="outline-text-4" id="text-org0ac5ced">
-<ul class="org-ul">
-<li><p>
-树的创建
-四个参数：当前节点，待插入节点，待插入节点的值，待插入节点的位置;
+<p>
+<b>思路</b>
 </p>
 
 <p>
-待插入的节点已经存在，则根据每次相对上个节点的插入位置向下遍历；直至到达最终插入位置，节点不存，则创建节点。递归结束。
-</p></li>
+<i>树的创建</i>
+   四个参数：当前节点，待插入节点，待插入节点的值，待插入节点的位置；待插入的节点已经存在，则根据每次相对上个节点的插入位置向下遍历；直至到达最终插入位置，节点不存，则创建节点。递归结束。
+</p>
 
-<li>树的遍历
+<p>
+<i>树的遍历</i>
+</p>
 <ul class="org-ul">
-<li>层次遍历
-使用队列，队列不为空则循环，将左右节点依次写入队列，先进先出，实现层次遍历。</li>
+<li>层次遍历：使用队列，队列不为空则循环，将左右节点依次写入队列，先进先出，实现层次遍历。</li>
 <li>前序遍历
 递归（根左右）</li>
 <li>中序遍历
 递归（左根右）</li>
 <li>后序遍历
 递归（左右根）</li>
-</ul></li>
 </ul>
-</div>
-</li>
-<li><a id="org241dbe7"></a>实现<br>
-<div class="outline-text-4" id="text-org241dbe7">
+
+<p>
+<b>实现</b>
+</p>
+
 <div class="col-auto">
 <pre><code class="C++"><span style="color: #51afef; font-weight: bold;">#include</span><span style="color: #98be65;">&lt;iostream&gt;</span>
 <span style="color: #51afef; font-weight: bold;">#include</span><span style="color: #98be65;">&lt;list&gt;</span>
@@ -461,8 +457,6 @@ for the JavaScript code in this tag.
 </code></pre>
 </div>
 </div>
-</li>
-</ul>
 </div>
 </div>
 </div>
