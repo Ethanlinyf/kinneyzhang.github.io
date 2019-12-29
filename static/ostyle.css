@@ -2691,7 +2691,7 @@ pre {
     font-size: 15px;
     background-color: RGB(246,248,250);
     margin: 0;
-    padding: 1.5em;
+    /* padding: 1.5em; */
     border: 0;
     box-shadow: 0 0 0;
 }
