@@ -2690,7 +2690,8 @@ p.verse {
 pre {
     font-size: 15px;
     background-color: RGB(246,248,250);
-    border: 1px dotted grey;
+    border: 0;
+    box-shadow: 0;
 }
 
 pre code {
