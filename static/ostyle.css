@@ -2687,6 +2687,14 @@ p.verse {
     font-size: 80%
 }
 
+pre {
+    background-color: RGB(246,248,250);
+}
+
+pre code {
+    font-family: Lucida Console,monospace;
+}
+
 .org-src-container {
     /* border: 1px solid #ccc; */
     background-color: RGB(246,248,250);

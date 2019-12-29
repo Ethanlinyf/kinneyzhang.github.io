@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-12-29 Sun 23:13 -->
+<!-- 2019-12-29 Sun 23:29 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Emacs中使用mpd+mingus听音乐</title>
@@ -264,7 +264,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#org744d146">1. mpd安装及配置(macos)</a>
 <ul>
-<li><a href="#org1997e1c">1.1. 安装</a></li>
+<li><a href="#org99b16d8">1.1. 安装</a></li>
 <li><a href="#org6a51aa1">1.2. 创建配置文件</a></li>
 <li><a href="#org4ca35b6">1.3. 编辑配置</a></li>
 <li><a href="#org609787f">1.4. 使用命令</a></li>
@@ -273,7 +273,7 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#org40c740f">2. mingus安装及使用</a>
 <ul>
-<li><a href="#org99b16d8">2.1. 安装</a></li>
+<li><a href="#orgdb444c4">2.1. 安装</a></li>
 <li><a href="#org34c3321">2.2. 使用</a></li>
 </ul>
 </li>
@@ -299,16 +299,16 @@ Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音�
 <h2 id="org744d146"><span class="section-number-2">1</span> mpd安装及配置(macos)</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org1997e1c" class="outline-3">
-<h3 id="org1997e1c"><span class="section-number-3">1.1</span> 安装</h3>
+<div id="outline-container-org99b16d8" class="outline-3">
+<h3 id="org99b16d8"><span class="section-number-3">1.1</span> 安装</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Mac用户可以很方便的使用homebrew安装mpd
 </p>
 
-<div class="org-src-container">
-<pre class="src src-shell">$ brew install mpd
-</pre>
+<div class="col-auto">
+<pre><code class="shell">$ brew install mpd
+</code></pre>
 </div>
 
 <p>
@@ -324,10 +324,10 @@ Mac用户可以很方便的使用homebrew安装mpd
 mpd默认的配置文件查找路经为 <code>~/.mpd/mpd.conf</code> 或 <code>~/.mpdconf</code> ，这里建议将所有配置及相关数据文件放在一个.mpd文件夹中。
 </p>
 
-<div class="org-src-container">
-<pre class="src src-shell">$ mkdir -p ~/.mpd/playlists
+<div class="col-auto">
+<pre><code class="shell">$ mkdir -p ~/.mpd/playlists
 $ touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
-</pre>
+</code></pre>
 </div>
 </div>
 </div>
@@ -339,8 +339,8 @@ $ touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
 进入 <code>~/.mpd/mpd.conf</code> ，粘贴如下配置
 </p>
 
-<div class="org-src-container">
-<pre class="src src-TOML">music_directory "~/Music"  # 音乐文件目录
+<div class="col-auto">
+<pre><code class="TOML">music_directory "~/Music"  # 音乐文件目录
 playlist_directory "~/.mpd/playlists"  # 播放列表目录
 db_file "~/.mpd/mpd.db"  # 数据库
 log_file "~/.mpd/mpd.log"  # 日志文件
@@ -373,7 +373,7 @@ audio_output {
  auto_resample "no"
  use_mmap "yes"
 }
-</pre>
+</code></pre>
 </div>
 </div>
 </div>
@@ -381,11 +381,11 @@ audio_output {
 <div id="outline-container-org609787f" class="outline-3">
 <h3 id="org609787f"><span class="section-number-3">1.4</span> 使用命令</h3>
 <div class="outline-text-3" id="text-1-4">
-<div class="org-src-container">
-<pre class="src src-shell">$ mpd  <span style="color: #5B6268;"># </span><span style="color: #5B6268;">&#21551;&#21160;&#26381;&#21153;</span>
+<div class="col-auto">
+<pre><code class="shell">$ mpd  <span style="color: #5B6268;"># </span><span style="color: #5B6268;">&#21551;&#21160;&#26381;&#21153;</span>
 $ mpd --kill  <span style="color: #5B6268;"># </span><span style="color: #5B6268;">&#26432;&#27515;&#36827;&#31243;</span>
 $ mpd update  <span style="color: #5B6268;"># </span><span style="color: #5B6268;">&#26356;&#26032;</span>
-</pre>
+</code></pre>
 </div>
 </div>
 </div>
@@ -406,19 +406,19 @@ $ mpd update  <span style="color: #5B6268;"># </span><span style="color: #5B6268
 <h2 id="org40c740f"><span class="section-number-2">2</span> mingus安装及使用</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org99b16d8" class="outline-3">
-<h3 id="org99b16d8"><span class="section-number-3">2.1</span> 安装</h3>
+<div id="outline-container-orgdb444c4" class="outline-3">
+<h3 id="orgdb444c4"><span class="section-number-3">2.1</span> 安装</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界面。
 </p>
 
-<div class="org-src-container">
-<pre class="src src-emacs-lisp">(<span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">mingus</span>
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">use-package</span> <span style="color: #a9a1e1;">mingus</span>
   <span style="color: #c678dd;">:ensure</span> t
   <span style="color: #c678dd;">:defer</span> t
   <span style="color: #c678dd;">:bind</span> ((<span style="color: #98be65;">"C-c m"</span> . mingus)))
-</pre>
+</code></pre>
 </div>
 </div>
 </div>
