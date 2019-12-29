@@ -2699,7 +2699,7 @@ pre {
 pre code {
     background-color: RGB(246,248,250);
     font-family: Lucida Console,monospace;
-    padding: 5px;
+    padding: 1em;
     font-size: 15px;
 }
 
