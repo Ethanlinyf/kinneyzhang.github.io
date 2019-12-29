@@ -2682,7 +2682,7 @@ p.verse {
     margin: auto 1px;
     border: 1px solid #ddd;
     border-radius: 3px;
-    background-clip: padding-box;
+    /* background-clip: padding-box; */
     color: #333;
     font-size: 80%
 }
@@ -2698,13 +2698,14 @@ p.verse {
 }
 
 .org-src-container>pre {
-    overflow: auto
+    overflow: auto;
+    background-color: RGB(246,248,250);
 }
 
 .org-src-container>pre:before {
     display: block;
     position: absolute;
-    /* background-color: #b3b3b3; */
+    background-color: RGB(246,248,250);
     top: 0;
     right: 0;
     padding: 0 0;
