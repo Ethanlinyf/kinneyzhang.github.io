@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-12-27 Fri 11:56 -->
+<!-- 2019-12-29 Sun 22:14 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp guide学习笔记</title>
@@ -190,8 +190,7 @@ ga('send', 'pageview');
 </script>
 <!-- End Google Analytics -->
 
-<link rel="stylesheet" type="text/css" href="https://blog.geekinney.com/static/ostyle.css"/>
-<link rel="stylesheet" type="text/css" href="https://blog.geekinney.com/static/ostyle2.css"/>
+<link rel="stylesheet" type="text/css" href="https://blog.geekinney.com/static/ostyle3.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
 <script>var hlf=function(){Array.prototype.forEach.call(document.querySelectorAll("pre.src"),function(t){var e;e=t.getAttribute("class").toLowerCase(),e=e.replace(/src-(w+)/,"src-$1 $1"),console.log(e),t.setAttribute("class",e),hljs.highlightBlock(t)})};addEventListener("DOMContentLoaded",hlf);</script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/googlecode.min.css"/>
@@ -290,16 +289,16 @@ for the JavaScript code in this tag.
 <div class="col-auto">
 <pre><code class="emacs-lisp">(* 2 3)
 
-(concat <span style="color: #98be65;">"a"</span> <span style="color: #98be65;">"b"</span>) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#23383;&#31526;&#20018;&#36830;&#25509;</span>
+(concat "a" "b") ;; 字符串连接
 
-(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">func</span> (arg1 arg2)
-  <span style="color: #83898d;">"Always document your functions."</span>
+(defun func (arg1 arg2)
+  "Always document your functions."
   &lt;function body&gt;)
 
-(<span style="color: #51afef;">defvar</span> <span style="color: #dcaeea;">var-name</span> &lt;the value&gt;
-  <span style="color: #98be65;">"Always document your variables."</span>)
+(defvar var-name &lt;the value&gt;
+  "Always document your variables.")
 
-(<span style="color: #51afef;">let</span> ((x 1)
+(let ((x 1)
       (y 2))
   ...)
 </code></pre>
@@ -310,7 +309,7 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #51afef;">let*</span> ((x 1)
+<pre><code class="emacs-lisp">(let* ((x 1)
        (y x))
   ...)
 </code></pre>
@@ -321,7 +320,7 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #51afef;">progn</span> do-this
+<pre><code class="emacs-lisp">(progn do-this
        do-that)
 </code></pre>
 </div>
@@ -334,8 +333,8 @@ for the JavaScript code in this tag.
 <pre><code class="emacs-lisp">(eq major-mode 'a)
 (= 0 1)
 (&gt; 0 1)
-(string= <span style="color: #98be65;">"a"</span> <span style="color: #98be65;">"b"</span>)
-(string&gt; <span style="color: #98be65;">"a"</span> <span style="color: #98be65;">"b"</span>)
+(string= "a" "b")
+(string&gt; "a" "b")
 </code></pre>
 </div>
 
@@ -353,10 +352,10 @@ for the JavaScript code in this tag.
 <h3 id="orga231a96"><span class="section-number-3">2.1</span> Buffers</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="col-auto">
-<pre><code class="emacs-lisp">(current-buffer) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#33719;&#21462;&#24403;&#21069;buffer</span>
-(<span style="color: #51afef;">with-current-buffer</span> buffer-or-name ...) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#20020;&#26102;&#20351;&#29992;&#25351;&#23450;buffer</span>
-(set-buffer buffer-or-name) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#35774;&#32622;&#20026;&#24403;&#21069;buffer&#20294;&#19981;&#20999;&#25442;</span>
-(switch-to-buffer name) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#20999;&#25442;&#21040;&#25351;&#23450;buffer</span>
+<pre><code class="emacs-lisp">(current-buffer) ;; 获取当前buffer
+(with-current-buffer buffer-or-name ...) ;; 临时使用指定buffer
+(set-buffer buffer-or-name) ;; 设置为当前buffer但不切换
+(switch-to-buffer name) ;; 切换到指定buffer
 </code></pre>
 </div>
 
@@ -374,7 +373,7 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #51afef;">defvar</span> <span style="color: #dcaeea;">your-variable-name</span> nil <span style="color: #83898d;">"Your documentation here."</span>)
+<pre><code class="emacs-lisp">(defvar your-variable-name nil "Your documentation here.")
 </code></pre>
 </div>
 
@@ -402,12 +401,12 @@ for the JavaScript code in this tag.
 
 <div class="col-auto">
 <pre><code class="emacs-lisp">((nil . ((indent-tabs-mode . t)
-         (fill-column . 80)))
- (c-mode . ((c-file-style . <span style="color: #98be65;">"BSD"</span>)
-            (subdirs . nil)))
- (<span style="color: #98be65;">"src/imported"</span>
+	 (fill-column . 80)))
+ (c-mode . ((c-file-style . "BSD")
+	    (subdirs . nil)))
+ ("src/imported"
   . ((nil . ((change-log-default-name
-              . <span style="color: #98be65;">"ChangeLog.local"</span>))))))
+	      . "ChangeLog.local"))))))
 </code></pre>
 </div>
 </div>
@@ -421,9 +420,9 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(point) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#24403;&#21069;point</span>
-(point-max) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">buffer&#30340;&#26368;&#22823;point</span>
-(point-min) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">buffer&#30340;&#26368;&#23567;point (&#20026;&#20160;&#20040;&#23427;&#19981;&#19968;&#23450;&#31561;&#20110;0? &#22240;&#20026;narrowing&#30340;&#23384;&#22312;).</span>
+<pre><code class="emacs-lisp">(point) ;; 当前point
+(point-max) ;; buffer的最大point
+(point-min) ;; buffer的最小point (为什么它不一定等于0? 因为narrowing的存在).
 </code></pre>
 </div>
 </div>
@@ -437,10 +436,10 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(region-beginning) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">region&#30340;&#24320;&#22987;&#65292;&#26159;&#19968;&#20010;point</span>
-(region-end) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">region&#30340;&#32467;&#26463;&#65292;&#26159;&#19968;&#20010;point</span>
-(use-region-p) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#26159;&#21542;&#25805;&#20316;&#24403;&#21069;region</span>
-(region-active-p) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">region&#26159;&#21542;&#28608;&#27963;</span>
+<pre><code class="emacs-lisp">(region-beginning) ;; region的开始，是一个point
+(region-end) ;; region的结束，是一个point
+(use-region-p) ;; 是否操作当前region
+(region-active-p) ;; region是否激活
 </code></pre>
 </div>
 
@@ -449,18 +448,18 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">print-upper-region</span> ()
-  <span style="color: #83898d;">"Demo to print the uppercased version of the active region."</span>
-  (<span style="color: #51afef;">interactive</span>)
-  (<span style="color: #51afef;">when</span> (region-active-p)
-    (message <span style="color: #98be65;">"%S"</span> (<span style="color: #51afef;">let</span> ((string (buffer-substring (region-beginning)
-                                                  (region-end))))
-                    (<span style="color: #51afef;">with-temp-buffer</span>
-                      (insert string)
-                      (upcase-region (point-min)
-                                     (point-max))
-                      (buffer-substring-no-properties (point-min)
-                                                      (point-max)))))))
+<pre><code class="emacs-lisp">(defun print-upper-region ()
+  "Demo to print the uppercased version of the active region."
+  (interactive)
+  (when (region-active-p)
+    (message "%S" (let ((string (buffer-substring (region-beginning)
+						  (region-end))))
+		    (with-temp-buffer
+		      (insert string)
+		      (upcase-region (point-min)
+				     (point-max))
+		      (buffer-substring-no-properties (point-min)
+						      (point-max)))))))
 </code></pre>
 </div>
 </div>
