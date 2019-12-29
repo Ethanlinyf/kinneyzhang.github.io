@@ -2697,9 +2697,10 @@ pre {
 }
 
 pre code {
-    margin: 4px;
-    font-size: 15px;
+    background-color: RGB(246,248,250);
     font-family: Lucida Console,monospace;
+    padding: 5px;
+    font-size: 15px;
 }
 
 .org-src-container {
