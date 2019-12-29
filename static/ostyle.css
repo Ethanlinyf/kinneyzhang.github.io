@@ -2697,6 +2697,7 @@ pre {
 }
 
 pre code {
+    padding: 2px;
     font-size: 15px;
     font-family: Lucida Console,monospace;
 }
