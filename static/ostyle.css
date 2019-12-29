@@ -2691,7 +2691,7 @@ p.verse {
     /* border: 1px solid #ccc; */
     background-color: RGB(246,248,250);
     font-family: Lucida Console,monospace;
-    font-size: 80%;
+    font-size: 100%;
     margin: 1em auto;
     padding: .1em 0;
     position: relative
