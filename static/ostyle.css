@@ -2690,7 +2690,6 @@ p.verse {
 .org-src-container {
     /* border: 1px solid #ccc; */
     background-color: RGB(246,248,250);
-    /* box-shadow: 3px 3px 3px #eee; */
     font-family: Lucida Console,monospace;
     font-size: 80%;
     margin: 1em auto;
@@ -2705,13 +2704,12 @@ p.verse {
 .org-src-container>pre:before {
     display: block;
     position: absolute;
-    background-color: #b3b3b3;
+    /* background-color: #b3b3b3; */
     top: 0;
     right: 0;
-    padding: 0 .5em;
-    border-bottom-left-radius: 8px;
+    padding: 0 0;
     border: 0;
-    color: #fff;
+    /* color: #fff; */
     font-size: 80%
 }
 
