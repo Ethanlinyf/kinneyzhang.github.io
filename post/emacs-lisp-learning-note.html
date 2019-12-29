@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-12-29 Sun 22:22 -->
+<!-- 2019-12-29 Sun 22:30 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp学习笔记</title>
@@ -286,7 +286,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#org97cac73">1. Elisp</a>
 <ul>
-<li><a href="#org17ae94e">1.1. 概览</a>
+<li><a href="#orgf1d6401">1.1. 概览</a>
 <ul>
 <li><a href="#org5ead4e7">1.1.1. 运行emacs-lisp的几种方式</a></li>
 <li><a href="#org3831871">1.1.2. 创建命令（interactive函数）</a></li>
@@ -323,7 +323,7 @@ for the JavaScript code in this tag.
 <li><a href="#org2f1427d">1.7. 列表操作</a></li>
 <li><a href="#org08c3ecb">1.8. 关联列表和属性列表</a>
 <ul>
-<li><a href="#orgf1d6401">1.8.1. 概览</a></li>
+<li><a href="#org2314cab">1.8.1. 概览</a></li>
 <li><a href="#org5723aa3">1.8.2. 关联列表/Alist</a></li>
 <li><a href="#orgfa6bfa7">1.8.3. 属性列表</a></li>
 <li><a href="#org8cd25be">1.8.4. 转换Alist成Plist和vice-versa</a></li>
@@ -352,10 +352,10 @@ for the JavaScript code in this tag.
 <li><a href="#org0618ecb">2.2. 宏</a></li>
 </ul>
 </li>
-<li><a href="#orgbb44d0d">3. Emacs API</a>
+<li><a href="#orge3aa163">3. Emacs API</a>
 <ul>
 <li><a href="#orga6240ae">3.1. Emacs术语</a></li>
-<li><a href="#orgca90462">3.2. Emacs API</a></li>
+<li><a href="#orgbb44d0d">3.2. Emacs API</a></li>
 <li><a href="#org08dcf8f">3.3. Buffers</a>
 <ul>
 <li><a href="#org91e7131">3.3.1. Buffer Attributes</a></li>
@@ -447,8 +447,8 @@ for the JavaScript code in this tag.
 <h2 id="org97cac73"><span class="section-number-2">1</span> Elisp</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org17ae94e" class="outline-3">
-<h3 id="org17ae94e"><span class="section-number-3">1.1</span> 概览</h3>
+<div id="outline-container-orgf1d6401" class="outline-3">
+<h3 id="orgf1d6401"><span class="section-number-3">1.1</span> 概览</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
 <div id="outline-container-org5ead4e7" class="outline-4">
@@ -504,10 +504,10 @@ for the JavaScript code in this tag.
 <h4 id="org3831871"><span class="section-number-4">1.1.2</span> 创建命令（interactive函数）</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <div class="col-auto">
-<pre><code class="emacs-lisp">;; example
-(defun buffer/insert-filename ()
-  "Insert file path of current buffer at current point"
-  (interactive)
+<pre><code class="emacs-lisp"><span style="color: #5B6268;">;; </span><span style="color: #5B6268;">example</span>
+(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">buffer/insert-filename</span> ()
+  <span style="color: #83898d;">"Insert file path of current buffer at current point"</span>
+  (<span style="color: #51afef;">interactive</span>)
   (insert (buffer-file-name (current-buffer))))
 </code></pre>
 </div>
@@ -1647,8 +1647,8 @@ ELISP&gt;
 <h3 id="org08c3ecb"><span class="section-number-3">1.8</span> 关联列表和属性列表</h3>
 <div class="outline-text-3" id="text-1-8">
 </div>
-<div id="outline-container-orgf1d6401" class="outline-4">
-<h4 id="orgf1d6401"><span class="section-number-4">1.8.1</span> 概览</h4>
+<div id="outline-container-org2314cab" class="outline-4">
+<h4 id="org2314cab"><span class="section-number-4">1.8.1</span> 概览</h4>
 <div class="outline-text-4" id="text-1-8-1">
 <p>
 关联列表是一系列cons对，这里我可以称作 <code>clist</code> 或者 由两个元素组成的列表的集合，可以称为 <code>alist</code>
@@ -3273,11 +3273,11 @@ ELISP&gt; (filter #'odd? '(1 2 3 4 5 6))
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defun take (n xs)
-  (if (or (null xs) (zerop n))
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">take</span> (n xs)
+  (<span style="color: #51afef;">if</span> (<span style="color: #51afef;">or</span> (null xs) (zerop n))
       '()
     (cons (car xs)
-	  (take (- n 1) (cdr xs)))))
+          (take (- n 1) (cdr xs)))))
 
 
 ELISP&gt; (take 5 '(a b c d e f g h i j))
@@ -3302,8 +3302,8 @@ ELISP&gt;
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defun drop (n xs)
-  (if (or (null xs) (zerop n))
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">drop</span> (n xs)
+  (<span style="color: #51afef;">if</span> (<span style="color: #51afef;">or</span> (null xs) (zerop n))
       xs
     (drop (- n 1)  (cdr xs))))
 
@@ -3324,8 +3324,8 @@ ELISP&gt;
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defun map-apply (fun xss)
-  (mapcar (lambda (xs) (apply fun xs)) xss))
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">map-apply</span> (fun xss)
+  (mapcar (<span style="color: #51afef;">lambda</span> (xs) (apply fun xs)) xss))
 
 ELISP&gt; (map-apply #'fxyz '((1 2 3) (3 4 5) (2 3 1)))
 (17 35 20)
@@ -3345,8 +3345,8 @@ ELISP&gt;
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defun zip (&amp;rest xss)
-  (if (null (car xss))
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">zip</span> (<span style="color: #ECBE7B;">&amp;rest</span> xss)
+  (<span style="color: #51afef;">if</span> (null (car xss))
       '()
     (cons
      (mapcar #'car xss)
@@ -3365,7 +3365,7 @@ ELISP&gt; (zip (list 1 2 3 4) '(a b c d) '(x y z w))
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defun zipwith (f &amp;rest xss)
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">zipwith</span> (f <span style="color: #ECBE7B;">&amp;rest</span> xss)
   (map-apply f (apply #'zip xss)))
 
 ELISP&gt; (zipwith #'f '(1 2 3) '(4 5 6) '(3 6 8))
@@ -3388,22 +3388,22 @@ ELISP&gt;
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">;;           f :: x -&gt; acc -&gt; acc
-;; foldr :: (a -&gt; b -&gt; b) -&gt; b -&gt; [a] -&gt; b
-;; foldr :: (x -&gt; acc -&gt; acc) -&gt; acc -&gt; [x] -&gt; acc
-;; foldr f z []     = z
-;; foldr f z (x:xs) = f x (foldr f z xs)
-;;
-;;  x = (car xss) , xs = (cdr xss)
-(defun foldr (f acc xss)
-  (if (null xss)
-      ;; foldr f z []     = z
+<pre><code class="emacs-lisp"><span style="color: #5B6268;">;;           </span><span style="color: #5B6268;">f :: x -&gt; acc -&gt; acc</span>
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">foldr :: (a -&gt; b -&gt; b) -&gt; b -&gt; [a] -&gt; b</span>
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">foldr :: (x -&gt; acc -&gt; acc) -&gt; acc -&gt; [x] -&gt; acc</span>
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">foldr f z []     = z</span>
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">foldr f z (x:xs) = f x (foldr f z xs)</span>
+<span style="color: #5B6268;">;;</span>
+<span style="color: #5B6268;">;;  </span><span style="color: #5B6268;">x = (car xss) , xs = (cdr xss)</span>
+(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">foldr</span> (f acc xss)
+  (<span style="color: #51afef;">if</span> (null xss)
+      <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">foldr f z []     = z</span>
       acc
-    ;; foldr f z (x:xs) = f x (foldr f z xs)
+    <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">foldr f z (x:xs) = f x (foldr f z xs)</span>
     (funcall f (car xss)
-	     (foldr f acc (cdr xss)))))
+             (foldr f acc (cdr xss)))))
 
-ELISP&gt; (foldr (lambda (a b) (+ (* 10 b) a)) 0 '(1 2 3 4 5))
+ELISP&gt; (foldr (<span style="color: #51afef;">lambda</span> (a b) (+ (* 10 b) a)) 0 '(1 2 3 4 5))
 54321
 ELISP&gt;
 
@@ -3418,15 +3418,15 @@ ELISP&gt;
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">;; foldl :: (b -&gt; a -&gt; b) -&gt; b -&gt; [a] -&gt; b
-;; foldl f z []     = z
-;; foldl f z (x:xs) = foldl f (f z x) xs
-(defun foldl (f acc xss)
-  (if (null xss)
+<pre><code class="emacs-lisp"><span style="color: #5B6268;">;; </span><span style="color: #5B6268;">foldl :: (b -&gt; a -&gt; b) -&gt; b -&gt; [a] -&gt; b</span>
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">foldl f z []     = z</span>
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">foldl f z (x:xs) = foldl f (f z x) xs</span>
+(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">foldl</span> (f acc xss)
+  (<span style="color: #51afef;">if</span> (null xss)
       acc
     (foldl f (funcall f acc (car xss)) (cdr xss))))
 
-ELISP&gt; (foldl (lambda (a b) (+ (* 10 a) b)) 0 '(1 2 3 4 5))
+ELISP&gt; (foldl (<span style="color: #51afef;">lambda</span> (a b) (+ (* 10 a) b)) 0 '(1 2 3 4 5))
 12345
 ELISP&gt;
 </code></pre>
@@ -3437,8 +3437,8 @@ ELISP&gt;
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defun map-pair (func xs)
-  (mapcar (lambda (x) (cons x (funcall func x))) xs))
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">map-pair</span> (func xs)
+  (mapcar (<span style="color: #51afef;">lambda</span> (x) (cons x (funcall func x))) xs))
 
 ELISP&gt; (map-pair #'1+ '(1 2 3 4))
 ((1 . 2)
@@ -3453,9 +3453,9 @@ ELISP&gt; (map-pair #'log10 '(1 10 100 1000 10000))
  (1000 . 3.0)
  (10000 . 4.0))
 
-(defun buffer-mode (buffer-or-string)
-  "Returns the major mode associated with a buffer."
-  (with-current-buffer buffer-or-string
+(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">buffer-mode</span> (buffer-or-string)
+  <span style="color: #83898d;">"Returns the major mode associated with a buffer."</span>
+  (<span style="color: #51afef;">with-current-buffer</span> buffer-or-string
     major-mode))
 
 ELISP&gt; (map-pair #'buffer-mode (buffer-list))
@@ -3474,29 +3474,29 @@ ELISP&gt; (map-pair #'buffer-mode (buffer-list))
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defun map-xypair (func-x func-y xs)
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">map-xypair</span> (func-x func-y xs)
   (mapcar
-   (lambda (x)
+   (<span style="color: #51afef;">lambda</span> (x)
      (cons (funcall func-x x) (funcall func-y x)))
    xs))
 
 ELISP&gt; (map-xypair #'buffer-name #'buffer-mode (buffer-list))
-(("*ielm*" . inferior-emacs-lisp-mode)
- ("*scratch*" . lisp-interaction-mode)
- ("*Backtrace*" . debugger-mode)
- ("*GNU Emacs*" . fundamental-mode)
- (" *Minibuf-1*" . minibuffer-inactive-mode)
- (" *Minibuf-0*" . minibuffer-inactive-mode)
- ("*Messages*" . messages-buffer-mode)
- (" *code-conversion-work*" . fundamental-mode)
- (" *Echo Area 0*" . fundamental-mode)
- (" *Echo Area 1*" . fundamental-mode)
- (" *http www.httpbin.org:80*" . fundamental-mode)
- (" *http www.httpbin.org:80*-820734" . fundamental-mode)
- (" *http www.httpbin.org:80*-914099" . fundamental-mode)
- (" *http www.httpbin.org:80*-945998" . fundamental-mode)
- ("*Help*" . help-mode)
- ("*Completions*" . completion-list-mode))
+((<span style="color: #98be65;">"*ielm*"</span> . inferior-emacs-lisp-mode)
+ (<span style="color: #98be65;">"*scratch*"</span> . lisp-interaction-mode)
+ (<span style="color: #98be65;">"*Backtrace*"</span> . debugger-mode)
+ (<span style="color: #98be65;">"*GNU Emacs*"</span> . fundamental-mode)
+ (<span style="color: #98be65;">" *Minibuf-1*"</span> . minibuffer-inactive-mode)
+ (<span style="color: #98be65;">" *Minibuf-0*"</span> . minibuffer-inactive-mode)
+ (<span style="color: #98be65;">"*Messages*"</span> . messages-buffer-mode)
+ (<span style="color: #98be65;">" *code-conversion-work*"</span> . fundamental-mode)
+ (<span style="color: #98be65;">" *Echo Area 0*"</span> . fundamental-mode)
+ (<span style="color: #98be65;">" *Echo Area 1*"</span> . fundamental-mode)
+ (<span style="color: #98be65;">" *http www.httpbin.org:80*"</span> . fundamental-mode)
+ (<span style="color: #98be65;">" *http www.httpbin.org:80*-820734"</span> . fundamental-mode)
+ (<span style="color: #98be65;">" *http www.httpbin.org:80*-914099"</span> . fundamental-mode)
+ (<span style="color: #98be65;">" *http www.httpbin.org:80*-945998"</span> . fundamental-mode)
+ (<span style="color: #98be65;">"*Help*"</span> . help-mode)
+ (<span style="color: #98be65;">"*Completions*"</span> . completion-list-mode))
 </code></pre>
 </div>
 
@@ -3506,7 +3506,7 @@ ELISP&gt; (map-xypair #'buffer-name #'buffer-mode (buffer-list))
 
 <div class="col-auto">
 <pre><code class="emacs-lisp">ELISP&gt; (juxt #'buffer-name #'buffer-mode)
-(lambda
+(<span style="color: #51afef;">lambda</span>
   (x)
   (list
    ((funcall #'buffer-name x)
@@ -3514,28 +3514,28 @@ ELISP&gt; (map-xypair #'buffer-name #'buffer-mode (buffer-list))
 
 
 ELISP&gt; (funcall (juxt #'buffer-file-name  #'buffer-name #'buffer-mode) (current-buffer))
-(nil "*ielm*" inferior-emacs-lisp-mode)
+(nil <span style="color: #98be65;">"*ielm*"</span> inferior-emacs-lisp-mode)
 
 ELISP&gt; (mapcar (juxt #'buffer-name #'buffer-file-name #'buffer-mode) (buffer-list))
-(("*ielm*" nil inferior-emacs-lisp-mode)
- ("*scratch*" nil lisp-interaction-mode)
- ("passgen.py" "/home/tux/bin/passgen.py" python-mode)
- (".bashrc" "/home/tux/.bashrc" sh-mode)
- (" *Minibuf-1*" nil minibuffer-inactive-mode)
- ("init.el" "/home/tux/.emacs.d/init.el" emacs-lisp-mode)
- ("*Backtrace*" nil debugger-mode)
- ("*GNU Emacs*" nil fundamental-mode)
- (" *Minibuf-0*" nil minibuffer-inactive-mode)
- ("*Messages*" nil messages-buffer-mode)
- (" *code-conversion-work*" nil fundamental-mode)
- (" *Echo Area 0*" nil fundamental-mode)
- (" *Echo Area 1*" nil fundamental-mode)
- (" *http www.httpbin.org:80*" nil fundamental-mode)
- (" *http www.httpbin.org:80*-820734" nil fundamental-mode)
- (" *http www.httpbin.org:80*-914099" nil fundamental-mode)
- (" *http www.httpbin.org:80*-945998" nil fundamental-mode)
- ("*Help*" nil help-mode)
- ("*Completions*" nil completion-list-mode))
+((<span style="color: #98be65;">"*ielm*"</span> nil inferior-emacs-lisp-mode)
+ (<span style="color: #98be65;">"*scratch*"</span> nil lisp-interaction-mode)
+ (<span style="color: #98be65;">"passgen.py"</span> <span style="color: #98be65;">"/home/tux/bin/passgen.py"</span> python-mode)
+ (<span style="color: #98be65;">".bashrc"</span> <span style="color: #98be65;">"/home/tux/.bashrc"</span> sh-mode)
+ (<span style="color: #98be65;">" *Minibuf-1*"</span> nil minibuffer-inactive-mode)
+ (<span style="color: #98be65;">"init.el"</span> <span style="color: #98be65;">"/home/tux/.emacs.d/init.el"</span> emacs-lisp-mode)
+ (<span style="color: #98be65;">"*Backtrace*"</span> nil debugger-mode)
+ (<span style="color: #98be65;">"*GNU Emacs*"</span> nil fundamental-mode)
+ (<span style="color: #98be65;">" *Minibuf-0*"</span> nil minibuffer-inactive-mode)
+ (<span style="color: #98be65;">"*Messages*"</span> nil messages-buffer-mode)
+ (<span style="color: #98be65;">" *code-conversion-work*"</span> nil fundamental-mode)
+ (<span style="color: #98be65;">" *Echo Area 0*"</span> nil fundamental-mode)
+ (<span style="color: #98be65;">" *Echo Area 1*"</span> nil fundamental-mode)
+ (<span style="color: #98be65;">" *http www.httpbin.org:80*"</span> nil fundamental-mode)
+ (<span style="color: #98be65;">" *http www.httpbin.org:80*-820734"</span> nil fundamental-mode)
+ (<span style="color: #98be65;">" *http www.httpbin.org:80*-914099"</span> nil fundamental-mode)
+ (<span style="color: #98be65;">" *http www.httpbin.org:80*-945998"</span> nil fundamental-mode)
+ (<span style="color: #98be65;">"*Help*"</span> nil help-mode)
+ (<span style="color: #98be65;">"*Completions*"</span> nil completion-list-mode))
 </code></pre>
 </div>
 
@@ -3544,21 +3544,21 @@ ELISP&gt; (mapcar (juxt #'buffer-name #'buffer-file-name #'buffer-mode) (buffer-
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defmacro map-juxt (xs_f xs)
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defmacro</span> <span style="color: #c678dd;">map-juxt</span> (xs_f xs)
   `(mapcar (juxt ,@xs_f) ,xs))
 
 
 ELISP&gt; (map-juxt (#'buffer-name #'buffer-file-name #'buffer-mode) (buffer-list))
-(("*ielm*" nil inferior-emacs-lisp-mode)
- ("*scratch*" nil lisp-interaction-mode)
- ("passgen.py" "/home/tux/bin/passgen.py" python-mode)
- (".bashrc" "/home/tux/.bashrc" sh-mode)
- (" *Minibuf-1*" nil minibuffer-inactive-mode)
- ("init.el" "/home/tux/.emacs.d/init.el" emacs-lisp-mode)
- ("*Backtrace*" nil debugger-mode)
- ("*GNU Emacs*" nil fundamental-mode)
- (" *Minibuf-0*" nil minibuffer-inactive-mode)
- ("*Messages*" nil messages-buffer-mode)
+((<span style="color: #98be65;">"*ielm*"</span> nil inferior-emacs-lisp-mode)
+ (<span style="color: #98be65;">"*scratch*"</span> nil lisp-interaction-mode)
+ (<span style="color: #98be65;">"passgen.py"</span> <span style="color: #98be65;">"/home/tux/bin/passgen.py"</span> python-mode)
+ (<span style="color: #98be65;">".bashrc"</span> <span style="color: #98be65;">"/home/tux/.bashrc"</span> sh-mode)
+ (<span style="color: #98be65;">" *Minibuf-1*"</span> nil minibuffer-inactive-mode)
+ (<span style="color: #98be65;">"init.el"</span> <span style="color: #98be65;">"/home/tux/.emacs.d/init.el"</span> emacs-lisp-mode)
+ (<span style="color: #98be65;">"*Backtrace*"</span> nil debugger-mode)
+ (<span style="color: #98be65;">"*GNU Emacs*"</span> nil fundamental-mode)
+ (<span style="color: #98be65;">" *Minibuf-0*"</span> nil minibuffer-inactive-mode)
+ (<span style="color: #98be65;">"*Messages*"</span> nil messages-buffer-mode)
  ...
 </code></pre>
 </div>
@@ -3568,17 +3568,17 @@ ELISP&gt; (map-juxt (#'buffer-name #'buffer-file-name #'buffer-mode) (buffer-lis
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defmacro $f (f &amp;rest params)
-  `(lambda ($) (,f ,@params)))
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defmacro</span> <span style="color: #c678dd;">$f</span> (f <span style="color: #ECBE7B;">&amp;rest</span> params)
+  `(<span style="color: #51afef;">lambda</span> ($) (,f ,@params)))
 
 
 ELISP&gt; ($f - 10 $)
-(lambda
+(<span style="color: #51afef;">lambda</span>
   ($)
   (- 10 $))
 
 ELISP&gt; ($f * (+ 3 $) 5)
-(lambda
+(<span style="color: #51afef;">lambda</span>
   ($)
   (*
    (+ 3 $)
@@ -3603,15 +3603,15 @@ ELISP&gt; (mapcar  ($f list (1+ $) (1- $) (log10 $)) '(1 10 100 1000))
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defmacro $c (f  &amp;rest params)
-  `(lambda (__x) (,f ,@params __x)))
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defmacro</span> <span style="color: #c678dd;">$c</span> (f  <span style="color: #ECBE7B;">&amp;rest</span> params)
+  `(<span style="color: #51afef;">lambda</span> (__x) (,f ,@params __x)))
 
-ELISP&gt; (defun f (x y z) (+ (* 3 x) (* 2 y) (* 4 z)))
+ELISP&gt; (<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">f</span> (x y z) (+ (* 3 x) (* 2 y) (* 4 z)))
 f
 ELISP&gt; (f 1 2 3)
 19
 ELISP&gt; ($c f 1 2)
-(lambda
+(<span style="color: #51afef;">lambda</span>
   (__x)
   (f 1 2 __x))
 
@@ -3632,16 +3632,16 @@ ELISP&gt;
 <h3 id="org4701d2b"><span class="section-number-3">1.15</span> Structures</h3>
 <div class="outline-text-3" id="text-1-15">
 <div class="col-auto">
-<pre><code class="emacs-lisp">ELISP&gt; (defstruct account id name balance)
+<pre><code class="emacs-lisp">ELISP&gt; (<span style="color: #51afef;">defstruct</span> account id name balance)
 account
-ELISP&gt; (make-account :id 3434 :name "John" :balance 1000.34)
-[cl-struct-account 3434 "John" 1000.34]
+ELISP&gt; (make-account <span style="color: #c678dd;">:id</span> 3434 <span style="color: #c678dd;">:name</span> <span style="color: #98be65;">"John"</span> <span style="color: #c678dd;">:balance</span> 1000.34)
+[cl-struct-account 3434 <span style="color: #98be65;">"John"</span> 1000.34]
 
-ELISP&gt; (setq user1 (make-account :id 3434 :name "John" :balance 1000.34))
-[cl-struct-account 3434 "John" 1000.34]
+ELISP&gt; (<span style="color: #51afef;">setq</span> user1 (make-account <span style="color: #c678dd;">:id</span> 3434 <span style="color: #c678dd;">:name</span> <span style="color: #98be65;">"John"</span> <span style="color: #c678dd;">:balance</span> 1000.34))
+[cl-struct-account 3434 <span style="color: #98be65;">"John"</span> 1000.34]
 
 ELISP&gt; (account-name user1)
-"John"
+<span style="color: #98be65;">"John"</span>
 
 ELISP&gt; (account-id user1)
 3434
@@ -3649,84 +3649,84 @@ ELISP&gt; (account-id user1)
 ELISP&gt; (account-balance user1)
 1000.34
 
-;; Test if input is an account object
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Test if input is an account object</span>
+<span style="color: #5B6268;">;;</span>
+<span style="color: #5B6268;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
 ELISP&gt; (account-p user1)
 t
 ELISP&gt;
 
-;; Change Field
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Change Field</span>
+<span style="color: #5B6268;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
 
-ELISP&gt; (defun withdraw (accc amount)
-	 (setf (account-balance acc) (- (account-balance acc) amount)))
+ELISP&gt; (<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">withdraw</span> (accc amount)
+         (<span style="color: #51afef;">setf</span> (account-balance acc) (- (account-balance acc) amount)))
 withdraw
 
 ELISP&gt; (withdraw user1 300)
 700.34
 ELISP&gt; user1
-[cl-struct-account 3434 "John" 700.34]
+[cl-struct-account 3434 <span style="color: #98be65;">"John"</span> 700.34]
 
 ELISP&gt; (withdraw user1 500)
 200.34000000000003
 ELISP&gt; user1
-[cl-struct-account 3434 "John" 200.34000000000003]
+[cl-struct-account 3434 <span style="color: #98be65;">"John"</span> 200.34000000000003]
 
 ELISP&gt;
 
-;; Build structure from a list of parameters
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Build structure from a list of parameters</span>
+<span style="color: #5B6268;">;;</span>
+<span style="color: #5B6268;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
 
-ELISP&gt; (defun build-account (id name balance)
-	 (make-account :id id :name name  :balance balance))
+ELISP&gt; (<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">build-account</span> (id name balance)
+         (make-account <span style="color: #c678dd;">:id</span> id <span style="color: #c678dd;">:name</span> name  <span style="color: #c678dd;">:balance</span> balance))
 build-account
 
-ELISP&gt; (build-account 3434 "O' Neil" 35434.23)
-[cl-struct-account 3434 "O' Neil" 35434.23]
+ELISP&gt; (build-account 3434 <span style="color: #98be65;">"O' Neil"</span> 35434.23)
+[cl-struct-account 3434 <span style="color: #98be65;">"O' Neil"</span> 35434.23]
 
-ELISP&gt; (apply 'build-account '(3434 "O' Neil" 35434.23))
-[cl-struct-account 3434 "O' Neil" 35434.23]
-
-ELISP&gt;
-
-ELISP&gt; (mapcar (lambda (params) (apply 'build-account params))
-	       '(
-		 (34423 "O' Neil" 23.2323)
-		 (1023  "John Edwards" 1002323.23)
-		 (92323 "Mr. Dummy"  2323241.2323)
-		 (8723  "John Oliver" 9823)
-		 ))
-([cl-struct-account 34423 "O' Neil" 23.2323]
- [cl-struct-account 1023 "John Edwards" 1002323.23]
- [cl-struct-account 92323 "Mr. Dummy" 2323241.2323]
- [cl-struct-account 8723 "John Oliver" 9823])
+ELISP&gt; (apply 'build-account '(3434 <span style="color: #98be65;">"O' Neil"</span> 35434.23))
+[cl-struct-account 3434 <span style="color: #98be65;">"O' Neil"</span> 35434.23]
 
 ELISP&gt;
 
-ELISP&gt; (defun build-accounts-from-list (list-of-params)
-	 (mapcar (lambda (params) (apply 'build-account params)) list-of-params))
+ELISP&gt; (mapcar (<span style="color: #51afef;">lambda</span> (params) (apply 'build-account params))
+               '(
+                 (34423 <span style="color: #98be65;">"O' Neil"</span> 23.2323)
+                 (1023  <span style="color: #98be65;">"John Edwards"</span> 1002323.23)
+                 (92323 <span style="color: #98be65;">"Mr. Dummy"</span>  2323241.2323)
+                 (8723  <span style="color: #98be65;">"John Oliver"</span> 9823)
+                 ))
+([cl-struct-account 34423 <span style="color: #98be65;">"O' Neil"</span> 23.2323]
+ [cl-struct-account 1023 <span style="color: #98be65;">"John Edwards"</span> 1002323.23]
+ [cl-struct-account 92323 <span style="color: #98be65;">"Mr. Dummy"</span> 2323241.2323]
+ [cl-struct-account 8723 <span style="color: #98be65;">"John Oliver"</span> 9823])
+
+ELISP&gt;
+
+ELISP&gt; (<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">build-accounts-from-list</span> (list-of-params)
+         (mapcar (<span style="color: #51afef;">lambda</span> (params) (apply 'build-account params)) list-of-params))
 build-accounts-from-list
 ELISP&gt;
 
-ELISP&gt; (setq accounts (build-accounts-from-list
-		       '(
-			 (34423 "O' Neil" 23.2323)
-			 (1023  "John Edwards" 1002323.23)
-			 (92323 "Mr. Dummy"  2323241.2323)
-			 (8723  "John Oliver" 9823)
-			 )))
-([cl-struct-account 34423 "O' Neil" 23.2323]
- [cl-struct-account 1023 "John Edwards" 1002323.23]
- [cl-struct-account 92323 "Mr. Dummy" 2323241.2323]
- [cl-struct-account 8723 "John Oliver" 9823])
+ELISP&gt; (<span style="color: #51afef;">setq</span> accounts (build-accounts-from-list
+                       '(
+                         (34423 <span style="color: #98be65;">"O' Neil"</span> 23.2323)
+                         (1023  <span style="color: #98be65;">"John Edwards"</span> 1002323.23)
+                         (92323 <span style="color: #98be65;">"Mr. Dummy"</span>  2323241.2323)
+                         (8723  <span style="color: #98be65;">"John Oliver"</span> 9823)
+                         )))
+([cl-struct-account 34423 <span style="color: #98be65;">"O' Neil"</span> 23.2323]
+ [cl-struct-account 1023 <span style="color: #98be65;">"John Edwards"</span> 1002323.23]
+ [cl-struct-account 92323 <span style="color: #98be65;">"Mr. Dummy"</span> 2323241.2323]
+ [cl-struct-account 8723 <span style="color: #98be65;">"John Oliver"</span> 9823])
 
 ELISP&gt; accounts
-([cl-struct-account 34423 "O' Neil" 23.2323]
- [cl-struct-account 1023 "John Edwards" 1002323.23]
- [cl-struct-account 92323 "Mr. Dummy" 2323241.2323]
- [cl-struct-account 8723 "John Oliver" 9823])
+([cl-struct-account 34423 <span style="color: #98be65;">"O' Neil"</span> 23.2323]
+ [cl-struct-account 1023 <span style="color: #98be65;">"John Edwards"</span> 1002323.23]
+ [cl-struct-account 92323 <span style="color: #98be65;">"Mr. Dummy"</span> 2323241.2323]
+ [cl-struct-account 8723 <span style="color: #98be65;">"John Oliver"</span> 9823])
 
 ELISP&gt; (mapcar #'account-id accounts)
 (34423 1023 92323 8723)
@@ -3735,7 +3735,7 @@ ELISP&gt;
 
 ELISP&gt;
 ELISP&gt; (mapcar #'account-name accounts)
-("O' Neil" "John Edwards" "Mr. Dummy" "John Oliver")
+(<span style="color: #98be65;">"O' Neil"</span> <span style="color: #98be65;">"John Edwards"</span> <span style="color: #98be65;">"Mr. Dummy"</span> <span style="color: #98be65;">"John Oliver"</span>)
 
 ELISP&gt;
 
@@ -3758,27 +3758,27 @@ ELISP&gt;
 <h3 id="org778998a"><span class="section-number-3">2.1</span> Quasi-quote</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="col-auto">
-<pre><code class="emacs-lisp">;;;; Quasiquote
+<pre><code class="emacs-lisp"><span style="color: #5B6268;">;;;; </span><span style="color: #5B6268;">Quasiquote</span>
 
-&gt; `(the product of 3 and 4 is ,(* 3 4))
-(the product of 3 and 4 is 12)
+&gt; `(<span style="color: #51afef;">the</span> product of 3 and 4 is ,(* 3 4))
+(<span style="color: #51afef;">the</span> product of 3 and 4 is 12)
 
-&gt; `("the product of 3 and 4 is" ,(* 3 4))
-("the product of 3 and 4 is" 12)
+&gt; `(<span style="color: #98be65;">"the product of 3 and 4 is"</span> ,(* 3 4))
+(<span style="color: #98be65;">"the product of 3 and 4 is"</span> 12)
 
-&gt; `("the value of (exp 3) is " ,(exp 3) "the value of (sqrt 100) is" ,(sqrt 100))
-("the value of (exp 3) is " 20.085536923187668 "the value of (sqrt 100) is" 10.0)
+&gt; `(<span style="color: #98be65;">"the value of (exp 3) is "</span> ,(exp 3) <span style="color: #98be65;">"the value of (sqrt 100) is"</span> ,(sqrt 100))
+(<span style="color: #98be65;">"the value of (exp 3) is "</span> 20.085536923187668 <span style="color: #98be65;">"the value of (sqrt 100) is"</span> 10.0)
 
 &gt; `(a ,a b ,b c ,c d ,d)
-(a 10 b 20 c my-symbol d "a string")
+(a 10 b 20 c my-symbol d <span style="color: #98be65;">"a string"</span>)
 
 &gt; `((a . ,a) (b . ,b) (c . ,c) (d . ,d))
 ((a . 10)
  (b . 20)
  (c . my-symbol)
- (d . "a string"))
+ (d . <span style="color: #98be65;">"a string"</span>))
 
-&gt; (setq xs '(sym1 sym2 sym3))
+&gt; (<span style="color: #51afef;">setq</span> xs '(sym1 sym2 sym3))
 (sym1 sym2 sym3)
 
 &gt; xs
@@ -3791,24 +3791,24 @@ ELISP&gt;
 &gt; `(xs ,@xs)
 (xs sym1 sym2 sym3)
 
-&gt; `(if (&lt; ,a ,b) ,(+ a 4) ,d)
-(if
+&gt; `(<span style="color: #51afef;">if</span> (&lt; ,a ,b) ,(+ a 4) ,d)
+(<span style="color: #51afef;">if</span>
     (&lt; 10 20)
-    14 "a string")
+    14 <span style="color: #98be65;">"a string"</span>)
 
-&gt; (eval `(if (&lt; ,a ,b) ,(+ a 4) ,d))
+&gt; (eval `(<span style="color: #51afef;">if</span> (&lt; ,a ,b) ,(+ a 4) ,d))
 14
 &gt;
 
-&gt; (eval `(if (&gt; ,a ,b) ,(+ a 4) ,d))
-"a string"
+&gt; (eval `(<span style="color: #51afef;">if</span> (&gt; ,a ,b) ,(+ a 4) ,d))
+<span style="color: #98be65;">"a string"</span>
 
-;;------------------
+<span style="color: #5B6268;">;;</span><span style="color: #5B6268;">------------------</span>
 
-&gt; (setq xlist '(1 2 3 4))
+&gt; (<span style="color: #51afef;">setq</span> xlist '(1 2 3 4))
 (1 2 3 4)
 
-&gt; (setq ylist '(a b c d e))
+&gt; (<span style="color: #51afef;">setq</span> ylist '(a b c d e))
 (a b c d e)
 
 &gt; `(xs ,xlist ys ,ylist)
@@ -3832,14 +3832,14 @@ ELISP&gt;
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defmacro λ (args body)
-  `(lambda ,args ,body))
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defmacro</span> <span style="color: #c678dd;">&#955;</span> (args body)
+  `(<span style="color: #51afef;">lambda</span> ,args ,body))
 
-ELISP&gt; (λ (x) (+ x 3))
-(lambda
+ELISP&gt; (&#955; (x) (+ x 3))
+(<span style="color: #51afef;">lambda</span>
   (x)
   (+ x 3))
-ELISP&gt; (mapcar (λ (x) (+ x 3)) '(1 2 3 4 5 6))
+ELISP&gt; (mapcar (&#955; (x) (+ x 3)) '(1 2 3 4 5 6))
 (4 5 6 7 8 9)
 </code></pre>
 </div>
@@ -3849,10 +3849,10 @@ ELISP&gt; (mapcar (λ (x) (+ x 3)) '(1 2 3 4 5 6))
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defmacro nil! (var)
-  `(setq ,var nil))
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defmacro</span> <span style="color: #c678dd;">nil!</span> (var)
+  `(<span style="color: #51afef;">setq</span> ,var nil))
 
-ELISP&gt; (setq x 10)
+ELISP&gt; (<span style="color: #51afef;">setq</span> x 10)
 10
 ELISP&gt; x
 10
@@ -3877,17 +3877,17 @@ ELISP&gt;
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defmacro fn (args body)
-  `(lambda ,args ,body))
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defmacro</span> <span style="color: #c678dd;">fn</span> (args body)
+  `(<span style="color: #51afef;">lambda</span> ,args ,body))
 
-(defmacro def (name value)
-  `(setq ,name ,value))
+(<span style="color: #51afef;">defmacro</span> <span style="color: #c678dd;">def</span> (name value)
+  `(<span style="color: #51afef;">setq</span> ,name ,value))
 
-(defmacro defn (name args body)
-  `(defun ,name ,args ,body))
+(<span style="color: #51afef;">defmacro</span> <span style="color: #c678dd;">defn</span> (name args body)
+  `(<span style="color: #51afef;">defun</span> ,name ,args ,body))
 
 ELISP&gt; (fn (x) (* x x))
-(lambda
+(<span style="color: #51afef;">lambda</span>
   (x)
   (* x x))
 
@@ -3915,8 +3915,8 @@ ELISP&gt;
 </div>
 </div>
 
-<div id="outline-container-orgbb44d0d" class="outline-2">
-<h2 id="orgbb44d0d"><span class="section-number-2">3</span> Emacs API</h2>
+<div id="outline-container-orge3aa163" class="outline-2">
+<h2 id="orge3aa163"><span class="section-number-2">3</span> Emacs API</h2>
 <div class="outline-text-2" id="text-3">
 </div>
 <div id="outline-container-orga6240ae" class="outline-3">
@@ -4009,8 +4009,8 @@ ELISP&gt;
 </p>
 </div>
 </div>
-<div id="outline-container-orgca90462" class="outline-3">
-<h3 id="orgca90462"><span class="section-number-3">3.2</span> Emacs API</h3>
+<div id="outline-container-orgbb44d0d" class="outline-3">
+<h3 id="orgbb44d0d"><span class="section-number-3">3.2</span> Emacs API</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 <b>API对象</b>
@@ -4043,8 +4043,8 @@ ELISP&gt;
 (current-buffer)
 (mapcar #'buffer-name (buffer-list))
 (mapcar #'buffer-file-name (buffer-list))
-(kill-buffer "init.el")
-(get-buffer "*scratch*")
+(kill-buffer <span style="color: #98be65;">"init.el"</span>)
+(get-buffer <span style="color: #98be65;">"*scratch*"</span>)
 </code></pre>
 </div>
 
@@ -4053,9 +4053,9 @@ ELISP&gt;
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defun opened-files ()
-  "list all opened file in current session"
-  (interactive)
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">opened-files</span> ()
+  <span style="color: #83898d;">"list all opened file in current session"</span>
+  (<span style="color: #51afef;">interactive</span>)
   (remove-if 'null (mapcar 'buffer-file-name (buffer-list))))
 
 (opened-files)
@@ -4067,62 +4067,62 @@ ELISP&gt;
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">;;
-;;
-;; This function returns a buffer named  buffer-or-name.
-;; The buffer returned does not become the current
-;; buffer—this function does not change which buffer is current.
-;;
+<pre><code class="emacs-lisp"><span style="color: #5B6268;">;;</span>
+<span style="color: #5B6268;">;;</span>
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">This function returns a buffer named  buffer-or-name.</span>
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">The buffer returned does not become the current</span>
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">buffer&#8212;this function does not change which buffer is current.</span>
+<span style="color: #5B6268;">;;</span>
 
-ELISP&gt; (get-buffer-create "foobar")
+ELISP&gt; (get-buffer-create <span style="color: #98be65;">"foobar"</span>)
 #&lt;buffer foobar&gt;
 ELISP&gt;
 
-;;
-;;  Divide the screen in two windows, and switch to the new buffer
-;;  window
-;;
-ELISP&gt; (switch-to-buffer-other-window "foobar")
+<span style="color: #5B6268;">;;</span>
+<span style="color: #5B6268;">;;  </span><span style="color: #5B6268;">Divide the screen in two windows, and switch to the new buffer</span>
+<span style="color: #5B6268;">;;  </span><span style="color: #5B6268;">window</span>
+<span style="color: #5B6268;">;;</span>
+ELISP&gt; (switch-to-buffer-other-window <span style="color: #98be65;">"foobar"</span>)
 #&lt;buffer foobar&gt;
 ELISP&gt;
 
-;; Clean Current Buffer
-;;
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Clean Current Buffer</span>
+<span style="color: #5B6268;">;;</span>
 ELISP&gt; (erase-buffer)
 nil
 ELISP&gt;
 
-;;  Edit another buffer and go back to the old buffer
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span style="color: #5B6268;">;;  </span><span style="color: #5B6268;">Edit another buffer and go back to the old buffer</span>
+<span style="color: #5B6268;">;;</span>
+<span style="color: #5B6268;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
 
-ELISP&gt; (defun within-buffer (name function)
-	 (let (curbuff (current-buffer))
-	   (switch-to-buffer name)
-	   (funcall function)
-	   (switch-to-buffer current-buffer)
-	   ))
+ELISP&gt; (<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">within-buffer</span> (name function)
+         (<span style="color: #51afef;">let</span> (curbuff (current-buffer))
+           (switch-to-buffer name)
+           (funcall function)
+           (switch-to-buffer current-buffer)
+           ))
 
-ELISP&gt; (within-buffer "foobar" (lambda () (insert "dummy")))
+ELISP&gt; (within-buffer <span style="color: #98be65;">"foobar"</span> (<span style="color: #51afef;">lambda</span> () (insert <span style="color: #98be65;">"dummy"</span>)))
 #&lt;buffer *ielm*&gt;
 ELISP&gt;
-ELISP&gt; (lambda (x)(* x 10))
-(lambda
+ELISP&gt; (<span style="color: #51afef;">lambda</span> (x)(* x 10))
+(<span style="color: #51afef;">lambda</span>
   (x)
   (* x 10))
 
-;;;; Translated from: http://d.hatena.ne.jp/rubikitch/20100201/elispsyntax
-;;
-ELISP&gt; ;; test-buffer Create a buffer named, to write a variety of content
-(with-current-buffer (get-buffer-create "test-buffer")
-  ;; Empty the contents of the buffer
+<span style="color: #5B6268;">;;;; </span><span style="color: #5B6268;">Translated from: http://d.hatena.ne.jp/rubikitch/20100201/elispsyntax</span>
+<span style="color: #5B6268;">;;</span>
+ELISP&gt; <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">test-buffer Create a buffer named, to write a variety of content</span>
+(<span style="color: #51afef;">with-current-buffer</span> (get-buffer-create <span style="color: #98be65;">"test-buffer"</span>)
+  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Empty the contents of the buffer</span>
   (erase-buffer)
-  ;; /tmp/foo.txt Make the contents inserted
-  (insert-file-contents "/etc/fstab")
-  ;; Insert a string
-  (insert "End\n")
-  ;; Write the contents of a buffer to a file
-  (write-region (point-min) (point-max) "/tmp/bar.txt"))
+  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">/tmp/foo.txt Make the contents inserted</span>
+  (insert-file-contents <span style="color: #98be65;">"/etc/fstab"</span>)
+  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Insert a string</span>
+  (insert <span style="color: #98be65;">"End\n"</span>)
+  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Write the contents of a buffer to a file</span>
+  (write-region (point-min) (point-max) <span style="color: #98be65;">"/tmp/bar.txt"</span>))
 nil
 ELISP&gt;
 </code></pre>
@@ -4137,31 +4137,31 @@ ELISP&gt;
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">ELISP&gt; (defun buffer-mode (buffer-or-string)
-	 "Returns the major mode associated with a buffer."
-	 (with-current-buffer buffer-or-string
-	   major-mode))
+<pre><code class="emacs-lisp">ELISP&gt; (<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">buffer-mode</span> (buffer-or-string)
+         <span style="color: #83898d;">"Returns the major mode associated with a buffer."</span>
+         (<span style="color: #51afef;">with-current-buffer</span> buffer-or-string
+           major-mode))
 buffer-mode
 
-ELISP&gt; (mapcar (lambda (b)(
-			   let
-			   (
-			    (name (buffer-name b))
-			    (type   (buffer-mode (buffer-name b)))
-			    )
-			   (list name type)
-			   ))
-	       (buffer-list))
-(("*ielm*" inferior-emacs-lisp-mode)
- ("*SPEEDBAR*" speedbar-mode)
- (" *Minibuf-1*" minibuffer-inactive-mode)
- ("*scratch*" emacs-lisp-mode)
- ("test3.ml" tuareg-mode)
- ("*Help*" help-mode)
- ("*Messages*" messages-buffer-mode)
- ("sbet.ml" tuareg-mode)
- (" *Minibuf-0*" minibuffer-inactive-mode)
- ("test.el" emacs-lisp-mode)
+ELISP&gt; (mapcar (<span style="color: #51afef;">lambda</span> (b)(
+                           let
+                           (
+                            (name (buffer-name b))
+                            (type   (buffer-mode (buffer-name b)))
+                            )
+                           (list name type)
+                           ))
+               (buffer-list))
+((<span style="color: #98be65;">"*ielm*"</span> inferior-emacs-lisp-mode)
+ (<span style="color: #98be65;">"*SPEEDBAR*"</span> speedbar-mode)
+ (<span style="color: #98be65;">" *Minibuf-1*"</span> minibuffer-inactive-mode)
+ (<span style="color: #98be65;">"*scratch*"</span> emacs-lisp-mode)
+ (<span style="color: #98be65;">"test3.ml"</span> tuareg-mode)
+ (<span style="color: #98be65;">"*Help*"</span> help-mode)
+ (<span style="color: #98be65;">"*Messages*"</span> messages-buffer-mode)
+ (<span style="color: #98be65;">"sbet.ml"</span> tuareg-mode)
+ (<span style="color: #98be65;">" *Minibuf-0*"</span> minibuffer-inactive-mode)
+ (<span style="color: #98be65;">"test.el"</span> emacs-lisp-mode)
  ...
 </code></pre>
 </div>
@@ -4175,14 +4175,14 @@ ELISP&gt; (mapcar (lambda (b)(
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">ELISP&gt; (defun buffer-content (name)
-	 (with-current-buffer name
-	   (buffer-substring-no-properties (point-min) (point-max))))
+<pre><code class="emacs-lisp">ELISP&gt; (<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">buffer-content</span> (name)
+         (<span style="color: #51afef;">with-current-buffer</span> name
+           (buffer-substring-no-properties (point-min) (point-max))))
 buffer-content
 ELISP&gt;
 
-ELISP&gt; (buffer-content "test3.ml")
-"\n\nlet rec prodlist = function \n    | [] ... "
+ELISP&gt; (buffer-content <span style="color: #98be65;">"test3.ml"</span>)
+<span style="color: #98be65;">"\n\nlet rec prodlist = function \n    | [] ... "</span>
 </code></pre>
 </div>
 
@@ -4191,9 +4191,9 @@ ELISP&gt; (buffer-content "test3.ml")
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defun get-selection ()
-  "Get the text selected in current buffer as string"
-  (interactive)
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">get-selection</span> ()
+  <span style="color: #83898d;">"Get the text selected in current buffer as string"</span>
+  (<span style="color: #51afef;">interactive</span>)
   (buffer-substring-no-properties (region-beginning) (region-end))
   )
 </code></pre>
@@ -4204,10 +4204,10 @@ ELISP&gt; (buffer-content "test3.ml")
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defun get-current-line ()
-  (interactive)
-  "Get current line, where the cursor lies in the current buffer"
-  (replace-regexp-in-string "[\n|\s\t]+$" "" (thing-at-point 'line t))
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">get-current-line</span> ()
+  (<span style="color: #51afef;">interactive</span>)
+  <span style="color: #98be65;">"Get current line, where the cursor lies in the current buffer"</span>
+  (replace-regexp-in-string <span style="color: #98be65;">"[\n|\s\t]+$"</span> <span style="color: #98be65;">""</span> (thing-at-point 'line t))
   )
 </code></pre>
 </div>
@@ -4217,15 +4217,15 @@ ELISP&gt; (buffer-content "test3.ml")
 <h4 id="org8162fcc"><span class="section-number-4">3.3.4</span> Search and Replace in the entire Buffer</h4>
 <div class="outline-text-4" id="text-3-3-4">
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defun replace-regexp-entire-buffer (pattern replacement)
-  "Perform regular-expression replacement throughout buffer."
-  (interactive
-   (let ((args (query-replace-read-args "Replace" t)))
-     (setcdr (cdr args) nil)    ; remove third value returned from query---args
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">replace-regexp-entire-buffer</span> (pattern replacement)
+  <span style="color: #83898d;">"Perform regular-expression replacement throughout buffer."</span>
+  (<span style="color: #51afef;">interactive</span>
+   (<span style="color: #51afef;">let</span> ((args (query-replace-read-args <span style="color: #98be65;">"Replace"</span> t)))
+     (setcdr (cdr args) nil)    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">remove third value returned from query---args</span>
      args))
-  (save-excursion
+  (<span style="color: #51afef;">save-excursion</span>
     (goto-char (point-min))
-    (while (re-search-forward pattern nil t)
+    (<span style="color: #51afef;">while</span> (re-search-forward pattern nil t)
       (replace-match replacement))))
 </code></pre>
 </div>
@@ -4383,23 +4383,23 @@ ELISP&gt; (buffer-content "test3.ml")
    (line-beginning-position)
    (line-end-position))
 
-(defun delete-line ()
-  (interactive)
+(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">delete-line</span> ()
+  (<span style="color: #51afef;">interactive</span>)
   (delete-region  (line-beginning-position)  (line-end-position)))
 
-(defun delete-region ()
-  (interactive)
+(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">delete-region</span> ()
+  (<span style="color: #51afef;">interactive</span>)
   (delete-region  (region-beginning) (region-end)))
 
-(defun insert-end-of-buffer ()
-  (interactive)
+(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">insert-end-of-buffer</span> ()
+  (<span style="color: #51afef;">interactive</span>)
 
-  ;; Save Current Cursor Position
-  ;; and go back to initial positon when
-  ;; finish this block
-  (save-excursion
-    (goto-char (point-max)) ;;; Go to end of buffer
-    (insert "Testing insert end of buffer")
+  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Save Current Cursor Position</span>
+  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">and go back to initial positon when</span>
+  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">finish this block</span>
+  (<span style="color: #51afef;">save-excursion</span>
+    (goto-char (point-max)) <span style="color: #5B6268;">;;; </span><span style="color: #5B6268;">Go to end of buffer</span>
+    (insert <span style="color: #98be65;">"Testing insert end of buffer"</span>)
     ))
 </code></pre>
 </div>
@@ -4418,8 +4418,8 @@ ELISP&gt; (buffer-content "test3.ml")
 <h3 id="org48653a0"><span class="section-number-3">3.5</span> Message / Output</h3>
 <div class="outline-text-3" id="text-3-5">
 <div class="col-auto">
-<pre><code class="emacs-lisp">(message "Hello world")
-(message-box "Time for a break.\nDrink some coffee")
+<pre><code class="emacs-lisp">(message <span style="color: #98be65;">"Hello world"</span>)
+(message-box <span style="color: #98be65;">"Time for a break.\nDrink some coffee"</span>)
 </code></pre>
 </div>
 </div>
@@ -4432,48 +4432,48 @@ ELISP&gt; (buffer-content "test3.ml")
 <h4 id="org96f0e0a"><span class="section-number-4">3.6.1</span> Basic Functions</h4>
 <div class="outline-text-4" id="text-3-6-1">
 <div class="col-auto">
-<pre><code class="emacs-lisp">;; Get and Set current directory
+<pre><code class="emacs-lisp"><span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Get and Set current directory</span>
 
 ELISP&gt; (pwd)
-"Directory /home/tux/tmp/"
+<span style="color: #98be65;">"Directory /home/tux/tmp/"</span>
 
-ELISP&gt; (cd "/etc/")
-"/etc/"
+ELISP&gt; (cd <span style="color: #98be65;">"/etc/"</span>)
+<span style="color: #98be65;">"/etc/"</span>
 
 ELISP&gt; (pwd)
-"Directory /etc/"
+<span style="color: #98be65;">"Directory /etc/"</span>
 ELISP&gt;
 
 
-ELISP&gt; (file-name-directory "/etc/hosts")
-"/etc/"
+ELISP&gt; (file-name-directory <span style="color: #98be65;">"/etc/hosts"</span>)
+<span style="color: #98be65;">"/etc/"</span>
 
-;; Expand File Name
-;;
-ELISP&gt; (expand-file-name "~/")
-"/home/tux/"
-ELISP&gt; (expand-file-name ".")
-"/home/tux/tmp"
-ELISP&gt; (expand-file-name "..")
-"/home/tux"
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Expand File Name</span>
+<span style="color: #5B6268;">;;</span>
+ELISP&gt; (expand-file-name <span style="color: #98be65;">"~/"</span>)
+<span style="color: #98be65;">"/home/tux/"</span>
+ELISP&gt; (expand-file-name <span style="color: #98be65;">"."</span>)
+<span style="color: #98be65;">"/home/tux/tmp"</span>
+ELISP&gt; (expand-file-name <span style="color: #98be65;">".."</span>)
+<span style="color: #98be65;">"/home/tux"</span>
 ELISP&gt;
 
 
-;;;;; Create a Directory
-;;;
-ELISP&gt; (mkdir "dummy")
+<span style="color: #5B6268;">;;;;; </span><span style="color: #5B6268;">Create a Directory</span>
+<span style="color: #5B6268;">;;;</span>
+ELISP&gt; (mkdir <span style="color: #98be65;">"dummy"</span>)
 nil
-ELISP&gt; (mkdir "dummy")
+ELISP&gt; (mkdir <span style="color: #98be65;">"dummy"</span>)
 ** Eval error **  File exists: /home/tux/dummy
 ELISP&gt;
 
-;;; List Directory
-;;;;
-;;;
-ELISP&gt; (directory-files "/home/tux/PycharmProjects/Haskell/")
-("." ".." ".git" ".gitignore" ".idea" "LICENSE" "Make" "Makefile"
- "README.back.md" "README.html" "README.md" "Test.html" "build.sh" "clean.sh"
- "codes" "dict.sh" "haskell" "ocaml" "papers" "tags" "tmp")
+<span style="color: #5B6268;">;;; </span><span style="color: #5B6268;">List Directory</span>
+<span style="color: #5B6268;">;;;;</span>
+<span style="color: #5B6268;">;;;</span>
+ELISP&gt; (directory-files <span style="color: #98be65;">"/home/tux/PycharmProjects/Haskell/"</span>)
+(<span style="color: #98be65;">"."</span> <span style="color: #98be65;">".."</span> <span style="color: #98be65;">".git"</span> <span style="color: #98be65;">".gitignore"</span> <span style="color: #98be65;">".idea"</span> <span style="color: #98be65;">"LICENSE"</span> <span style="color: #98be65;">"Make"</span> <span style="color: #98be65;">"Makefile"</span>
+ <span style="color: #98be65;">"README.back.md"</span> <span style="color: #98be65;">"README.html"</span> <span style="color: #98be65;">"README.md"</span> <span style="color: #98be65;">"Test.html"</span> <span style="color: #98be65;">"build.sh"</span> <span style="color: #98be65;">"clean.sh"</span>
+ <span style="color: #98be65;">"codes"</span> <span style="color: #98be65;">"dict.sh"</span> <span style="color: #98be65;">"haskell"</span> <span style="color: #98be65;">"ocaml"</span> <span style="color: #98be65;">"papers"</span> <span style="color: #98be65;">"tags"</span> <span style="color: #98be65;">"tmp"</span>)
 </code></pre>
 </div>
 </div>
@@ -4482,19 +4482,19 @@ ELISP&gt; (directory-files "/home/tux/PycharmProjects/Haskell/")
 <h4 id="org6d611f9"><span class="section-number-4">3.6.2</span> File Name Components</h4>
 <div class="outline-text-4" id="text-3-6-2">
 <div class="col-auto">
-<pre><code class="emacs-lisp">ELISP&gt; (file-name-directory "/usr/bin/env")
-"/usr/bin/"
+<pre><code class="emacs-lisp">ELISP&gt; (file-name-directory <span style="color: #98be65;">"/usr/bin/env"</span>)
+<span style="color: #98be65;">"/usr/bin/"</span>
 ELISP&gt;
 
-ELISP&gt; (file-name-nondirectory "/usr/bin/env")
-"env"
+ELISP&gt; (file-name-nondirectory <span style="color: #98be65;">"/usr/bin/env"</span>)
+<span style="color: #98be65;">"env"</span>
 ELISP&gt;
 
 
-ELISP&gt; (file-name-base "/home/foo/zoo1.c")
-"zoo1"
-ELISP&gt; (file-name-base "/home/foo/zoo1.c.back")
-"zoo1.c"
+ELISP&gt; (file-name-base <span style="color: #98be65;">"/home/foo/zoo1.c"</span>)
+<span style="color: #98be65;">"zoo1"</span>
+ELISP&gt; (file-name-base <span style="color: #98be65;">"/home/foo/zoo1.c.back"</span>)
+<span style="color: #98be65;">"zoo1.c"</span>
 </code></pre>
 </div>
 </div>
@@ -4506,15 +4506,15 @@ ELISP&gt; (file-name-base "/home/foo/zoo1.c.back")
 <b>Read File</b>
 </p>
 <div class="col-auto">
-<pre><code class="emacs-lisp">ELISP&gt; (defun file-contents (filename)
-  (interactive "fFind file: ")
-  (with-temp-buffer
-    (insert-file-contents filename) ;; 先将文件内容插入临时buffer，再读取内容
+<pre><code class="emacs-lisp">ELISP&gt; (<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">file-contents</span> (filename)
+  (<span style="color: #51afef;">interactive</span> <span style="color: #98be65;">"fFind file: "</span>)
+  (<span style="color: #51afef;">with-temp-buffer</span>
+    (insert-file-contents filename) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#20808;&#23558;&#25991;&#20214;&#20869;&#23481;&#25554;&#20837;&#20020;&#26102;buffer&#65292;&#20877;&#35835;&#21462;&#20869;&#23481;</span>
     (buffer-substring-no-properties (point-min) (point-max))))
 
-ELISP&gt; (file-contents "/proc/filesystems")
-"nodev  sysfs\nnodev    rootfs\nnodev   ramfs\nnodev
-bdev\nnodev proc\nnodev cgroup\nnode ...
+ELISP&gt; (file-contents <span style="color: #98be65;">"/proc/filesystems"</span>)
+<span style="color: #98be65;">"nodev  sysfs\nnodev    rootfs\nnodev   ramfs\nnodev</span>
+<span style="color: #98be65;">bdev\nnodev proc\nnodev cgroup\nnode ...</span>
 </code></pre>
 </div>
 
@@ -4522,11 +4522,11 @@ bdev\nnodev proc\nnodev cgroup\nnode ...
 <b>Write to File</b>
 </p>
 <div class="col-auto">
-<pre><code class="emacs-lisp">ELISP&gt; (append-to-file "hello world" nil "/tmp/hello.txt")
+<pre><code class="emacs-lisp">ELISP&gt; (append-to-file <span style="color: #98be65;">"hello world"</span> nil <span style="color: #98be65;">"/tmp/hello.txt"</span>)
 nil
 
-ELISP&gt; (file-contents "/tmp/hello.txt")
-"hello world"
+ELISP&gt; (file-contents <span style="color: #98be65;">"/tmp/hello.txt"</span>)
+<span style="color: #98be65;">"hello world"</span>
 ELISP&gt;
 </code></pre>
 </div>
@@ -4544,7 +4544,7 @@ ELISP&gt;
 <pre><code class="emacs-lisp">(split-window-horizontally)
 (split-window-vertically)
 (delete-other-windows)
-(switch-to-buffer-other-window "init.el")
+(switch-to-buffer-other-window <span style="color: #98be65;">"init.el"</span>)
 (delete-window)
 (make-frame)
 (frame-list)
@@ -4566,7 +4566,7 @@ ELISP&gt;
 <div class="outline-text-4" id="text-3-7-3">
 <div class="col-auto">
 <pre><code class="emacs-lisp">(current-window-configuration)
-(setq w (current-window-configuration))
+(<span style="color: #51afef;">setq</span> w (current-window-configuration))
 w
 (set-window-configuration w)
 </code></pre>
@@ -4574,7 +4574,7 @@ w
 
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">;; Screen Resolution
+<pre><code class="emacs-lisp"><span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Screen Resolution</span>
 
 ELISP&gt; (x-display-pixel-width)
 1366
@@ -4584,15 +4584,15 @@ ELISP&gt; (x-display-pixel-height)
 ELISP&gt;
 ELISP&gt;
 
-;; Resize and Set Emacs Windows position
-;;
-;; From: http://uce.uniovi.es/tips/Emacs/mydotemacs.html#sec-41
-;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Resize and Set Emacs Windows position</span>
+<span style="color: #5B6268;">;;</span>
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">From: http://uce.uniovi.es/tips/Emacs/mydotemacs.html#sec-41</span>
+<span style="color: #5B6268;">;;</span>
+<span style="color: #5B6268;">;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</span>
 
-ELISP&gt; (defun resize-frame ()
-  "Set size"
-  (interactive)
+ELISP&gt; (<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">resize-frame</span> ()
+  <span style="color: #83898d;">"Set size"</span>
+  (<span style="color: #51afef;">interactive</span>)
   (set-frame-width (selected-frame) 100)
   (set-frame-height (selected-frame) 28)
   (set-frame-position (selected-frame) 0 1))
@@ -4680,9 +4680,9 @@ system-configuration
 <div class="outline-text-4" id="text-3-8-2">
 <div class="col-auto">
 <pre><code class="emacs-lisp">(current-time)
-(insert (format-time-string "%Y-%m-%d")) ;; 2019-12-15
-(insert (format-time-string "%H:%M:%S")) ;; 16:11:04
-(format-time-string "%d/%m/%Y %H:%M:%S" (current-time))
+(insert (format-time-string <span style="color: #98be65;">"%Y-%m-%d"</span>)) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">2019-12-15</span>
+(insert (format-time-string <span style="color: #98be65;">"%H:%M:%S"</span>)) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">16:11:04</span>
+(format-time-string <span style="color: #98be65;">"%d/%m/%Y %H:%M:%S"</span> (current-time))
 </code></pre>
 </div>
 </div>
@@ -4692,8 +4692,8 @@ system-configuration
 <h4 id="org9cd0123"><span class="section-number-4">3.8.3</span> Call External Commands or Apps</h4>
 <div class="outline-text-4" id="text-3-8-3">
 <div class="col-auto">
-<pre><code class="emacs-lisp">(call-process "mpd")
-(shell-command-to-string "pwd")
+<pre><code class="emacs-lisp">(call-process <span style="color: #98be65;">"mpd"</span>)
+(shell-command-to-string <span style="color: #98be65;">"pwd"</span>)
 </code></pre>
 </div>
 </div>
@@ -4703,16 +4703,16 @@ system-configuration
 <h4 id="org75ced38"><span class="section-number-4">3.8.4</span> Environment Variables</h4>
 <div class="outline-text-4" id="text-3-8-4">
 <div class="col-auto">
-<pre><code class="emacs-lisp">(getenv "PATH")
-(split-string (getenv "PATH") ":")
-(dolist (e (split-string  (getenv "PATH") ":")) (princ (format "%s\n" e)))
+<pre><code class="emacs-lisp">(getenv <span style="color: #98be65;">"PATH"</span>)
+(split-string (getenv <span style="color: #98be65;">"PATH"</span>) <span style="color: #98be65;">":"</span>)
+(<span style="color: #51afef;">dolist</span> (e (split-string  (getenv <span style="color: #98be65;">"PATH"</span>) <span style="color: #98be65;">":"</span>)) (princ (format <span style="color: #98be65;">"%s\n"</span> e)))
 exec-path
-(getenv "HOME")
-(setenv "JAVA_HOME" "/usr/local/java")
+(getenv <span style="color: #98be65;">"HOME"</span>)
+(setenv <span style="color: #98be65;">"JAVA_HOME"</span> <span style="color: #98be65;">"/usr/local/java"</span>)
 
 system-type
 (eq system-type 'gnu/linux)()
-(dolist (e process-environment) (princ (format "%s\n" e)))
+(<span style="color: #51afef;">dolist</span> (e process-environment) (princ (format <span style="color: #98be65;">"%s\n"</span> e)))
 </code></pre>
 </div>
 </div>
@@ -4723,37 +4723,37 @@ system-type
 <div class="outline-text-4" id="text-3-8-5">
 <div class="col-auto">
 <pre><code class="emacs-lisp">(process-list)
-(get-process "merlin")
+(get-process <span style="color: #98be65;">"merlin"</span>)
 (mapcar 'process-name (process-list))
 
-;;;; Buffer Process
-(process-command (get-process "vterm"))
-(process-id (get-process "vterm"))
-(process-buffer (get-process "vterm"))
-(buffer-name (process-buffer (get-process "vterm")))
-(mapcar (lambda (p) (buffer-name (process-buffer p))) (process-list))
-(display-buffer (process-buffer (get-process "vterm")))
+<span style="color: #5B6268;">;;;; </span><span style="color: #5B6268;">Buffer Process</span>
+(process-command (get-process <span style="color: #98be65;">"vterm"</span>))
+(process-id (get-process <span style="color: #98be65;">"vterm"</span>))
+(process-buffer (get-process <span style="color: #98be65;">"vterm"</span>))
+(buffer-name (process-buffer (get-process <span style="color: #98be65;">"vterm"</span>)))
+(mapcar (<span style="color: #51afef;">lambda</span> (p) (buffer-name (process-buffer p))) (process-list))
+(display-buffer (process-buffer (get-process <span style="color: #98be65;">"vterm"</span>)))
 
-;;;; Start Asyncronous Process
-;;  Start the process named py, with the buffer named pybff
-;;  using the command python, /usr/bin/python (on linux)
-(start-process "py" "pybff" "python")
-;; End the process named py
-(process-send-eof "py")
+<span style="color: #5B6268;">;;;; </span><span style="color: #5B6268;">Start Asyncronous Process</span>
+<span style="color: #5B6268;">;;  </span><span style="color: #5B6268;">Start the process named py, with the buffer named pybff</span>
+<span style="color: #5B6268;">;;  </span><span style="color: #5B6268;">using the command python, /usr/bin/python (on linux)</span>
+(start-process <span style="color: #98be65;">"py"</span> <span style="color: #98be65;">"pybff"</span> <span style="color: #98be65;">"python"</span>)
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">End the process named py</span>
+(process-send-eof <span style="color: #98be65;">"py"</span>)
 
-(process-send-string "py" "print 'Hello world'\n")
+(process-send-string <span style="color: #98be65;">"py"</span> <span style="color: #98be65;">"print 'Hello world'\n"</span>)
 
-;;;; Get Multiple Fields
+<span style="color: #5B6268;">;;;; </span><span style="color: #5B6268;">Get Multiple Fields</span>
 
 (mapcar
- (lambda (p)(list
-	     p
-	     (process-name p)
-	     (process-command p)
-	     (list (process-buffer p) (buffer-name (process-buffer p)))
-	     (process-id p)
-	     (process-status p)
-	     ))
+ (<span style="color: #51afef;">lambda</span> (p)(list
+             p
+             (process-name p)
+             (process-command p)
+             (list (process-buffer p) (buffer-name (process-buffer p)))
+             (process-id p)
+             (process-status p)
+             ))
  (process-list))
 </code></pre>
 </div>
@@ -4769,38 +4769,38 @@ system-type
 <h4 id="org137613f"><span class="section-number-4">3.9.1</span> Creating Quick Access Menu</h4>
 <div class="outline-text-4" id="text-3-9-1">
 <div class="col-auto">
-<pre><code class="emacs-lisp">(require 'easymenu)
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">require</span> '<span style="color: #a9a1e1;">easymenu</span>)
 
-(easy-menu-define djcb-menu global-map "Utils"
-  '("Utils"
-    ("Shells" ;; submenu
-     ["Ielm   - Emacs Lisp Shell"       (ielm)]
-     ["Eshell - Emacs Buitin Shell"    (eshell)]
-     ["Native Shell "                  (shell)]
-     ["---------------------" nil]
-     ["Edit .bashrc" (find-file  "~/.bashrc")]
-     ["Edit .profile" (find-file "~/.profile")]
-     ["Edit .Xresources" (find-file "~/.Xresources")]
-     ["Edit .xsessin"    (find-file "~/.xsession")]
-     ["See all GNU MAN pages" ( info)]
-     ["See a specific Man Page" (woman)]
+(<span style="color: #51afef;">easy-menu-define</span> djcb-menu global-map <span style="color: #98be65;">"Utils"</span>
+  '(<span style="color: #98be65;">"Utils"</span>
+    (<span style="color: #98be65;">"Shells"</span> <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">submenu</span>
+     [<span style="color: #98be65;">"Ielm   - Emacs Lisp Shell"</span>       (ielm)]
+     [<span style="color: #98be65;">"Eshell - Emacs Buitin Shell"</span>    (eshell)]
+     [<span style="color: #98be65;">"Native Shell "</span>                  (shell)]
+     [<span style="color: #98be65;">"---------------------"</span> nil]
+     [<span style="color: #98be65;">"Edit .bashrc"</span> (find-file  <span style="color: #98be65;">"~/.bashrc"</span>)]
+     [<span style="color: #98be65;">"Edit .profile"</span> (find-file <span style="color: #98be65;">"~/.profile"</span>)]
+     [<span style="color: #98be65;">"Edit .Xresources"</span> (find-file <span style="color: #98be65;">"~/.Xresources"</span>)]
+     [<span style="color: #98be65;">"Edit .xsessin"</span>    (find-file <span style="color: #98be65;">"~/.xsession"</span>)]
+     [<span style="color: #98be65;">"See all GNU MAN pages"</span> ( info)]
+     [<span style="color: #98be65;">"See a specific Man Page"</span> (woman)]
 
-     );; End of shells menu
+     )<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">End of shells menu</span>
 
-    ("Emacs /Elisp"  ;; submenu
+    (<span style="color: #98be65;">"Emacs /Elisp"</span>  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">submenu</span>
 
-     ["Ielm   - Emacs Lisp Shell"  (ielm)]
-     ["Eval buffer"   (eval-buffer) ]
-     ["---------------------" nil]
+     [<span style="color: #98be65;">"Ielm   - Emacs Lisp Shell"</span>  (ielm)]
+     [<span style="color: #98be65;">"Eval buffer"</span>   (eval-buffer) ]
+     [<span style="color: #98be65;">"---------------------"</span> nil]
 
-     ["Edit  init.el" (find-file  user-init-file)]
-     ["Reload init.el" (load-file user-init-file)]
-     ["Open .emac.d dir" (find-file "~/.emacs.d")]
-     ["List packages"     (list-packages)]
-     ["Install package"   (package-install)]
+     [<span style="color: #98be65;">"Edit  init.el"</span> (find-file  user-init-file)]
+     [<span style="color: #98be65;">"Reload init.el"</span> (load-file user-init-file)]
+     [<span style="color: #98be65;">"Open .emac.d dir"</span> (find-file <span style="color: #98be65;">"~/.emacs.d"</span>)]
+     [<span style="color: #98be65;">"List packages"</span>     (list-packages)]
+     [<span style="color: #98be65;">"Install package"</span>   (package-install)]
 
-     ) ;; End of Emacs / Elisp submenu
-    )) ;; End of Custom Menu
+     ) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">End of Emacs / Elisp submenu</span>
+    )) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">End of Custom Menu</span>
 </code></pre>
 </div>
 </div>
@@ -4823,17 +4823,17 @@ system-type
 <h4 id="orge9dbdb4"><span class="section-number-4">3.10.1</span> run-with-timer</h4>
 <div class="outline-text-4" id="text-3-10-1">
 <div class="col-auto">
-<pre><code class="emacs-lisp">;;; (run-with-timer SECS REPEAT FUNCTION &amp;rest ARGS)
+<pre><code class="emacs-lisp"><span style="color: #5B6268;">;;; </span><span style="color: #5B6268;">(run-with-timer SECS REPEAT FUNCTION &amp;rest ARGS)</span>
 (run-with-timer 5 nil
-		(lambda () (message-box "happy hacking emacs!")))
+                (<span style="color: #51afef;">lambda</span> () (message-box <span style="color: #98be65;">"happy hacking emacs!"</span>)))
 
-(defun cofee-wait ()
-  (interactive)
-  (let ((minutes 3))
+(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">cofee-wait</span> ()
+  (<span style="color: #51afef;">interactive</span>)
+  (<span style="color: #51afef;">let</span> ((minutes 3))
     (run-with-timer (* 60 minutes)  nil
-		    (lambda () (message-box "Coffee done"))
-		    )
-    (message "Waiting for the cofee")
+                    (<span style="color: #51afef;">lambda</span> () (message-box <span style="color: #98be65;">"Coffee done"</span>))
+                    )
+    (message <span style="color: #98be65;">"Waiting for the cofee"</span>)
     ))
 </code></pre>
 </div>
@@ -4848,13 +4848,13 @@ system-type
 <h4 id="org367555f"><span class="section-number-4">3.11.1</span> Mode Association with Files</h4>
 <div class="outline-text-4" id="text-3-11-1">
 <div class="col-auto">
-<pre><code class="emacs-lisp">;; 列出所有和拓展名相关的mode
+<pre><code class="emacs-lisp"><span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#21015;&#20986;&#25152;&#26377;&#21644;&#25299;&#23637;&#21517;&#30456;&#20851;&#30340;mode</span>
 auto-mode-alist
-;; 列出与一个mode相关的所有拓展名
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#21015;&#20986;&#19982;&#19968;&#20010;mode&#30456;&#20851;&#30340;&#25152;&#26377;&#25299;&#23637;&#21517;</span>
 (remove-if-not
- (lambda (al) (equal (cdr al) 'web-mode)) auto-mode-alist)
-;; 为一个mode关联拓展名
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+ (<span style="color: #51afef;">lambda</span> (al) (equal (cdr al) 'web-mode)) auto-mode-alist)
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#20026;&#19968;&#20010;mode&#20851;&#32852;&#25299;&#23637;&#21517;</span>
+(add-to-list 'auto-mode-alist '(<span style="color: #98be65;">"\\.markdown\\'"</span> . markdown-mode))
 </code></pre>
 </div>
 </div>
@@ -4864,46 +4864,46 @@ auto-mode-alist
 <h4 id="org8632525"><span class="section-number-4">3.11.2</span> Lisp Routines to introspect modes??</h4>
 <div class="outline-text-4" id="text-3-11-2">
 <div class="col-auto">
-<pre><code class="emacs-lisp">(defun show-doc (function)
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">show-doc</span> (<span style="color: #51afef;">function</span>)
   (princ (documentation function)))
 
-(defun mode/show ()
-  "  Returns all modes associated with files
+(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">mode/show</span> ()
+  <span style="color: #83898d;">"  Returns all modes associated with files</span>
 
-     To query the file extesions associated with a mode
-     use:
-	 &gt; (mode/ftypes 'markdown-mode)
+<span style="color: #83898d;">     To query the file extesions associated with a mode</span>
+<span style="color: #83898d;">     use:</span>
+<span style="color: #83898d;">         &gt; (mode/ftypes 'markdown-mode)</span>
 
-     for example.
-  "
-  (dolist (m (remove-if #'listp
-			(mapcar #'cdr auto-mode-alist))) (print m)))
+<span style="color: #83898d;">     for example.</span>
+<span style="color: #83898d;">  "</span>
+  (<span style="color: #51afef;">dolist</span> (m (remove-if #'listp
+                        (mapcar #'cdr auto-mode-alist))) <span style="color: #ECBE7B;">(print m)))</span>
 
-(defun mode/ftypes (mode)
-  "
-  Get all file extension associated with a mode.
+(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">mode/ftypes</span> (mode)
+  <span style="color: #83898d;">"</span>
+<span style="color: #83898d;">  Get all file extension associated with a mode.</span>
 
-  Usage:
+<span style="color: #83898d;">  Usage:</span>
 
-  ELISP&gt; (get-mode-ftypes 'markdown-mode)
-  ((\"\\.md\\'\" . markdown-mode)
-  (\"\\.text\\'\" . markdown-mode)
-  (\"\\.markdown\\'\" . markdown-mode)
+<span style="color: #83898d;">  ELISP&gt; (get-mode-ftypes 'markdown-mode)</span>
+<span style="color: #83898d;">  ((\"\\.md\\'\" . markdown-mode)</span>
+<span style="color: #83898d;">  (\"\\.text\\'\" . markdown-mode)</span>
+<span style="color: #83898d;">  (\"\\.markdown\\'\" . markdown-mode)</span>
 
-  "
+<span style="color: #83898d;">  "</span>
   (remove-if-not
-   (lambda (al)
+   (<span style="color: #51afef;">lambda</span> (al)
      (equal (cdr al) mode))
    auto-mode-alist))
 
 ELISP&gt; (mode/ftypes 'clojure-mode)
-(("\\(?:build\\|profile\\)\\.boot\\'" . clojure-mode)
- ("\\.\\(clj\\|dtm\\|edn\\)\\'" . clojure-mode))
+((<span style="color: #98be65;">"</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">(?:</span><span style="color: #98be65;">build</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">profile</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">)</span><span style="color: #98be65;">\\.boot\\'"</span> . clojure-mode)
+ (<span style="color: #98be65;">"\\.</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">(</span><span style="color: #98be65;">clj</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">dtm</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">edn</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">)</span><span style="color: #98be65;">\\'"</span> . clojure-mode))
 
 ELISP&gt; (mode/ftypes 'scheme-mode)
-(("\\.\\(scm\\|stk\\|ss\\|sch\\)\\'" . scheme-mode)
- ("\\.scm\\.[0-9]*\\'" . scheme-mode)
- ("\\.oak\\'" . scheme-mode))
+((<span style="color: #98be65;">"\\.</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">(</span><span style="color: #98be65;">scm</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">stk</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">ss</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">sch</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">)</span><span style="color: #98be65;">\\'"</span> . scheme-mode)
+ (<span style="color: #98be65;">"\\.scm\\.[0-9]*\\'"</span> . scheme-mode)
+ (<span style="color: #98be65;">"\\.oak\\'"</span> . scheme-mode))
 
 ELISP&gt; (show-doc #'mode/ftypes)
 
@@ -4912,9 +4912,9 @@ Get all file extension associated with a mode.
 Usage:
 
 ELISP&gt; (get-mode-ftypes 'markdown-mode)
-(("\.md\'" . markdown-mode)
- ("\.text\'" . markdown-mode)
- ("\.markdown\'" . markdown-mode))
+((<span style="color: #98be65;">"</span><span style="color: #ECBE7B;">\</span><span style="color: #98be65;">.md</span><span style="color: #ECBE7B;">\</span><span style="color: #98be65;">'"</span> . markdown-mode)
+ (<span style="color: #98be65;">"</span><span style="color: #ECBE7B;">\</span><span style="color: #98be65;">.text</span><span style="color: #ECBE7B;">\</span><span style="color: #98be65;">'"</span> . markdown-mode)
+ (<span style="color: #98be65;">"</span><span style="color: #ECBE7B;">\</span><span style="color: #98be65;">.markdown</span><span style="color: #ECBE7B;">\</span><span style="color: #98be65;">'"</span> . markdown-mode))
 </code></pre>
 </div>
 </div>
@@ -4924,8 +4924,8 @@ ELISP&gt; (get-mode-ftypes 'markdown-mode)
 <h4 id="org042ee2b"><span class="section-number-4">3.11.3</span> Mode Specific Key Bindings</h4>
 <div class="outline-text-4" id="text-3-11-3">
 <div class="col-auto">
-<pre><code class="emacs-lisp">(define-key emacs-lisp-mode-map (kbd "&lt;f5&gt;")
-  (lambda () (interactive) (message "Hello world")))
+<pre><code class="emacs-lisp">(define-key emacs-lisp-mode-map (kbd <span style="color: #98be65;">"&lt;f5&gt;"</span>)
+  (<span style="color: #51afef;">lambda</span> () (<span style="color: #51afef;">interactive</span>) (message <span style="color: #98be65;">"Hello world"</span>)))
 (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
 </code></pre>
 </div>
@@ -5482,15 +5482,15 @@ M-x query-replace-regexp
 <h3 id="org93dca40"><span class="section-number-3">4.5</span> Emacs Regex rx-notation</h3>
 <div class="outline-text-3" id="text-4-5">
 <div class="col-auto">
-<pre><code class="emacs-lisp">(require 'rx)
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">require</span> '<span style="color: #a9a1e1;">rx</span>)
 
-;;  (rx &lt;patterns&gt;)
+<span style="color: #5B6268;">;;  </span><span style="color: #5B6268;">(rx &lt;patterns&gt;)</span>
 
-ELISP&gt; (rx digit)
-"[[:digit:]]"
+ELISP&gt; (<span style="color: #51afef;">rx</span> digit)
+<span style="color: #98be65;">"[[:digit:]]"</span>
 
-ELISP&gt; (rx-to-string '(or "foo" "bar"))
-"\\(?:\\(?:bar\\|foo\\)\\)"
+ELISP&gt; (rx-to-string '(<span style="color: #51afef;">or</span> <span style="color: #98be65;">"foo"</span> <span style="color: #98be65;">"bar"</span>))
+<span style="color: #98be65;">"</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">(?:</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">(?:</span><span style="color: #98be65;">bar</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">foo</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">)</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">)</span><span style="color: #98be65;">"</span>
 </code></pre>
 </div>
 
@@ -5616,81 +5616,81 @@ ELISP&gt; (rx-to-string '(or "foo" "bar"))
 
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">ELISP&gt; (require 'rx)
+<pre><code class="emacs-lisp">ELISP&gt; (<span style="color: #51afef;">require</span> '<span style="color: #a9a1e1;">rx</span>)
 rx
 
-ELISP&gt; (rx (+ digit))
-"[[:digit:]]+"
+ELISP&gt; (<span style="color: #51afef;">rx</span> (+ digit))
+<span style="color: #98be65;">"[[:digit:]]+"</span>
 
-ELISP&gt; (rx digit (+ digit))
-"[[:digit:]][[:digit:]]+"
+ELISP&gt; (<span style="color: #51afef;">rx</span> digit (+ digit))
+<span style="color: #98be65;">"[[:digit:]][[:digit:]]+"</span>
 
-ELISP&gt; (rx bol (+ digit) eol)
-"^[[:digit:]]+$"
+ELISP&gt; (<span style="color: #51afef;">rx</span> bol (+ digit) eol)
+<span style="color: #98be65;">"^[[:digit:]]+$"</span>
 
-ELISP&gt; (rx (zero-or-more digit))
-"[[:digit:]]*"
+ELISP&gt; (<span style="color: #51afef;">rx</span> (zero-or-more digit))
+<span style="color: #98be65;">"[[:digit:]]*"</span>
 
-ELISP&gt; (rx (one-or-more digit))
-"[[:digit:]]+"
+ELISP&gt; (<span style="color: #51afef;">rx</span> (one-or-more digit))
+<span style="color: #98be65;">"[[:digit:]]+"</span>
 
-ELISP&gt; (rx (or "cat" "rat" "dog"))
-"\\(?:cat\\|dog\\|rat\\)"
+ELISP&gt; (<span style="color: #51afef;">rx</span> (<span style="color: #51afef;">or</span> <span style="color: #98be65;">"cat"</span> <span style="color: #98be65;">"rat"</span> <span style="color: #98be65;">"dog"</span>))
+<span style="color: #98be65;">"</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">(?:</span><span style="color: #98be65;">cat</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">dog</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">rat</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">)</span><span style="color: #98be65;">"</span>
 
-;; (replace-regexp-in-string REGEXP REP STRING
-;;      &amp;optional FIXEDCASE LITERAL SUBEXP START)
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">(replace-regexp-in-string REGEXP REP STRING</span>
+<span style="color: #5B6268;">;;      </span><span style="color: #5B6268;">&amp;optional FIXEDCASE LITERAL SUBEXP START)</span>
 
 ELISP&gt; (replace-regexp-in-string
-	  (rx (or "cat" "rat" "dog"))
-	  ""
-	  "cat cata rat rat dograt dog cat2334 23rat2")
-" a     2334 232"
+          (<span style="color: #51afef;">rx</span> (<span style="color: #51afef;">or</span> <span style="color: #98be65;">"cat"</span> <span style="color: #98be65;">"rat"</span> <span style="color: #98be65;">"dog"</span>))
+          <span style="color: #98be65;">""</span>
+          <span style="color: #98be65;">"cat cata rat rat dograt dog cat2334 23rat2"</span>)
+<span style="color: #98be65;">" a     2334 232"</span>
 
-;; Replaces only in the beggining of line
-;;
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Replaces only in the beggining of line</span>
+<span style="color: #5B6268;">;;</span>
 ELISP&gt;  (replace-regexp-in-string
-	  (rx bol (or "cat" "rat" "dog"))
-	  ""
-	  "cat cata rat rat dograt dog cat2334 23rat2")
-" cata rat rat dograt dog cat2334 23rat2"
+          (<span style="color: #51afef;">rx</span> bol (<span style="color: #51afef;">or</span> <span style="color: #98be65;">"cat"</span> <span style="color: #98be65;">"rat"</span> <span style="color: #98be65;">"dog"</span>))
+          <span style="color: #98be65;">""</span>
+          <span style="color: #98be65;">"cat cata rat rat dograt dog cat2334 23rat2"</span>)
+<span style="color: #98be65;">" cata rat rat dograt dog cat2334 23rat2"</span>
 
-
-ELISP&gt;  (replace-regexp-in-string
-	  (rx bow (or "cat" "rat" "dog") eow)
-	  ""
-	  "cat cata rat rat dograt dog cat2334 23rat2")
-" cata   dograt  cat2334 23rat2"
-
-ELISP&gt;  (rx bow (or "cat" "rat" "dog") eow)
-"\\&lt;\\(?:cat\\|dog\\|rat\\)\\&gt;"
-
-;;  Removes all whitespaces
-;;
-ELISP&gt;  (replace-regexp-in-string
-	  (rx (* whitespace))
-	  ""
-	  "cat cata rat rat dograt dog cat2334 23rat2")
-
-"catcataratratdogratdogcat233423rat"
 
 ELISP&gt;  (replace-regexp-in-string
-	  (rx (* whitespace))
-	  ""
-	  "cat cata rat rat dograt dog cat2334 23rat2")
+          (<span style="color: #51afef;">rx</span> bow (<span style="color: #51afef;">or</span> <span style="color: #98be65;">"cat"</span> <span style="color: #98be65;">"rat"</span> <span style="color: #98be65;">"dog"</span>) eow)
+          <span style="color: #98be65;">""</span>
+          <span style="color: #98be65;">"cat cata rat rat dograt dog cat2334 23rat2"</span>)
+<span style="color: #98be65;">" cata   dograt  cat2334 23rat2"</span>
 
-"catcataratratdogratdogcat233423rat"
+ELISP&gt;  (<span style="color: #51afef;">rx</span> bow (<span style="color: #51afef;">or</span> <span style="color: #98be65;">"cat"</span> <span style="color: #98be65;">"rat"</span> <span style="color: #98be65;">"dog"</span>) eow)
+<span style="color: #98be65;">"\\&lt;</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">(?:</span><span style="color: #98be65;">cat</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">dog</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">rat</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">)</span><span style="color: #98be65;">\\&gt;"</span>
 
-;; Capture group
-;;
+<span style="color: #5B6268;">;;  </span><span style="color: #5B6268;">Removes all whitespaces</span>
+<span style="color: #5B6268;">;;</span>
 ELISP&gt;  (replace-regexp-in-string
-	  (rx (submatch bow (or "cat" "rat" "dog") eow))
-	  "(\\1)"
-	  "cat cata rat rat dograt dog cat2334 23rat2")
+          (<span style="color: #51afef;">rx</span> (* whitespace))
+          <span style="color: #98be65;">""</span>
+          <span style="color: #98be65;">"cat cata rat rat dograt dog cat2334 23rat2"</span>)
 
-"(cat) cata (rat) (rat) dograt (dog) cat2334 23rat2"
+<span style="color: #98be65;">"catcataratratdogratdogcat233423rat"</span>
 
-ELISP&gt; (rx (submatch bow (or "cat" "rat" "dog") eow))
-"\\(\\&lt;\\(?:cat\\|dog\\|rat\\)\\&gt;\\)"
+ELISP&gt;  (replace-regexp-in-string
+          (<span style="color: #51afef;">rx</span> (* whitespace))
+          <span style="color: #98be65;">""</span>
+          <span style="color: #98be65;">"cat cata rat rat dograt dog cat2334 23rat2"</span>)
+
+<span style="color: #98be65;">"catcataratratdogratdogcat233423rat"</span>
+
+<span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Capture group</span>
+<span style="color: #5B6268;">;;</span>
+ELISP&gt;  (replace-regexp-in-string
+          (<span style="color: #51afef;">rx</span> (submatch bow (<span style="color: #51afef;">or</span> <span style="color: #98be65;">"cat"</span> <span style="color: #98be65;">"rat"</span> <span style="color: #98be65;">"dog"</span>) eow))
+          <span style="color: #98be65;">"(\\1)"</span>
+          <span style="color: #98be65;">"cat cata rat rat dograt dog cat2334 23rat2"</span>)
+
+<span style="color: #98be65;">"(cat) cata (rat) (rat) dograt (dog) cat2334 23rat2"</span>
+
+ELISP&gt; (<span style="color: #51afef;">rx</span> (submatch bow (<span style="color: #51afef;">or</span> <span style="color: #98be65;">"cat"</span> <span style="color: #98be65;">"rat"</span> <span style="color: #98be65;">"dog"</span>) eow))
+<span style="color: #98be65;">"</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">(</span><span style="color: #98be65;">\\&lt;</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">(?:</span><span style="color: #98be65;">cat</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">dog</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">|</span><span style="color: #98be65;">rat</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">)</span><span style="color: #98be65;">\\&gt;</span><span style="color: #51afef; font-weight: bold;">\\</span><span style="color: #51afef; font-weight: bold;">)</span><span style="color: #98be65;">"</span>
 </code></pre>
 </div>
 </div>
