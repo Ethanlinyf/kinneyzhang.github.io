@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-12-29 Sun 22:30 -->
+<!-- 2019-12-29 Sun 22:45 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp guide学习笔记</title>
@@ -287,8 +287,8 @@ for the JavaScript code in this tag.
 基本运算、字符串连接、函数体、变量定义
 </p>
 
-<div class="col-auto">
-<pre><code class="emacs-lisp">(* 2 3)
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(* 2 3)
 
 (concat <span style="color: #98be65;">"a"</span> <span style="color: #98be65;">"b"</span>) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#23383;&#31526;&#20018;&#36830;&#25509;</span>
 
@@ -302,41 +302,41 @@ for the JavaScript code in this tag.
 (<span style="color: #51afef;">let</span> ((x 1)
       (y 2))
   ...)
-</code></pre>
+</pre>
 </div>
 
 <p>
 使用 <code>let</code> 定义变量时，不能使用前面已经定义的变量，此时应该使用 <code>let*</code>
 </p>
 
-<div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #51afef;">let*</span> ((x 1)
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #51afef;">let*</span> ((x 1)
        (y x))
   ...)
-</code></pre>
+</pre>
 </div>
 
 <p>
 一个表达式中一次执行多个命令，使用 <code>progn</code>
 </p>
 
-<div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #51afef;">progn</span> do-this
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #51afef;">progn</span> do-this
        do-that)
-</code></pre>
+</pre>
 </div>
 
 <p>
 比较操作
 </p>
 
-<div class="col-auto">
-<pre><code class="emacs-lisp">(eq major-mode 'a)
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(eq major-mode 'a)
 (= 0 1)
 (&gt; 0 1)
 (string= <span style="color: #98be65;">"a"</span> <span style="color: #98be65;">"b"</span>)
 (string&gt; <span style="color: #98be65;">"a"</span> <span style="color: #98be65;">"b"</span>)
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -352,12 +352,12 @@ for the JavaScript code in this tag.
 <div id="outline-container-orga231a96" class="outline-3">
 <h3 id="orga231a96"><span class="section-number-3">2.1</span> Buffers</h3>
 <div class="outline-text-3" id="text-2-1">
-<div class="col-auto">
-<pre><code class="emacs-lisp">(current-buffer) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#33719;&#21462;&#24403;&#21069;buffer</span>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(current-buffer) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#33719;&#21462;&#24403;&#21069;buffer</span>
 (<span style="color: #51afef;">with-current-buffer</span> buffer-or-name ...) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#20020;&#26102;&#20351;&#29992;&#25351;&#23450;buffer</span>
 (set-buffer buffer-or-name) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#35774;&#32622;&#20026;&#24403;&#21069;buffer&#20294;&#19981;&#20999;&#25442;</span>
 (switch-to-buffer name) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#20999;&#25442;&#21040;&#25351;&#23450;buffer</span>
-</code></pre>
+</pre>
 </div>
 
 <p>
@@ -373,18 +373,18 @@ for the JavaScript code in this tag.
 定义buffer本地变量 
 </p>
 
-<div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #51afef;">defvar</span> <span style="color: #dcaeea;">your-variable-name</span> nil <span style="color: #83898d;">"Your documentation here."</span>)
-</code></pre>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #51afef;">defvar</span> <span style="color: #dcaeea;">your-variable-name</span> nil <span style="color: #83898d;">"Your documentation here."</span>)
+</pre>
 </div>
 
 <p>
 在特定的buffer，设置buffer本地变量
 </p>
 
-<div class="col-auto">
-<pre><code class="emacs-lisp">(set (make-local-variable 'your-variable-name) &lt;the-value&gt;)
-</code></pre>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(set (make-local-variable 'your-variable-name) &lt;the-value&gt;)
+</pre>
 </div>
 
 <p>
@@ -400,15 +400,15 @@ for the JavaScript code in this tag.
 为一个文件夹下文件设置buffer-local-variable，设置 <a href="https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html">.dir-locals.el 文件</a>
 </p>
 
-<div class="col-auto">
-<pre><code class="emacs-lisp">((nil . ((indent-tabs-mode . t)
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">((nil . ((indent-tabs-mode . t)
          (fill-column . 80)))
  (c-mode . ((c-file-style . <span style="color: #98be65;">"BSD"</span>)
             (subdirs . nil)))
  (<span style="color: #98be65;">"src/imported"</span>
   . ((nil . ((change-log-default-name
               . <span style="color: #98be65;">"ChangeLog.local"</span>))))))
-</code></pre>
+</pre>
 </div>
 </div>
 </div>
@@ -420,11 +420,11 @@ for the JavaScript code in this tag.
 所有的elisp代码在当前buffer都有一个当前point，它代表光标的位置，是一个数字。详见：<a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Point.html">Point - GNU Emacs Lisp Reference Manual</a>
 </p>
 
-<div class="col-auto">
-<pre><code class="emacs-lisp">(point) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#24403;&#21069;point</span>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(point) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#24403;&#21069;point</span>
 (point-max) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">buffer&#30340;&#26368;&#22823;point</span>
 (point-min) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">buffer&#30340;&#26368;&#23567;point (&#20026;&#20160;&#20040;&#23427;&#19981;&#19968;&#23450;&#31561;&#20110;0? &#22240;&#20026;narrowing&#30340;&#23384;&#22312;).</span>
-</code></pre>
+</pre>
 </div>
 </div>
 </div>
@@ -436,20 +436,20 @@ for the JavaScript code in this tag.
 当region处于激活状态时，可以使用elisp代码对文本进行操作。详见：<a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/The-Region.html#The-Region">The Region - GNU Emacs Lisp Reference Manual</a>
 </p>
 
-<div class="col-auto">
-<pre><code class="emacs-lisp">(region-beginning) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">region&#30340;&#24320;&#22987;&#65292;&#26159;&#19968;&#20010;point</span>
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(region-beginning) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">region&#30340;&#24320;&#22987;&#65292;&#26159;&#19968;&#20010;point</span>
 (region-end) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">region&#30340;&#32467;&#26463;&#65292;&#26159;&#19968;&#20010;point</span>
 (use-region-p) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#26159;&#21542;&#25805;&#20316;&#24403;&#21069;region</span>
 (region-active-p) <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">region&#26159;&#21542;&#28608;&#27963;</span>
-</code></pre>
+</pre>
 </div>
 
 <p>
 一个使用了相关region函数的命令
 </p>
 
-<div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">print-upper-region</span> ()
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">print-upper-region</span> ()
   <span style="color: #83898d;">"Demo to print the uppercased version of the active region."</span>
   (<span style="color: #51afef;">interactive</span>)
   (<span style="color: #51afef;">when</span> (region-active-p)
@@ -461,7 +461,7 @@ for the JavaScript code in this tag.
                                      (point-max))
                       (buffer-substring-no-properties (point-min)
                                                       (point-max)))))))
-</code></pre>
+</pre>
 </div>
 </div>
 </div>
