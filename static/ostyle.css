@@ -2699,6 +2699,7 @@ p.verse {
 
 .org-src-container>pre {
     overflow: auto;
+    font-size: 15px;
     background-color: RGB(246,248,250);
 }
 
@@ -2708,8 +2709,6 @@ p.verse {
     background-color: RGB(246,248,250);
     top: 0;
     right: 0;
-    padding: 0 0;
-    border: 0;
     /* color: #fff; */
     font-size: 80%
 }
