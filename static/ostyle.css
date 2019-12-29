@@ -2693,13 +2693,13 @@ pre {
     margin: 0;
     padding: 0;
     border: 0;
-    box-shadow: 0;
+    box-shadow: 0 0 0;
 }
 
 pre code {
-    background-color: RGB(246,248,250);
     font-family: Lucida Console,monospace;
     font-size: 15px;
+    padding: 1em 2em;
 }
 
 .org-src-container {
