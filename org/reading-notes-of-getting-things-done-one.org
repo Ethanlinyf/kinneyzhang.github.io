@@ -4,6 +4,8 @@
 #+OPTIONS: toc:nil H:2 num:2
 #+TOC: headlines:2
 
+   * 201910 [[https://blog.geekinney.com/post/reading-notes-of-getting-things-done-one.html][书摘|搞定I：无压生活的艺术]]
+
 *《搞定I：无压工作的艺术》/ [美] David.Allen 著 / 张静 译 / 开始阅读：Oct 18, 2019*
 * 序言
 ○ 对大多数人来说，宽容错误的增量方法在大多数情况下更有可能获得长期回报。因此，即使你忘掉或者推迟处理某项内容，你也没有必要全面放弃。

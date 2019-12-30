@@ -9,8 +9,6 @@
    * 201912 [[https://blog.geekinney.com/post/emacs-lisp-guide-learning-note.html][elisp guide 学习笔记]]
    * 201911 [[https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html][记我的博客折腾经历]]
    * 201911 [[https://blog.geekinney.com/post/emacs-lisp-learning-note.html][elisp学习笔记]]
-   * 201911 [[https://blog.geekinney.com/post/reading-notes-of-STORY.html][书摘|故事：材质、结构、风格和银幕剧作的原理]]
-   * 201910 [[https://blog.geekinney.com/post/reading-notes-of-getting-things-done-one.html][书摘|搞定I：无压生活的艺术]]
    * 201909 [[https://blog.geekinney.com/post/using-org-to-blog-with-jekyll.html][使用org-mode撰写Jekyll blog]]
    * 201908 [[https://blog.geekinney.com/post/listen-music-in-emacs.html][Emacs中使用mpd+mingus听音乐]]
    * 201908 [[https://blog.geekinney.com/post/reading-notes-of-how-to-read-a-book-efficiently.html][书摘|如何有效阅读一本书]]
@@ -24,8 +22,6 @@
 ** 阅读
    * [[https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html][重拾阅读]]（月亮与六便士）
    * [[https://blog.geekinney.com/post/reading-notes-of-how-to-read-a-book-efficiently.html][书摘|如何有效阅读一本书]]
-   * [[https://blog.geekinney.com/post/reading-notes-of-getting-things-done-one.html][书摘|搞定I：无压生活的艺术]]
-   * [[https://blog.geekinney.com/post/reading-notes-of-STORY.html][书摘|故事：材质、结构、风格和银幕剧作的原理]]
 
 ** Emacs
    * [[https://blog.geekinney.com/emacs-lisp-guide-learning-note.html][elisp guide 学习笔记]]
