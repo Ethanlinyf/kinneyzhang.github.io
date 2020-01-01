@@ -5,7 +5,8 @@
 
 * 归档
 ** 2019
-   * 201912 [[https://blog.geekinney.com/post/cpp-algorithm-learning-note.html][c++算法学习]]
+   * 201912 [[https://blog.geekinney.com/post/at-the-end-of-2019.html][去你的2019，来我的2020]]
+   * 201912 [[https://blog.geekinney.com/post/cpp-algorithm-learning-note.html][c++算法学习(持续更新)]]
    * 201912 [[https://blog.geekinney.com/post/emacs-lisp-guide-learning-note.html][elisp guide 学习笔记]]
    * 201911 [[https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html][记我的博客折腾经历]]
    * 201911 [[https://blog.geekinney.com/post/emacs-lisp-learning-note.html][elisp学习笔记]]
@@ -19,6 +20,8 @@
    * 201903 [[https://blog.geekinney.com/post/emacs-learning-note.html][emacs学习笔记]]
 
 * 分类
+** 总结
+   * [[https://blog.geekinney.com/post/at-the-end-of-2019.html][去你的2019，来我的2020]]
 ** 阅读
    * [[https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html][重拾阅读]]（月亮与六便士）
    * [[https://blog.geekinney.com/post/reading-notes-of-how-to-read-a-book-efficiently.html][书摘|如何有效阅读一本书]]
