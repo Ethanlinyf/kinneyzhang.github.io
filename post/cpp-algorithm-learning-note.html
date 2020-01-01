@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2019-12-29 Sun 23:29 -->
+<!-- 2020-01-01 Wed 12:09 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>C++算法</title>
@@ -178,6 +178,9 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+
+<link rel="shortcut icon" href"/static/img/favicon.ico"/>
+<link rel="bookmark" href="/static/img/favicon.ico" type="image/x-icon"/>
 <!-- Google Analytics -->
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -295,130 +298,130 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="C++"><span style="color: #51afef; font-weight: bold;">#include</span><span style="color: #98be65;">&lt;iostream&gt;</span>
-<span style="color: #51afef; font-weight: bold;">#include</span><span style="color: #98be65;">&lt;list&gt;</span>
-<span style="color: #51afef;">using</span> <span style="color: #51afef;">namespace</span> <span style="color: #a9a1e1;">std</span>;
+<pre><code class="C++"><span style="color: #483d8b;">#include</span><span style="color: #8b2252;">&lt;iostream&gt;</span>
+<span style="color: #483d8b;">#include</span><span style="color: #8b2252;">&lt;list&gt;</span>
+<span style="color: #a020f0;">using</span> <span style="color: #a020f0;">namespace</span> <span style="color: #008b8b;">std</span>;
 
-<span style="color: #51afef;">struct</span> <span style="color: #ECBE7B;">node</span> {
-    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">val</span>;
-    <span style="color: #ECBE7B;">node</span> *<span style="color: #dcaeea;">left</span>;
-    <span style="color: #ECBE7B;">node</span> *<span style="color: #dcaeea;">right</span>;
+<span style="color: #a020f0;">struct</span> <span style="color: #228b22;">node</span> {
+    <span style="color: #228b22;">int</span> <span style="color: #a0522d;">val</span>;
+    <span style="color: #228b22;">node</span> *<span style="color: #a0522d;">left</span>;
+    <span style="color: #228b22;">node</span> *<span style="color: #a0522d;">right</span>;
 };
 
-<span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">CreateTree</span> (<span style="color: #ECBE7B;">node</span> *<span style="color: #dcaeea;">curr</span>, <span style="color: #ECBE7B;">node</span> *<span style="color: #dcaeea;">n</span>, <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">x</span>, <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">pos</span>) {
-    <span style="color: #51afef;">if</span> (n != <span style="color: #a9a1e1;">NULL</span>) {
-        <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">ch</span>;
-        cout &lt;&lt; <span style="color: #98be65;">"\nLeft or right of "</span> &lt;&lt; n-&gt;val &lt;&lt; <span style="color: #98be65;">":"</span>;
+<span style="color: #228b22;">void</span> <span style="color: #0000ff;">CreateTree</span> (<span style="color: #228b22;">node</span> *<span style="color: #a0522d;">curr</span>, <span style="color: #228b22;">node</span> *<span style="color: #a0522d;">n</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">x</span>, <span style="color: #228b22;">char</span> <span style="color: #a0522d;">pos</span>) {
+    <span style="color: #a020f0;">if</span> (n != <span style="color: #008b8b;">NULL</span>) {
+        <span style="color: #228b22;">char</span> <span style="color: #a0522d;">ch</span>;
+        cout &lt;&lt; <span style="color: #8b2252;">"\nLeft or right of "</span> &lt;&lt; n-&gt;val &lt;&lt; <span style="color: #8b2252;">":"</span>;
         cin &gt;&gt; ch;
-        <span style="color: #51afef;">if</span> (ch == <span style="color: #98be65;">'l'</span>)
+        <span style="color: #a020f0;">if</span> (ch == <span style="color: #8b2252;">'l'</span>)
             CreateTree(n, n-&gt;left, x, ch);
-        <span style="color: #51afef;">else</span> <span style="color: #51afef;">if</span> (ch == <span style="color: #98be65;">'r'</span>)
+        <span style="color: #a020f0;">else</span> <span style="color: #a020f0;">if</span> (ch == <span style="color: #8b2252;">'r'</span>)
             CreateTree(n, n-&gt;right, x, ch);
     }
-    <span style="color: #51afef;">else</span> {
-        <span style="color: #ECBE7B;">node</span> *<span style="color: #dcaeea;">t</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">node</span>;
+    <span style="color: #a020f0;">else</span> {
+        <span style="color: #228b22;">node</span> *<span style="color: #a0522d;">t</span> = <span style="color: #a020f0;">new</span> <span style="color: #228b22;">node</span>;
         t-&gt;val = x;
-        t-&gt;left = <span style="color: #a9a1e1;">NULL</span>;
-        t-&gt;right = <span style="color: #a9a1e1;">NULL</span>;
-        <span style="color: #51afef;">if</span> (pos == <span style="color: #98be65;">'l'</span>) 
+        t-&gt;left = <span style="color: #008b8b;">NULL</span>;
+        t-&gt;right = <span style="color: #008b8b;">NULL</span>;
+        <span style="color: #a020f0;">if</span> (pos == <span style="color: #8b2252;">'l'</span>) 
             curr-&gt;left = t;
-        <span style="color: #51afef;">else</span> <span style="color: #51afef;">if</span> (pos == <span style="color: #98be65;">'r'</span>)
+        <span style="color: #a020f0;">else</span> <span style="color: #a020f0;">if</span> (pos == <span style="color: #8b2252;">'r'</span>)
             curr-&gt;right = t;
     }
 }
 
-<span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#20808;&#24207;&#36941;&#21382;&#65306;&#26681;&#24038;&#21491;</span>
-<span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">Pre</span> (<span style="color: #ECBE7B;">node</span> *<span style="color: #dcaeea;">n</span>) {
-    <span style="color: #51afef;">if</span> (n != <span style="color: #a9a1e1;">NULL</span>) {
-        cout &lt;&lt; n-&gt;val &lt;&lt; <span style="color: #98be65;">" "</span>;
+<span style="color: #b22222;">// </span><span style="color: #b22222;">&#20808;&#24207;&#36941;&#21382;&#65306;&#26681;&#24038;&#21491;</span>
+<span style="color: #228b22;">void</span> <span style="color: #0000ff;">Pre</span> (<span style="color: #228b22;">node</span> *<span style="color: #a0522d;">n</span>) {
+    <span style="color: #a020f0;">if</span> (n != <span style="color: #008b8b;">NULL</span>) {
+        cout &lt;&lt; n-&gt;val &lt;&lt; <span style="color: #8b2252;">" "</span>;
         Pre(n-&gt;left);
         Pre(n-&gt;right);
     }
 }
 
-<span style="color: #5B6268;">//</span><span style="color: #5B6268;">&#20013;&#24207;&#36941;&#21382;&#65306;&#24038;&#26681;&#21491;</span>
-<span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">In</span> (<span style="color: #ECBE7B;">node</span> *<span style="color: #dcaeea;">n</span>) {
-    <span style="color: #51afef;">if</span> (n!= <span style="color: #a9a1e1;">NULL</span>) {
+<span style="color: #b22222;">//</span><span style="color: #b22222;">&#20013;&#24207;&#36941;&#21382;&#65306;&#24038;&#26681;&#21491;</span>
+<span style="color: #228b22;">void</span> <span style="color: #0000ff;">In</span> (<span style="color: #228b22;">node</span> *<span style="color: #a0522d;">n</span>) {
+    <span style="color: #a020f0;">if</span> (n!= <span style="color: #008b8b;">NULL</span>) {
         In(n-&gt;left);
-        cout &lt;&lt; n-&gt;val &lt;&lt; <span style="color: #98be65;">" "</span>;
+        cout &lt;&lt; n-&gt;val &lt;&lt; <span style="color: #8b2252;">" "</span>;
         In(n-&gt;right);
     }
 }
 
-<span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#21518;&#24207;&#36941;&#21382;&#65306;&#24038;&#21491;&#26681;</span>
-<span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">Post</span> (<span style="color: #ECBE7B;">node</span> *<span style="color: #dcaeea;">n</span>) {
-    <span style="color: #51afef;">if</span>(n!= <span style="color: #a9a1e1;">NULL</span>) {
+<span style="color: #b22222;">// </span><span style="color: #b22222;">&#21518;&#24207;&#36941;&#21382;&#65306;&#24038;&#21491;&#26681;</span>
+<span style="color: #228b22;">void</span> <span style="color: #0000ff;">Post</span> (<span style="color: #228b22;">node</span> *<span style="color: #a0522d;">n</span>) {
+    <span style="color: #a020f0;">if</span>(n!= <span style="color: #008b8b;">NULL</span>) {
         Post(n-&gt;left);
         Post(n-&gt;right);
-        cout &lt;&lt; n-&gt;val &lt;&lt; <span style="color: #98be65;">" "</span>;
+        cout &lt;&lt; n-&gt;val &lt;&lt; <span style="color: #8b2252;">" "</span>;
     }
 }
 
-<span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#23618;&#27425;&#36941;&#21382;</span>
-<span style="color: #ECBE7B;">void</span> <span style="color: #c678dd;">BFT</span> (<span style="color: #ECBE7B;">node</span> *<span style="color: #dcaeea;">n</span>) {
-    <span style="color: #ECBE7B;">list</span>&lt;<span style="color: #ECBE7B;">node</span>*&gt; <span style="color: #dcaeea;">queue</span>;
+<span style="color: #b22222;">// </span><span style="color: #b22222;">&#23618;&#27425;&#36941;&#21382;</span>
+<span style="color: #228b22;">void</span> <span style="color: #0000ff;">BFT</span> (<span style="color: #228b22;">node</span> *<span style="color: #a0522d;">n</span>) {
+    <span style="color: #228b22;">list</span>&lt;<span style="color: #228b22;">node</span>*&gt; <span style="color: #a0522d;">queue</span>;
     queue.push_back(n);
-    <span style="color: #51afef;">while</span> (<span style="color: #51afef; font-weight: bold;">!</span>queue.empty()) {
+    <span style="color: #a020f0;">while</span> (!queue.empty()) {
         n = queue.front();
-        cout &lt;&lt; n-&gt;val &lt;&lt; <span style="color: #98be65;">" "</span>;
+        cout &lt;&lt; n-&gt;val &lt;&lt; <span style="color: #8b2252;">" "</span>;
         queue.pop_front();
 
-        <span style="color: #51afef;">if</span> (n-&gt;left != <span style="color: #a9a1e1;">NULL</span>)
+        <span style="color: #a020f0;">if</span> (n-&gt;left != <span style="color: #008b8b;">NULL</span>)
             queue.push_back(n-&gt;left);
-        <span style="color: #51afef;">if</span> (n-&gt;right != <span style="color: #a9a1e1;">NULL</span>)
+        <span style="color: #a020f0;">if</span> (n-&gt;right != <span style="color: #008b8b;">NULL</span>)
             queue.push_back(n-&gt;right);
     }
 }
 
-<span style="color: #ECBE7B;">int</span> <span style="color: #c678dd;">main</span> () {
-    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">value</span>;
-    <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">ch</span>;
-    <span style="color: #ECBE7B;">node</span> *<span style="color: #dcaeea;">root</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">node</span>;
-    cout &lt;&lt; <span style="color: #98be65;">"\nEnter the value of root node: "</span>;
+<span style="color: #228b22;">int</span> <span style="color: #0000ff;">main</span> () {
+    <span style="color: #228b22;">int</span> <span style="color: #a0522d;">value</span>;
+    <span style="color: #228b22;">int</span> <span style="color: #a0522d;">ch</span>;
+    <span style="color: #228b22;">node</span> *<span style="color: #a0522d;">root</span> = <span style="color: #a020f0;">new</span> <span style="color: #228b22;">node</span>;
+    cout &lt;&lt; <span style="color: #8b2252;">"\nEnter the value of root node: "</span>;
     cin &gt;&gt; value;
     root-&gt;val = value;
-    root-&gt;left = <span style="color: #a9a1e1;">NULL</span>;
-    root-&gt;right = <span style="color: #a9a1e1;">NULL</span>;
+    root-&gt;left = <span style="color: #008b8b;">NULL</span>;
+    root-&gt;right = <span style="color: #008b8b;">NULL</span>;
 
-    <span style="color: #51afef;">do</span> {
-        cout &lt;&lt; <span style="color: #98be65;">"\n0. Quit"</span>;
-        cout &lt;&lt; <span style="color: #98be65;">"\n1. Insert"</span>;
-        cout &lt;&lt; <span style="color: #98be65;">"\n2. Preorder Depth First"</span>;
-        cout &lt;&lt; <span style="color: #98be65;">"\n3. Inorder Depth First"</span>;
-        cout &lt;&lt; <span style="color: #98be65;">"\n4. Postorder Depth First"</span>;
-        cout &lt;&lt; <span style="color: #98be65;">"\n5. Breadth First"</span>;
+    <span style="color: #a020f0;">do</span> {
+        cout &lt;&lt; <span style="color: #8b2252;">"\n0. Quit"</span>;
+        cout &lt;&lt; <span style="color: #8b2252;">"\n1. Insert"</span>;
+        cout &lt;&lt; <span style="color: #8b2252;">"\n2. Preorder Depth First"</span>;
+        cout &lt;&lt; <span style="color: #8b2252;">"\n3. Inorder Depth First"</span>;
+        cout &lt;&lt; <span style="color: #8b2252;">"\n4. Postorder Depth First"</span>;
+        cout &lt;&lt; <span style="color: #8b2252;">"\n5. Breadth First"</span>;
 
-        cout &lt;&lt; <span style="color: #98be65;">"\nEnter your choice: "</span>;
+        cout &lt;&lt; <span style="color: #8b2252;">"\nEnter your choice: "</span>;
         cin &gt;&gt; ch;
-        <span style="color: #51afef;">switch</span> (ch) {
-        <span style="color: #51afef;">case</span> 1:
-            <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">x</span>;
-            <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">pos</span>;
-            cout &lt;&lt; <span style="color: #98be65;">"\nEnter the value to be inserted: "</span>;
+        <span style="color: #a020f0;">switch</span> (ch) {
+        <span style="color: #a020f0;">case</span> 1:
+            <span style="color: #228b22;">int</span> <span style="color: #a0522d;">x</span>;
+            <span style="color: #228b22;">char</span> <span style="color: #a0522d;">pos</span>;
+            cout &lt;&lt; <span style="color: #8b2252;">"\nEnter the value to be inserted: "</span>;
             cin &gt;&gt; x;
-            cout &lt;&lt; <span style="color: #98be65;">"\nleft or right of the root: "</span>;
+            cout &lt;&lt; <span style="color: #8b2252;">"\nleft or right of the root: "</span>;
             cin &gt;&gt; pos;
-            <span style="color: #51afef;">if</span> (pos == <span style="color: #98be65;">'l'</span>)
+            <span style="color: #a020f0;">if</span> (pos == <span style="color: #8b2252;">'l'</span>)
                 CreateTree(root, root-&gt;left, x, pos);
-            <span style="color: #51afef;">else</span> <span style="color: #51afef;">if</span> (pos == <span style="color: #98be65;">'r'</span>)
+            <span style="color: #a020f0;">else</span> <span style="color: #a020f0;">if</span> (pos == <span style="color: #8b2252;">'r'</span>)
                 CreateTree(root, root-&gt;right, x, pos);
-            <span style="color: #51afef;">else</span>
-                cout &lt;&lt; <span style="color: #98be65;">"\nInvalid input!"</span>;
-            <span style="color: #51afef;">break</span>;
-        <span style="color: #51afef;">case</span> 2:
+            <span style="color: #a020f0;">else</span>
+                cout &lt;&lt; <span style="color: #8b2252;">"\nInvalid input!"</span>;
+            <span style="color: #a020f0;">break</span>;
+        <span style="color: #a020f0;">case</span> 2:
             Pre(root);
-            <span style="color: #51afef;">break</span>;
-        <span style="color: #51afef;">case</span> 3:
+            <span style="color: #a020f0;">break</span>;
+        <span style="color: #a020f0;">case</span> 3:
             In(root);
-            <span style="color: #51afef;">break</span>;
-        <span style="color: #51afef;">case</span> 4:
+            <span style="color: #a020f0;">break</span>;
+        <span style="color: #a020f0;">case</span> 4:
             Post(root);
-            <span style="color: #51afef;">break</span>;
-        <span style="color: #51afef;">case</span> 5:
+            <span style="color: #a020f0;">break</span>;
+        <span style="color: #a020f0;">case</span> 5:
             BFT(root);
-            <span style="color: #51afef;">break</span>;
+            <span style="color: #a020f0;">break</span>;
         }
-    }<span style="color: #51afef;">while</span> (ch != 0);
+    }<span style="color: #a020f0;">while</span> (ch != 0);
 }
 </code></pre>
 </div>
