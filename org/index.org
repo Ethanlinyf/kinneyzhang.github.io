@@ -17,6 +17,7 @@
    * 201908 [[https://blog.geekinney.com/post/thinking-about-cs-teaching-in-college.html][关于大学计算机科学]]
    * 201908 [[https://blog.geekinney.com/post/thinking-about-journaling.html][关于写日志]]
    * 201907 [[https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html][重拾阅读]]
+   * 201903 [[https://blog.geekinney.com/post/reading-notes-of-bullet-journal.html][《子弹笔记》要点]]
    * 201903 [[https://blog.geekinney.com/post/emacs-learning-note.html][emacs学习笔记]]
 
 * 分类
@@ -24,6 +25,7 @@
    * [[https://blog.geekinney.com/post/at-the-end-of-2019.html][去你的2019，来我的2020]]
 ** 阅读
    * [[https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html][重拾阅读]]（月亮与六便士）
+   * [[https://blog.geekinney.com/post/reading-notes-of-bullet-journal.html][《子弹笔记》要点]]
    * [[https://blog.geekinney.com/post/reading-notes-of-how-to-read-a-book-efficiently.html][书摘|如何有效阅读一本书]]
 
 ** Emacs

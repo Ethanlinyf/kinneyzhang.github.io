@@ -123,6 +123,7 @@
    :END:
 ** [[https://zhuanlan.zhihu.com/p/62099222][心肺复苏，应对心脏骤停的“黄金4分钟”！ - 知乎]]
 * Utility
+** [[https://github.com/BlueSky-07/Shuang][BlueSky-07/Shuang: :pencil2: 双拼练习]]
 ** [[http://www.fontawesome.com.cn/faicons/][font-awesome 图标库]]
 ** [[https://getbootstrap.net/docs/utilities/shadows/][bootstrap 4]]
 ** [[https://github.com/darknessomi/musicbox][musicbox——网易云音乐CLI]]
