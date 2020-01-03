@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-01-03 Fri 16:51 -->
+<!-- 2020-01-03 Fri 19:44 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>关于写日志</title>
@@ -282,21 +282,24 @@ for the JavaScript code in this tag.
 </p>
 </div>
 <div id="postamble" class="status">
-<div id="disqus_thread"></div>
-<script>
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://geekinney-blog.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<script src="/static/disqus.js"></script>
 
-<p class="author">Author: Kinney Zhang (<a href="mailto:kinneyzhang666@gmail.com">kinneyzhang666@gmail.com</a>)</p>
-<p class="date">Date: 2019-08-05</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)</p>
+<div id="disqus_thread"></div>
+function loadDisqus() {
+var dsqjs = new DisqusJS({
+    shortname: 'geekinney-blog',
+    siteName: 'blog.geekinney.com',
+    identifier: document.location.origin + document.location.pathname + document.location.search,
+    url: document.location.origin + document.location.pathname + document.location.search,
+    title: document.title,
+    api: 'https://disqus.skk.moe/disqus/',
+    apikey: '0HvP2bcRuwpUgeVlY1FOJfxeeu5C7b1E8h3mTuEQEqmhFbDe9h4z18ALeQUHzKOA',
+    admin: 'kinneyzhang',
+});
+  // 如果你和我一样在用 DisqusJS，loadDisqus() 里就应该是 DisqusJS 的初始化代码 new DisqusJS({...})
+}
+
+// 通过检查 window 对象确认是否在浏览器中运行
+var runningOnBrowser = typeof window !== 
 </div>
 </body>
 </html>
