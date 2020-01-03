@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-01-03 Fri 20:30 -->
+<!-- 2020-01-03 Fri 20:48 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>记我的博客折腾经历</title>
@@ -316,13 +316,12 @@ OrgMode的 <code>org-publish</code> 原生支持批量org文件导出为HTML和�
 function loadDisqus() {
   var dsqjs = new DisqusJS({
     shortname: 'geekinney-blog',
-    siteName: 'blog.geekinney.com',
+    siteName: 'geekinney-blog',
     api: 'https://disqus.skk.moe/disqus/',
     apikey: 'ZX3UlEoWO4j0urEQfrYd7OsK3QlJLm5nEm3A6FtOwJGNu3EfEz3GcOk3HDoW484t',
     admin: 'kinneyzhang',
   });
 }
-
 // 通过检查 window 对象确认是否在浏览器中运行
 var runningOnBrowser = typeof window !== "undefined";
 // 通过检查 scroll 事件 API 和 User-Agent 来匹配爬虫
