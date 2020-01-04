@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-01-03 Fri 21:05 -->
+<!-- 2020-01-04 Sat 14:04 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp guide学习笔记</title>
@@ -159,6 +159,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -195,11 +208,9 @@ ga('send', 'pageview');
 
 <link rel="stylesheet" type="text/css" href="/static/ostyle.css"/>
 <link rel="stylesheet" type="text/css" href="/static/ostyle2.css"/>
-<link rel="stylesheet" href="https://unpkg.com/disqusjs@1.2/dist/disqusjs.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
 <script>var hlf=function(){Array.prototype.forEach.call(document.querySelectorAll("pre.src"),function(t){var e;e=t.getAttribute("class").toLowerCase(),e=e.replace(/src-(w+)/,"src-$1 $1"),console.log(e),t.setAttribute("class",e),hljs.highlightBlock(t)})};addEventListener("DOMContentLoaded",hlf);</script>
-<script src="https://unpkg.com/disqusjs@1.2/dist/disqus.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -476,18 +487,16 @@ for the JavaScript code in this tag.
 
 <div id="disqus_thread"></div>
 <script>
-  var dsqjs = new DisqusJS({
-    shortname: 'geekinney-blog',
-    siteName: 'geekinney-blog',
-    api: 'https://disqus.skk.moe/disqus/',
-    apikey: 'ZX3UlEoWO4j0urEQfrYd7OsK3QlJLm5nEm3A6FtOwJGNu3EfEz3GcOk3HDoW484t',
-    admin: 'kinneyzhang',
-  });
-</script>
+function loadDisqus() {
+  // Disqus 安装代码
+  var d = document, s = d.createElement('script');
+  s.src = 'https://geekinney-blog.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+}
 
-<p class="author">Author: Kinney Zhang (<a href="mailto:kinneyzhang666@gmail.com">kinneyzhang666@gmail.com</a>)</p>
-<p class="date">Date: 2019-12-18</p>
-<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)</p>
+// 通过检查 window 对象确认是否在浏览器中运行
+var runningOnBrowser = typeof window !== 
 </div>
 </body>
 </html>
