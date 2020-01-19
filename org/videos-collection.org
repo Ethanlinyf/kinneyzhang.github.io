@@ -10,10 +10,3 @@
    <iframe id=sbrxp src="//player.bilibili.com/player.html?aid=18070082" allowfullscreen="true"></iframe>
  </div>
  #+END_EXPORT
-
-*但是还有书籍——书海编舟记*
- #+BEGIN_EXPORT html
- <div class="iframe-container">
-   <iframe id=sbrxp src="//player.bilibili.com/player.html?eid=299985" allowfullscreen="true"></iframe>
- </div>
- #+END_EXPORT
