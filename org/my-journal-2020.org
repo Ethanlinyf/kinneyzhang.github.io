@@ -1,7 +1,7 @@
 #+TITLE: journal 2020
-#+DATE: 
+#+DATE: 2020-01-19
 #+STARTUP: content
-#+OPTIONS: toc:nil H:2 num:2
+#+OPTIONS: toc:t H:1 num:0
 
 #+begin_quote
 生活就是写一本书，我想用真实的，诗意的笔触记录下点滴的回忆!
