@@ -855,7 +855,7 @@ body {
     color: #ff1493
 }
 
-.org-helm-ff-suid {
+ .org-helm-ff-suid {
     color: #fff;
     background-color: red
 }
@@ -865,7 +865,7 @@ body {
 }
 
 .org-helm-ff-truename {
-    color: #8b2252
+     color: #8b2252
 }
 
 .org-helm-grep-cmd-line {
@@ -875,7 +875,7 @@ body {
 .org-helm-grep-file {
     color: #8a2be2;
     text-decoration: underline
-}
+    }
 
 .org-helm-grep-finish {
     color: #0f0
