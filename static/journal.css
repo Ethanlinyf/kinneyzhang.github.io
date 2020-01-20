@@ -1,11 +1,7 @@
 body {
     margin: 0;
-    border-right: 5px solid #bbb;
-    border-bottom: 5px solid #bbb;
-    padding: 0;
     background: #ddd none repeat scroll 0 0;
     border: 1px solid #000;
-    margin: 0;
     padding: 2em;
     color: #000;
     font-family: "Bitstream Vera Sans", Verdana, sans-serif;
