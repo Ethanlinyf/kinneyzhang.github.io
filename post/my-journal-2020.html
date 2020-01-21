@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-01-21 Tue 17:26 -->
+<!-- 2020-01-21 Tue 22:08 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>journal 2020</title>
@@ -276,6 +276,13 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
+<li><a href="#orgbc48818">Tuesday, 21 January 2020</a>
+<ul>
+<li><a href="#org303de8d">07:18 晨间记录</a></li>
+<li><a href="#org79569be">16:51 disqus评论懒加载代码</a></li>
+<li><a href="#org97594f4">21:35 晚间总结</a></li>
+</ul>
+</li>
 <li><a href="#orgbbe98d0">Monday, 20 January 2020</a>
 <ul>
 <li><a href="#orgc77b410">08:07 晨间记录</a></li>
@@ -292,6 +299,136 @@ for the JavaScript code in this tag.
 </div>
 </nav>
 
+<div id="outline-container-orgbc48818" class="outline-2">
+<h2 id="orgbc48818">Tuesday, 21 January 2020</h2>
+<div class="outline-text-2" id="text-orgbc48818">
+</div>
+<div id="outline-container-org303de8d" class="outline-3">
+<h3 id="org303de8d">07:18 晨间记录</h3>
+<div class="outline-text-3" id="text-org303de8d">
+</div>
+<ul class="org-ul">
+<li><a id="orge730c77"></a>天气/温度/地点：晴/0°/淮安御景城<br></li>
+<li><a id="org61726c5"></a>早上好，昨晚睡得怎么样？<br>
+<div class="outline-text-4" id="text-org61726c5">
+<p>
+    睡前看了一会儿《傅雷家书》，看到傅雷夫妇对儿子无微不至的关心，尤其是恋爱方面提点甚多。父母说话的语气是严肃的，但我读着读着却笑了出来。他们为儿子忧虑时的小抱怨有些可爱呢。哈哈哈。
+然后12点左右睡觉，1点多醒来一次。
+</p>
+</div>
+</li>
+<li><a id="org7433815"></a>我的人生目标是什么？（长期短期，不同方面）<br>
+<div class="outline-text-4" id="text-org7433815">
+<p>
+长期目标：有能力随时带父母环游世界；工作上有自己骄傲的作品；个人自律，多阅读，多分享，更优秀。
+</p>
+
+<p>
+短期目标：考上研究生。
+</p>
+</div>
+</li>
+<li><a id="orga98f266"></a>今天打算怎么安排？（上午，下午，晚上）<br>
+<div class="outline-text-4" id="text-orga98f266">
+<p>
+今天要去外婆家吃饭，所以我学习的时间不固定。大概就是带一本《傅雷家书》和电脑。最重要的任务还是使用org mode重新实现GTD。
+</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="outline-container-org79569be" class="outline-3">
+<h3 id="org79569be">16:51 disqus评论懒加载代码</h3>
+<div class="outline-text-3" id="text-org79569be">
+<div class="col-auto">
+<pre><code class="html">&lt;div id=\"disqus_thread\"&gt;&lt;/div&gt;
+&lt;script&gt;
+ <span style="color: #51afef;">function</span> <span style="color: #c678dd;">loadDisqus</span>() {
+   // Disqus &#23433;&#35013;&#20195;&#30721;
+   <span style="color: #51afef;">var</span> <span style="color: #dcaeea;">d</span> = document, s = d.<span style="color: #c678dd;">createElement</span>('script');
+   s.src = 'https://geekinney-blog.disqus.com/embed.js';
+   s.<span style="color: #c678dd;">setAttribute</span>('data-timestamp', +new <span style="color: #c678dd;">Date</span>());
+   (d.head || d.body).<span style="color: #c678dd;">appendChild</span>(s);
+ }
+
+ // &#36890;&#36807;&#26816;&#26597; window &#23545;&#35937;&#30830;&#35748;&#26159;&#21542;&#22312;&#27983;&#35272;&#22120;&#20013;&#36816;&#34892;
+ <span style="color: #51afef;">var</span> <span style="color: #dcaeea;">runningOnBrowser</span> = <span style="color: #51afef;">typeof</span> window !== \"undefined\";
+// &#36890;&#36807;&#26816;&#26597; scroll &#20107;&#20214; API &#21644; User-Agent &#26469;&#21305;&#37197;&#29228;&#34411;
+var isBot = runningOnBrowser &amp;&amp; !(\"onscroll\" in window) || typeof navigator !== \"undefined\" &amp;&amp; /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+// &#26816;&#26597;&#24403;&#21069;&#27983;&#35272;&#22120;&#26159;&#21542;&#25903;&#25345; IntersectionObserver API
+var supportsIntersectionObserver = runningOnBrowser &amp;&amp; \"IntersectionObserver\" <span style="color: #51afef;">in</span> window;
+
+ // &#19968;&#20010;&#23567; hack&#65292;&#23558;&#32791;&#26102;&#20219;&#21153;&#21253;&#35065;&#22312; setTimeout(() =&gt; { }, 1) &#20013;&#65292;&#21487;&#20197;&#25512;&#36831;&#21040; Event Loop &#30340;&#20219;&#21153;&#38431;&#21015;&#20013;&#12289;&#31561;&#24453;&#20027;&#35843;&#29992;&#26632;&#28165;&#31354;&#21518;&#25165;&#25191;&#34892;&#65292;&#22312;&#32477;&#22823;&#37096;&#20998;&#27983;&#35272;&#22120;&#20013;&#37117;&#26377;&#25928;
+ // &#20854;&#23454;&#36825;&#20010; hack &#26412;&#26469;&#26159;&#29992;&#20110;&#20248;&#21270;&#39592;&#26550;&#23631;&#26174;&#31034;&#30340;&#12290;&#19968;&#20123;&#27983;&#35272;&#22120;&#24635;&#26159;&#31561; JavaScript &#25191;&#34892;&#23436;&#20102;&#25165;&#24320;&#22987;&#39029;&#38754;&#28210;&#26579;&#65292;&#23548;&#33268;&#39592;&#26550;&#23631;&#36215;&#19981;&#21040;&#38477;&#20302; FCP &#30340;&#20248;&#21270;&#25928;&#26524;&#65292;&#25152;&#20197;&#36890;&#36807; hack &#23558;&#32791;&#26102;&#20989;&#25968;&#25918;&#21040;&#39592;&#26550;&#23631;&#28210;&#26579;&#23436;&#25104;&#21518;&#20877;&#36827;&#34892;&#12290;
+ <span style="color: #c678dd;">setTimeout</span>(<span style="color: #51afef;">function</span> () {
+   <span style="color: #51afef;">if</span> (!isBot &amp;&amp; supportsIntersectionObserver) {
+     // &#24403;&#21069;&#29615;&#22659;&#19981;&#26159;&#29228;&#34411;&#12289;&#24182;&#19988;&#27983;&#35272;&#22120;&#20860;&#23481; IntersectionObserver API
+     <span style="color: #51afef;">var</span> <span style="color: #dcaeea;">disqus_observer</span> = <span style="color: #51afef;">new</span> <span style="color: #ECBE7B;">IntersectionObserver</span>(<span style="color: #51afef;">function</span>(entries) {
+       // &#24403;&#21069;&#35270;&#31383;&#20013;&#24050;&#20986;&#29616; Disqus &#35780;&#35770;&#26694;&#25152;&#22312;&#20301;&#32622;
+       <span style="color: #51afef;">if</span> (entries[0].isIntersecting) {
+         // &#21152;&#36733; Disqus
+         <span style="color: #c678dd;">loadDisqus</span>();
+         // &#20572;&#27490;&#24403;&#21069;&#30340; Observer
+         disqus_observer.<span style="color: #c678dd;">disconnect</span>();
+       }
+     }, { <span style="color: #dcaeea;">threshold</span>: [0] });
+     // &#35774;&#32622;&#35753; Observer &#35266;&#23519; #disqus_thread &#20803;&#32032;
+     disqus_observer.<span style="color: #c678dd;">observe</span>(document.<span style="color: #c678dd;">getElementById</span>('disqus_thread'));
+   } <span style="color: #51afef;">else</span> {
+     // &#24403;&#21069;&#29615;&#22659;&#26159;&#29228;&#34411;&#12289;&#25110;&#24403;&#21069;&#27983;&#35272;&#22120;&#20854;&#19981;&#20860;&#23481; IntersectionObserver API
+     // &#30452;&#25509;&#21152;&#36733; Disqus
+     <span style="color: #c678dd;">loadDisqus</span>();
+   }
+ }, 1);
+&lt;/script&gt;
+</code></pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org97594f4" class="outline-3">
+<h3 id="org97594f4">21:35 晚间总结</h3>
+<div class="outline-text-3" id="text-org97594f4">
+</div>
+<ul class="org-ul">
+<li><a id="org3192d4a"></a>今天做了些什么？<br>
+<div class="outline-text-4" id="text-org3192d4a">
+<p>
+早上7点多醒来在床上看了一个小时的《傅雷家书》，然后和爸妈回老家。中午在外奶家吃了饭，下午睡了一觉。尝试了一些新的博客评论系统，最终成功使用valine替换disqus。valine可以在国内访问，还比较满意。晚上陪老妈看了几集灵魂摆渡2。
+</p>
+</div>
+</li>
+<li><a id="org93f7009"></a>今天有什么值得夸奖自己的地方？（鼓励）<br>
+<div class="outline-text-4" id="text-org93f7009">
+<p>
+读傅雷的家书教会了我调节情绪。
+</p>
+
+<p>
+上午被老爸说了几句，有点生气。心里默默难受的时候想到了傅雷在家书中写到的，自己年轻时的脾气常常使儿子难受，夫人受折磨，所以儿子（傅聪）不在身边时反思自己，常常觉得愧疚。是呀，本来就是一些小事。父子交谈，有时意见不合，有时多啰嗦了几句，本就都是好意。犯不着为了这些使自己心情糟糕，又折磨了身边的人。想着想着，心情便舒展了许多。
+</p>
+</div>
+</li>
+<li><a id="org571943e"></a>今天有什么待改进的地方？（反思）<br>
+<div class="outline-text-4" id="text-org571943e">
+<p>
+爸妈说的话应当放在心上。我会下意识的忽略爸妈的叮嘱，以致于像晾衣服，叫人这些小事总需要他们唠叨。究其原因，我认为这些本就是无关紧要的事情。但是，最好不要让爸妈总是因为这些小事操心。即使是胸怀天下的人内心也当有一份细腻与柔情，不是吗？
+</p>
+</div>
+</li>
+<li><a id="orgf180945"></a>还有什么想说的？(感悟)<br>
+<div class="outline-text-4" id="text-orgf180945">
+<p>
+喜欢《灵魂摆渡2》的「旧事」那两集，一开始没看懂，随着剧情的发展慢慢的感受到编剧想要表达的战乱时期人民的疾苦。像灵魂摆渡人这样历经千年时代变革，看尽人世沧桑的存在最懂人情能暖，也最能触动观众内心最柔软的部分。
+</p>
+
+<p>
+听了大内最新一期节目，晓辉和相征聊汪曾祺。汪老爷子是个真实可爱的人，我很喜欢他的文风，有空定要好好读读他的作品。
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
 <div id="outline-container-orgbbe98d0" class="outline-2">
 <h2 id="orgbbe98d0">Monday, 20 January 2020</h2>
 <div class="outline-text-2" id="text-orgbbe98d0">
@@ -302,24 +439,24 @@ for the JavaScript code in this tag.
 </div>
 <ul class="org-ul">
 <li><a id="org53f8cd1"></a>天气/温度/地点：雾/0°/淮安御景城<br></li>
-<li><a id="orgdd0bc94"></a>早上好，昨晚睡得怎么样？<br>
-<div class="outline-text-4" id="text-orgdd0bc94">
+<li><a id="org81d16f4"></a>早上好，昨晚睡得怎么样？<br>
+<div class="outline-text-4" id="text-org81d16f4">
 <p>
 昨晚睡前在京东上买了精酿啤酒，价格130多。听大内一直对精酿啤酒很好奇，这次恰逢春节，终于有机会品尝一下了。
 12:30熄灯睡觉，估计要到1:00多才睡着。6点和7点分别醒来了一次，小眯了一会就到了8点。又记不清梦见什么了。我应该在早晨记忆尚存的时候做些记录。
 </p>
 </div>
 </li>
-<li><a id="orgf097207"></a>我的人生目标是什么？（长期短期，不同方面）<br>
-<div class="outline-text-4" id="text-orgf097207">
+<li><a id="orgc8c1511"></a>我的人生目标是什么？（长期短期，不同方面）<br>
+<div class="outline-text-4" id="text-orgc8c1511">
 <p>
 长期目标：有能力和时间带父母环游世界；工作上有引以为傲的作品；个人方面更自律，多读书，更优秀。
 短期目标：考上研究生。
 </p>
 </div>
 </li>
-<li><a id="org89d90e4"></a>今天打算怎么安排？（上午，下午，晚上）<br>
-<div class="outline-text-4" id="text-org89d90e4">
+<li><a id="org4b42c4a"></a>今天打算怎么安排？（上午，下午，晚上）<br>
+<div class="outline-text-4" id="text-org4b42c4a">
 <p>
 吃完早饭，到超市买东西（读书笔记相关，口罩&#x2026;），然后今天的主要工作也是总结完《搞定》，调整org-agenda。顺带读一读《傅雷家书》。
 </p>
@@ -338,15 +475,15 @@ for the JavaScript code in this tag.
 <div class="outline-text-3" id="text-org85555be">
 </div>
 <ul class="org-ul">
-<li><a id="orgb5f2b03"></a>几句话总结一下今天？<br>
-<div class="outline-text-4" id="text-orgb5f2b03">
+<li><a id="org9504da1"></a>几句话总结一下今天？<br>
+<div class="outline-text-4" id="text-org9504da1">
 <p>
 早上在小吃铺吃了馄饨和烧卖，然后去万达的超市逛了逛，买了部分做读书笔记的文具。中午睡了会，下午总结搞定，折腾了blog。晚上读了会《傅雷家书》。
 </p>
 </div>
 </li>
-<li><a id="org93f7009"></a>今天有什么值得夸奖自己的地方？（鼓励）<br>
-<div class="outline-text-4" id="text-org93f7009">
+<li><a id="org95fa36a"></a>今天有什么值得夸奖自己的地方？（鼓励）<br>
+<div class="outline-text-4" id="text-org95fa36a">
 <p>
 明白了一个道理：这个世界上令我好奇的事物，我想学习的知识，我想阅读的书籍浩如烟海，穷尽一生我也不能全部了解，学习，读完。从这个意义上看，生命短暂，时间宝贵，且行且珍惜。
 </p>
@@ -356,8 +493,8 @@ for the JavaScript code in this tag.
 </p>
 </div>
 </li>
-<li><a id="org571943e"></a>今天有什么待改进的地方？（反思）<br>
-<div class="outline-text-4" id="text-org571943e">
+<li><a id="org288160e"></a>今天有什么待改进的地方？（反思）<br>
+<div class="outline-text-4" id="text-org288160e">
 <p>
 关于ZW这件事情，我一直没有认真的讨论过它。好吧，我实在是说服不了自己，的确的全方面的好好了解一下它。目前姑且制定一个习惯周期，这是比较合理的。把这个习惯记录进blog，表明我对它的重视。
 </p>
@@ -401,30 +538,30 @@ for the JavaScript code in this tag.
 </div>
 <ul class="org-ul">
 <li><a id="orged95a40"></a>天气/温度/地点：晴/4°/淮安御景城<br></li>
-<li><a id="org61726c5"></a>早上好，昨晚睡得怎么样？<br>
-<div class="outline-text-4" id="text-org61726c5">
+<li><a id="orga4a62e3"></a>早上好，昨晚睡得怎么样？<br>
+<div class="outline-text-4" id="text-orga4a62e3">
 <p>
 昨天12:40多睡觉，记不清梦见了什么。
 </p>
 </div>
 </li>
-<li><a id="org7433815"></a>我的人生目标是什么？（长期短期，不同方面）<br>
-<div class="outline-text-4" id="text-org7433815">
+<li><a id="org412601f"></a>我的人生目标是什么？（长期短期，不同方面）<br>
+<div class="outline-text-4" id="text-org412601f">
 <p>
 长期愿景：有能力随时带父母环游世界；计算机行业里作出自己的成绩；个人方面养成自律的习惯并能影响他人。目前的目标是考上研究生。
 </p>
 </div>
 </li>
-<li><a id="orga98f266"></a>今天打算怎么安排？（上午，下午，晚上）<br>
-<div class="outline-text-4" id="text-orga98f266">
+<li><a id="org9cf21c9"></a>今天打算怎么安排？（上午，下午，晚上）<br>
+<div class="outline-text-4" id="text-org9cf21c9">
 <p>
 今天做重要的事情是搞定org agenda。
 </p>
 </div>
 </li>
 
-<li><a id="org9504da1"></a>几句话总结一下今天？<br>
-<div class="outline-text-4" id="text-org9504da1">
+<li><a id="org53d5921"></a>几句话总结一下今天？<br>
+<div class="outline-text-4" id="text-org53d5921">
 <p>
 上午整理《搞定》笔记，中午吃了蛋炒饭，看完了《但是还有书籍》，了解了B站的up主小隐。下午睡了一觉，跑步30min，3.5km。晚上折腾blog，将org-journal导出到blog。晚上洗了澡，回来买了份“章福元”吃。
 </p>

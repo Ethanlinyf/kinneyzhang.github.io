@@ -3,6 +3,75 @@
 #+STARTUP: content
 #+OPTIONS: toc:t H:2 num:nil
 
+* Tuesday, 21 January 2020
+** 07:18 晨间记录
+*** 天气/温度/地点：晴/0°/淮安御景城
+*** 早上好，昨晚睡得怎么样？
+    睡前看了一会儿《傅雷家书》，看到傅雷夫妇对儿子无微不至的关心，尤其是恋爱方面提点甚多。父母说话的语气是严肃的，但我读着读着却笑了出来。他们为儿子忧虑时的小抱怨有些可爱呢。哈哈哈。
+然后12点左右睡觉，1点多醒来一次。
+*** 我的人生目标是什么？（长期短期，不同方面）
+长期目标：有能力随时带父母环游世界；工作上有自己骄傲的作品；个人自律，多阅读，多分享，更优秀。
+
+短期目标：考上研究生。
+*** 今天打算怎么安排？（上午，下午，晚上）
+今天要去外婆家吃饭，所以我学习的时间不固定。大概就是带一本《傅雷家书》和电脑。最重要的任务还是使用org mode重新实现GTD。
+** 16:51 disqus评论懒加载代码
+
+   #+BEGIN_SRC html
+   <div id=\"disqus_thread\"></div>
+   <script>
+    function loadDisqus() {
+      // Disqus 安装代码
+      var d = document, s = d.createElement('script');
+      s.src = 'https://geekinney-blog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+
+    // 通过检查 window 对象确认是否在浏览器中运行
+    var runningOnBrowser = typeof window !== \"undefined\";
+   // 通过检查 scroll 事件 API 和 User-Agent 来匹配爬虫
+   var isBot = runningOnBrowser && !(\"onscroll\" in window) || typeof navigator !== \"undefined\" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+   // 检查当前浏览器是否支持 IntersectionObserver API
+   var supportsIntersectionObserver = runningOnBrowser && \"IntersectionObserver\" in window;
+
+    // 一个小 hack，将耗时任务包裹在 setTimeout(() => { }, 1) 中，可以推迟到 Event Loop 的任务队列中、等待主调用栈清空后才执行，在绝大部分浏览器中都有效
+    // 其实这个 hack 本来是用于优化骨架屏显示的。一些浏览器总是等 JavaScript 执行完了才开始页面渲染，导致骨架屏起不到降低 FCP 的优化效果，所以通过 hack 将耗时函数放到骨架屏渲染完成后再进行。
+    setTimeout(function () {
+      if (!isBot && supportsIntersectionObserver) {
+	// 当前环境不是爬虫、并且浏览器兼容 IntersectionObserver API
+	var disqus_observer = new IntersectionObserver(function(entries) {
+	  // 当前视窗中已出现 Disqus 评论框所在位置
+	  if (entries[0].isIntersecting) {
+	    // 加载 Disqus
+	    loadDisqus();
+	    // 停止当前的 Observer
+	    disqus_observer.disconnect();
+	  }
+	}, { threshold: [0] });
+	// 设置让 Observer 观察 #disqus_thread 元素
+	disqus_observer.observe(document.getElementById('disqus_thread'));
+      } else {
+	// 当前环境是爬虫、或当前浏览器其不兼容 IntersectionObserver API
+	// 直接加载 Disqus
+	loadDisqus();
+      }
+    }, 1);
+   </script>
+   #+END_SRC
+** 21:35 晚间总结
+*** 今天做了些什么？
+早上7点多醒来在床上看了一个小时的《傅雷家书》，然后和爸妈回老家。中午在外奶家吃了饭，下午睡了一觉。尝试了一些新的博客评论系统，最终成功使用valine替换disqus。valine可以在国内访问，还比较满意。晚上陪老妈看了几集灵魂摆渡2。
+*** 今天有什么值得夸奖自己的地方？（鼓励）
+读傅雷的家书教会了我调节情绪。
+
+上午被老爸说了几句，有点生气。心里默默难受的时候想到了傅雷在家书中写到的，自己年轻时的脾气常常使儿子难受，夫人受折磨，所以儿子（傅聪）不在身边时反思自己，常常觉得愧疚。是呀，本来就是一些小事。父子交谈，有时意见不合，有时多啰嗦了几句，本就都是好意。犯不着为了这些使自己心情糟糕，又折磨了身边的人。想着想着，心情便舒展了许多。
+*** 今天有什么待改进的地方？（反思）
+爸妈说的话应当放在心上。我会下意识的忽略爸妈的叮嘱，以致于像晾衣服，叫人这些小事总需要他们唠叨。究其原因，我认为这些本就是无关紧要的事情。但是，最好不要让爸妈总是因为这些小事操心。即使是胸怀天下的人内心也当有一份细腻与柔情，不是吗？
+*** 还有什么想说的？(感悟)
+    喜欢《灵魂摆渡2》的「旧事」那两集，一开始没看懂，随着剧情的发展慢慢的感受到编剧想要表达的战乱时期人民的疾苦。像灵魂摆渡人这样历经千年时代变革，看尽人世沧桑的存在最懂人情能暖，也最能触动观众内心最柔软的部分。
+
+听了大内最新一期节目，晓辉和相征聊汪曾祺。汪老爷子是个真实可爱的人，我很喜欢他的文风，有空定要好好读读他的作品。
 * Monday, 20 January 2020
 ** 08:07 晨间记录
 *** 天气/温度/地点：雾/0°/淮安御景城
