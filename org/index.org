@@ -32,7 +32,7 @@
  * [[https://blog.geekinney.com/post/reading-notes-of-how-to-read-a-book-efficiently.html][书摘|如何有效阅读一本书]]
 
 =Emacs=
- * [[https://blog.geekinney.com/emacs-lisp-guide-learning-note.html][elisp guide 学习笔记]]
+ * [[https://blog.geekinney.com/post/emacs-lisp-guide-learning-note.html][elisp guide 学习笔记]]
  * [[https://blog.geekinney.com/post/emacs-learning-note.html][emacs学习笔记]]
  * [[https://blog.geekinney.com/post/get-started-with-emacs.html][开始使用Emacs]]
  * [[https://blog.geekinney.com/post/listen-music-in-emacs.html][Emacs中使用mpd+mingus听音乐]]
