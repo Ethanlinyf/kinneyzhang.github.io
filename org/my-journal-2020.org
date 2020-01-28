@@ -1,6 +1,6 @@
  #+TITLE: journal 2020
 #+DATE: 2020-01-19
-#+STARTUP: content
+#+STARTUP: overview
 #+OPTIONS: toc:t H:2 num:nil
 
 * Monday, 27 January 2020
