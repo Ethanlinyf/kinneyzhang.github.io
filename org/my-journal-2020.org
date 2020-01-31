@@ -1,3 +1,4 @@
+
  #+TITLE: journal 2020
 #+DATE: 2020-01-19
 #+STARTUP: overview
@@ -18,8 +19,9 @@
 **** 今天做了些什么？
      下午终于回到了御景城。做了晚饭，炒土豆和香肠。饭后用豆浆机榨了猕猴桃汁。晚上看《将夜》。
 
-     #+ATTR_HTML :width 600
-     [[../static/img/IMG_3923.png]]
+     #+ATTR_HTML: :width 800
+     #+ATTR_ORG: :width 600
+     [[../static/img/kiwi-fruit-juice.png]]
 
 **** 今天有什么值得夸奖自己的地方？（鼓励）
      用豆浆机榨了猕猴桃汁，慢慢铺垫自己的烹饪美食之路。
