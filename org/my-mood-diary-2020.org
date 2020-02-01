@@ -15,8 +15,8 @@
 图片测试：
 #+begin_export html
 <div>
-  <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/blog-img/test1.jpg"/>
-  <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/blog-img/test2.jpg"/>
+  <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/blog-img/test1.jpg" alt="test1"/>
+  <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/blog-img/test2.jpg" alt="test1"/>
 </div>
 #+end_export
 -----
