@@ -13,4 +13,10 @@
 2年前买的kindle，放在宿舍吃灰了很久，寒假心血来潮的重新拿起便[[https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html][重拾了阅读]]这件事情。
 
 图片测试：
+#+begin_export html
+<div>
+  <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/blog-img/test1.jpg"/>
+  <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/blog-img/test2.jpg"/>
+</div>
+#+end_export
 -----
