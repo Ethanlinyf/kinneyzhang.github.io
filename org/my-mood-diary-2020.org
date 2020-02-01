@@ -1,22 +1,12 @@
-#+TITLE: 随想
+#+TITLE: 随想笔记
 #+DATE: 2020-02-01
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2
-
 -----
 *2020-02-01 21:20:46*
 
-这是一篇测试用的随想，类似于说说，记录分享心情与生活。
+写日记有很长一段时间了，一直有个问题困扰着我：有时晚间总结觉得没什么可写，有时又怀疑日记流于形式。今天想明白了这个问题。并非没有内容可写，只是在反思之前没给自己营造一个静心思考的环境。
 
-测试内容：2019接近尾声，这一年充满了选择与变化，虽然过程曲折但还算充实。我也慢慢的朝着自己想要的状态去走，有些慢，但没偏离轨迹。
-回顾2019，顺利毕业，完整读了6本书，听了许多播客，搭建了自己的博客网站，尝试hack emacs，养成了一些好的习惯。最开心的是更加的了解自己，知道如何和自己相处。
-2年前买的kindle，放在宿舍吃灰了很久，寒假心血来潮的重新拿起便[[https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html][重拾了阅读]]这件事情。
-
-图片测试：
-#+begin_export html
-<table><tr>
-<td><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/blog-img/GTDcanonical.png?q-sign-algorithm=sha1&q-ak=AKID53pOK2zAA0d7OSBJNI9GE1rZMurenlcP&q-sign-time=1580568134;1580575334&q-key-time=1580568134;1580575334&q-header-list=&q-url-param-list=&q-signature=b37be9ffd982b3294b12794aa295818ab33452fe" alt="test1"/></td>
-<td><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/blog-img/GTDcanonical.png?q-sign-algorithm=sha1&q-ak=AKID53pOK2zAA0d7OSBJNI9GE1rZMurenlcP&q-sign-time=1580568134;1580575334&q-key-time=1580568134;1580575334&q-header-list=&q-url-param-list=&q-signature=b37be9ffd982b3294b12794aa295818ab33452fe" alt="test1"/></td>
-</tr></table>
-#+end_export
+我定时9:30进行反思总结，然后洗漱上床。然而9:30到时，大多数时候手头正忙着事情，这时立刻转换思路去反思显然不能静心。这感觉就像”吃着锅里的，想着碗里的“。倘若换一下顺序，先洗漱，然后再进行总结反思便可很好的解决问题。
+事实上，躺在被窝里，抱着电脑写日总结的状态我很享受！事出皆有因，思考便可由果溯因。
 -----
