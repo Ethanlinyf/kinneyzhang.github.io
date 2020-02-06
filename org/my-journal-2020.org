@@ -1,5 +1,4 @@
-
- #+TITLE: journal 2020
+#+TITLE: journal 2020
 #+DATE: 2020-01-19
 #+STARTUP: overview
 #+OPTIONS: toc:t H:2 num:nil

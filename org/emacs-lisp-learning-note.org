@@ -1,6 +1,6 @@
+#+TITLE: elisp学习笔记
 #+STARTUP: content indent
 #+OPTIONS: H:3 num:3 toc:3
-#+TITLE: elisp学习笔记
 #+DATE: 2019-11-12
 
 原文参考： [[http://caiorss.github.io/Emacs-Elisp-Programming/Elisp_Programming.html][Elisp Programming]]
