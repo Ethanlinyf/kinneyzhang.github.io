@@ -1,3 +1,8 @@
+#preamble p {
+    font-size: 100%;
+    margin: 0;
+}
+
 p{
     font-size: 15px;
 }
