@@ -4,7 +4,7 @@
 #+OPTIONS: toc:nil H:1 num:1
 
 * SSR节点
-** *IP*: 124.156.176.145
+** *IP*: 119.28.186.136
 ** *Port*: 673
 
 * Emacs
