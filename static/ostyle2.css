@@ -131,7 +131,6 @@ h6 {
     display: flex;
 }
 
-.img-row img{
-    margin: 3px;
-    object-fit: cover;
+.img-row div{
+    padding: 3px;
 }
