@@ -24,7 +24,7 @@
 <table>
   <tbody>
     <tr>
-      <td><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/IMG_6637.png" alt="test1"></td>
+      <td><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg" alt="test1"></td>
       <td><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg" alt="test2"></td>
     </tr>
   </tbody>
