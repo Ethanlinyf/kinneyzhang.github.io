@@ -130,3 +130,7 @@ h6 {
 .img-row div {
     display: inline;
 }
+
+.img-container {
+    object-fit: cover;
+}
