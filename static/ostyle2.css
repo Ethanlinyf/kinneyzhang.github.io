@@ -121,23 +121,14 @@ h6 {
     padding-top: 75%;
 }
 
-.container{
-    display: flex;
-    flex-flow:column nowrap;
-    width: 100%;/*任意改变长宽*/
-    height: 100%;
-    background:#ccc;
+.img-container {
+    background-color: white;
+    border: 1px solid grey;
+    padding: 4px;
+}
 
+.img-container img {
+    height: 100%;
+    width:100%;
+    object-fit: cover;
 }
-.parent{
-    display: flex;
-    flex-flow:row nowrap;
-    flex:1 1 0;/*元素弹性*/
-    text-align: center;
-}
-.container .parent:first-child{margin-bottom: 10px;}
-.item{
-    flex:1 1 0;/*元素弹性*/
-    background: green;
-}
-.parent .item:first-child{margin-right: 10px;}
