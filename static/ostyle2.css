@@ -123,8 +123,10 @@ h6 {
 
 .img-container{
     /*将图片容器设置为相对定位，作为图片定位的参照*/
-    position: relative;
     border:2px solid grey;
+}
+.img-container li{
+    display: inline-block;
 }
 .img-container img{
     width: 100%;

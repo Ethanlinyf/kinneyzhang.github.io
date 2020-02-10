@@ -21,9 +21,9 @@
 测试图片显示: 并排多个图片和九宫格图片显示。
 
 #+begin_export html
-<div class="img-container">
-  <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg" alt="test1">
-  <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg" alt="test2">
-</div>
+<ul class="img-container">
+  <li><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg" alt="test1"></li>
+  <li><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg" alt="test2"></li>
+</ul>
 #+end_export
 -----
