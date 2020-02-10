@@ -22,7 +22,6 @@
 *标签分类*
 
 =记录=
- * [[https://blog.geekinney.com/post/habit-recording.html][2020习惯培养记录]]
  * [[https://blog.geekinney.com/post/at-the-end-of-2019.html][去你的2019，来我的2020]]
  * [[https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html][记我的博客折腾经历]]
 
