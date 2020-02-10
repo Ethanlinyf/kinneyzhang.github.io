@@ -16,3 +16,18 @@
 
 除了家人外，任何其他的人没有义务关心照顾自己。所以对待别人的好意定要记在心里，投桃报李。不要把别人对自己的关心当作理所当然，这是做人最起码的要求。
 -----
+*2020-02-10 12:20:49*
+
+测试图片显示: 并排多个图片和九宫格图片显示。
+
+#+begin_export html
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/IMG_6637.png" alt="test1"></td>
+      <td><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg" alt="test2"></td>
+    </tr>
+  </tbody>
+</table>
+#+end_export
+-----
