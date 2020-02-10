@@ -127,11 +127,8 @@ h6 {
     padding: 5px 0;
 }
 
-.img-container div {
-    display: inline;
-}
-
 .img-container img {
+    display: inline;
     /* height: 100%; */
     /* width:100%; */
     margin: 5px;
