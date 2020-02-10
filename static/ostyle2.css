@@ -124,7 +124,7 @@ h6 {
 .img-container {
     background-color: white;
     border: 1px solid grey;
-    padding: 5px;
+    padding: 2px;
 }
 
 .img-row {
@@ -132,8 +132,6 @@ h6 {
 }
 
 .img-row img{
-    margin: 2px;
+    margin: 3px;
     object-fit: cover;
-    width: 100%;
-    height: 100%;
 }
