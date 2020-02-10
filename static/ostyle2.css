@@ -133,11 +133,11 @@ h6 {
     /*超出图片容器部分隐藏*/
     overflow: hidden;
     /*显示图片容器边框*/
-    border:1px solid red;
+    border:1px solid grey;
 }
 .img-container img{
     /*设置图片为绝对定位，相对于图片容器定位*/
-    position: absolute;
+    position: relative;
     /*距离图片容器顶部和左边位置为0*/
     top:0;
     left: 0;
