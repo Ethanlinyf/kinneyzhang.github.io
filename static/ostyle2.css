@@ -127,6 +127,10 @@ h6 {
     padding: 6px;
 }
 
+.img-container div {
+    display: inline;
+}
+
 .img-container img {
     height: 100%;
     width:100%;
