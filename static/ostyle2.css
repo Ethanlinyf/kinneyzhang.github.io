@@ -124,9 +124,6 @@ h6 {
 .img-container{
     /*将图片容器设置为相对定位，作为图片定位的参照*/
     position: relative;
-    padding-bottom: 20%;
-    height: 0;
-    /*显示图片容器边框*/
     border:2px solid grey;
 }
 .img-container img{
