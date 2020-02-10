@@ -127,8 +127,8 @@ h6 {
     padding: 5px;
 }
 
-.img-row div {
-    display: inline;
+.img-row {
+    display: flex;
 }
 
 .img-container img{
