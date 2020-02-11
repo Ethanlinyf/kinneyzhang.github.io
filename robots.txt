@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /org/
+Disallow: /code/
+Disallow: /post/habit-recording-*.html
+Disallow: /post/my-mood-diary-*.html
+Sitemap: https://blog.geekinney.com/post/sitemap.html
