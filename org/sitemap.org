@@ -1,4 +1,4 @@
-#+TITLE: Geekinney Blog
+#+TITLE: Sitemap for project geekblog
 
 - [[file:index.org][Geekinney Blog]]
 - [[file:habit-recording-2020.org][2020习惯培养记录]]
