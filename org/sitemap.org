@@ -11,7 +11,6 @@
 - [[file:emacs-lisp-learning-note.org][elisp学习笔记]]
 - [[file:reading-notes-of-getting-things-done-one.org][搞定I：无压生活的艺术]]
 - [[file:videos-collection.org][视频收藏]]
-- [[file:something-you-should-know-about-insurance.org][关于保险，每个人都该知道的常识]]
 - [[file:reading-notes-of-bullet-journal.org][《子弹笔记》要点]]
 - [[file:reading-notes-of-how-to-read-a-book-efficiently.org][如何有效阅读一本书]]
 - [[file:reading-notes-of-STORY.org][故事：材质、结构、风格和银幕剧作的原理]]

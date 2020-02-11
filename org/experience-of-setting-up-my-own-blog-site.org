@@ -25,8 +25,9 @@
 OrgMode的 =org-publish= 原生支持批量org文件导出为HTML和添加导出样式，这使得基于org-mode搭建博客成为可能。最终的折腾效果见https://blog.geekinney.com。
 
 更新：
- * 20191204增加disqus评论系统，需要科学上网才能使用。
- * 20191215增加google analysis，分析网站数据流量。
- * 20200103实现对disqus的lazyload，提高网站访问速度。
- * 20200121使用valine代替disqus，国内可访问。
- * 20200210本地加载highlight.min.js和Valine.min.js并将js放在页面底部，大大提高网站访问速度。
+ * 20191204:增加disqus评论系统，需要科学上网才能使用。
+ * 20191215:增加google analysis，分析网站数据流量。
+ * 20200103:实现对disqus的lazyload，提高网站访问速度。
+ * 20200121:使用valine代替disqus，国内可访问。
+ * 20200210:本地加载highlight.min.js和Valine.min.js并将js放在页面底部，大大提高网站访问速度。
+ * 20200211:SEO优化，增加sitemap和robots.txt。
