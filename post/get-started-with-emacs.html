@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 01:38 -->
+<!-- 2020-02-14 Fri 01:44 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Get Started With Emacs</title>
@@ -260,30 +260,6 @@ for the JavaScript code in this tag.
 <span href="/post/index.html">Geekinney Blog</span>
 <button onclick="switchTheme()">切换主题</button>
 </div>
-
-<script>
-$(document).ready(function(){
-if(!sessionStorage.getItem("theme")){
-sessionStorage.setItem("theme","light");
-}else{
-var theme = sessionStorage.getItem("theme");
-var theme_css = "/static/" + theme + ".css";
-document.getElementById("pagestyle").setAttribute("href",theme_css);
-}});
-
-var flag = true;
-function switchTheme(){
-if(flag){
-document.getElementById("pagestyle").setAttribute("href","/static/dark.css");
-sessionStorage.setItem("theme","dark");
-flag=false;
-}else{
-document.getElementById("pagestyle").setAttribute("href","/static/light.css");
-sessionStorage.setItem("theme","light");
-flag=true;
-}};
-</script>
-
 <div class="topnav">
 <a href="/post/index.html"> Home </a>&nbsp;|&nbsp;
 <a href="/post/bookmark.html"> 链接收藏 </a>&nbsp;|&nbsp;
@@ -470,6 +446,29 @@ placeholder: '留下你的评论吧～'
 <p class="author">Author: Kinney Zhang (<a href="mailto:kinneyzhang666@gmail.com">kinneyzhang666@gmail.com</a>)</p>
 <p class="date">Date: 2019-08-18</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)</p>
+
+<script>
+$(document).ready(function(){
+if(!sessionStorage.getItem("theme")){
+sessionStorage.setItem("theme","light");
+}else{
+var theme = sessionStorage.getItem("theme");
+var theme_css = "/static/" + theme + ".css";
+document.getElementById("pagestyle").setAttribute("href",theme_css);
+}});
+
+var flag = true;
+function switchTheme(){
+if(flag){
+document.getElementById("pagestyle").setAttribute("href","/static/dark.css");
+sessionStorage.setItem("theme","dark");
+flag=false;
+}else{
+document.getElementById("pagestyle").setAttribute("href","/static/light.css");
+sessionStorage.setItem("theme","light");
+flag=true;
+}};
+</script>
 </div>
 </body>
 </html>
