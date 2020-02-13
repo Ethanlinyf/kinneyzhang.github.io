@@ -136,13 +136,10 @@ h6 {
 }
 
 /* dark mode */
-
-
-
 body {
     background-color: RGB(26,26,26);
     color: RGB(213,213,213);
-    font: KaiTi;
+    font-family: KaiTi;
 }
 
 a {
@@ -156,7 +153,3 @@ a:hover {
 pre {
     border: 1px dotted RGB(213,213,213);
 }
-
-/* code { */
-/*     c */
-/* } */
