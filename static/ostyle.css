@@ -3,7 +3,7 @@ html {
     /* font-family: sans-serif; */
     line-height: 1.15;
     -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -11,128 +11,129 @@ body {
 }
 
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary {
-    display: block
+    display: block;
 }
 
 audio,canvas,progress,video {
-    display: inline-block
+    display: inline-block;
 }
 
 audio:not([controls]) {
     disp2lay: none;
-    height: 0
+    height: 0;
 }
 
 progress {
     vertical-align: baseline
 }[hidden],template {
-    display: none
+    display: none;
 }
 
 a {
     background-color: transparent;
-    -webkit-text-decoration-skip: objects
+    -webkit-text-decoration-skip: objects;
 }
 
 a:active,a:hover {
-    outline-width: 0
+    outline-width: 0;
+    color: RGB(25,169,251);
 }
 
 abbr[title] {
     border-bottom: none;
     text-decoration: underline;
-    text-decoration: underline dotted
+    text-decoration: underline dotted;
 }
 
 b,strong {
     font-weight: inherit;
-    font-weight: bolder
+    font-weight: bolder;
 }
 
 dfn {
-    font-style: italic
+    font-style: italic;
 }
 
 h1 {
     font-size: 2em;
-    margin: .67em 0
+    margin: .67em 0;
 }
 
 mark {
     background-color: #ff0;
-    color: #000
+    color: #000;
 }
 
 small {
-    font-size: 80%
+    font-size: 80%;
 }
 
 sub,sup {
     font-size: 75%;
     line-height: 0;
     position: relative;
-    vertical-align: baseline
+    vertical-align: baseline;
 }
 
 sub {
-    bottom: -.25em
+    bottom: -.25em;
 }
 
 sup {
-    top: -.5em
+    top: -.5em;
 }
 
 img {
-    border-style: none
+    border-style: none;
 }
 
 svg:not(:root) {
-    overflow: hidden
+    overflow: hidden;
 }
 
 code,kbd,pre,samp {
     font-family: monospace,monospace;
-    font-size: 1em
+    font-size: 1em;
 }
 
 figure {
-    margin: 1em 40px
+    margin: 1em 40px;
 }
 
 hr {
     box-sizing: content-box;
     height: 0;
-    overflow: visible
+    overflow: visible;
 }
 
 button,input,optgroup,select,textarea {
     font: inherit;
-    margin: 0
+    margin: 0;
 }
 
 optgroup {
-    font-weight: 700
+    font-weight: 700;
 }
 
 button,input {
-    overflow: visible
+    overflow: visible;
 }
 
 button,select {
     text-transform: none
 }[type=reset],[type=submit],button,html [type=button] {
-    -webkit-appearance: button
+    -webkit-appearance: button;
 }[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner {
     border-style: none;
-    padding: 0
+    padding: 0;
 }[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring {
-    outline: 1px dotted ButtonText
+    outline: 1px dotted ButtonText;
 }
 
 fieldset {
     border: 1px solid silver;
     margin: 0 2px;
-    padding: .35em .625em .75em
+    padding: .35em .625em .75em;
 }
 
 legend {
@@ -141,343 +142,343 @@ legend {
     display: table;
     max-width: 100%;
     padding: 0;
-    white-space: normal
+    white-space: normal;
 }
 
 textarea {
     overflow: auto
 }[type=checkbox],[type=radio] {
     box-sizing: border-box;
-    padding: 0
+    padding: 0;
 }[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button {
-    height: auto
+    height: auto;
 }[type=search] {
     -webkit-appearance: textfield;
     outline-offset: -2px
 }[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration {
-    -webkit-appearance: none
+    -webkit-appearance: none;
 }
 
 ::-webkit-input-placeholder {
     color: inherit;
-    opacity: .54
+    opacity: .54;
 }
 
 ::-webkit-file-upload-button {
     -webkit-appearance: button;
-    font: inherit
+    font: inherit;
 }
 
 body {
     color: #000;
-    background-color: #fff
+    background-color: #fff;
 }
 
 .org-alert-high {
     color: #ff8c00;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-alert-low {
-    color: #00008b
+    color: #00008b;
 }
 
 .org-alert-moderate {
     color: gold;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-alert-saved-fringe {
-    background-color: #f2f2f2
+    background-color: #f2f2f2;
 }
 
 .org-alert-trivial {
-    color: Dark purple
+    color: Dark purple;
 }
 
 .org-alert-urgent {
     color: red;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-anzu-match-1 {
     color: #000;
-    background-color: #7fffd4
+    background-color: #7fffd4;
 }
 
 .org-anzu-match-2 {
     color: #000;
-    background-color: #00ff7f
+    background-color: #00ff7f;
 }
 
 .org-anzu-match-3 {
     color: #000;
-    background-color: #ff0
+    background-color: #ff0;
 }
 
 .org-anzu-mode-line,.org-anzu-mode-line-no-match {
     color: #008b00;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-anzu-replace-highlight {
     color: #b0e2ff;
-    background-color: #cd00cd
+    background-color: #cd00cd;
 }
 
 .org-anzu-replace-to {
-    color: red
+    color: red;
 }
 
 .org-bbdb-field-name {
-    color: sienna
+    color: sienna;
 }
 
 .org-bbdb-name {
-    color: #00f
+    color: #00f;
 }
 
 .org-bbdb-organization {
-    color: #b22222
+    color: #b22222;
 }
 
 .org-beacon-fallback-background {
-    background-color: #000
+    background-color: #000;
 }
 
 .org-biblio-results-header {
     color: #483d8b;
     font-size: 150%;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-bold {
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-bold-italic {
     font-weight: 700;
-    font-style: italic
+    font-style: italic;
 }
 
 .org-bookmark-menu-bookmark {
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-bookmark-menu-heading {
-    color: #228b22
+    color: #228b22;
 }
 
 .org-buffer-menu-buffer {
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-builtin {
-    color: #483d8b
+    color: #483d8b;
 }
 
 .org-button {
     color: #3a5fcd;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 .org-c-annotation {
-    color: #008b8b
+    color: #008b8b;
 }
 
 .org-cal-china-x-general-holiday {
-    background-color: #228b22
+    background-color: #228b22;
 }
 
 .org-cal-china-x-important-holiday {
-    background-color: #8b0000
+    background-color: #8b0000;
 }
 
 .org-calendar-iso-week {
     color: pink;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-calendar-iso-week-header {
-    color: #0ff
+    color: #0ff;
 }
 
 .org-calendar-month-header {
-    color: #00f
+    color: #00f;
 }
 
 .org-calendar-today {
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 .org-calendar-weekday-header {
-    color: #008b8b
+    color: #008b8b;
 }
 
 .org-calendar-weekend-header {
-    color: #b22222
+    color: #b22222;
 }
 
 .org-comint-highlight-input {
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-comint-highlight-prompt {
-    color: #0000cd
+    color: #0000cd;
 }
 
 .org-comment,.org-comment-delimiter {
-    color: #b22222
+    color: #b22222;
 }
 
 .org-compilation-column-number {
-    color: #8b2252
+    color: #8b2252;
 }
 
 .org-compilation-error {
     color: red;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-compilation-info {
     color: #228b22;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-compilation-line-number {
-    color: #a020f0
+    color: #a020f0;
 }
 
 .org-compilation-mode-line-exit {
     color: #228b22;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-compilation-mode-line-fail {
     color: red;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-compilation-mode-line-run,.org-compilation-warning {
     color: #ff8c00;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-completions-annotations {
-    font-style: italic
+    font-style: italic;
 }
 
 .org-completions-first-difference {
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-constant {
-    color: #008b8b
+    color: #008b8b;
 }
 
 .org-cursor {
-    background-color: #eead0e
+    background-color: #eead0e;
 }
 
 .org-custom-button {
     color: #000;
-    background-color: #d3d3d3
+    background-color: #d3d3d3;
 }
 
 .org-custom-button-mouse {
     color: #000;
-    background-color: #e5e5e5
+    background-color: #e5e5e5;
 }
 
 .org-custom-button-pressed {
     color: #000;
-    background-color: #d3d3d3
+    background-color: #d3d3d3;
 }
 
 .org-custom-button-pressed-unraised {
     color: #8b008b;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 .org-custom-button-unraised {
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 .org-custom-changed {
     color: #fff;
-    background-color: #00f
+    background-color: #00f;
 }
 
 .org-custom-comment {
-    background-color: #d9d9d9
+    background-color: #d9d9d9;
 }
 
 .org-custom-comment-tag {
-    color: #00008b
+    color: #00008b;
 }
 
 .org-custom-face-tag {
     color: #00f;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-custom-group-subtitle {
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-custom-group-tag {
     color: #00f;
     font-size: 120%;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-custom-group-tag-1 {
     color: red;
     font-size: 120%;
-    font-weight: 700
+    font-weight: 700;
 }
 
 .org-custom-invalid {
     color: #ff0;
-    background-color: red
+    background-color: red;
 }
 
 .org-custom-link {
     color: #3a5fcd;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 .org-custom-modified {
     color: #fff;
-    background-color: #00f
+    background-color: #00f;
 }
 
 .org-custom-rogue {
     color: pink;
-    background-color: #000
+    background-color: #000;
 }
 
 .org-custom-saved {
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 .org-custom-set {
     color: #00f;
-    background-color: #fff
+    background-color: #fff;
 }
 
 .org-custom-state {
-    color: #006400
+    color: #006400;
 }
 
 .org-custom-themed {
     color: #fff;
-    background-color: #00f
+    background-color: #00f;
 }
 
 .org-custom-variable-button {
     font-weight: 700;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 .org-custom-variable-tag {
@@ -2336,38 +2337,38 @@ body {
 }
 
 .org-widget-field {
-    background-color: #d9d9d9
+    background-color: #d9d9d9;
 }
 
 .org-widget-inactive {
-    color: #7f7f7f
+    color: #7f7f7f;
 }
 
 .org-widget-single-line-field {
-    background-color: #d9d9d9
+    background-color: #d9d9d9;
 }
 
 .org-window-divider {
-    color: #999
+    color: #999;
 }
 
 .org-window-divider-first-pixel {
-    color: #ccc
+    color: #ccc;
 }
 
 .org-window-divider-last-pixel {
-    color: #666
+    color: #666;
 }
 
 a {
     color: inherit;
     background-color: inherit;
     font: inherit;
-    text-decoration: inherit
+    text-decoration: inherit;
 }
 
 a:hover {
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 body {
@@ -2375,38 +2376,38 @@ body {
     margin: 2% auto;
     font-size: 14px;
     line-height: 1.4em;
-    font-family: Georgia,serif;
-    color: #333
+    /* font-family: Georgia,serif; */
+    /* color: #333; */
 }
 
 @media screen and (min-width:600px) {
     body {
-	font-size: 18px
+	font-size: 18px;
     }
 }
 
 @media screen and (min-width:910px) {
     body {
-	width: 900px
+	width: 900px;
     }
 }
 
 ::selection {
-    background: #d6edff
+    background: #d6edff;
 }
 
 p {
-    margin: 1em auto
+    margin: 1em auto;
 }
 
 dl,ol,ul {
-    margin: 0 auto
+    margin: 0 auto;
 }
 
 .title {
     text-align: center;
     margin: .8em auto;
-    color: #000
+    color: #000;
 }
 
 .subtitle {
@@ -2414,105 +2415,105 @@ dl,ol,ul {
     font-size: 1.1em;
     line-height: 1.4;
     font-weight: 700;
-    margin: 1em auto
+    margin: 1em auto;
 }
 
 .abstract {
     margin: auto;
     width: 80%;
-    font-style: italic
+    font-style: italic;
 }
 
 .abstract p:last-of-type:before {
     content: "    ";
-    white-space: pre
+    white-space: pre;
 }
 
 .status {
     font-size: 90%;
-    margin: 2em auto
+    margin: 2em auto;
 }[class^=section-number-] {
-    margin-right: .5em
+    margin-right: .5em;
 }[id^=orgheadline] {
-    clear: both
+    clear: both;
 }
 
 #footnotes {
-    font-size: 90%
+    font-size: 90%;
 }
 
 .footpara {
     display: inline;
-    margin: .2em auto
+    margin: .2em auto;
 }
 
 .footdef {
-    margin-bottom: 1em
+    margin-bottom: 1em;
 }
 
 .footdef sup {
-    padding-right: .5em
+    padding-right: .5em;
 }
 
 a {
     color: #527d9a;
-    text-decoration: none
+    text-decoration: none;
 }
 
 a:hover {
     color: #035;
-    border-bottom: 1px dotted
+    border-bottom: 1px dotted;
 }
 
 figure {
     padding: 0;
     margin: 1em auto;
-    text-align: center
+    text-align: center;
 }
 
 img {
     max-width: 100%;
-    vertical-align: middle
+    vertical-align: middle;
 }
 
 .MathJax_Display {
     margin: 0!important;
-    width: 90%!important
+    width: 90%!important;
 }
 
 h1,h2,h3,h4,h5,h6 {
     color: #a5573e;
     line-height: 1em;
-    font-family: Helvetica,sans-serif
+    font-family: Helvetica,sans-serif;
 }
 
 h1,h2,h3 {
-    line-height: 1.4em
+    line-height: 1.4em;
 }
 
 h4,h5,h6 {
-    font-size: 1em
+    font-size: 1em;
 }
 
 @media screen and (min-width:600px) {
     h1 {
-	font-size: 2em
+	font-size: 2em;
     }
 
     h2 {
-	font-size: 1.5em
+	font-size: 1.5em;
     }
 
     h3 {
-	font-size: 1.3em
+	font-size: 1.3em;
     }
 
     h1,h2,h3 {
-	line-height: 1.4em
+	line-height: 1.4em;
     }
 
     h4,h5,h6 {
-	font-size: 1.1em
+	font-size: 1.1em;
     }
 }
 
@@ -2524,24 +2525,24 @@ table {
     margin: 1em auto;
     border-top: 2px solid;
     border-bottom: 2px solid;
-    border-collapse: collapse
+    border-collapse: collapse;
 }
 
 thead {
-    border-bottom: 2px solid
+    border-bottom: 2px solid;
 }
 
 table td+td,table th+th {
-    border-left: 1px solid grey
+    border-left: 1px solid grey;
 }
 
 table tr {
-    border-top: 1px solid #d3d3d3
+    border-top: 1px solid #d3d3d3;
 }
 
 td,th {
     padding: .3em .6em;
-    vertical-align: middle
+    vertical-align: middle;
 }
 
 caption.t-above {
@@ -2553,40 +2554,40 @@ caption.t-bottom {
 }
 
 caption {
-    margin-bottom: .3em
+    margin-bottom: .3em;
 }
 
 figcaption {
-    margin-top: .3em
+    margin-top: .3em;
 }
 
 th.org-center,th.org-left,th.org-right {
-    text-align: center
+    text-align: center;
 }
 
 td.org-right {
-    text-align: right
+    text-align: right;
 }
 
 td.org-left {
-    text-align: left
+    text-align: left;
 }
 
 td.org-center {
-    text-align: center
+    text-align: center;
 }
 
 blockquote {
     margin: 1em 2em;
     padding-left: 1em;
-    border-left: 3px solid #ccc
+    border-left: 3px solid #ccc;
 }
 
 kbd {
     background-color: #f7f7f7;
     font-size: 80%;
     margin: 0 .1em;
-    padding: .1em .6em
+    padding: .1em .6em;
 }
 
 .todo {
@@ -2597,7 +2598,7 @@ kbd {
     background-clip: padding-box;
     font-size: 80%;
     font-family: Lucida Console,monospace;
-    line-height: 1
+    line-height: 1;
 }
 
 .done {
@@ -2608,22 +2609,22 @@ kbd {
     background-clip: padding-box;
     font-size: 80%;
     font-family: Lucida Console,monospace;
-    line-height: 1
+    line-height: 1;
 }
 
 .priority {
     color: orange;
-    font-family: Lucida Console,monospace
+    font-family: Lucida Console,monospace;
 }
 
 #table-of-contents li {
-    clear: both
+    clear: both;
 }
 
 .tag {
     font-family: Lucida Console,monospace;
     font-size: .7em;
-    font-weight: 400
+    font-weight: 400;
 }
 
 .tag span {
@@ -2635,47 +2636,47 @@ kbd {
     background-clip: padding-box;
     color: #333;
     background-color: #eee;
-    line-height: 1
+    line-height: 1;
 }
 
 .timestamp {
     color: #bebebe;
-    font-size: 90%
+    font-size: 90%;
 }
 
 .timestamp-kwd {
-    color: #5f9ea0
+    color: #5f9ea0;
 }
 
 .org-right {
     margin-left: auto;
     margin-right: 0;
-    text-align: right
+    text-align: right;
 }
 
 .org-left {
     margin-left: 0;
     margin-right: auto;
-    text-align: left
+    text-align: left;
 }
 
 .org-center {
     margin-left: auto;
     margin-right: auto;
-    text-align: center
+    text-align: center;
 }
 
 .underline {
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 #postamble p,#preamble p {
     font-size: 90%;
-    margin: .2em
+    margin: .2em;
 }
 
 p.verse {
-    margin-left: 3%
+    margin-left: 3%;
 }
 
 :not(pre)>code {
@@ -2685,7 +2686,7 @@ p.verse {
     border-radius: 3px;
     /* background-clip: padding-box; */
     /* color: #333; */
-    font-size: 80%
+    font-size: 80%;
 }
 
 pre {
@@ -2709,7 +2710,7 @@ pre code {
     font-size: 100%;
     margin: 1em auto;
     padding: .1em 0;
-    position: relative
+    position: relative;
 }
 
 .org-src-container>pre {
@@ -2725,315 +2726,315 @@ pre code {
     top: 0;
     right: 0;
     /* color: #fff; */
-    font-size: 80%
+    font-size: 80%;
 }
 
 .org-src-container>pre.src-sh:before {
-    content: "sh"
+    content: "sh";
 }
 
 .org-src-container>pre.src-bash:before {
-    content: "bash"
+    content: "bash";
 }
 
 .org-src-container>pre.src-emacs-lisp:before {
-    content: "Emacs Lisp"
+    content: "Emacs Lisp";
 }
 
 .org-src-container>pre.src-R:before {
-    content: "R"
+    content: "R";
 }
 
 .org-src-container>pre.src-cpp:before {
-    content: "C++"
+    content: "C++";
 }
 
 .org-src-container>pre.src-c:before {
-    content: "C"
+    content: "C";
 }
 
 .org-src-container>pre.src-html:before {
-    content: "HTML"
+    content: "HTML";
 }
 
 .org-src-container>pre.src-javascript:before,.org-src-container>pre.src-js:before {
-    content: "Javascript"
+    content: "Javascript";
 }//More languages 0% http://orgmode.org/worg/org-contrib/babel/languages.html .org-src-container>pre.src-abc:before {
-    content: "ABC"
+    content: "ABC";
 }
 
 .org-src-container>pre.src-asymptote:before {
-    content: "Asymptote"
+    content: "Asymptote";
 }
 
 .org-src-container>pre.src-awk:before {
-    content: "Awk"
+    content: "Awk";
 }
 
 .org-src-container>pre.src-C:before {
-    content: "C"
+    content: "C";
 }
 
 .org-src-container>pre.src-calc:before {
-    content: "Calc"
+    content: "Calc";
 }
 
 .org-src-container>pre.src-clojure:before {
-    content: "Clojure"
+    content: "Clojure";
 }
 
 .org-src-container>pre.src-comint:before {
-    content: "comint"
+    content: "comint";
 }
 
 .org-src-container>pre.src-css:before {
-    content: "CSS"
+    content: "CSS";
 }
 
 .org-src-container>pre.src-D:before {
-    content: "D"
+    content: "D";
 }
 
 .org-src-container>pre.src-ditaa:before {
-    content: "Ditaa"
+    content: "Ditaa";
 }
 
 .org-src-container>pre.src-dot:before {
-    content: "Dot"
+    content: "Dot";
 }
 
 .org-src-container>pre.src-ebnf:before {
-    content: "ebnf"
+    content: "ebnf";
 }
 
 .org-src-container>pre.src-forth:before {
-    content: "Forth"
+    content: "Forth";
 }
 
 .org-src-container>pre.src-F90:before {
-    content: "Fortran"
+    content: "Fortran";
 }
 
 .org-src-container>pre.src-gnuplot:before {
-    content: "Gnuplot"
+    content: "Gnuplot";
 }
 
 .org-src-container>pre.src-haskell:before {
-    content: "Haskell"
+    content: "Haskell";
 }
 
 .org-src-container>pre.src-io:before {
-    content: "Io"
+    content: "Io";
 }
 
 .org-src-container>pre.src-java:before {
-    content: "Java"
+    content: "Java";
 }
 
 .org-src-container>pre.src-latex:before {
-    content: "LaTeX"
+    content: "LaTeX";
 }
 
 .org-src-container>pre.src-ledger:before {
-    content: "Ledger"
+    content: "Ledger";
 }
 
 .org-src-container>pre.src-ly:before {
-    content: "Lilypond"
+    content: "Lilypond";
 }
 
 .org-src-container>pre.src-lisp:before {
-    content: "Lisp"
+    content: "Lisp";
 }
 
 .org-src-container>pre.src-makefile:before {
-    content: "Make"
+    content: "Make";
 }
 
 .org-src-container>pre.src-matlab:before {
-    content: "Matlab"
+    content: "Matlab";
 }
 
 .org-src-container>pre.src-max:before {
-    content: "Maxima"
+    content: "Maxima";
 }
 
 .org-src-container>pre.src-mscgen:before {
-    content: "Mscgen"
+    content: "Mscgen";
 }
 
 .org-src-container>pre.src-Caml:before {
-    content: "Objective"
+    content: "Objective";
 }
 
 .org-src-container>pre.src-octave:before {
-    content: "Octave"
+    content: "Octave";
 }
 
 .org-src-container>pre.src-org:before {
-    content: "Org"
+    content: "Org";
 }
 
 .org-src-container>pre.src-perl:before {
-    content: "Perl"
+    content: "Perl";
 }
 
 .org-src-container>pre.src-picolisp:before {
-    content: "Picolisp"
+    content: "Picolisp";
 }
 
 .org-src-container>pre.src-plantuml:before {
-    content: "PlantUML"
+    content: "PlantUML";
 }
 
 .org-src-container>pre.src-python:before {
-    content: "Python"
+    content: "Python";
 }
 
 .org-src-container>pre.src-ruby:before {
-    content: "Ruby"
+    content: "Ruby";
 }
 
 .org-src-container>pre.src-sass:before {
-    content: "Sass"
+    content: "Sass";
 }
 
 .org-src-container>pre.src-scala:before {
-    content: "Scala"
+    content: "Scala";
 }
 
 .org-src-container>pre.src-scheme:before {
-    content: "Scheme"
+    content: "Scheme";
 }
 
 .org-src-container>pre.src-screen:before {
-    content: "Screen"
+    content: "Screen";
 }
 
 .org-src-container>pre.src-sed:before {
-    content: "Sed"
+    content: "Sed";
 }
 
 .org-src-container>pre.src-shell:before {
-    content: "shell"
+    content: "shell";
 }
 
 .org-src-container>pre.src-shen:before {
-    content: "Shen"
+    content: "Shen";
 }
 
 .org-src-container>pre.src-sql:before {
-    content: "SQL"
+    content: "SQL";
 }
 
 .org-src-container>pre.src-sqlite:before {
-    content: "SQLite"
+    content: "SQLite";
 }
 
 .org-src-container>pre.src-stan:before {
-    content: "Stan"
+    content: "Stan";
 }
 
 .org-src-container>pre.src-vala:before {
-    content: "Vala"
+    content: "Vala";
 }
 
 .org-src-container>pre.src-axiom:before {
-    content: "Axiom"
+    content: "Axiom";
 }
 
 .org-src-container>pre.src-browser:before {
-    content: "HTML"
+    content: "HTML";
 }
 
 .org-src-container>pre.src-cypher:before {
-    content: "Neo4j"
+    content: "Neo4j";
 }
 
 .org-src-container>pre.src-elixir:before {
-    content: "Elixir"
+    content: "Elixir";
 }
 
 .org-src-container>pre.src-request:before {
-    content: "http"
+    content: "http";
 }
 
 .org-src-container>pre.src-ipython:before {
-    content: "iPython"
+    content: "iPython";
 }
 
 .org-src-container>pre.src-kotlin:before {
-    content: "Kotlin"
+    content: "Kotlin";
 }
 
 .org-src-container>pre.src-Flavored Erlang lfe:before {
-    content: "Lisp"
+    content: "Lisp";
 }
 
 .org-src-container>pre.src-mongo:before {
-    content: "MongoDB"
+    content: "MongoDB";
 }
 
 .org-src-container>pre.src-prolog:before {
-    content: "Prolog"
+    content: "Prolog";
 }
 
 .org-src-container>pre.src-rec:before {
-    content: "rec"
+    content: "rec";
 }
 
 .org-src-container>pre.src-ML sml:before {
-    content: "Standard"
+    content: "Standard";
 }
 
 .org-src-container>pre.src-Translate translate:before {
-    content: "Google"
+    content: "Google";
 }
 
 .org-src-container>pre.src-typescript:before {
-    content: "Typescript"
+    content: "Typescript";
 }
 
 .org-src-container>pre.src-rust:before {
-    content: "Rust"
+    content: "Rust";
 }
 
 .inlinetask {
     background: #ffc;
     border: 2px solid grey;
     margin: 10px;
-    padding: 10px
+    padding: 10px;
 }
 
 #org-div-home-and-up {
     font-size: 70%;
     text-align: right;
-    white-space: nowrap
+    white-space: nowrap;
 }
 
 .linenr {
-    font-size: 90%
+    font-size: 90%;
 }
 
 .code-highlighted {
-    background-color: #ff0
+    background-color: #ff0;
 }
 
 #bibliography {
-    font-size: 90%
+    font-size: 90%;
 }
 
 #bibliography table {
-    width: 100%
+    width: 100%;
 }
 
 .creator {
-    display: block
+    display: block;
 }
 
 @media screen and (min-width:600px) {
     .creator {
 	display: inline;
-	float: right
+	float: right;
     }
 }
