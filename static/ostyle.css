@@ -2683,13 +2683,13 @@ p.verse {
     border: 1px solid #ddd;
     border-radius: 3px;
     /* background-clip: padding-box; */
-    color: #333;
+    /* color: #333; */
     font-size: 80%
 }
 
 pre {
     font-size: 15px;
-    background-color: RGB(246,248,250);
+    /* background-color: RGB(246,248,250); */
     margin: 0;
     padding: 1em 1.5em;
     border: 0;

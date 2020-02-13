@@ -135,6 +135,10 @@ h6 {
     padding: 3px;
 }
 
+/* dark mode */
+
+
+
 body {
     background-color: RGB(26,26,26);
     color: RGB(213,213,213);
@@ -144,3 +148,14 @@ a {
     color: RGB(25,169,251);
 }
 
+a:hover {
+    color: RGB(25,169,251);
+}
+
+/* pre { */
+/*     background-color: RGB(26,26,26); */
+/* } */
+
+/* code { */
+/*     c */
+/* } */
