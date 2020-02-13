@@ -21,43 +21,18 @@
 
 测试图片显示: 并排多个图片和九宫格图片显示。
 
-#+begin_export html
-<div class="img-container">
-  <div class="img-row">
-    <a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg">
-      <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg" alt="test1">
-    </a>
-    <a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg">
-      <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg" alt="test2">
-    </a>
-    <a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg">
-      <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg" alt="test3">
-    </a>
-  </div>
-  <div class="img-row">
-    <a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg">
-      <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg" alt="test1">
-    </a>
-    <a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg">
-      <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg" alt="test2">
-    </a>
-    <a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg">
-      <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg" alt="test3">
-    </a>
-  </div>
-  <div class="img-row">
-    <a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg">
-      <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg" alt="test1">
-    </a>
-    <a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg">
-      <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg" alt="test2">
-    </a>
-    <a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg">
-      <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg" alt="test3">
-    </a>
-  </div>
-</div>
-#+end_export
+{{{org-img(3, 3, 
+("https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg"
+"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg"
+"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg"
+"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg" 
+"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg"
+"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg"
+"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg" 
+"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg"
+"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg")
+)}}}
+
 -----
 *2020-02-11 07:57:37*
 
@@ -89,5 +64,6 @@
 
 这是我第一次用油锅炸东西，蘑菇在油锅中吱吱响的声音真好听。这是第一步，未来会有更多的尝试。给自己定的小目标是今年的年夜饭我承包！
 
-{{{org-img(1,1,("https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/cook-20200212.png"))}}}
+{{{org-img(1,1,
+("https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/cook-20200212.png"))}}}
 -----
