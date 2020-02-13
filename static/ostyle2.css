@@ -90,6 +90,7 @@ h6 {
 }
 
 .toptitle span {
+    margin-top: 0;
     font-size: 200%;
     color: black;
 }
