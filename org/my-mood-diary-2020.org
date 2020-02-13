@@ -17,23 +17,6 @@
 
 除了家人外，任何其他的人没有义务关心照顾自己。所以对待别人的好意定要记在心里，投桃报李。不要把别人对自己的关心当作理所当然，这是做人最起码的要求。
 -----
-*2020-02-10 12:20:49*
-
-测试图片显示: 并排多个图片和九宫格图片显示。
-
-{{{org-img(3, 3, 
-("https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg"
-"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg"
-"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg"
-"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg" 
-"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg"
-"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg"
-"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg" 
-"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg"
-"https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg")
-)}}}
-
------
 *2020-02-11 07:57:37*
 
 难得的一个相对早起的早晨，之前很长一段时间陷入在不能自律的怪圈里，沉迷游戏，导致计划打断，习惯培养中断。抱着绝对不能让散漫成为生活的常态的决心，配合GTD，我决定放弃所有的习惯培养，目前只培养一个习惯：按照自己设定的时间节点做事。即：该学习时学习，该休息时休息，何时阅读，何时吃饭，何时跑步都按照计划来，切不可随性心欲。当然这种计划也是有可调空间的，毕竟人不是机器人。但这种可调空间也必须严格控制在一个范围内，因为一个计划的崩坏始于为自己找借口。
@@ -66,4 +49,58 @@
 
 {{{org-img(1,2,
 ("https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/cook-exam1.png"))}}}
+-----
+*2020-02-13 13:03:14*
+
+利用昨天下午几个小时和今天早上的时间，总算用orgmode的宏替换，折腾好了网格图片的显示，这样就不用在orgmode里面写大量的html了。而且宏替换还大有可为，期待进一步构思与开发。
+
+自己的elisp处理函数如下，折腾的过程中遇到了很多问题，一一解决，让我对elisp更加熟悉。
+
+#+BEGIN_SRC emacs-lisp
+(defun my/insert-html-tag-with-attr (tag single &optional attr)
+  "insert a html tag and some attributes at cursor point"
+  ;; (interactive "sinput tag name: \nsis single tag? [y or n]: ")
+  (if (eq nil single)
+      (progn
+	(insert (concat "<" tag ">" "</" tag ">"))
+	(backward-char (+ 4 (length tag)))
+	(mapcar (lambda (x) (insert (concat " " (car x) "=" "\"" (cadr x) "\""))) attr)
+	(forward-char 1)
+	)
+    (progn
+      (insert (concat "<" tag "/>"))
+      (backward-char 2)
+      (mapcar (lambda (x) (insert (concat " " (car x) "=" "\"" (cadr x) "\""))) attr)
+      (forward-char 2))))
+
+(defun my/org-grid-imag (row col ulist)
+  "insert imag in mood diary, use it as a macro"
+  (interactive)
+  (let ((row (string-to-number row))
+	(col (string-to-number col))
+	(ulist (read ulist)))
+    (with-temp-buffer
+      (insert "#+begin_export html\n \n#+end_export")
+      (backward-char 14)
+      (my/insert-html-tag-with-attr "div" nil '(("class" "img-container")))
+      (dotimes (i row)	
+	(my/insert-html-tag-with-attr "div" nil '(("class" "img-row")))
+	(dotimes (j col)
+	  (setq url (nth (+ j (* i col)) ulist))
+	  (my/insert-html-tag-with-attr "a" nil (list (list "href" url)))
+	  (my/insert-html-tag-with-attr "img" t (list (list "src" url)))
+	  (forward-char 4))
+	(forward-char 6))
+      (buffer-substring-no-properties (point-min) (point-max))
+      )
+    ))
+#+END_SRC
+
+
+#+begin_example
+orgmode文件开头宏定义：
+#+MACRO: org-img (eval (my/org-grid-imag $1 $2 $3))
+使用方法：
+{{{org-img(row,col,(url-list))}}}
+#+end_example
 -----

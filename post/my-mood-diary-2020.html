@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-13 Thu 13:01 -->
+<!-- 2020-02-13 Thu 13:11 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>随想笔记</title>
@@ -295,17 +295,6 @@ for the JavaScript code in this tag.
 </p>
 <hr>
 <p>
-<b>2020-02-10 12:20:49</b>
-</p>
-
-<p>
-测试图片显示: 并排多个图片和九宫格图片显示。
-</p>
-
-<div class="img-container"><div class="img-row"><a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg"><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg"/></a><a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg"><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg"/></a><a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg"><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg"/></a></div><div class="img-row"><a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg"><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg"/></a><a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg"><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg"/></a><a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg"><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg"/></a></div><div class="img-row"><a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg"><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/droplets_7-wallpaper-3840x2160.jpg"/></a><a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg"><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/beautiful_england_nature_countryside_scenery-wallpaper-3840x2160.jpg"/></a><a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg"><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/the_most_beautiful_road_in_the_world_2-wallpaper-3840x2160.jpg"/></a></div></div> 
-
-<hr>
-<p>
 <b>2020-02-11 07:57:37</b>
 </p>
 
@@ -356,6 +345,67 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="img-container"><div class="img-row"><a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/cook-exam1.png"><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/cook-exam1.png"/></a><a href=""><img src=""/></a></div></div> 
+<hr>
+<p>
+<b>2020-02-13 13:03:14</b>
+</p>
+
+<p>
+利用昨天下午几个小时和今天早上的时间，总算用orgmode的宏替换，折腾好了网格图片的显示，这样就不用在orgmode里面写大量的html了。而且宏替换还大有可为，期待进一步构思与开发。
+</p>
+
+<p>
+自己的elisp处理函数如下，折腾的过程中遇到了很多问题，一一解决，让我对elisp更加熟悉。
+</p>
+
+<div class="col-auto">
+<pre><code class="emacs-lisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">my/insert-html-tag-with-attr</span> (tag single <span style="color: #228b22;">&amp;optional</span> attr)
+  <span style="color: #8b2252;">"insert a html tag and some attributes at cursor point"</span>
+  <span style="color: #b22222;">;; </span><span style="color: #b22222;">(interactive "sinput tag name: \nsis single tag? [y or n]: ")</span>
+  (<span style="color: #a020f0;">if</span> (eq nil single)
+      (<span style="color: #a020f0;">progn</span>
+        (insert (concat <span style="color: #8b2252;">"&lt;"</span> tag <span style="color: #8b2252;">"&gt;"</span> <span style="color: #8b2252;">"&lt;/"</span> tag <span style="color: #8b2252;">"&gt;"</span>))
+        (backward-char (+ 4 (length tag)))
+        (mapcar (<span style="color: #a020f0;">lambda</span> (x) (insert (concat <span style="color: #8b2252;">" "</span> (car x) <span style="color: #8b2252;">"="</span> <span style="color: #8b2252;">"\""</span> (cadr x) <span style="color: #8b2252;">"\""</span>))) attr)
+        (forward-char 1)
+        )
+    (<span style="color: #a020f0;">progn</span>
+      (insert (concat <span style="color: #8b2252;">"&lt;"</span> tag <span style="color: #8b2252;">"/&gt;"</span>))
+      (backward-char 2)
+      (mapcar (<span style="color: #a020f0;">lambda</span> (x) (insert (concat <span style="color: #8b2252;">" "</span> (car x) <span style="color: #8b2252;">"="</span> <span style="color: #8b2252;">"\""</span> (cadr x) <span style="color: #8b2252;">"\""</span>))) attr)
+      (forward-char 2))))
+
+(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">my/org-grid-imag</span> (row col ulist)
+  <span style="color: #8b2252;">"insert imag in mood diary, use it as a macro"</span>
+  (<span style="color: #a020f0;">interactive</span>)
+  (<span style="color: #a020f0;">let</span> ((row (string-to-number row))
+        (col (string-to-number col))
+        (ulist (read ulist)))
+    (<span style="color: #a020f0;">with-temp-buffer</span>
+      (insert <span style="color: #8b2252;">"#+begin_export html\n \n#+end_export"</span>)
+      (backward-char 14)
+      (my/insert-html-tag-with-attr <span style="color: #8b2252;">"div"</span> nil '((<span style="color: #8b2252;">"class"</span> <span style="color: #8b2252;">"img-container"</span>)))
+      (<span style="color: #a020f0;">dotimes</span> (i row)  
+        (my/insert-html-tag-with-attr <span style="color: #8b2252;">"div"</span> nil '((<span style="color: #8b2252;">"class"</span> <span style="color: #8b2252;">"img-row"</span>)))
+        (<span style="color: #a020f0;">dotimes</span> (j col)
+          (<span style="color: #a020f0;">setq</span> url (nth (+ j (* i col)) ulist))
+          (my/insert-html-tag-with-attr <span style="color: #8b2252;">"a"</span> nil (list (list <span style="color: #8b2252;">"href"</span> url)))
+          (my/insert-html-tag-with-attr <span style="color: #8b2252;">"img"</span> t (list (list <span style="color: #8b2252;">"src"</span> url)))
+          (forward-char 4))
+        (forward-char 6))
+      (buffer-substring-no-properties (point-min) (point-max))
+      )
+    ))
+</code></pre>
+</div>
+
+
+<pre class="example">
+orgmode文件开头宏定义：
+#+MACRO: org-img (eval (my/org-grid-imag $1 $2 $3))
+使用方法：
+{{{org-img(row,col,(url-list))}}}
+</pre>
 <hr>
 </div>
 <div id="postamble" class="status">
