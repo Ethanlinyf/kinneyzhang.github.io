@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-13 Thu 23:42 -->
+<!-- 2020-02-13 Thu 23:50 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>关于大学计算机科学</title>
@@ -276,20 +276,20 @@ $(function (){
 if(!getCookie("theme")){
 var theme_css = document.getElementById("pagestyle").getAttribute("href")};
 var theme = theme_css.split("/")[2].split(".")[0];
-setCookie("theme" theme);
+setCookie("theme",theme);
 }
 var theme = getCookie("theme");
 var theme_css = "/static/" + theme + ".css";
 document.getElementById("pagestyle").setAttribute("href",theme_css)};
 })
 
-function switchTheme(){
 var flag = true;
+function switchTheme(){
 if(flag){
-setCookie("theme" "light");
+setCookie("theme","light");
 flag=false;
 }else{
-setCookie("theme" "dark");
+setCookie("theme","dark");
 flag=true;
 }
 </script>
