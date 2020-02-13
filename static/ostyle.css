@@ -981,59 +981,59 @@ textarea {
 }
 
 .org-help-argument-name {
-    font-style: italic
+    font-style: italic;
 }
 
 .org-highlight {
-    background-color: #b4eeb4
+    background-color: #b4eeb4;
 }
 
 .org-highlight-indent-guides-character {
-    color: #e6e6e6
+    color: #e6e6e6;
 }
 
 .org-highlight-indent-guides-even {
-    background-color: #e6e6e6
+    background-color: #e6e6e6;
 }
 
 .org-highlight-indent-guides-odd {
-    background-color: #f3f3f3
+    background-color: #f3f3f3;
 }
 
 .org-highlight-indent-guides-stack-character {
-    color: #ccc
+    color: #ccc;
 }
 
 .org-highlight-indent-guides-stack-even {
-    background-color: #ccc
+    background-color: #ccc;
 }
 
 .org-highlight-indent-guides-stack-odd {
-    background-color: #d9d9d9
+    background-color: #d9d9d9;
 }
 
 .org-highlight-indent-guides-top-character {
-    color: #b3b3b3
+    color: #b3b3b3;
 }
 
 .org-highlight-indent-guides-top-even {
-    background-color: #b3b3b3
+    background-color: #b3b3b3;
 }
 
 .org-highlight-indent-guides-top-odd {
-    background-color: silver
+    background-color: silver;
 }
 
 .org-highlight-numbers-number {
-    color: #008b8b
+    color: #008b8b;
 }
 
 .org-hl-line {
-    background-color: #b4eeb4
+    background-color: #b4eeb4;
 }
 
 .org-holiday {
-    background-color: pink
+    background-color: pink;
 }
 
 .org-hydra-face-amaranth {
