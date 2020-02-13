@@ -2369,13 +2369,13 @@ a:hover {
 body {
     width: 95%;
     margin: 2% auto;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.4em;
 }
 
 @media screen and (min-width:600px) {
     body {
-	font-size: 20px;
+	font-size: 18px;
     }
 }
 
