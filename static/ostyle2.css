@@ -2,14 +2,6 @@ p{
     font-size: 1.1em;
 }
 
-li {
-    font-size: 1.1em;
-}
-
-li a{
-    font-size: 1.1em;
-}
-
 h1 {
     /* background: #369 none repeat scroll 0 0; */
     font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -144,6 +136,7 @@ body {
 
 a {
     color: RGB(25,169,251);
+    font-size: 1em;
 }
 
 a:hover {
