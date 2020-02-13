@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 00:31 -->
+<!-- 2020-02-14 Fri 00:53 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>C++算法</title>
@@ -274,24 +274,22 @@ for the JavaScript code in this tag.
 <script>
 window.onload=function(){
 if(!getCookie("theme")){
-var theme_css = document.getElementById("pagestyle").getAttribute("href");
-var theme = theme_css.split("/")[2].split(".")[0];
-setCookie("theme",theme);
+setCookie("theme","/static/light.css");
 }else{
 var theme = getCookie("theme");
 var theme_css = "/static/" + theme + ".css";
 document.getElementById("pagestyle").setAttribute("href",theme_css);
 }};
 
-var flag = false;
+var flag = true;
 function switchTheme(){
 if(flag){
-setCookie("theme","light");
-location.reload();
+document.getElementById("pagestyle").setAttribute("href","/static/dark.css");
+setCookie("theme","dark");
 flag=false;
 }else{
-setCookie("theme","dark");
-location.reload();
+setCookie("theme","light");
+document.getElementById("pagestyle").setAttribute("href","/static/light.css");
 flag=true;
 }};
 </script>
