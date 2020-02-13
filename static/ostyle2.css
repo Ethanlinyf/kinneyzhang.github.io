@@ -127,6 +127,10 @@ h6 {
     padding: 3px;
 }
 
+#vcomments {
+    font-size: 1em;
+}
+
 /* dark mode */
 /* body { */
 /*     background-color: RGB(26,26,26); */
