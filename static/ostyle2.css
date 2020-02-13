@@ -135,3 +135,9 @@ h6 {
 .img-row a{
     padding: 3px;
 }
+
+body {
+    background-color: black;
+    color: white;
+}
+
