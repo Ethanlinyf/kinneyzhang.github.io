@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 00:05 -->
+<!-- 2020-02-14 Fri 00:10 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>链接收藏</title>
@@ -272,7 +272,7 @@ for the JavaScript code in this tag.
 <body>
 
 <script>
-$(document).ready(function(){
+window.onload=function(){
 if(!getCookie("theme")){
 var theme_css = document.getElementById("pagestyle").getAttribute("href");
 var theme = theme_css.split("/")[2].split(".")[0];
@@ -281,7 +281,7 @@ setCookie("theme",theme);
 var theme = getCookie("theme");
 var theme_css = "/static/" + theme + ".css";
 document.getElementById("pagestyle").setAttribute("href",theme_css);
-});
+};
 
 var flag = true;
 function switchTheme(){
