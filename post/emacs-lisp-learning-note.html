@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 00:53 -->
+<!-- 2020-02-14 Fri 01:10 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp学习笔记</title>
@@ -205,23 +205,6 @@ ga('create', 'UA-149578968-1', 'auto');
 ga('send', 'pageview');
 </script>
 <!-- End Google Analytics -->
-<script>
-function setCookie(name,value)
-{
-    var Days = 30;
-    var exp = new Date();
-    exp.setTime(exp.getTime() + Days*24*60*60*1000);
-    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
-}
-function getCookie(name) 
-{ 
-    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-    if(arr=document.cookie.match(reg))
-        return unescape(arr[2]);
-    else
-        return null;
-}
-</script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -295,10 +278,10 @@ for the JavaScript code in this tag.
 
 <script>
 window.onload=function(){
-if(!getCookie("theme")){
-setCookie("theme","/static/light.css");
+if(!sessionStorage.getItem("theme")){
+sessionStorage.setItem("theme","light");
 }else{
-var theme = getCookie("theme");
+var theme = sessionStorage.getItem("theme");
 var theme_css = "/static/" + theme + ".css";
 document.getElementById("pagestyle").setAttribute("href",theme_css);
 }};
@@ -307,11 +290,11 @@ var flag = true;
 function switchTheme(){
 if(flag){
 document.getElementById("pagestyle").setAttribute("href","/static/dark.css");
-setCookie("theme","dark");
+sessionStorage.setItem("theme","dark");
 flag=false;
 }else{
-setCookie("theme","light");
 document.getElementById("pagestyle").setAttribute("href","/static/light.css");
+sessionStorage.setItem("theme","light");
 flag=true;
 }};
 </script>
@@ -336,7 +319,7 @@ flag=true;
 <ul>
 <li><a href="#org97cac73">1. Elisp</a>
 <ul>
-<li><a href="#org09cea0e">1.1. 概览</a>
+<li><a href="#org3a323e6">1.1. 概览</a>
 <ul>
 <li><a href="#org5ead4e7">1.1.1. 运行emacs-lisp的几种方式</a></li>
 <li><a href="#org3831871">1.1.2. 创建命令（interactive函数）</a></li>
@@ -373,7 +356,7 @@ flag=true;
 <li><a href="#org2f1427d">1.7. 列表操作</a></li>
 <li><a href="#org08c3ecb">1.8. 关联列表和属性列表</a>
 <ul>
-<li><a href="#org3a323e6">1.8.1. 概览</a></li>
+<li><a href="#org849cd94">1.8.1. 概览</a></li>
 <li><a href="#org5723aa3">1.8.2. 关联列表/Alist</a></li>
 <li><a href="#orgfa6bfa7">1.8.3. 属性列表</a></li>
 <li><a href="#org8cd25be">1.8.4. 转换Alist成Plist和vice-versa</a></li>
@@ -402,10 +385,10 @@ flag=true;
 <li><a href="#org0618ecb">2.2. 宏</a></li>
 </ul>
 </li>
-<li><a href="#org6959d4b">3. Emacs API</a>
+<li><a href="#orgf694658">3. Emacs API</a>
 <ul>
 <li><a href="#orga6240ae">3.1. Emacs术语</a></li>
-<li><a href="#orgf7a8106">3.2. Emacs API</a></li>
+<li><a href="#org6959d4b">3.2. Emacs API</a></li>
 <li><a href="#org08dcf8f">3.3. Buffers</a>
 <ul>
 <li><a href="#org91e7131">3.3.1. Buffer Attributes</a></li>
@@ -497,8 +480,8 @@ flag=true;
 <h2 id="org97cac73"><span class="section-number-2">1</span> Elisp</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org09cea0e" class="outline-3">
-<h3 id="org09cea0e"><span class="section-number-3">1.1</span> 概览</h3>
+<div id="outline-container-org3a323e6" class="outline-3">
+<h3 id="org3a323e6"><span class="section-number-3">1.1</span> 概览</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
 <div id="outline-container-org5ead4e7" class="outline-4">
@@ -1697,8 +1680,8 @@ ELISP&gt;
 <h3 id="org08c3ecb"><span class="section-number-3">1.8</span> 关联列表和属性列表</h3>
 <div class="outline-text-3" id="text-1-8">
 </div>
-<div id="outline-container-org3a323e6" class="outline-4">
-<h4 id="org3a323e6"><span class="section-number-4">1.8.1</span> 概览</h4>
+<div id="outline-container-org849cd94" class="outline-4">
+<h4 id="org849cd94"><span class="section-number-4">1.8.1</span> 概览</h4>
 <div class="outline-text-4" id="text-1-8-1">
 <p>
 关联列表是一系列cons对，这里我可以称作 <code>clist</code> 或者 由两个元素组成的列表的集合，可以称为 <code>alist</code>
@@ -3965,8 +3948,8 @@ ELISP&gt;
 </div>
 </div>
 
-<div id="outline-container-org6959d4b" class="outline-2">
-<h2 id="org6959d4b"><span class="section-number-2">3</span> Emacs API</h2>
+<div id="outline-container-orgf694658" class="outline-2">
+<h2 id="orgf694658"><span class="section-number-2">3</span> Emacs API</h2>
 <div class="outline-text-2" id="text-3">
 </div>
 <div id="outline-container-orga6240ae" class="outline-3">
@@ -4059,8 +4042,8 @@ ELISP&gt;
 </p>
 </div>
 </div>
-<div id="outline-container-orgf7a8106" class="outline-3">
-<h3 id="orgf7a8106"><span class="section-number-3">3.2</span> Emacs API</h3>
+<div id="outline-container-org6959d4b" class="outline-3">
+<h3 id="org6959d4b"><span class="section-number-3">3.2</span> Emacs API</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 <b>API对象</b>

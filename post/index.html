@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 00:53 -->
+<!-- 2020-02-14 Fri 01:10 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Geekinney Blog</title>
@@ -205,23 +205,6 @@ ga('create', 'UA-149578968-1', 'auto');
 ga('send', 'pageview');
 </script>
 <!-- End Google Analytics -->
-<script>
-function setCookie(name,value)
-{
-    var Days = 30;
-    var exp = new Date();
-    exp.setTime(exp.getTime() + Days*24*60*60*1000);
-    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
-}
-function getCookie(name) 
-{ 
-    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-    if(arr=document.cookie.match(reg))
-        return unescape(arr[2]);
-    else
-        return null;
-}
-</script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -273,10 +256,10 @@ for the JavaScript code in this tag.
 
 <script>
 window.onload=function(){
-if(!getCookie("theme")){
-setCookie("theme","/static/light.css");
+if(!sessionStorage.getItem("theme")){
+sessionStorage.setItem("theme","light");
 }else{
-var theme = getCookie("theme");
+var theme = sessionStorage.getItem("theme");
 var theme_css = "/static/" + theme + ".css";
 document.getElementById("pagestyle").setAttribute("href",theme_css);
 }};
@@ -285,11 +268,11 @@ var flag = true;
 function switchTheme(){
 if(flag){
 document.getElementById("pagestyle").setAttribute("href","/static/dark.css");
-setCookie("theme","dark");
+sessionStorage.setItem("theme","dark");
 flag=false;
 }else{
-setCookie("theme","light");
 document.getElementById("pagestyle").setAttribute("href","/static/light.css");
+sessionStorage.setItem("theme","light");
 flag=true;
 }};
 </script>
