@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-11 Tue 16:36 -->
+<!-- 2020-02-13 Thu 22:35 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp学习笔记</title>
@@ -194,8 +194,7 @@
 
 <link rel="shortcut icon" href="/static/img/favicon.ico"/>
 <link rel="bookmark" href="/static/img/favicon.ico" type="image/x-icon"/>
-<link rel="stylesheet" type="text/css" href="/static/ostyle.css"/>
-<link rel="stylesheet" type="text/css" href="/static/ostyle2.css"/>
+<link id="pagestyle" rel="stylesheet" type="text/css" href="/static/light.css"/>
 <!-- Google Analytics -->
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -277,9 +276,13 @@ for the JavaScript code in this tag.
 </head>
 <body>
 
+<script>
+function switchTheme(e){document.getElementById("pagestyle").setAttribute("href",e)}
+</script>
 <div id="org-div-header">
 <div class="toptitle">
 <span href="/post/index.html">Geekinney Blog</span>
+<button style="margin-right:0;" onclick="switchTheme("/static/dark.css")">暗色主题</button>
 </div>
 <div class="topnav">
 <a href="/post/index.html"> Home </a>&nbsp;|&nbsp;
@@ -296,7 +299,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#org97cac73">1. Elisp</a>
 <ul>
-<li><a href="#orgabdfb5b">1.1. 概览</a>
+<li><a href="#org460cc9e">1.1. 概览</a>
 <ul>
 <li><a href="#org5ead4e7">1.1.1. 运行emacs-lisp的几种方式</a></li>
 <li><a href="#org3831871">1.1.2. 创建命令（interactive函数）</a></li>
@@ -333,7 +336,7 @@ for the JavaScript code in this tag.
 <li><a href="#org2f1427d">1.7. 列表操作</a></li>
 <li><a href="#org08c3ecb">1.8. 关联列表和属性列表</a>
 <ul>
-<li><a href="#orgf44e313">1.8.1. 概览</a></li>
+<li><a href="#orgb2fb3c2">1.8.1. 概览</a></li>
 <li><a href="#org5723aa3">1.8.2. 关联列表/Alist</a></li>
 <li><a href="#orgfa6bfa7">1.8.3. 属性列表</a></li>
 <li><a href="#org8cd25be">1.8.4. 转换Alist成Plist和vice-versa</a></li>
@@ -362,10 +365,10 @@ for the JavaScript code in this tag.
 <li><a href="#org0618ecb">2.2. 宏</a></li>
 </ul>
 </li>
-<li><a href="#orgee3548b">3. Emacs API</a>
+<li><a href="#org9a3c2a1">3. Emacs API</a>
 <ul>
 <li><a href="#orga6240ae">3.1. Emacs术语</a></li>
-<li><a href="#org315818e">3.2. Emacs API</a></li>
+<li><a href="#org3ae7f29">3.2. Emacs API</a></li>
 <li><a href="#org08dcf8f">3.3. Buffers</a>
 <ul>
 <li><a href="#org91e7131">3.3.1. Buffer Attributes</a></li>
@@ -457,8 +460,8 @@ for the JavaScript code in this tag.
 <h2 id="org97cac73"><span class="section-number-2">1</span> Elisp</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgabdfb5b" class="outline-3">
-<h3 id="orgabdfb5b"><span class="section-number-3">1.1</span> 概览</h3>
+<div id="outline-container-org460cc9e" class="outline-3">
+<h3 id="org460cc9e"><span class="section-number-3">1.1</span> 概览</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
 <div id="outline-container-org5ead4e7" class="outline-4">
@@ -1657,8 +1660,8 @@ ELISP&gt;
 <h3 id="org08c3ecb"><span class="section-number-3">1.8</span> 关联列表和属性列表</h3>
 <div class="outline-text-3" id="text-1-8">
 </div>
-<div id="outline-container-orgf44e313" class="outline-4">
-<h4 id="orgf44e313"><span class="section-number-4">1.8.1</span> 概览</h4>
+<div id="outline-container-orgb2fb3c2" class="outline-4">
+<h4 id="orgb2fb3c2"><span class="section-number-4">1.8.1</span> 概览</h4>
 <div class="outline-text-4" id="text-1-8-1">
 <p>
 关联列表是一系列cons对，这里我可以称作 <code>clist</code> 或者 由两个元素组成的列表的集合，可以称为 <code>alist</code>
@@ -3925,8 +3928,8 @@ ELISP&gt;
 </div>
 </div>
 
-<div id="outline-container-orgee3548b" class="outline-2">
-<h2 id="orgee3548b"><span class="section-number-2">3</span> Emacs API</h2>
+<div id="outline-container-org9a3c2a1" class="outline-2">
+<h2 id="org9a3c2a1"><span class="section-number-2">3</span> Emacs API</h2>
 <div class="outline-text-2" id="text-3">
 </div>
 <div id="outline-container-orga6240ae" class="outline-3">
@@ -4019,8 +4022,8 @@ ELISP&gt;
 </p>
 </div>
 </div>
-<div id="outline-container-org315818e" class="outline-3">
-<h3 id="org315818e"><span class="section-number-3">3.2</span> Emacs API</h3>
+<div id="outline-container-org3ae7f29" class="outline-3">
+<h3 id="org3ae7f29"><span class="section-number-3">3.2</span> Emacs API</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 <b>API对象</b>
