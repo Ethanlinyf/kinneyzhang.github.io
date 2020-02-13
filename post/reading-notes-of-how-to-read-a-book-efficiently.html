@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 01:10 -->
+<!-- 2020-02-14 Fri 01:21 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>如何有效阅读一本书</title>
@@ -195,6 +195,7 @@
 <link rel="shortcut icon" href="/static/img/favicon.ico"/>
 <link rel="bookmark" href="/static/img/favicon.ico" type="image/x-icon"/>
 <link id="pagestyle" rel="stylesheet" type="text/css" href="/static/light.css"/>
+<script src="/static/jQuery.min.js"></script>
 <!-- Google Analytics -->
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -255,14 +256,14 @@ for the JavaScript code in this tag.
 <body>
 
 <script>
-window.onload=function(){
+$(document).ready(function(){
 if(!sessionStorage.getItem("theme")){
 sessionStorage.setItem("theme","light");
 }else{
 var theme = sessionStorage.getItem("theme");
 var theme_css = "/static/" + theme + ".css";
 document.getElementById("pagestyle").setAttribute("href",theme_css);
-}};
+}});
 
 var flag = true;
 function switchTheme(){
