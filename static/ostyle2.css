@@ -127,22 +127,16 @@ h6 {
     padding: 3px;
 }
 
-/* dark mode */
-/* body { */
-/*     background-color: RGB(26,26,26); */
-/*     color: RGB(213,213,213); */
-/*     font-family: "楷体", "KaiTi", "华文楷体", "STKaiti"; */
-/* } */
-
-a {
-    color: RGB(25,169,251);
-    font-size: 1em;
-}
-
 a:hover {
     color: RGB(25,169,251);
 }
 
-pre {
-    border: 1px dotted RGB(213,213,213);
+/* dark mode */
+body {
+    background-color: RGB(26,26,26);
+    color: RGB(213,213,213);
+}
+
+a {
+    color: RGB(25,169,251);
 }

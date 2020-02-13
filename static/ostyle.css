@@ -6,6 +6,7 @@
 }
 
 body {
+    font-family: "楷体", "KaiTi", "华文楷体", "STKaiti";
     margin: 0
 }
 
@@ -2688,11 +2689,11 @@ p.verse {
 }
 
 pre {
-    font-size: 15px;
+    font-size: 1em;
+    border: 1px dotted RGB(213,213,213);
     /* background-color: RGB(246,248,250); */
-    margin: 0;
+    margin: 1em 0;
     padding: 1em 1.5em;
-    border: 0;
     box-shadow: 0 0 0;
 }
 
