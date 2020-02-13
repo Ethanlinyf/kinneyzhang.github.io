@@ -92,7 +92,6 @@ h6 {
 .toptitle span {
     margin-top: 0;
     font-size: 200%;
-    color: black;
 }
 
 .topnav {
@@ -138,6 +137,10 @@ h6 {
 
 body {
     background-color: RGB(26,26,26);
-    color: white;
+    color: RGB(213,213,213);
+}
+
+a {
+    color: RGB(25,169,251);
 }
 
