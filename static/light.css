@@ -3123,6 +3123,11 @@ h6 {
     font-size: 200%;
 }
 
+.toptitle button {
+    position: absolute;
+    right: 0;
+}
+
 .topnav {
     padding: 0.3em 0em;
     border-bottom: 1px dotted grey;
