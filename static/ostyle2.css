@@ -128,11 +128,11 @@ h6 {
 }
 
 /* dark mode */
-body {
-    background-color: RGB(26,26,26);
-    color: RGB(213,213,213);
-    font-family: "楷体", "KaiTi", "华文楷体", "STKaiti";
-}
+/* body { */
+/*     background-color: RGB(26,26,26); */
+/*     color: RGB(213,213,213); */
+/*     font-family: "楷体", "KaiTi", "华文楷体", "STKaiti"; */
+/* } */
 
 a {
     color: RGB(25,169,251);
