@@ -152,9 +152,9 @@ a:hover {
     color: RGB(25,169,251);
 }
 
-/* pre { */
-/*     background-color: RGB(26,26,26); */
-/* } */
+pre {
+    border: 1px dotted RGB(213,213,213);
+}
 
 /* code { */
 /*     c */
