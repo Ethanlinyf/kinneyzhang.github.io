@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-13 Thu 23:50 -->
+<!-- 2020-02-13 Thu 23:57 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>故事：材质、结构、风格和银幕剧作的原理</title>
@@ -274,14 +274,14 @@ for the JavaScript code in this tag.
 <script>
 $(function (){
 if(!getCookie("theme")){
-var theme_css = document.getElementById("pagestyle").getAttribute("href")};
+var theme_css = document.getElementById("pagestyle").getAttribute("href");
 var theme = theme_css.split("/")[2].split(".")[0];
 setCookie("theme",theme);
-}
+};
 var theme = getCookie("theme");
 var theme_css = "/static/" + theme + ".css";
-document.getElementById("pagestyle").setAttribute("href",theme_css)};
-})
+document.getElementById("pagestyle").setAttribute("href",theme_css);
+});
 
 var flag = true;
 function switchTheme(){
