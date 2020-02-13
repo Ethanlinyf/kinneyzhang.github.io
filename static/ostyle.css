@@ -1,4 +1,5 @@
-/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */html {
+/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+html {
     /* font-family: sans-serif; */
     line-height: 1.15;
     -ms-text-size-adjust: 100%;
@@ -6,7 +7,7 @@
 }
 
 body {
-    font-family: "楷体", "KaiTi", "华文楷体", "STKaiti";
+    margin: 0;
 }
 
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary {

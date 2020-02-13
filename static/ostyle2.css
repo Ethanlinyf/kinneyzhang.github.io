@@ -131,6 +131,10 @@ a:hover {
     color: RGB(25,169,251);
 }
 
+body {
+    font-family: "楷体","KaiTi","华文楷体","STKaiti";
+}
+
 /* dark mode */
 /* body { */
 /*     background-color: RGB(26,26,26); */
