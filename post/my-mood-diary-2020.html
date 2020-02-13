@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 01:21 -->
+<!-- 2020-02-14 Fri 01:34 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>随想笔记</title>
@@ -195,7 +195,7 @@
 <link rel="shortcut icon" href="/static/img/favicon.ico"/>
 <link rel="bookmark" href="/static/img/favicon.ico" type="image/x-icon"/>
 <link id="pagestyle" rel="stylesheet" type="text/css" href="/static/light.css"/>
-<script src="/static/jQuery.min.js"></script>
+<script async src="/static/jQuery.min.js"></script>
 <!-- Google Analytics -->
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -255,6 +255,12 @@ for the JavaScript code in this tag.
 </head>
 <body>
 
+<div id="org-div-header">
+<div class="toptitle">
+<span href="/post/index.html">Geekinney Blog</span>
+<button onclick="switchTheme()">切换主题</button>
+</div>
+
 <script>
 $(document).ready(function(){
 if(!sessionStorage.getItem("theme")){
@@ -278,11 +284,6 @@ flag=true;
 }};
 </script>
 
-<div id="org-div-header">
-<div class="toptitle">
-<span href="/post/index.html">Geekinney Blog</span>
-<button onclick="switchTheme()">切换主题</button>
-</div>
 <div class="topnav">
 <a href="/post/index.html"> Home </a>&nbsp;|&nbsp;
 <a href="/post/bookmark.html"> 链接收藏 </a>&nbsp;|&nbsp;
