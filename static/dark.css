@@ -3176,8 +3176,7 @@ h6 {
 }
 
 .img-container {
-    background-color: white;
-    border: 1px solid grey;
+    border: 1px solid RGB(213,213,213);
     padding: 2px;
 }
 
