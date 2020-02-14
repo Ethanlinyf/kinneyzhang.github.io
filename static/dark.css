@@ -3130,7 +3130,7 @@ h6 {
     position: absolute;
     right: 0;
     cursor: pointer;
-    border: 1px solid black;
+    border: 1px solid RGB(213,213,213);
 }
 
 .topnav {
