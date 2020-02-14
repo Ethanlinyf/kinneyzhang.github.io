@@ -14,7 +14,7 @@ body {
 /* 平滑切换 */
 body{
     opacity: 0;
-    animation: page-fade-in 1s forwards;
+    animation: page-fade-in 2s forwards;
 }
 @keyframes page-fade-in {
     0% {
