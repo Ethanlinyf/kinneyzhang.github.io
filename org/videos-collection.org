@@ -1,7 +1,7 @@
 #+TITLE: 视频收藏
 #+DATE: 2019-12-15
 #+STARTUP: content
-#+OPTIONS: toc:t H:0 num:0
+#+OPTIONS: toc:t H:0 num:0 title:nil
 
 *God knows 英文版*
 

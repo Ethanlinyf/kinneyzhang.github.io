@@ -2,7 +2,8 @@
 #+DATE: 2019-12-27
 #+STARTUP: content
 #+OPTIONS: toc:t H:2 num:2
-
+#+CATEGORY: C++
+#+INCLUDE: "../code/post-info.org"
  
 * 数据结构
 ** 树

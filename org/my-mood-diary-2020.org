@@ -2,7 +2,7 @@
 #+DATE: 2020-02-01
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2
-#+CATEGORY: diary
+#+CATEGORY: 记录
 #+INCLUDE: "../code/post-info.org"
 -----
 *2020-02-14 18:28:55*

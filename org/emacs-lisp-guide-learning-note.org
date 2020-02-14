@@ -2,9 +2,10 @@
 #+DATE: 2019-12-18
 #+STARTUP: content
 #+OPTIONS: toc:t H:2 num:2
+#+CATEGORY: Emacs
+#+INCLUDE: "../code/post-info.org"
 
 原文参考：[[https://github.com/chrisdone/elisp-guide][chrisdone/elisp-guide: A quick guide to Emacs Lisp programming]]
-
 
 * 基础
   基本运算、字符串连接、函数体、变量定义

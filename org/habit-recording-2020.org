@@ -2,6 +2,8 @@
 #+DATE: 2019-12-02
 #+STARTUP: showall
 #+OPTIONS: toc:nil H:2 num:0
+#+CATEGORY: 记录
+#+INCLUDE: "../code/post-info.org"
 
 #+begin_quote
 好习惯的培养需要有仪式感的记录，记录的目的是常常挂在心上，常记于心才能持之以恒。

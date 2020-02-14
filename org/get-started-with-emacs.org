@@ -2,6 +2,8 @@
 #+DATE: 2019-08-18
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2
+#+CATEGORY: Emacs
+#+INCLUDE: "../code/post-info.org"
 #+TOC: headlines:2
 
 #+begin_quote

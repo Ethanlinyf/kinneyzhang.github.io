@@ -2,8 +2,9 @@
 #+DATE: 2019-08-31
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2
+#+CATEGORY: Emacs
+#+INCLUDE: "../code/post-info.org"
 #+TOC: headlines:2
-#+MACRO: org-img (eval (my/org-grid-imag $1 $2 $3))
 
 在emacs中收听音乐的方案不止一个，我之前用过[[https://github.com/emacsmirror/emms][emms]]和[[https://github.com/dbrock/bongo][bongo]]，但它们在某些方面不能满足我的需求。在逛Reddit时看到使用mpd配合mingus播放音乐的帖子，折腾了一下发现这正是我想要的！总结安装配置和踩坑经验，和大家分享。
 
