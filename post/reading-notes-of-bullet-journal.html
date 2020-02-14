@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 10:48 -->
+<!-- 2020-02-14 Fri 13:26 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>《子弹笔记》要点</title>
@@ -348,21 +348,26 @@ placeholder: '留下你的评论吧～'
 
 <script>
 $(document).ready(function(){
-if(!sessionStorage.getItem("theme")){
-sessionStorage.setItem("theme","light");
-}else{
 var theme = sessionStorage.getItem("theme");
-var theme_css = "/static/" + theme + ".css";
-document.getElementById("pagestyle").setAttribute("href",theme_css);
+if(theme=="dark"){
+document.body.style.backgroundColor = "RGB(26,26,26)";
+document.body.style.color = "RGB(213,213,213)";
+}else if(theme=="light"){
+document.body.style.backgroundColor = "white";
+document.body.style.color = "dark";
+}else{
+sessionStorage.setItem("theme","light");
 }});
 
 function switchTheme(){
 if(sessionStorage.getItem("flag")=="true"){
-document.getElementById("pagestyle").setAttribute("href","/static/light.css");
+document.body.style.backgroundColor = "white";
+document.body.style.color = "dark";
 sessionStorage.setItem("theme","light");
 sessionStorage.setItem("flag", "false");
 }else{
-document.getElementById("pagestyle").setAttribute("href","/static/dark.css");
+document.body.style.backgroundColor = "RGB(26,26,26)";
+document.body.style.color = "RGB(213,213,213)";
 sessionStorage.setItem("theme","dark");
 sessionStorage.setItem("flag", "true");
 }};
