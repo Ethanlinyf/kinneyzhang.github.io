@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 17:29 -->
+<!-- 2020-02-14 Fri 17:33 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>关于写日志</title>
@@ -311,14 +311,15 @@ placeholder: '留下你的评论吧～'
 <p class="date">Date: 2019-08-05</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)</p>
 
+
 <script>
 $(document).ready(function(){
 var theme = sessionStorage.getItem("theme");
 if(theme=="dark"){
-body.style.backgroundColor="RGB(26,26,26)";
+document.body.style.backgroundColor="RGB(26,26,26)";
 document.getElementById("pagestyle").href="/static/dark.css";
 }else if(theme=="light"){
-body.style.backgroundColor="white";
+document.body.style.backgroundColor="white";
 document.getElementById("pagestyle").href="/static/light.css";
 }else{
 sessionStorage.setItem("theme","light");
@@ -326,12 +327,12 @@ sessionStorage.setItem("theme","light");
 
 function switchTheme(){
 if(sessionStorage.getItem("flag")=="false"){
-body.style.backgroundColor="white";
+document.body.style.backgroundColor="white";
 document.getElementById("pagestyle").href="/static/light.css";
 sessionStorage.setItem("theme","light");
 sessionStorage.setItem("flag", "true");
 }else{
-body.style.backgroundColor="RGB(26,26,26)";
+document.body.style.backgroundColor="RGB(26,26,26)";
 document.getElementById("pagestyle").href="/static/dark.css";
 sessionStorage.setItem("theme","dark");
 sessionStorage.setItem("flag", "false");
