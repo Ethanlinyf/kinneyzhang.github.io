@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 13:26 -->
+<!-- 2020-02-14 Fri 15:44 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp guide学习笔记</title>
@@ -503,25 +503,24 @@ placeholder: '留下你的评论吧～'
 <script>
 $(document).ready(function(){
 var theme = sessionStorage.getItem("theme");
+var theme_css = "/static/" + theme +  ".css";
 if(theme=="dark"){
-document.body.style.backgroundColor = "RGB(26,26,26)";
-document.body.style.color = "RGB(213,213,213)";
+document.getElementById("pagestyle").href=theme_css;
 }else if(theme=="light"){
-document.body.style.backgroundColor = "white";
-document.body.style.color = "dark";
+document.getElementById("pagestyle").href=theme_css;
 }else{
 sessionStorage.setItem("theme","light");
 }});
 
-function switchTheme(){
+function switchTheme()
+var theme = sessionStorage.getItem("theme");
+var theme_css = "/static/" + theme +  ".css";
 if(sessionStorage.getItem("flag")=="true"){
-document.body.style.backgroundColor = "white";
-document.body.style.color = "dark";
+document.getElementById("pagestyle").href=theme_css;
 sessionStorage.setItem("theme","light");
 sessionStorage.setItem("flag", "false");
 }else{
-document.body.style.backgroundColor = "RGB(26,26,26)";
-document.body.style.color = "RGB(213,213,213)";
+document.getElementById("pagestyle").href=theme_css;
 sessionStorage.setItem("theme","dark");
 sessionStorage.setItem("flag", "true");
 }};
