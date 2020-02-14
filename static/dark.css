@@ -7,7 +7,9 @@ html {
 }
 
 body {
-    font-family: "楷体","KaiTi","华文楷体","STKaiti";
+    font-family: "楷体","KaiTi","华文楷体","STKaiti","sans-serif","Cardo", "Palatino Linotype", "Book Antiqua",Palatino,serif;
+    background-color: RGB(26,26,26);
+    color: RGB(213,213,213);
     margin: 0;
 }
 
@@ -2369,7 +2371,7 @@ a:hover {
 body {
     width: 95%;
     margin: 2% auto;
-    font-size: 17px;
+    font-size: 15px;
     line-height: 1.4em;
 }
 
@@ -2449,7 +2451,8 @@ dl,ol,ul {
 }
 
 a {
-    color: #527d9a;
+    color: RGB(25,169,251);
+    /* color: #527d9a; */
     text-decoration: none;
 }
 
@@ -3170,11 +3173,11 @@ h6 {
 }
 
 /* dark mode */
-html {
-    background-color: RGB(26,26,26);
-    color: RGB(213,213,213);
-}
+/* body { */
+/*     background-color: RGB(26,26,26); */
+/*     color: RGB(213,213,213); */
+/* } */
 
-a {
-    color: RGB(25,169,251);
-}
+/* a { */
+/*     color: RGB(25,169,251); */
+/* } */
