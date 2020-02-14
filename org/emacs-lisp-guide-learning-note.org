@@ -1,9 +1,10 @@
 #+TITLE: elisp guide学习笔记
 #+DATE: 2019-12-18
 #+STARTUP: content
-#+OPTIONS: toc:t H:2 num:2
+#+OPTIONS: toc:nil H:2 num:2
 #+CATEGORY: Emacs
 #+INCLUDE: "../code/post-info.org"
+#+TOC: headlines:2
 
 原文参考：[[https://github.com/chrisdone/elisp-guide][chrisdone/elisp-guide: A quick guide to Emacs Lisp programming]]
 
