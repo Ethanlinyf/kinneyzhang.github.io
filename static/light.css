@@ -11,6 +11,21 @@ body {
     margin: 0;
 }
 
+/* 平滑切换 */
+body{
+    opacity: 0;
+    animation: page-fade-in 1s forwards;
+}
+@keyframes page-fade-in {
+    0% {
+	opacity: 0
+    }
+    
+    100% {
+	opacity: 1
+    }
+}
+
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary {
     display: block;
 }

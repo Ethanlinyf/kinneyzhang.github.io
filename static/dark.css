@@ -13,6 +13,21 @@ body {
     margin: 0;
 }
 
+/* 平滑切换 */
+body{
+    opacity: 0;
+    animation: page-fade-in 1s forwards;
+}
+@keyframes page-fade-in {
+    0% {
+	opacity: 0
+    }
+    
+    100% {
+	opacity: 1
+    }
+}
+
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary {
     display: block;
 }
@@ -854,7 +869,7 @@ textarea {
     color: #ff1493
 }
 
- .org-helm-ff-suid {
+.org-helm-ff-suid {
     color: #fff;
     background-color: red
 }
@@ -864,7 +879,7 @@ textarea {
 }
 
 .org-helm-ff-truename {
-     color: #8b2252
+    color: #8b2252
 }
 
 .org-helm-grep-cmd-line {
@@ -874,7 +889,7 @@ textarea {
 .org-helm-grep-file {
     color: #8a2be2;
     text-decoration: underline
-    }
+}
 
 .org-helm-grep-finish {
     color: #0f0
