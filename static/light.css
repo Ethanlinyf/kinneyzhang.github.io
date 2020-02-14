@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    font-family: "楷体","KaiTi","华文楷体","STKaiti","sans-serif","Cardo", "Palatino Linotype", "Book Antiqua",Palatino,serif;
+    font-family: "楷体","KaiTi","华文楷体","STKaiti","sans-serif","serif","Cardo", "Palatino Linotype", "Book Antiqua",Palatino;
     margin: 0;
 }
 
@@ -3118,14 +3118,16 @@ h6 {
     position: relative;
 }
 
-.toptitle span {
+.toptitle span:first-child {
     margin-top: 0;
     font-size: 200%;
 }
 
-.toptitle button {
+.toptitle span:last-child {
     position: absolute;
     right: 0;
+    cursor: pointer;
+    border: 1px solid black;
 }
 
 .topnav {
@@ -3168,13 +3170,3 @@ h6 {
 .img-row a{
     padding: 3px;
 }
-
-/* dark mode */
-/* body { */
-/*     background-color: RGB(26,26,26); */
-/*     color: RGB(213,213,213); */
-/* } */
-
-/* a { */
-/*     color: RGB(25,169,251); */
-/* } */
