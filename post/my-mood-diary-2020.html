@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 17:33 -->
+<!-- 2020-02-14 Fri 20:59 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>随想笔记</title>
@@ -268,7 +268,20 @@ for the JavaScript code in this tag.
 </div><div id="content">
 <header>
 <h1 class="title">随想笔记</h1>
-</header><hr>
+</header><div class="org-center">
+<p>
+分类:diary / 日期:2020-02-01 / 字数:1714
+</p>
+</div>
+<hr>
+<p>
+<b>2020-02-14 18:28:55</b>
+</p>
+
+<p>
+折腾了两天的博客暗色主题，来总结一下。暗色主题的css其实很简单，主要需要研究的是如何切换主题，切换后状态如何保持以及切换过程中的背景闪烁。学习了 <a href="https://gongzhitaao.org/orgcss/">https://gongzhitaao.org/orgcss/</a> 的切换方式，通过改变css的链接来切换亮/暗主题，这里用到了js的开关函数。使用localStorage存储当前主题颜色关键字，页面刷新时读取，保持状态。在暗色主题下切换页面时会出现白色背景闪烁，折腾了很久也没有解决。最后明白，静态页面切换时，每次都重新渲染DOM，故改变背景色没有用。这是静态html本身导致的，就放弃了。
+</p>
+<hr>
 <p>
 <b>2020-02-13 13:03:14</b>
 </p>
