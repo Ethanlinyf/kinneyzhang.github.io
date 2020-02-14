@@ -8,6 +8,8 @@ html {
 
 body {
     font-family: "楷体","KaiTi","华文楷体","STKaiti","sans-serif","serif","Cardo", "Palatino Linotype", "Book Antiqua",Palatino;
+    background-color: white;
+    color: black;
     margin: 0;
 }
 
