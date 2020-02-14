@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 15:46 -->
+<!-- 2020-02-14 Fri 15:58 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>《子弹笔记》要点</title>
@@ -349,26 +349,23 @@ placeholder: '留下你的评论吧～'
 <script>
 $(document).ready(function(){
 var theme = sessionStorage.getItem("theme");
-var theme_css = "/static/" + theme +  ".css";
 if(theme=="dark"){
-document.getElementById("pagestyle").href=theme_css;
+document.getElementById("pagestyle").href="/static/dark.css";
 }else if(theme=="light"){
-document.getElementById("pagestyle").href=theme_css;
+document.getElementById("pagestyle").href="/static/light.css";
 }else{
 sessionStorage.setItem("theme","light");
 }});
 
 function switchTheme(){
-var theme = sessionStorage.getItem("theme");
-var theme_css = "/static/" + theme +  ".css";
-if(sessionStorage.getItem("flag")=="true"){
-document.getElementById("pagestyle").href=theme_css;
+if(sessionStorage.getItem("flag")=="false"){
+document.getElementById("pagestyle").href="/static/light.css";
 sessionStorage.setItem("theme","light");
-sessionStorage.setItem("flag", "false");
-}else{
-document.getElementById("pagestyle").href=theme_css;
-sessionStorage.setItem("theme","dark");
 sessionStorage.setItem("flag", "true");
+}else{
+document.getElementById("pagestyle").href="/static/dark.css";
+sessionStorage.setItem("theme","dark");
+sessionStorage.setItem("flag", "false");
 }};
 </script>
 </div>
