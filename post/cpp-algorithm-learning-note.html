@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 01:44 -->
+<!-- 2020-02-14 Fri 10:15 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>C++算法</title>
@@ -258,7 +258,7 @@ for the JavaScript code in this tag.
 <div id="org-div-header">
 <div class="toptitle">
 <span href="/post/index.html">Geekinney Blog</span>
-<button onclick="switchTheme()">切换主题</button>
+<span onclick="switchTheme()">切换主题</span>
 </div>
 <div class="topnav">
 <a href="/post/index.html"> Home </a>&nbsp;|&nbsp;
@@ -469,16 +469,15 @@ var theme_css = "/static/" + theme + ".css";
 document.getElementById("pagestyle").setAttribute("href",theme_css);
 }});
 
-var flag = true;
 function switchTheme(){
-if(flag){
-document.getElementById("pagestyle").setAttribute("href","/static/dark.css");
-sessionStorage.setItem("theme","dark");
-flag=false;
-}else{
+if(sessionStorage.getItem("flag")){
 document.getElementById("pagestyle").setAttribute("href","/static/light.css");
 sessionStorage.setItem("theme","light");
-flag=true;
+sessionStorage.setItem("flag", false);
+}else{
+document.getElementById("pagestyle").setAttribute("href","/static/dark.css");
+sessionStorage.setItem("theme","dark");
+sessionStorage.setItem("flag", true);
 }};
 </script>
 </div>
