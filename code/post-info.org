@@ -1,5 +1,5 @@
 #+MACRO: org-img (eval (my/org-grid-imag $1 $2 $3))
 #+MACRO: wc (eval (my/word-count))
 #+begin_center
-[分类: {{{keyword(category)}}} / 日期: {{{date}}} / 字数: {{{wc}}}]
+[ 分类: {{{keyword(category)}}} / 日期: {{{date}}} / 字数: {{{wc}}} ]
 #+end_center
