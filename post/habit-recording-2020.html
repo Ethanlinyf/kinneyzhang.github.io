@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 10:15 -->
+<!-- 2020-02-14 Fri 10:38 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2020习惯培养记录</title>
@@ -881,14 +881,14 @@ document.getElementById("pagestyle").setAttribute("href",theme_css);
 }});
 
 function switchTheme(){
-if(sessionStorage.getItem("flag")){
+if(sessionStorage.getItem("flag")=="true"){
 document.getElementById("pagestyle").setAttribute("href","/static/light.css");
 sessionStorage.setItem("theme","light");
-sessionStorage.setItem("flag", false);
+sessionStorage.setItem("flag", "false");
 }else{
 document.getElementById("pagestyle").setAttribute("href","/static/dark.css");
 sessionStorage.setItem("theme","dark");
-sessionStorage.setItem("flag", true);
+sessionStorage.setItem("flag", "true");
 }};
 </script>
 </div>
