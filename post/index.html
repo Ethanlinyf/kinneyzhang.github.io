@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 15:44 -->
+<!-- 2020-02-14 Fri 15:46 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Geekinney Blog</title>
@@ -362,7 +362,7 @@ document.getElementById("pagestyle").href=theme_css;
 sessionStorage.setItem("theme","light");
 }});
 
-function switchTheme()
+function switchTheme(){
 var theme = sessionStorage.getItem("theme");
 var theme_css = "/static/" + theme +  ".css";
 if(sessionStorage.getItem("flag")=="true"){
