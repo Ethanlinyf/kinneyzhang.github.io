@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 16:37 -->
+<!-- 2020-02-14 Fri 16:57 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sitemap for project geekblog</title>
@@ -194,6 +194,7 @@
 
 <link rel="shortcut icon" href="/static/img/favicon.ico"/>
 <link rel="bookmark" href="/static/img/favicon.ico" type="image/x-icon"/>
+<link id="pagestyle" rel="stylesheet" type="text/css" href="/static/light.css"/>
 <!-- Google Analytics -->
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -318,21 +319,22 @@ placeholder: '留下你的评论吧～'
 $(document).ready(function(){
 var theme = sessionStorage.getItem("theme");
 if(theme=="dark"){
-$('<link id="pagestyle" rel="stylesheet" type="text/css" href="/static/dark.css">').appendTo("head");
+document.body.style.backgroundColor="RGB(26,26,26)";
+document.getElementById("pagestyle").href="/static/dark.css";
 }else if(theme=="light"){
-$('<link id="pagestyle" rel="stylesheet" type="text/css" href="/static/light.css">').appendTo("head");
+document.body.style.backgroundColor="white";
+document.getElementById("pagestyle").href="/static/light.css";
 }else{
-$('<link id="pagestyle" rel="stylesheet" type="text/css" href="/static/light.css">').appendTo("head");
 sessionStorage.setItem("theme","light");
 }});
 
 function switchTheme(){
 if(sessionStorage.getItem("flag")=="false"){
-$('<link id="pagestyle" rel="stylesheet" type="text/css" href="/static/light.css">').appendTo("head");
+document.getElementById("pagestyle").href="/static/light.css";
 sessionStorage.setItem("theme","light");
 sessionStorage.setItem("flag", "true");
 }else{
-$('<link id="pagestyle" rel="stylesheet" type="text/css" href="/static/dark.css">').appendTo("head");
+document.getElementById("pagestyle").href="/static/dark.css";
 sessionStorage.setItem("theme","dark");
 sessionStorage.setItem("flag", "false");
 }};
