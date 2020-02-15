@@ -1,4 +1,4 @@
-#+TITLE: 去你的2019，来我的2020
+#+TITLE:去你的2019，来我的2020
 #+DATE: 2019-12-31
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2

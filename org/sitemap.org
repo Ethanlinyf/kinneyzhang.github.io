@@ -1,5 +1,6 @@
 #+TITLE: Sitemap for project geekblog
 
+- [[file:index2.org][Geekinney Blog]]
 - [[file:index.org][Geekinney Blog]]
 - [[file:habit-recording-2020.org][2020习惯培养记录]]
 - [[file:using-org-to-blog-with-jekyll.org][使用org-mode撰写Jekyll blog]]

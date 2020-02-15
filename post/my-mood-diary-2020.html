@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-14 Fri 22:22 -->
+<!-- 2020-02-15 Sat 08:44 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>随想笔记</title>
@@ -270,9 +270,26 @@ for the JavaScript code in this tag.
 <h1 class="title">随想笔记</h1>
 </header><div class="org-center">
 <p>
-[ 分类: 记录 / 日期: 2020-02-01 / 字数: 1715 ]
+[ 分类: 记录 / 日期: 2020-02-01 / 字数: 2109 ]
 </p>
 </div>
+
+<hr>
+<p>
+<b>2020-02-15 08:24:24</b>
+</p>
+
+<p>
+我为自己善于反思而自豪，却总不能在最需要反思的时候及时反思，直面自己的不当行为与思想；我时不时会将自律、习惯这些词汇抛诸脑后，任凭情绪与本能做事思考；我有的时候讨厌极了自己变成了自己曾经厌恶的模样；我常常陷入局中，无法自拔；我会用“自律是一个漫长且煎熬的过程”来安慰自己一时的懒惰。我&#x2026;..
+</p>
+
+<p>
+但是那又怎样？我会反思，总有一次能够在最需要反思的时候及时反思，从此密切关注自己的行为与思想；我会反思，能够通过时间将那些词汇刻入我的骨髓；我会反思，厌恶的模样也是真实的自己，我会和他握手言和，约法三章；我会反思，就能从这困局中破局而出；我会反思，任何的借口都是我舒缓压力的方法也是我不够自律的警钟。
+</p>
+
+<p>
+哪有什么绝对完美的人，哪有什么自律刻到了骨子里。如果活着痛苦无比，要它自律有何用？自律的目的是为了舒心，活着的目的是为了快乐。自律使我舒心快乐，所以我要自律。但是自律的过程又让我难受，时时经受内心的谴责，但我仍坚持不懈，因为我要的是一辈子的舒心快乐，而不是一时的安逸！
+</p>
 <hr>
 <p>
 <b>2020-02-14 18:28:55</b>
@@ -295,38 +312,38 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">my/insert-html-tag-with-attr</span> (tag single <span style="color: #228b22;">&amp;optional</span> attr)
-  <span style="color: #8b2252;">"insert a html tag and some attributes at cursor point"</span>
-  <span style="color: #b22222;">;; </span><span style="color: #b22222;">(interactive "sinput tag name: \nsis single tag? [y or n]: ")</span>
-  (<span style="color: #a020f0;">if</span> (eq nil single)
-      (<span style="color: #a020f0;">progn</span>
-        (insert (concat <span style="color: #8b2252;">"&lt;"</span> tag <span style="color: #8b2252;">"&gt;"</span> <span style="color: #8b2252;">"&lt;/"</span> tag <span style="color: #8b2252;">"&gt;"</span>))
+<pre><code class="emacs-lisp">(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">my/insert-html-tag-with-attr</span> (tag single <span style="color: #ECBE7B;">&amp;optional</span> attr)
+  <span style="color: #83898d;">"insert a html tag and some attributes at cursor point"</span>
+  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">(interactive "sinput tag name: \nsis single tag? [y or n]: ")</span>
+  (<span style="color: #51afef;">if</span> (eq nil single)
+      (<span style="color: #51afef;">progn</span>
+        (insert (concat <span style="color: #98be65;">"&lt;"</span> tag <span style="color: #98be65;">"&gt;"</span> <span style="color: #98be65;">"&lt;/"</span> tag <span style="color: #98be65;">"&gt;"</span>))
         (backward-char (+ 4 (length tag)))
-        (mapcar (<span style="color: #a020f0;">lambda</span> (x) (insert (concat <span style="color: #8b2252;">" "</span> (car x) <span style="color: #8b2252;">"="</span> <span style="color: #8b2252;">"\""</span> (cadr x) <span style="color: #8b2252;">"\""</span>))) attr)
+        (mapcar (<span style="color: #51afef;">lambda</span> (x) (insert (concat <span style="color: #98be65;">" "</span> (car x) <span style="color: #98be65;">"="</span> <span style="color: #98be65;">"\""</span> (cadr x) <span style="color: #98be65;">"\""</span>))) attr)
         (forward-char 1)
         )
-    (<span style="color: #a020f0;">progn</span>
-      (insert (concat <span style="color: #8b2252;">"&lt;"</span> tag <span style="color: #8b2252;">"/&gt;"</span>))
+    (<span style="color: #51afef;">progn</span>
+      (insert (concat <span style="color: #98be65;">"&lt;"</span> tag <span style="color: #98be65;">"/&gt;"</span>))
       (backward-char 2)
-      (mapcar (<span style="color: #a020f0;">lambda</span> (x) (insert (concat <span style="color: #8b2252;">" "</span> (car x) <span style="color: #8b2252;">"="</span> <span style="color: #8b2252;">"\""</span> (cadr x) <span style="color: #8b2252;">"\""</span>))) attr)
+      (mapcar (<span style="color: #51afef;">lambda</span> (x) (insert (concat <span style="color: #98be65;">" "</span> (car x) <span style="color: #98be65;">"="</span> <span style="color: #98be65;">"\""</span> (cadr x) <span style="color: #98be65;">"\""</span>))) attr)
       (forward-char 2))))
 
-(<span style="color: #a020f0;">defun</span> <span style="color: #0000ff;">my/org-grid-imag</span> (row col ulist)
-  <span style="color: #8b2252;">"insert imag in mood diary, use it as a macro"</span>
-  (<span style="color: #a020f0;">interactive</span>)
-  (<span style="color: #a020f0;">let</span> ((row (string-to-number row))
+(<span style="color: #51afef;">defun</span> <span style="color: #c678dd;">my/org-grid-imag</span> (row col ulist)
+  <span style="color: #83898d;">"insert imag in mood diary, use it as a macro"</span>
+  (<span style="color: #51afef;">interactive</span>)
+  (<span style="color: #51afef;">let</span> ((row (string-to-number row))
         (col (string-to-number col))
         (ulist (read ulist)))
-    (<span style="color: #a020f0;">with-temp-buffer</span>
-      (insert <span style="color: #8b2252;">"#+begin_export html\n \n#+end_export"</span>)
+    (<span style="color: #51afef;">with-temp-buffer</span>
+      (insert <span style="color: #98be65;">"#+begin_export html\n \n#+end_export"</span>)
       (backward-char 14)
-      (my/insert-html-tag-with-attr <span style="color: #8b2252;">"div"</span> nil '((<span style="color: #8b2252;">"class"</span> <span style="color: #8b2252;">"img-container"</span>)))
-      (<span style="color: #a020f0;">dotimes</span> (i row)  
-        (my/insert-html-tag-with-attr <span style="color: #8b2252;">"div"</span> nil '((<span style="color: #8b2252;">"class"</span> <span style="color: #8b2252;">"img-row"</span>)))
-        (<span style="color: #a020f0;">dotimes</span> (j col)
-          (<span style="color: #a020f0;">setq</span> url (nth (+ j (* i col)) ulist))
-          (my/insert-html-tag-with-attr <span style="color: #8b2252;">"a"</span> nil (list (list <span style="color: #8b2252;">"href"</span> url)))
-          (my/insert-html-tag-with-attr <span style="color: #8b2252;">"img"</span> t (list (list <span style="color: #8b2252;">"src"</span> url)))
+      (my/insert-html-tag-with-attr <span style="color: #98be65;">"div"</span> nil '((<span style="color: #98be65;">"class"</span> <span style="color: #98be65;">"img-container"</span>)))
+      (<span style="color: #51afef;">dotimes</span> (i row)  
+        (my/insert-html-tag-with-attr <span style="color: #98be65;">"div"</span> nil '((<span style="color: #98be65;">"class"</span> <span style="color: #98be65;">"img-row"</span>)))
+        (<span style="color: #51afef;">dotimes</span> (j col)
+          (<span style="color: #51afef;">setq</span> url (nth (+ j (* i col)) ulist))
+          (my/insert-html-tag-with-attr <span style="color: #98be65;">"a"</span> nil (list (list <span style="color: #98be65;">"href"</span> url)))
+          (my/insert-html-tag-with-attr <span style="color: #98be65;">"img"</span> t (list (list <span style="color: #98be65;">"src"</span> url)))
           (forward-char 4))
         (forward-char 6))
       (buffer-substring-no-properties (point-min) (point-max))

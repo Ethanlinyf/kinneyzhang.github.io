@@ -1,0 +1,8 @@
+#+TITLE: Geekinney Blog
+#+STARTUP: content
+#+OPTIONS: toc:nil H:2 num:2
+#+MACRO: index 
+
+#+begin_export html
+
+#+end_export
