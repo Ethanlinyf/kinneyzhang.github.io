@@ -120,7 +120,7 @@ figure {
 hr {
     box-sizing: content-box;
     border: 0;
-    height: 0.5px;;
+    height: 1px;;
     overflow: visible;
 }
 
