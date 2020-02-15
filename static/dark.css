@@ -13,6 +13,18 @@ body {
     margin: 0;
 }
 
+a {
+    color: RGB(25,169,251);
+    /* color: #527d9a; */
+    text-decoration: none;
+}
+
+a:hover {
+    color: RGB(25,169,251);
+    text-decoration: none;
+    border-bottom: 1px dotted;
+}
+
 /* 平滑切换 */
 body{
     opacity: 0;
@@ -119,7 +131,7 @@ figure {
 
 hr {
     box-sizing: content-box;
-    border: 0;
+    border-bottom: 1px solid RGB(213,213,213);
     height: 1px;;
     overflow: visible;
 }
@@ -2380,10 +2392,6 @@ a {
     text-decoration: inherit;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
 body {
     width: 95%;
     margin: 2% auto;
@@ -2464,18 +2472,6 @@ dl,ol,ul {
 
 .footdef sup {
     padding-right: .5em;
-}
-
-a {
-    color: RGB(25,169,251);
-    /* color: #527d9a; */
-    text-decoration: none;
-}
-
-a:hover {
-    color: RGB(25,169,251);
-    text-decoration: none;
-    border-bottom: 1px dotted;
 }
 
 figure {
