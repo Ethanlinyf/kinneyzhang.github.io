@@ -1,8 +1,18 @@
 #+TITLE: Geekinney Blog
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2
-#+MACRO: index 
+#+MACRO: generate-index (eval (insert (my/blog-generate-index $1)))
 
-#+begin_export html
-
-#+end_export
+{{{generate-index(("at-the-end-of-2019.org" 
+"emacs-lisp-guide-learning-note.org"
+"experience-of-setting-up-my-own-blog-site.org"
+"emacs-lisp-learning-note.org"
+"using-org-to-blog-with-jekyll.org"
+"listen-music-in-emacs.org"
+"reading-notes-of-how-to-read-a-book-efficiently.org"
+"get-started-with-emacs.org"
+"thinking-about-cs-teaching-in-college.org"
+"thinking-about-journaling.org"
+"pick-up-reading-after-read-the-moon-and-sixpence.org"
+"reading-notes-of-bullet-journal.org"
+"emacs-learning-note.org"))}}}
