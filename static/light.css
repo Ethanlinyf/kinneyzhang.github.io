@@ -119,7 +119,7 @@ figure {
 
 hr {
     box-sizing: content-box;
-    border-bottom: 1px solid grey;
+    border-bottom: 0.5px solid grey;
     height: 0;
     overflow: visible;
 }
