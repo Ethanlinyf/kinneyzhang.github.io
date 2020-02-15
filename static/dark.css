@@ -118,7 +118,7 @@ figure {
 hr {
     box-sizing: content-box;
     border-bottom: 1px solid RGB(213,213,213);
-    height: 1px;;
+    height: 0;
     overflow: visible;
 }
 
