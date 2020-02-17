@@ -33,3 +33,5 @@ OrgMode的 =org-publish= 原生支持批量org文件导出为HTML和添加导出
  * 20200121:使用valine代替disqus，国内可访问。
  * 20200210:本地加载highlight.min.js和Valine.min.js并将js放在页面底部，大大提高网站访问速度。
  * 20200211:SEO优化，增加sitemap和robots.txt。
+ * 20200214:增加博客暗色主题，点击按钮切换。
+ * 20200214:增加博文开头辅助信息（日期，字数，分类），使用elisp自动生成。
