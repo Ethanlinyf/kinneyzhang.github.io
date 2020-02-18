@@ -3182,14 +3182,11 @@ h6 {
 }
 
 .img-row {
-    position: relative;
+    display: -webkit-flex; /* Safari */
+    display: flex;
 }
 
 .img-row img{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
+    height: 400px;
     padding: 3px;
 }
