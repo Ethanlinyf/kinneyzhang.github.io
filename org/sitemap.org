@@ -1,5 +1,6 @@
 #+TITLE: Sitemap for project geekblog
 
+- [[file:test.org][test]]
 - [[file:category.org][Category]]
 - [[file:archive.org][Archive]]
 - [[file:insert-gird-image-in-org-mode.org][elisp hack | orgMode插入网格图片]]

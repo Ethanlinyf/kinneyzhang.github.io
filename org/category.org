@@ -14,12 +14,12 @@
  * [[https://blog.geekinney.com/post/reading-notes-of-how-to-read-a-book-efficiently.html][书摘|如何有效阅读一本书]]
 
 =Emacs=
- * [[https://blog.geekinney.com/post/emacs-lisp-guide-learning-note.html][elisp guide 学习笔记]]
+ * [[https://blog.geekinney.com/post/emacs-lisp-guide-learning-note.html][elisp guide 学习笔记]
  * [[https://blog.geekinney.com/post/emacs-learning-note.html][emacs学习笔记]]
  * [[https://blog.geekinney.com/post/get-started-with-emacs.html][开始使用Emacs]]
  * [[https://blog.geekinney.com/post/listen-music-in-emacs.html][Emacs中使用mpd+mingus听音乐]]
  * [[https://blog.geekinney.com/post/using-org-to-blog-with-jekyll.html][使用org-mode撰写Jekyll blog]]
- * [[https://blog.geekinney.com/post/emacs-lisp-learning-note.html][elisp学习笔记]]
+ * [[https://blog.geekinney.com/post/emacs-lisp-learning-note.html][elisp学习笔记]
 
 =杂思=
  * [[https://blog.geekinney.com/post/thinking-about-cs-teaching-in-college.html][关于大学计算机科学]]
