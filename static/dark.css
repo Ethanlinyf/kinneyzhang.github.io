@@ -2379,7 +2379,7 @@ a {
 }
 
 body {
-    width: 90%;
+    width: 95%;
     margin: 2% auto;
     font-size: 15px;
     line-height: 1.4em;
@@ -3190,6 +3190,9 @@ h6 {
 
 .post-div {
     position: relative;
+}
+.post-div h3 {
+    border-bottom: 0;
 }
 .post-div span {
     position: absolute;
