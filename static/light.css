@@ -2395,8 +2395,7 @@ body {
 
 @media screen and (min-width:910px) {
     body {
-	/* width: 900px; */
-	width: 60%;
+	width: 900px;
     }
 }
 
@@ -3197,6 +3196,12 @@ h6 {
 }
 .post-div {
     position: relative;
+}
+.post-div h3 {
+    border: 0;
+}
+.post-div h3 {
+    border: 0;
 }
 .post-div span {
     position: absolute;
