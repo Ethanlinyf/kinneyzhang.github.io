@@ -1,7 +1,7 @@
 #+TITLE: Geekinney Blog
 #+STARTUP: content
-#+OPTIONS: toc:nil H:2 num:2
-#+MACRO: generate-index (eval (insert (my/blog-generate-index $1)))
+#+OPTIONS: toc:nil H:2 num:2 title:nil
+#+MACRO: generate-index (eval (my/blog-generate-index $1))
 
 {{{generate-index(
 ("at-the-end-of-2019.org" 
