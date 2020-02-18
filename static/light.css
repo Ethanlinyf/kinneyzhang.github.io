@@ -2485,7 +2485,7 @@ figure {
 }
 
 img {
-    /* max-width: 100%; */
+    max-width: 100%;
     vertical-align: middle;
 }
 
@@ -3188,6 +3188,3 @@ h6 {
 .img-row a{
     padding: 3px;
 }
-.img-row img {
-    object-fit: cover;
-} 
