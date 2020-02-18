@@ -10,4 +10,3 @@
 最简单的方法是在orgmode中插入html代码，即将图片显示的html放在 =#+begin_export html= 和 =#+end_export= 之间。但这样每次插入图片都要写大量html代码，实在是麻烦，于是我用elisp做了些小hack。
 
 先来看看最终的效果：
-
