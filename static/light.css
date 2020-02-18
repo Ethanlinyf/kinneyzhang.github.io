@@ -3194,3 +3194,10 @@ h6 {
     /* height: 100%; */
     padding: 3px;
 }
+.post-div {
+    position: relative;
+}
+.post-div span {
+    position: absolute;
+    right: 0;
+}
