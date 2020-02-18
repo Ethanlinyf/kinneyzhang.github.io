@@ -3188,3 +3188,6 @@ h6 {
 .img-row a{
     padding: 3px;
 }
+.img-row img {
+    object-fit: cover;
+} 
