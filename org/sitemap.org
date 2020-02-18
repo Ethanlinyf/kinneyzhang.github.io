@@ -1,5 +1,6 @@
 #+TITLE: Sitemap for project geekblog
 
+- [[file:insert-gird-image-in-org-mode.org][elisp hack | orgMode插入网格图片]]
 - [[file:index2.org][Geekinney Blog]]
 - [[file:index.org][Geekinney Blog]]
 - [[file:habit-recording-2020.org][2020习惯培养记录]]
