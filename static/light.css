@@ -3183,7 +3183,7 @@ h6 {
 }
 
 .img-row {
-    display: -webkit-flex; /* Safari */
+    /* display: -webkit-flex; /\* Safari *\/ */
     display: flex;
 }
 
