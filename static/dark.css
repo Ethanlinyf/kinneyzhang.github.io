@@ -3188,6 +3188,14 @@ h6 {
     padding: 3px;
 }
 
+.post-div {
+    position: relative;
+}
+.post-div span {
+    position: absolute;
+    right: 0;
+}
+
 /* dark mode */
 /* body { */
 /*     background-color: RGB(26,26,26); */
