@@ -1,0 +1,26 @@
+#+TITLE: Category
+#+STARTUP: content
+#+OPTIONS: toc:nil H:2 num:2 title:nil
+
+*标签分类*
+
+=记录=
+ * [[https://blog.geekinney.com/post/at-the-end-of-2019.html][去你的2019，来我的2020]]
+ * [[https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html][记我的博客折腾经历]]
+
+=阅读=
+ * [[https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html][重拾阅读]]（月亮与六便士）
+ * [[https://blog.geekinney.com/post/reading-notes-of-bullet-journal.html][《子弹笔记》要点]]
+ * [[https://blog.geekinney.com/post/reading-notes-of-how-to-read-a-book-efficiently.html][书摘|如何有效阅读一本书]]
+
+=Emacs=
+ * [[https://blog.geekinney.com/post/emacs-lisp-guide-learning-note.html][elisp guide 学习笔记]]
+ * [[https://blog.geekinney.com/post/emacs-learning-note.html][emacs学习笔记]]
+ * [[https://blog.geekinney.com/post/get-started-with-emacs.html][开始使用Emacs]]
+ * [[https://blog.geekinney.com/post/listen-music-in-emacs.html][Emacs中使用mpd+mingus听音乐]]
+ * [[https://blog.geekinney.com/post/using-org-to-blog-with-jekyll.html][使用org-mode撰写Jekyll blog]]
+ * [[https://blog.geekinney.com/post/emacs-lisp-learning-note.html][elisp学习笔记]]
+
+=杂思=
+ * [[https://blog.geekinney.com/post/thinking-about-cs-teaching-in-college.html][关于大学计算机科学]]
+ * [[https://blog.geekinney.com/post/thinking-about-journaling.html][关于写日志]]
