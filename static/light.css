@@ -3177,13 +3177,13 @@ h6 {
 }
 
 .img-container {
-    height: 400px;
     border: 1px solid grey;
     padding: 2px;
 }
 
 .img-row {
-    /* display: -webkit-flex; /\* Safari *\/ */
+    height: 400px;
+    display: -webkit-flex; /* Safari */
     display: flex;
 }
 
