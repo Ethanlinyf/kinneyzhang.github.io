@@ -3182,7 +3182,6 @@ h6 {
 }
 
 .img-row {
-    position: relative;
     display: -webkit-flex; /* Safari */
     display: flex;
 }
