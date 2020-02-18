@@ -3186,7 +3186,8 @@ h6 {
     display: flex;
 }
 
-.img-row img{
-    height: 400px;
+.img-row img {
+    width: 100%;
+    height: 100%;
     padding: 3px;
 }
