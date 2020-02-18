@@ -2381,7 +2381,7 @@ a {
 }
 
 body {
-    width: 80%;
+    width: 95%;
     margin: 2% auto;
     font-size: 15px;
     line-height: 1.4em;
@@ -2395,7 +2395,8 @@ body {
 
 @media screen and (min-width:910px) {
     body {
-	width: 900px;
+	/* width: 900px; */
+	width: 80%;
     }
 }
 
