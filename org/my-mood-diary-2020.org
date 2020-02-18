@@ -11,19 +11,19 @@
 orgmode图片插入测试：
 
 一行\\
-{{{org-img(1,3,
+{{{org-img(1,3,(
 "https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/Azusa-1.png"
 "https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/Yui-1.png"
 "https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/Mio-1.png"
-)}}}
+))}}}
 
 四宫格\\
-{{{org-img(2,2,
+{{{org-img(2,2,(
 "https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/k-on-10.png"
 "https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/lianggong.png"
 "https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/pipaqiu.png"
 "https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/k-on-11.png"
-)}}}
+))}}}
 
 九宫格\\
 {{{org-img(3,3,(
