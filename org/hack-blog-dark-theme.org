@@ -1,0 +1,67 @@
+#+TITLE: elisp hack | 博客亮/暗色主题切换
+#+DATE: 2020-02-19
+#+STARTUP: content
+#+OPTIONS: toc:nil H:2 num:2
+#+INCLUDE: ../code/post-info.org
+#+TOC: headlines:2
+
+我的博客为亮色主题，晚间浏览时光线太强，于是想实现在亮色与暗色主题间的自由切换。实现原理参考了 https://gongzhitaao.org/orgcss/ ，即通过改变引入的css文件链接来实现主题切换。话不多说，先来看看效果：
+
+https://s23.aconvert.com/convert/p3r68-cdx67/hshkd-z0kzy.gif
+
+下面是具体的步骤：
+
+ 1. 在适当位置引入切换按钮。每次点击时触发 =switchTheme= 函数，实现主题切换。
+
+    #+BEGIN_SRC html
+    <span onclick=\"switchTheme();\">切换主题</span>
+    #+END_SRC
+
+ 2. 在 =head= 标签间引入博客主题的css文件，我的默认为 =light.css= 。
+
+    #+BEGIN_SRC html
+    <link id="pagestyle" rel="stylesheet" type="text/css" href="/static/light.css"/>
+    #+END_SRC
+
+ 3. 在 =</body>= 标签之前引入 =switchTheme= 函数，通过改变css文件切换主题。实现单个按钮循环切换主题，设置 =flag= 改变状态，状态存储在sessionStorage中。
+
+    #+BEGIN_SRC js
+    function switchTheme(){
+	if(sessionStorage.getItem("flag")=="false"){
+	    document.getElementById("pagestyle").href="/static/light.css";
+	    sessionStorage.setItem("flag", "true");
+	}else{
+	    document.getElementById("pagestyle").href="/static/dark.css";
+	    sessionStorage.setItem("flag", "false");
+	}
+    };
+    #+END_SRC
+
+ 4. 这样就可以实现亮/暗两个主题的切换了。但是有个问题，主题的状态不能保持，刷新页面会恢复到默认的主题状态。我通过sessionStorage来存储主题状态，改写后完整的js如下：
+
+    #+BEGIN_SRC js
+    $(document).ready(function(){ //需要在head里引入jquery.
+	var theme = sessionStorage.getItem("theme");
+	if(theme=="dark"){
+	    document.body.style.backgroundColor="RGB(26,26,26)";
+	    document.getElementById("pagestyle").href="/static/dark.css";
+	}else if(theme=="light"){
+	    document.body.style.backgroundColor="white";
+	    document.getElementById("pagestyle").href="/static/light.css";
+	}else{
+	    sessionStorage.setItem("theme","light");
+	}});
+
+    function switchTheme(){
+	if(sessionStorage.getItem("flag")=="false"){
+	    document.getElementById("pagestyle").href="/static/light.css";
+	    sessionStorage.setItem("theme","light");
+	    sessionStorage.setItem("flag", "true");
+	}else{
+	    document.getElementById("pagestyle").href="/static/dark.css";
+	    sessionStorage.setItem("theme","dark");
+	    sessionStorage.setItem("flag", "false");
+	}};
+    #+END_SRC
+
+这样就可以自由的切换博客主题，刷新也不会丢失状态啦～

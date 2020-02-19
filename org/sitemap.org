@@ -1,5 +1,6 @@
 #+TITLE: Sitemap for project geekblog
 
+- [[file:hack-blog-dark-theme.org][elisp hack | 博客亮/暗色主题切换]]
 - [[file:test.org][test]]
 - [[file:category.org][Category]]
 - [[file:archive.org][Archive]]
