@@ -3194,11 +3194,11 @@ h6 {
 .post-div h3 {
     border-bottom: 0;
 }
-.post-div b a {
+.post-div p a {
     color: RGB(213,213,213);
-    border: 1.5px solid RGB(213,213,213);
+    border: 1px solid RGB(213,213,213);
 }
-.post-div b a:hover {
+.post-div p a:hover {
     color: RGB(213,213,213);
 }
 .post-div span {
