@@ -3196,6 +3196,7 @@ h6 {
 }
 .post-div b a {
     color: RGB(213,213,213);
+    border: 1.5px soli RGB(213,213,213);
 }
 .post-div b a:hover {
     color: RGB(25,169,251);
