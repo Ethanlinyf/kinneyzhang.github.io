@@ -3192,7 +3192,7 @@ h6 {
     position: relative;
     border: 0.5px dotted grey;
     padding: 0 .5em;
-    padding-bottom: 1em;
+    padding-bottom: 1.5em;
 }
 .post-div h3 {
     border-bottom: 0;
@@ -3206,7 +3206,7 @@ h6 {
 }
 .post-div span {
     position: absolute;
-    right: 0;
+    right: 1.5em;
 }
 
 /* dark mode */
