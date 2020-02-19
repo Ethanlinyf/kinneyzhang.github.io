@@ -3190,9 +3190,9 @@ h6 {
 
 .post-div {
     position: relative;
-    border: 0.5px dotted grey;
+    border: 0.5px dotted RGB(213,213,213);
     padding: 0 1.5em;
-    padding-bottom: 1.5em;
+    padding-bottom: 1em;
 }
 .post-div h3 {
     border-bottom: 0;
