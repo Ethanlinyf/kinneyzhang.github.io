@@ -3196,7 +3196,7 @@ h6 {
 }
 .post-div {
     position: relative;
-    boeder: 0.5px dotted grey;
+    border: 0.5px dotted grey;
 }
 .post-div h3 {
     border-bottom: 0;
