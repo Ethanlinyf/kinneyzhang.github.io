@@ -4,7 +4,8 @@
 #+MACRO: generate-index (eval (my/blog-generate-index $1))
 
 {{{generate-index(
-("at-the-end-of-2019.org" 
+("blog-light-and-dark-theme-switch.org"
+"at-the-end-of-2019.org" 
 "emacs-lisp-guide-learning-note.org"
 "experience-of-setting-up-my-own-blog-site.org"
 "emacs-lisp-learning-note.org"
@@ -22,7 +23,9 @@
 #+begin_comment
 <div class="post-div">
   <h3><a href="">post-title</a></h3>
-  <p>digest...</p>
+  <p>digest...
+  <a>阅读全文</a>
+  </p>
   <code><a href="">tag</a></code>
   <span>date</span>
 </div>

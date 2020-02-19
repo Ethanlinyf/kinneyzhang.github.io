@@ -1,5 +1,6 @@
-#+TITLE: 博客亮色/暗色主题切换
+#+TITLE: 博客亮/暗色主题切换
 #+DATE: 2020-02-19
+#+CATEGORY: Blog
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2
 #+INCLUDE: ../code/post-info.org

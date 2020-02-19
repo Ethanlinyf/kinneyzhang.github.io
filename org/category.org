@@ -21,6 +21,9 @@
  * [[https://blog.geekinney.com/post/using-org-to-blog-with-jekyll.html][使用org-mode撰写Jekyll blog]]
  * [[https://blog.geekinney.com/post/emacs-lisp-learning-note.html][elisp学习笔记]]
 
+=Blog=
+ * [[https://blog.geekinney.com/post/blog-light-and-dark-theme-switch.html][博客亮/暗色主题切换]]
+
 =杂思=
  * [[https://blog.geekinney.com/post/thinking-about-cs-teaching-in-college.html][关于大学计算机科学]]
  * [[https://blog.geekinney.com/post/thinking-about-journaling.html][关于写日志]]
