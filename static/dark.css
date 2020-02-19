@@ -2500,7 +2500,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1,h2,h3 {
-    line-height: 1.4em;
+    line-height: 1.1em;
 }
 
 h4,h5,h6 {
@@ -3190,6 +3190,9 @@ h6 {
 
 .post-div {
     position: relative;
+    border: 0.5px dotted grey;
+    padding: 0 .5em;
+    padding-bottom: 1em;
 }
 .post-div h3 {
     border-bottom: 0;
