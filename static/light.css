@@ -3060,7 +3060,7 @@ p{
 
 h1 {
     /* background: #369 none repeat scroll 0 0; */
-    font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     font-size: 170%;
     font-weight: bold;
     letter-spacing: 0.1em;
@@ -3074,35 +3074,35 @@ h1 {
 
 h2 {
     font-size: 130%;
-    font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     border-bottom: 0.5px solid #ccc;
     padding: .2em;
 }
 
 h3 {
-    font-size: 100%;
-    font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 115%;
+    /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     border-bottom: 0.5px solid #eee;
     padding: .2em;
 }
 
 h4 {
     font-size: 100%;
-    font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     border-bottom: 0.5px solid #eee;
     padding: .2em;
 }
 
 h5 {
     font-size: 100%;
-    font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     padding: .1em;
     color: black;
 }
 
 h6 {
     font-size: 100%;
-    font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     padding: .1em;
     color: black;
 }
