@@ -3200,6 +3200,9 @@ h6 {
 .post-div h3 {
     border-bottom: 0;
 }
+.post-div p a {
+    color: black;
+}
 .post-div span {
     position: absolute;
     right: 0;
