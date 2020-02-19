@@ -3204,9 +3204,7 @@ h6 {
     color: black;
     border: 1.5px solid black;
 }
-.post-div b a:hover {
-    color: RGB(25,169,251);
-}
+
 .post-div span {
     position: absolute;
     right: 0;

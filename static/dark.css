@@ -3198,9 +3198,6 @@ h6 {
     color: RGB(213,213,213);
     border: 1.5px solid RGB(213,213,213);
 }
-.post-div b a:hover {
-    color: RGB(25,169,251);
-}
 .post-div span {
     position: absolute;
     right: 0;
