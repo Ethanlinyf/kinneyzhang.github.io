@@ -4,7 +4,7 @@
 #+MACRO: generate-index (eval (my/blog-generate-index $1))
 
 {{{generate-index(
-("elisp-hack-video-compress-and-convert-format.org"
+("elisp-hack-compress-and-convert-video.org"
 "blog-light-and-dark-theme-switch.org"
 "at-the-end-of-2019.org" 
 "emacs-lisp-guide-learning-note.org"
