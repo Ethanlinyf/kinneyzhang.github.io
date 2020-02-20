@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-19 Wed 16:26 -->
+<!-- 2020-02-20 Thu 08:19 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sitemap for project geekblog</title>
@@ -269,8 +269,8 @@ for the JavaScript code in this tag.
 <header>
 <h1 class="title">Sitemap for project geekblog</h1>
 </header><ul class="org-ul">
+<li><a href="elisp-hack-video-compress-and-convert-format.html">elisp hack|视频压缩及格式(gif)转换</a></li>
 <li><a href="blog-light-and-dark-theme-switch.html">博客亮/暗色主题切换</a></li>
-<li><a href="test.html">test</a></li>
 <li><a href="category.html">Category</a></li>
 <li><a href="archive.html">Archive</a></li>
 <li><a href="insert-gird-image-in-org-mode.html">elisp hack | orgMode插入网格图片</a></li>
@@ -335,12 +335,10 @@ sessionStorage.setItem("theme","light");
 
 function switchTheme(){
 if(sessionStorage.getItem("flag")=="false"){
-document.body.style.backgroundColor="white";
 document.getElementById("pagestyle").href="/static/light.css";
 sessionStorage.setItem("theme","light");
 sessionStorage.setItem("flag", "true");
 }else{
-document.body.style.backgroundColor="RGB(26,26,26)";
 document.getElementById("pagestyle").href="/static/dark.css";
 sessionStorage.setItem("theme","dark");
 sessionStorage.setItem("flag", "false");

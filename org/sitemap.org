@@ -1,7 +1,7 @@
 #+TITLE: Sitemap for project geekblog
 
+- [[file:elisp-hack-video-compress-and-convert-format.org][elisp hack|视频压缩及格式(gif)转换]]
 - [[file:blog-light-and-dark-theme-switch.org][博客亮/暗色主题切换]]
-- [[file:test.org][test]]
 - [[file:category.org][Category]]
 - [[file:archive.org][Archive]]
 - [[file:insert-gird-image-in-org-mode.org][elisp hack | orgMode插入网格图片]]

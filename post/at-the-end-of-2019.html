@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-19 Wed 16:26 -->
+<!-- 2020-02-20 Thu 08:15 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>去你的2019，来我的2020</title>
@@ -291,7 +291,7 @@ for the JavaScript code in this tag.
 </p>
 
 <p>
-<a href="https://book.douban.com/subject/6781808/">《杀死一只知更鸟》</a>，太爱这部小说了！无论是前半段斯库特和杰姆孩童生活的描写，还是后半段关于审判与正义的冲突，都相当的精彩。阿迪克斯的父亲形象也在家庭生活与坚持司法公正中得以刻画。
+<a href="//book.douban.com/subject/6781808/">《杀死一只知更鸟》</a>，太爱这部小说了！无论是前半段斯库特和杰姆孩童生活的描写，还是后半段关于审判与正义的冲突，都相当的精彩。阿迪克斯的父亲形象也在家庭生活与坚持司法公正中得以刻画。
 </p>
 
 <p>
@@ -381,12 +381,10 @@ sessionStorage.setItem("theme","light");
 
 function switchTheme(){
 if(sessionStorage.getItem("flag")=="false"){
-document.body.style.backgroundColor="white";
 document.getElementById("pagestyle").href="/static/light.css";
 sessionStorage.setItem("theme","light");
 sessionStorage.setItem("flag", "true");
 }else{
-document.body.style.backgroundColor="RGB(26,26,26)";
 document.getElementById("pagestyle").href="/static/dark.css";
 sessionStorage.setItem("theme","dark");
 sessionStorage.setItem("flag", "false");
