@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-20 Thu 17:22 -->
+<!-- 2020-02-20 Thu 17:52 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>使用org-mode撰写Jekyll blog</title>
@@ -263,6 +263,8 @@ for the JavaScript code in this tag.
 <a href="/post/index.html">首页</a>&nbsp;|&nbsp;
 <a href="/post/archive.html">归档</a>&nbsp;|&nbsp;
 <a href="/post/category.html">分类</a>&nbsp;|&nbsp;
+<a href="/post/bookmark.html">书签</a>&nbsp;|&nbsp;
+<a href="/post/videos-collection.html">视频</a>&nbsp;|&nbsp;
 <a href="https://github.com/Kinneyzhang">Github</a>&nbsp;
 </div>
 </div><div id="content">
@@ -385,14 +387,14 @@ Jekyll Blog目录结构如下：
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #ff79c6;">defvar</span> <span style="color: #f8f8f2;">jekyll-directory</span> (expand-file-name <span style="color: #f1fa8c;">"~/iCloud/blog/"</span>)
-  <span style="color: #8995ba;">"Path to Jekyll blog."</span>)
-(<span style="color: #ff79c6;">defvar</span> <span style="color: #f8f8f2;">jekyll-drafts-dir</span> <span style="color: #f1fa8c;">"_drafts/"</span>
-  <span style="color: #8995ba;">"Relative path to drafts directory."</span>)
-(<span style="color: #ff79c6;">defvar</span> <span style="color: #f8f8f2;">jekyll-posts-dir</span> <span style="color: #f1fa8c;">"_posts/"</span>
-  <span style="color: #8995ba;">"Relative path to posts directory."</span>)
-(<span style="color: #ff79c6;">defvar</span> <span style="color: #f8f8f2;">jekyll-post-ext</span> <span style="color: #f1fa8c;">".org"</span>
-  <span style="color: #8995ba;">"File extension of Jekyll posts."</span>)
+<pre><code class="emacs-lisp">(defvar jekyll-directory (expand-file-name "~/iCloud/blog/")
+  "Path to Jekyll blog.")
+(defvar jekyll-drafts-dir "_drafts/"
+  "Relative path to drafts directory.")
+(defvar jekyll-posts-dir "_posts/"
+  "Relative path to posts directory.")
+(defvar jekyll-post-ext ".org"
+  "File extension of Jekyll posts.")
 </code></pre>
 </div>
 
@@ -429,33 +431,33 @@ Jekyll项目目录结构如下：
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #ff79c6;">defvar</span> <span style="color: #f8f8f2;">jekyll-post-template</span>
-  <span style="color: #f1fa8c;">"#+STARTUP: showall indent\n#+STARTUP: hidestars\n#+begin_export html\n---\ndate: \nlayout: post\ntitle: %s\nsubtitle: \nauthor: Geekinney\nheader-img: \ntags: \ncatalog: \n---\n#+end_export\n\n"</span>
-  <span style="color: #8995ba;">"Default template for Jekyll posts. %s will be replace by the post title."</span>
+<pre><code class="emacs-lisp">(defvar jekyll-post-template
+  "#+STARTUP: showall indent\n#+STARTUP: hidestars\n#+begin_export html\n---\ndate: \nlayout: post\ntitle: %s\nsubtitle: \nauthor: Geekinney\nheader-img: \ntags: \ncatalog: \n---\n#+end_export\n\n"
+  "Default template for Jekyll posts. %s will be replace by the post title."
   )
 
-(<span style="color: #ff79c6;">defun</span> <span style="color: #50fa7b;">jekyll-make-slug</span> (s)
-  <span style="color: #8995ba;">"Turn a string into a slug."</span>
+(defun jekyll-make-slug (s)
+  "Turn a string into a slug."
   (replace-regexp-in-string
-   <span style="color: #f1fa8c;">" "</span> <span style="color: #f1fa8c;">"-"</span> (downcase
-            (replace-regexp-in-string
-             <span style="color: #f1fa8c;">"[</span><span style="color: #bd93f9; font-weight: bold;">^</span><span style="color: #f1fa8c;">A-Za-z0-9 ]"</span> <span style="color: #f1fa8c;">""</span> s))))
+   " " "-" (downcase
+	    (replace-regexp-in-string
+	     "[^A-Za-z0-9 ]" "" s))))
 
-(<span style="color: #ff79c6;">defun</span> <span style="color: #50fa7b;">jekyll-yaml-escape</span> (s)
-  <span style="color: #8995ba;">"Escape a string for YAML."</span>
-  (<span style="color: #ff79c6;">if</span> (<span style="color: #ff79c6;">or</span> (string-match <span style="color: #f1fa8c;">":"</span> s)
-          (string-match <span style="color: #f1fa8c;">"\""</span> s))
-      (concat <span style="color: #f1fa8c;">"\""</span> (replace-regexp-in-string <span style="color: #f1fa8c;">"\""</span> <span style="color: #f1fa8c;">"\\\\\""</span> s) <span style="color: #f1fa8c;">"\""</span>)
+(defun jekyll-yaml-escape (s)
+  "Escape a string for YAML."
+  (if (or (string-match ":" s)
+	  (string-match "\"" s))
+      (concat "\"" (replace-regexp-in-string "\"" "\\\\\"" s) "\"")
     s))
 
-(<span style="color: #ff79c6;">defun</span> <span style="color: #50fa7b;">jekyll-draft-post</span> (title)
-  <span style="color: #8995ba;">"Create a new Jekyll blog post."</span>
-  (<span style="color: #ff79c6;">interactive</span> <span style="color: #f1fa8c;">"sPost Title: "</span>)
-  (<span style="color: #ff79c6;">let</span> ((draft-file (concat jekyll-directory jekyll-drafts-dir
-                            (jekyll-make-slug title)
-                            jekyll-post-ext)))
-    (<span style="color: #ff79c6;">if</span> (file-exists-p draft-file)
-        (find-file draft-file)
+(defun jekyll-draft-post (title)
+  "Create a new Jekyll blog post."
+  (interactive "sPost Title: ")
+  (let ((draft-file (concat jekyll-directory jekyll-drafts-dir
+			    (jekyll-make-slug title)
+			    jekyll-post-ext)))
+    (if (file-exists-p draft-file)
+	(find-file draft-file)
       (find-file draft-file)
       (insert (format jekyll-post-template (jekyll-yaml-escape title))))))
 </code></pre>
@@ -497,26 +499,26 @@ catalog:
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #ff79c6;">defun</span> <span style="color: #50fa7b;">jekyll-publish-post</span> ()
-  <span style="color: #8995ba;">"Move a draft post to the posts directory, and rename it so that it</span>
-<span style="color: #8995ba;"> contains the date."</span>
-  (<span style="color: #ff79c6;">interactive</span>)
-  (<span style="color: #ff79c6;">cond</span>
+<pre><code class="emacs-lisp">(defun jekyll-publish-post ()
+  "Move a draft post to the posts directory, and rename it so that it
+ contains the date."
+  (interactive)
+  (cond
    ((not (equal
-          (file-name-directory (buffer-file-name (current-buffer)))
-          (concat jekyll-directory jekyll-drafts-dir)))
-    (message <span style="color: #f1fa8c;">"This is not a draft post."</span>))
+	  (file-name-directory (buffer-file-name (current-buffer)))
+	  (concat jekyll-directory jekyll-drafts-dir)))
+    (message "This is not a draft post."))
    ((buffer-modified-p)
-    (message <span style="color: #f1fa8c;">"Can't publish post; buffer has modifications."</span>))
+    (message "Can't publish post; buffer has modifications."))
    (t
-    (<span style="color: #ff79c6;">let</span> ((filename
-           (concat jekyll-directory jekyll-posts-dir
-                   (format-time-string <span style="color: #f1fa8c;">"%Y-%m-%d-"</span>)
-                   (file-name-nondirectory
-                    (buffer-file-name (current-buffer)))))
-          (old-point (point)))
+    (let ((filename
+	   (concat jekyll-directory jekyll-posts-dir
+		   (format-time-string "%Y-%m-%d-")
+		   (file-name-nondirectory
+		    (buffer-file-name (current-buffer)))))
+	  (old-point (point)))
       (rename-file (buffer-file-name (current-buffer))
-                   filename)
+		   filename)
       (kill-buffer nil)
       (find-file filename)
       (set-window-point (selected-window) old-point)))))
@@ -533,34 +535,34 @@ Org-mode使用原生的项目发布功能就可以将 <code>_posts</code> 目录
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #ff79c6;">setq</span> org-publish-project-alist
+<pre><code class="emacs-lisp">(setq org-publish-project-alist
       '(
-        (<span style="color: #f1fa8c;">"jekyll-post"</span>
-         <span style="color: #ffb86c;">:base-directory</span> <span style="color: #f1fa8c;">"~/iCloud/blog/_posts"</span>
-         <span style="color: #ffb86c;">:base-extension</span> <span style="color: #f1fa8c;">"org"</span>
-         <span style="color: #ffb86c;">:publishing-directory</span> <span style="color: #f1fa8c;">"~/iCloud/huxBlog/_posts"</span>
-         <span style="color: #ffb86c;">:recursive</span> nil
-         <span style="color: #ffb86c;">:publishing-function</span> org-html-publish-to-html
-         <span style="color: #ffb86c;">:with-toc</span> nil
-         <span style="color: #ffb86c;">:headline-levels</span> 4
-         <span style="color: #ffb86c;">:auto-preamble</span> nil
-         <span style="color: #ffb86c;">:auto-sitemap</span> nil
-         <span style="color: #ffb86c;">:html-extension</span> <span style="color: #f1fa8c;">"html"</span>
-         <span style="color: #ffb86c;">:table-of-contents</span> nil
-         <span style="color: #ffb86c;">:section-numbers</span> 2
-         <span style="color: #ffb86c;">:body-only</span> t
-         )
+	("jekyll-post"
+	 :base-directory "~/iCloud/blog/_posts"
+	 :base-extension "org"
+	 :publishing-directory "~/iCloud/huxBlog/_posts"
+	 :recursive nil
+	 :publishing-function org-html-publish-to-html
+	 :with-toc nil
+	 :headline-levels 4
+	 :auto-preamble nil
+	 :auto-sitemap nil
+	 :html-extension "html"
+	 :table-of-contents nil
+	 :section-numbers 2
+	 :body-only t
+	 )
 
-        (<span style="color: #f1fa8c;">"jekyll-static"</span>
-         <span style="color: #ffb86c;">:base-directory</span> <span style="color: #f1fa8c;">"~/iCloud/blog/assets/"</span>
-         <span style="color: #ffb86c;">:base-extension</span> <span style="color: #f1fa8c;">"css</span><span style="color: #bd93f9; font-weight: bold;">\\</span><span style="color: #bd93f9; font-weight: bold;">|</span><span style="color: #f1fa8c;">js</span><span style="color: #bd93f9; font-weight: bold;">\\</span><span style="color: #bd93f9; font-weight: bold;">|</span><span style="color: #f1fa8c;">png</span><span style="color: #bd93f9; font-weight: bold;">\\</span><span style="color: #bd93f9; font-weight: bold;">|</span><span style="color: #f1fa8c;">jpg</span><span style="color: #bd93f9; font-weight: bold;">\\</span><span style="color: #bd93f9; font-weight: bold;">|</span><span style="color: #f1fa8c;">gif</span><span style="color: #bd93f9; font-weight: bold;">\\</span><span style="color: #bd93f9; font-weight: bold;">|</span><span style="color: #f1fa8c;">pdf</span><span style="color: #bd93f9; font-weight: bold;">\\</span><span style="color: #bd93f9; font-weight: bold;">|</span><span style="color: #f1fa8c;">mp3</span><span style="color: #bd93f9; font-weight: bold;">\\</span><span style="color: #bd93f9; font-weight: bold;">|</span><span style="color: #f1fa8c;">ogg</span><span style="color: #bd93f9; font-weight: bold;">\\</span><span style="color: #bd93f9; font-weight: bold;">|</span><span style="color: #f1fa8c;">swf</span><span style="color: #bd93f9; font-weight: bold;">\\</span><span style="color: #bd93f9; font-weight: bold;">|</span><span style="color: #f1fa8c;">php"</span>
-         <span style="color: #ffb86c;">:publishing-directory</span> <span style="color: #f1fa8c;">"~/iCloud/huxBlog/assets"</span>
-         <span style="color: #ffb86c;">:recursive</span> t
-         <span style="color: #ffb86c;">:publishing-function</span> org-publish-attachment)
+	("jekyll-static"
+	 :base-directory "~/iCloud/blog/assets/"
+	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|php"
+	 :publishing-directory "~/iCloud/huxBlog/assets"
+	 :recursive t
+	 :publishing-function org-publish-attachment)
 
-        (<span style="color: #f1fa8c;">"jekyll"</span>
-         <span style="color: #ffb86c;">:components</span> (<span style="color: #f1fa8c;">"jekyll-post"</span> <span style="color: #f1fa8c;">"jekyll-static"</span>))
-        ))
+	("jekyll"
+	 :components ("jekyll-post" "jekyll-static"))
+	))
 
 </code></pre>
 </div>
@@ -583,46 +585,46 @@ org-publish参数设置参考 <a href="https://orgmode.org/worg/org-tutorials/or
 </p>
 
 <div class="col-auto">
-<pre><code class="css"><span style="color: #61bfff;">pre </span>{
-    <span style="color: #50fa7b;">background</span>: <span style="color: #ffffff; background-color: #333;">#333</span>;
-    <span style="color: #50fa7b;">color</span>: <span style="color: #000000; background-color: #ddd;">#ddd</span>;
-    <span style="color: #50fa7b;">overflow</span>: auto;
-    <span style="color: #50fa7b;">padding</span>: 8pt;
-    <span style="color: #50fa7b;">border</span>: 1px solid <span style="color: #ffffff; background-color: #666;">#666</span>;
-    <span style="color: #50fa7b;">border-radius</span>: 5px;
-    <span style="color: #50fa7b;">font-size</span>: 10pt;
-    <span style="color: #50fa7b;">font-family</span>: <span style="color: #f1fa8c;">'PT Mono'</span>, <span style="color: #f1fa8c;">'PT Mono'</span>, monospace;
-    <span style="color: #50fa7b;">margin-top</span>: 1em;
-    <span style="color: #50fa7b;">margin-bottom</span>: 1em;
+<pre><code class="css">pre {
+    background: #333;
+    color: #ddd;
+    overflow: auto;
+    padding: 8pt;
+    border: 1px solid #666;
+    border-radius: 5px;
+    font-size: 10pt;
+    font-family: 'PT Mono', 'PT Mono', monospace;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
-<span style="color: #61bfff;">table </span>{
-    <span style="color: #50fa7b;">font-size</span>: 100%;
-    <span style="color: #50fa7b;">border-collapse</span>: collapse;
-    <span style="color: #50fa7b;">margin</span>: .5em 0;
+table {
+    font-size: 100%;
+    border-collapse: collapse;
+    margin: .5em 0;
 }
-<span style="color: #61bfff;">th, td </span>{
-    <span style="color: #50fa7b;">border</span>: 1px solid <span style="color: #ffffff; background-color: #777;">#777</span>;
-    <span style="color: #50fa7b;">padding</span>: .3em;
-    <span style="color: #50fa7b;">margin</span>: 2px;
+th, td {
+    border: 1px solid #777;
+    padding: .3em;
+    margin: 2px;
 }
-<span style="color: #61bfff;">th </span>{
-    <span style="color: #50fa7b;">background</span>: <span style="color: #000000; background-color: #eee;">#eee</span>;
+th {
+    background: #eee;
 }
-<span style="color: #61bfff;">table </span>{ <span style="color: #50fa7b;">border-collapse</span>: collapse; }
-<span style="color: #61bfff;">td, th </span>{
-    <span style="color: #50fa7b;">vertical-align</span>: top;
+table { border-collapse: collapse; }
+td, th {
+    vertical-align: top;
 }
-<span style="color: #61bfff;">.todo  </span>{ <span style="color: #50fa7b;">color</span>: <span style="color: #ffffff; background-color: #ff0000;">red</span>; }
-<span style="color: #61bfff;">.done </span>{ <span style="color: #50fa7b;">color</span>: <span style="color: #ffffff; background-color: #008000;">green</span>; }
-<span style="color: #61bfff;">.priority </span>{ <span style="color: #50fa7b;">font-family</span>: monospace; <span style="color: #50fa7b;">color</span>: <span style="color: #ffffff; background-color: #ffa500;">orange</span>; }
-<span style="color: #61bfff;">p.verse </span>{ <span style="color: #50fa7b;">margin-left</span>: 3%; }
-<span style="color: #61bfff;">.timestamp </span>{ <span style="color: #50fa7b;">color</span>: <span style="color: #ffffff; background-color: #808080;">gray</span> }
-<span style="color: #61bfff;">.timestamp-kwd </span>{ <span style="color: #50fa7b;">color</span>: <span style="color: #000000; background-color: #f59ea0;">#f59ea0</span>; }
-<span style="color: #61bfff;">.target </span>{ <span style="color: #50fa7b;">background-color</span>: <span style="color: #ffffff; background-color: #551a8b;">#551a8b</span>; }
-<span style="color: #61bfff;">.underline </span>{ <span style="color: #50fa7b;">text-decoration</span>: underline; }
-<span style="color: #61bfff;">.org-right  </span>{ <span style="color: #50fa7b;">margin-left</span>: auto; <span style="color: #50fa7b;">margin-right</span>: 0px;  <span style="color: #50fa7b;">text-align</span>: right; }
-<span style="color: #61bfff;">.org-left   </span>{<span style="color: #50fa7b;">margin-left</span>: 0px;  <span style="color: #50fa7b;">margin-right</span>: auto; <span style="color: #50fa7b;">text-align</span>: left; }
-<span style="color: #61bfff;">.org-center </span>{ <span style="color: #50fa7b;">margin-left</span>: auto; <span style="color: #50fa7b;">margin-right</span>: auto; <span style="color: #50fa7b;">text-align</span>: center; }
+.todo  { color: red; }
+.done { color: green; }
+.priority { font-family: monospace; color: orange; }
+p.verse { margin-left: 3%; }
+.timestamp { color: gray }
+.timestamp-kwd { color: #f59ea0; }
+.target { background-color: #551a8b; }
+.underline { text-decoration: underline; }
+.org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+.org-left   {margin-left: 0px;  margin-right: auto; text-align: left; }
+.org-center { margin-left: auto; margin-right: auto; text-align: center; }
 </code></pre>
 </div>
 

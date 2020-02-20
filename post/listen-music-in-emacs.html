@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-20 Thu 17:22 -->
+<!-- 2020-02-20 Thu 17:52 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Emacs中使用mpd+mingus听音乐</title>
@@ -263,6 +263,8 @@ for the JavaScript code in this tag.
 <a href="/post/index.html">首页</a>&nbsp;|&nbsp;
 <a href="/post/archive.html">归档</a>&nbsp;|&nbsp;
 <a href="/post/category.html">分类</a>&nbsp;|&nbsp;
+<a href="/post/bookmark.html">书签</a>&nbsp;|&nbsp;
+<a href="/post/videos-collection.html">视频</a>&nbsp;|&nbsp;
 <a href="https://github.com/Kinneyzhang">Github</a>&nbsp;
 </div>
 </div><div id="content">
@@ -279,7 +281,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#org744d146">1. mpd安装及配置(macos)</a>
 <ul>
-<li><a href="#orgedb9fc5">1.1. 安装</a></li>
+<li><a href="#org4b2b8b5">1.1. 安装</a></li>
 <li><a href="#org6a51aa1">1.2. 创建配置文件</a></li>
 <li><a href="#org4ca35b6">1.3. 编辑配置</a></li>
 <li><a href="#org609787f">1.4. 使用命令</a></li>
@@ -288,7 +290,7 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#org40c740f">2. mingus安装及使用</a>
 <ul>
-<li><a href="#org4b2b8b5">2.1. 安装</a></li>
+<li><a href="#org2434505">2.1. 安装</a></li>
 <li><a href="#org34c3321">2.2. 使用</a></li>
 </ul>
 </li>
@@ -314,8 +316,8 @@ Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音�
 <h2 id="org744d146"><span class="section-number-2">1</span> mpd安装及配置(macos)</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgedb9fc5" class="outline-3">
-<h3 id="orgedb9fc5"><span class="section-number-3">1.1</span> 安装</h3>
+<div id="outline-container-org4b2b8b5" class="outline-3">
+<h3 id="org4b2b8b5"><span class="section-number-3">1.1</span> 安装</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Mac用户可以很方便的使用homebrew安装mpd
@@ -397,9 +399,9 @@ audio_output {
 <h3 id="org609787f"><span class="section-number-3">1.4</span> 使用命令</h3>
 <div class="outline-text-3" id="text-1-4">
 <div class="col-auto">
-<pre><code class="shell">$ mpd  <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#21551;&#21160;&#26381;&#21153;</span>
-$ mpd --kill  <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#26432;&#27515;&#36827;&#31243;</span>
-$ mpd update  <span style="color: #6272a4;"># </span><span style="color: #6272a4;">&#26356;&#26032;</span>
+<pre><code class="shell">$ mpd  # 启动服务
+$ mpd --kill  # 杀死进程
+$ mpd update  # 更新
 </code></pre>
 </div>
 </div>
@@ -421,18 +423,18 @@ $ mpd update  <span style="color: #6272a4;"># </span><span style="color: #6272a4
 <h2 id="org40c740f"><span class="section-number-2">2</span> mingus安装及使用</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org4b2b8b5" class="outline-3">
-<h3 id="org4b2b8b5"><span class="section-number-3">2.1</span> 安装</h3>
+<div id="outline-container-org2434505" class="outline-3">
+<h3 id="org2434505"><span class="section-number-3">2.1</span> 安装</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界面。
 </p>
 
 <div class="col-auto">
-<pre><code class="emacs-lisp">(<span style="color: #ff79c6;">use-package</span> <span style="color: #8be9fd;">mingus</span>
-  <span style="color: #ffb86c;">:ensure</span> t
-  <span style="color: #ffb86c;">:defer</span> t
-  <span style="color: #ffb86c;">:bind</span> ((<span style="color: #f1fa8c;">"C-c m"</span> . mingus)))
+<pre><code class="emacs-lisp">(use-package mingus
+  :ensure t
+  :defer t
+  :bind (("C-c m" . mingus)))
 </code></pre>
 </div>
 </div>
