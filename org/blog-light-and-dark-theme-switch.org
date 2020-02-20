@@ -29,11 +29,9 @@
     #+BEGIN_SRC js
     function switchTheme(){
 	if(sessionStorage.getItem("flag")=="false"){
-	    document.body.style.backgroundColor="white";
 	    document.getElementById("pagestyle").href="/static/light.css";
 	    sessionStorage.setItem("flag", "true");
 	}else{
-	    document.body.style.backgroundColor="RGB(26,26,26)";
 	    document.getElementById("pagestyle").href="/static/dark.css";
 	    sessionStorage.setItem("flag", "false");
 	}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-20 Thu 09:11 -->
+<!-- 2020-02-20 Thu 09:14 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>博客亮/暗色主题切换</title>
@@ -270,7 +270,7 @@ for the JavaScript code in this tag.
 <h1 class="title">博客亮/暗色主题切换</h1>
 </header><div class="org-center">
 <p>
-[ 分类: Blog / 日期: 2020-02-19 / 字数: 468 ]
+[ 分类: Blog / 日期: 2020-02-19 / 字数: 455 ]
 </p>
 </div>
 <p>
@@ -308,11 +308,9 @@ for the JavaScript code in this tag.
 <div class="col-auto">
 <pre><code class="js"><span style="color: #a020f0;">function</span> <span style="color: #0000ff;">switchTheme</span>(){
     <span style="color: #a020f0;">if</span>(sessionStorage.getItem(<span style="color: #8b2252;">"flag"</span>)==<span style="color: #8b2252;">"false"</span>){
-        document.body.style.backgroundColor=<span style="color: #8b2252;">"white"</span>;
         document.getElementById(<span style="color: #8b2252;">"pagestyle"</span>).href=<span style="color: #8b2252;">"/static/light.css"</span>;
         sessionStorage.setItem(<span style="color: #8b2252;">"flag"</span>, <span style="color: #8b2252;">"true"</span>);
     }<span style="color: #a020f0;">else</span>{
-        document.body.style.backgroundColor=<span style="color: #8b2252;">"RGB(26,26,26)"</span>;
         document.getElementById(<span style="color: #8b2252;">"pagestyle"</span>).href=<span style="color: #8b2252;">"/static/dark.css"</span>;
         sessionStorage.setItem(<span style="color: #8b2252;">"flag"</span>, <span style="color: #8b2252;">"false"</span>);
     }
