@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-20 Thu 09:14 -->
+<!-- 2020-02-20 Thu 17:22 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>博客亮/暗色主题切换</title>
@@ -306,13 +306,13 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="js"><span style="color: #a020f0;">function</span> <span style="color: #0000ff;">switchTheme</span>(){
-    <span style="color: #a020f0;">if</span>(sessionStorage.getItem(<span style="color: #8b2252;">"flag"</span>)==<span style="color: #8b2252;">"false"</span>){
-        document.getElementById(<span style="color: #8b2252;">"pagestyle"</span>).href=<span style="color: #8b2252;">"/static/light.css"</span>;
-        sessionStorage.setItem(<span style="color: #8b2252;">"flag"</span>, <span style="color: #8b2252;">"true"</span>);
-    }<span style="color: #a020f0;">else</span>{
-        document.getElementById(<span style="color: #8b2252;">"pagestyle"</span>).href=<span style="color: #8b2252;">"/static/dark.css"</span>;
-        sessionStorage.setItem(<span style="color: #8b2252;">"flag"</span>, <span style="color: #8b2252;">"false"</span>);
+<pre><code class="js"><span style="color: #ff79c6;">function</span> <span style="color: #50fa7b;">switchTheme</span>(){
+    <span style="color: #ff79c6;">if</span>(sessionStorage.getItem(<span style="color: #f1fa8c;">"flag"</span>)==<span style="color: #f1fa8c;">"false"</span>){
+        document.getElementById(<span style="color: #f1fa8c;">"pagestyle"</span>).href=<span style="color: #f1fa8c;">"/static/light.css"</span>;
+        sessionStorage.setItem(<span style="color: #f1fa8c;">"flag"</span>, <span style="color: #f1fa8c;">"true"</span>);
+    }<span style="color: #ff79c6;">else</span>{
+        document.getElementById(<span style="color: #f1fa8c;">"pagestyle"</span>).href=<span style="color: #f1fa8c;">"/static/dark.css"</span>;
+        sessionStorage.setItem(<span style="color: #f1fa8c;">"flag"</span>, <span style="color: #f1fa8c;">"false"</span>);
     }
 };
 </code></pre>
@@ -323,25 +323,25 @@ for the JavaScript code in this tag.
 </p>
 
 <div class="col-auto">
-<pre><code class="js">$(document).ready(<span style="color: #a020f0;">function</span>(){ <span style="color: #b22222;">//</span><span style="color: #b22222;">&#38656;&#35201;&#22312;head&#37324;&#24341;&#20837;jquery.</span>
-    <span style="color: #a020f0;">var</span> <span style="color: #a0522d;">theme</span> = sessionStorage.getItem(<span style="color: #8b2252;">"theme"</span>);
-    <span style="color: #a020f0;">if</span>(theme==<span style="color: #8b2252;">"dark"</span>){
-        document.getElementById(<span style="color: #8b2252;">"pagestyle"</span>).href=<span style="color: #8b2252;">"/static/dark.css"</span>;
-    }<span style="color: #a020f0;">else</span> <span style="color: #a020f0;">if</span>(theme==<span style="color: #8b2252;">"light"</span>){
-        document.getElementById(<span style="color: #8b2252;">"pagestyle"</span>).href=<span style="color: #8b2252;">"/static/light.css"</span>;
-    }<span style="color: #a020f0;">else</span>{
-        sessionStorage.setItem(<span style="color: #8b2252;">"theme"</span>,<span style="color: #8b2252;">"light"</span>);
+<pre><code class="js">$(document).ready(<span style="color: #ff79c6;">function</span>(){ <span style="color: #6272a4;">//</span><span style="color: #6272a4;">&#38656;&#35201;&#22312;head&#37324;&#24341;&#20837;jquery.</span>
+    <span style="color: #ff79c6;">var</span> <span style="color: #f8f8f2;">theme</span> = sessionStorage.getItem(<span style="color: #f1fa8c;">"theme"</span>);
+    <span style="color: #ff79c6;">if</span>(theme==<span style="color: #f1fa8c;">"dark"</span>){
+        document.getElementById(<span style="color: #f1fa8c;">"pagestyle"</span>).href=<span style="color: #f1fa8c;">"/static/dark.css"</span>;
+    }<span style="color: #ff79c6;">else</span> <span style="color: #ff79c6;">if</span>(theme==<span style="color: #f1fa8c;">"light"</span>){
+        document.getElementById(<span style="color: #f1fa8c;">"pagestyle"</span>).href=<span style="color: #f1fa8c;">"/static/light.css"</span>;
+    }<span style="color: #ff79c6;">else</span>{
+        sessionStorage.setItem(<span style="color: #f1fa8c;">"theme"</span>,<span style="color: #f1fa8c;">"light"</span>);
     }});
 
-<span style="color: #a020f0;">function</span> <span style="color: #0000ff;">switchTheme</span>(){
-    <span style="color: #a020f0;">if</span>(sessionStorage.getItem(<span style="color: #8b2252;">"flag"</span>)==<span style="color: #8b2252;">"false"</span>){
-        document.getElementById(<span style="color: #8b2252;">"pagestyle"</span>).href=<span style="color: #8b2252;">"/static/light.css"</span>;
-        sessionStorage.setItem(<span style="color: #8b2252;">"theme"</span>,<span style="color: #8b2252;">"light"</span>);
-        sessionStorage.setItem(<span style="color: #8b2252;">"flag"</span>, <span style="color: #8b2252;">"true"</span>);
-    }<span style="color: #a020f0;">else</span>{
-        document.getElementById(<span style="color: #8b2252;">"pagestyle"</span>).href=<span style="color: #8b2252;">"/static/dark.css"</span>;
-        sessionStorage.setItem(<span style="color: #8b2252;">"theme"</span>,<span style="color: #8b2252;">"dark"</span>);
-        sessionStorage.setItem(<span style="color: #8b2252;">"flag"</span>, <span style="color: #8b2252;">"false"</span>);
+<span style="color: #ff79c6;">function</span> <span style="color: #50fa7b;">switchTheme</span>(){
+    <span style="color: #ff79c6;">if</span>(sessionStorage.getItem(<span style="color: #f1fa8c;">"flag"</span>)==<span style="color: #f1fa8c;">"false"</span>){
+        document.getElementById(<span style="color: #f1fa8c;">"pagestyle"</span>).href=<span style="color: #f1fa8c;">"/static/light.css"</span>;
+        sessionStorage.setItem(<span style="color: #f1fa8c;">"theme"</span>,<span style="color: #f1fa8c;">"light"</span>);
+        sessionStorage.setItem(<span style="color: #f1fa8c;">"flag"</span>, <span style="color: #f1fa8c;">"true"</span>);
+    }<span style="color: #ff79c6;">else</span>{
+        document.getElementById(<span style="color: #f1fa8c;">"pagestyle"</span>).href=<span style="color: #f1fa8c;">"/static/dark.css"</span>;
+        sessionStorage.setItem(<span style="color: #f1fa8c;">"theme"</span>,<span style="color: #f1fa8c;">"dark"</span>);
+        sessionStorage.setItem(<span style="color: #f1fa8c;">"flag"</span>, <span style="color: #f1fa8c;">"false"</span>);
     }};
 </code></pre>
 </div>
