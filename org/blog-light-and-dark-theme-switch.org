@@ -29,9 +29,11 @@
     #+BEGIN_SRC js
     function switchTheme(){
 	if(sessionStorage.getItem("flag")=="false"){
+	    document.body.style.backgroundColor="white";
 	    document.getElementById("pagestyle").href="/static/light.css";
 	    sessionStorage.setItem("flag", "true");
 	}else{
+	    document.body.style.backgroundColor="RGB(26,26,26)";
 	    document.getElementById("pagestyle").href="/static/dark.css";
 	    sessionStorage.setItem("flag", "false");
 	}
@@ -44,10 +46,8 @@
     $(document).ready(function(){ //需要在head里引入jquery.
 	var theme = sessionStorage.getItem("theme");
 	if(theme=="dark"){
-	    document.body.style.backgroundColor="RGB(26,26,26)";
 	    document.getElementById("pagestyle").href="/static/dark.css";
 	}else if(theme=="light"){
-	    document.body.style.backgroundColor="white";
 	    document.getElementById("pagestyle").href="/static/light.css";
 	}else{
 	    sessionStorage.setItem("theme","light");

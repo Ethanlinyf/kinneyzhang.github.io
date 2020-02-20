@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-20 Thu 08:37 -->
+<!-- 2020-02-20 Thu 09:11 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>博客亮/暗色主题切换</title>
@@ -308,9 +308,11 @@ for the JavaScript code in this tag.
 <div class="col-auto">
 <pre><code class="js"><span style="color: #a020f0;">function</span> <span style="color: #0000ff;">switchTheme</span>(){
     <span style="color: #a020f0;">if</span>(sessionStorage.getItem(<span style="color: #8b2252;">"flag"</span>)==<span style="color: #8b2252;">"false"</span>){
+        document.body.style.backgroundColor=<span style="color: #8b2252;">"white"</span>;
         document.getElementById(<span style="color: #8b2252;">"pagestyle"</span>).href=<span style="color: #8b2252;">"/static/light.css"</span>;
         sessionStorage.setItem(<span style="color: #8b2252;">"flag"</span>, <span style="color: #8b2252;">"true"</span>);
     }<span style="color: #a020f0;">else</span>{
+        document.body.style.backgroundColor=<span style="color: #8b2252;">"RGB(26,26,26)"</span>;
         document.getElementById(<span style="color: #8b2252;">"pagestyle"</span>).href=<span style="color: #8b2252;">"/static/dark.css"</span>;
         sessionStorage.setItem(<span style="color: #8b2252;">"flag"</span>, <span style="color: #8b2252;">"false"</span>);
     }
@@ -326,10 +328,8 @@ for the JavaScript code in this tag.
 <pre><code class="js">$(document).ready(<span style="color: #a020f0;">function</span>(){ <span style="color: #b22222;">//</span><span style="color: #b22222;">&#38656;&#35201;&#22312;head&#37324;&#24341;&#20837;jquery.</span>
     <span style="color: #a020f0;">var</span> <span style="color: #a0522d;">theme</span> = sessionStorage.getItem(<span style="color: #8b2252;">"theme"</span>);
     <span style="color: #a020f0;">if</span>(theme==<span style="color: #8b2252;">"dark"</span>){
-        document.body.style.backgroundColor=<span style="color: #8b2252;">"RGB(26,26,26)"</span>;
         document.getElementById(<span style="color: #8b2252;">"pagestyle"</span>).href=<span style="color: #8b2252;">"/static/dark.css"</span>;
     }<span style="color: #a020f0;">else</span> <span style="color: #a020f0;">if</span>(theme==<span style="color: #8b2252;">"light"</span>){
-        document.body.style.backgroundColor=<span style="color: #8b2252;">"white"</span>;
         document.getElementById(<span style="color: #8b2252;">"pagestyle"</span>).href=<span style="color: #8b2252;">"/static/light.css"</span>;
     }<span style="color: #a020f0;">else</span>{
         sessionStorage.setItem(<span style="color: #8b2252;">"theme"</span>,<span style="color: #8b2252;">"light"</span>);
@@ -380,10 +380,8 @@ placeholder: '留下你的评论吧～'
 $(document).ready(function(){
 var theme = sessionStorage.getItem("theme");
 if(theme=="dark"){
-document.body.style.backgroundColor="RGB(26,26,26)";
 document.getElementById("pagestyle").href="/static/dark.css";
 }else if(theme=="light"){
-document.body.style.backgroundColor="white";
 document.getElementById("pagestyle").href="/static/light.css";
 }else{
 sessionStorage.setItem("theme","light");
