@@ -6,3 +6,4 @@
 *友情链接*
  * [[https://hiwannz.com][见字如面]] (生活.职场)
  * [[https://www.91the.top][IT玩客]] (技术)
+ * [[https://www.boatsky.com][太空船博客]] (前端.书评.影评)
