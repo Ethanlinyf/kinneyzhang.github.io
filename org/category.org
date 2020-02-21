@@ -19,7 +19,8 @@
  * [[https://blog.geekinney.com/post/listen-music-in-emacs.html][Emacs中使用mpd+mingus听音乐]]
  * [[https://blog.geekinney.com/post/using-org-to-blog-with-jekyll.html][使用org-mode撰写Jekyll blog]]
  * [[https://blog.geekinney.com/post/emacs-lisp-learning-note.html][elisp学习笔记]]
- * [[https://blog.geekinney.com/post/elisp-hack-compress-and-convert-video.html][elisp hack|视频压缩及格式(gif)转换]]
+ * [[https://blog.geekinney.com/post/elisp-hack-compress-and-convert-video.html][视频压缩及格式(gif)转换]]
+ * [[https://blog.geekinney.com/post/auto-generate-blog-relative-info.html][自动生成org blog辅助信息]]
 
 =Blog=
  * [[https://blog.geekinney.com/post/blog-light-and-dark-theme-switch.html][博客亮/暗色主题切换]]

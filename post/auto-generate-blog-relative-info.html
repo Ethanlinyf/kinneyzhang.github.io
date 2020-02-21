@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-21 Fri 12:49 -->
+<!-- 2020-02-21 Fri 12:48 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Emacs中使用mpd+mingus听音乐</title>
+<title>自动生成org blog辅助信息</title>
 <meta name="generator" content="Org mode">
 <meta name="author" content="Kinney Zhang">
 <style type="text/css">
@@ -269,209 +269,149 @@ for the JavaScript code in this tag.
 </div>
 </div><div id="content">
 <header>
-<h1 class="title">Emacs中使用mpd+mingus听音乐</h1>
+<h1 class="title">自动生成org blog辅助信息</h1>
 </header><div class="org-center">
 <p>
-[ 分类: Emacs / 日期: 2019-08-31 / 字数: 842 ]
+[ 分类: Emacs / 日期: 2020-02-21 / 字数: 1027 ]
 </p>
 </div>
-<nav id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#org744d146">1. mpd安装及配置(macos)</a>
-<ul>
-<li><a href="#org2434505">1.1. 安装</a></li>
-<li><a href="#org6a51aa1">1.2. 创建配置文件</a></li>
-<li><a href="#org4ca35b6">1.3. 编辑配置</a></li>
-<li><a href="#org609787f">1.4. 使用命令</a></li>
-<li><a href="#org56728dc">1.5. 注意点</a></li>
-</ul>
-</li>
-<li><a href="#org40c740f">2. mingus安装及使用</a>
-<ul>
-<li><a href="#orgd99c096">2.1. 安装</a></li>
-<li><a href="#org34c3321">2.2. 使用</a></li>
-</ul>
-</li>
-<li><a href="#org878b750">3. 效果</a></li>
-<li><a href="#org84b2bf5">4. 参考文档</a></li>
-</ul>
-</div>
-</nav>
+<p>
+一篇博客文章除了标题、正文，还有一些辅助的信息，比如：日期，分类，字数等。使用orgmode生成html不会自动生成这些内容，于是想hack一下。折腾的效果如下图：
+</p>
+
+<div class="img-container"><div class="img-row"><a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/post-relative-info.png"><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/post-relative-info.png"/></a></div></div> 
 
 <p>
-在emacs中收听音乐的方案不止一个，我之前用过<a href="https://github.com/emacsmirror/emms">emms</a>和<a href="https://github.com/dbrock/bongo">bongo</a>，但它们在某些方面不能满足我的需求。在逛Reddit时看到使用mpd配合mingus播放音乐的帖子，折腾了一下发现这正是我想要的！总结安装配置和踩坑经验，和大家分享。
+这里主要使用了orgMode的 <a href="https://orgmode.org/manual/Macro-Replacement.html">Macro Replacement</a> 功能。我们可以在org文件开头定义宏，然后在正文需要的位置调用宏就可以实现辅助信息的插入。
 </p>
 
 <p>
-Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音乐播放器。它可以播放音乐、管理播放列表、维护音乐数据库等。mpd作为服务端程序，需要与客户端配合才能展现其强大的功能。最常使用的mpd客户端有mpc, ncmpcpp等。
+例如，定义如下宏：
+</p>
+
+<pre class="example">
+#+MACRO: poem Rose is $1, violet's $2. Life's ordered: Org assists you.
+</pre>
+
+<p>
+其中，"poem"为宏的名称，后面的内容为宏的内容，"$1，$2"为参数。然后在合适的位置调用宏：
+</p>
+
+<pre class="example">
+{{{poem(red,blue)}}}
+</pre>
+
+<p>
+最终的结果是在调用宏的位置插入"Rose is red, violet's blue. Life's ordered: Org assists you."。相信这种功能也不难理解，类似于函数的定义与调用。
 </p>
 
 <p>
-而emacs的<a href="https://github.com/pft/mingus.git">mingus package</a>就相当于mpd在emacs中的client端。下面介绍mpd和mingus的安装和使用。
+除了插入一串字符，预先在org文件开头定义的一些keyword可以直接调用。也可以在宏中调用elisp函数，实现更为复杂的功能。blog辅助信息的生成就依赖这两个功能。为了实现上图的效果，我在文章开头插入了如下的宏调用：
 </p>
 
-<div id="outline-container-org744d146" class="outline-2">
-<h2 id="org744d146"><span class="section-number-2">1</span> mpd安装及配置(macos)</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-org2434505" class="outline-3">
-<h3 id="org2434505"><span class="section-number-3">1.1</span> 安装</h3>
-<div class="outline-text-3" id="text-1-1">
 <p>
-Mac用户可以很方便的使用homebrew安装mpd
+<a id="org06210dc"></a>
+</p>
+<pre class="example">
+#+begin_center
+[ 分类: {{{keyword(category)}}} / 日期: {{{date}}} / 字数: {{{wc}}} ]
+#+end_center
+</pre>
+
+<p>
+其中 <code>{{{date}}}</code> 直接调用了 <code>#+DATE:</code> 预定义的日期， <code>{{{keyword(category)}}}</code> 调用了 <code>#+CATEGORY:</code> 预定义的分类。这里要说明的是，对于orgmode已有的keyword，如"TITLE, AUTHOR, DATE"这些可以直接调用。自定义的keyword如"CATEGORY"需要定义为形如 <code>{{{keyword(category)}}}</code> 的格式。最后，文章的字数需要使用一个elisp函数统计，这里需要定义一个统计字数的宏：
+</p>
+
+<pre class="example">
+#+MACRO: wc (eval (my/word-count))
+</pre>
+
+<p>
+不难理解，这个宏执行了 <code>my/word-count</code> 这个函数，然后插入到“字数：”后面。这个统计字数的函数定义如下：
 </p>
 
 <div class="col-auto">
-<pre><code class="shell">$ brew install mpd
+<pre><code class="emacs-lisp">;; count words
+(defvar wc-regexp-chinese-char-and-punc
+  (rx (category chinese)))
+(defvar wc-regexp-chinese-punc
+  "[。，！？；：「」『』（）、【】《》〈〉※—]")
+(defvar wc-regexp-english-word
+  "[a-zA-Z0-9-]+")
+
+(defun my/word-count ()
+  "「較精確地」統計中/日/英文字數。
+- 文章中的註解不算在字數內。
+- 平假名與片假名亦包含在「中日文字數」內，每個平/片假名都算單獨一個字（但片假
+  名不含連音「ー」）。
+- 英文只計算「單字數」，不含標點。
+- 韓文不包含在內。
+
+※計算標準太多種了，例如英文標點是否算入、以及可能有不太常用的標點符號沒算入等
+。且中日文標點的計算標準要看 Emacs 如何定義特殊標點符號如ヴァランタン・アルカン
+中間的點也被 Emacs 算為一個字而不是標點符號。"
+  (interactive)
+  (let* ((v-buffer-string
+	  (progn
+	    (if (eq major-mode 'org-mode) ; 去掉 org 文件的 OPTIONS（以#+開頭）
+		(setq v-buffer-string (replace-regexp-in-string "^#\\+.+" ""
+								(buffer-substring-no-properties (point-min) (point-max))))
+	      (setq v-buffer-string (buffer-substring-no-properties (point-min) (point-max))))
+	    (replace-regexp-in-string (format "^ *%s *.+" comment-start) "" v-buffer-string)))
+					; 把註解行刪掉（不把註解算進字數）。
+	 (chinese-char-and-punc 0)
+	 (chinese-punc 0)
+	 (english-word 0)
+	 (chinese-char 0))
+    (with-temp-buffer
+      (insert v-buffer-string)
+      (goto-char (point-min))
+      ;; 中文（含標點、片假名）
+      (while (re-search-forward wc-regexp-chinese-char-and-punc nil :no-error)
+	(setq chinese-char-and-punc (1+ chinese-char-and-punc)))
+      ;; 中文標點符號
+      (goto-char (point-min))
+      (while (re-search-forward wc-regexp-chinese-punc nil :no-error)
+	(setq chinese-punc (1+ chinese-punc)))
+      ;; 英文字數（不含標點）
+      (goto-char (point-min))
+      (while (re-search-forward wc-regexp-english-word nil :no-error)
+	(setq english-word (1+ english-word))))
+    (setq chinese-char (- chinese-char-and-punc chinese-punc))
+    ;;  (message
+    ;;      (format "中日文字數（不含標點）：%s
+    ;; 中日文字數（包含標點）：%s
+    ;; 英文字數（不含標點）：%s
+    ;; =======================
+    ;; 中英文合計（不含標點）：%s"
+    ;;              chinese-char chinese-char-and-punc english-word
+    ;;              (+ chinese-char english-word)))
+    (+ chinese-char english-word)))
 </code></pre>
 </div>
 
 <p>
-也可以到<a href="https://www.musicpd.org">MPD官网</a>下载解压安装
-</p>
-</div>
-</div>
-
-<div id="outline-container-org6a51aa1" class="outline-3">
-<h3 id="org6a51aa1"><span class="section-number-3">1.2</span> 创建配置文件</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-mpd默认的配置文件查找路经为 <code>~/.mpd/mpd.conf</code> 或 <code>~/.mpdconf</code> ，这里建议将所有配置及相关数据文件放在一个.mpd文件夹中。
-</p>
-
-<div class="col-auto">
-<pre><code class="shell">$ mkdir -p ~/.mpd/playlists
-$ touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
-</code></pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org4ca35b6" class="outline-3">
-<h3 id="org4ca35b6"><span class="section-number-3">1.3</span> 编辑配置</h3>
-<div class="outline-text-3" id="text-1-3">
-<p>
-进入 <code>~/.mpd/mpd.conf</code> ，粘贴如下配置
-</p>
-
-<div class="col-auto">
-<pre><code class="TOML">music_directory "~/Music"  # 音乐文件目录
-playlist_directory "~/.mpd/playlists"  # 播放列表目录
-db_file "~/.mpd/mpd.db"  # 数据库
-log_file "~/.mpd/mpd.log"  # 日志文件
-pid_file "~/.mpd/mpd.pid"  # 进程文件
-state_file "~/.mpd/mpdstate"  # 保存播放状态，下次继续播放
-auto_update "yes"
-auto_update_depth "2"
-follow_outside_symlinks "yes"
-follow_inside_symlinks "yes"
-
-audio_output {
- type "osx"
- name "CoreAudio"
- mixer_type "software"
-}
-
-decoder {
- plugin "mp4ff"
- enabled "no"
-}
-
-bind_to_address "127.0.0.1"  # 服务器地址
-port "6600"  # 服务器监听端口
-
-audio_output {
- type "fifo"
- name "my_fifo"
- path "/tmp/mpd.fifo"
- format "44100:16:2"
- auto_resample "no"
- use_mmap "yes"
-}
-</code></pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org609787f" class="outline-3">
-<h3 id="org609787f"><span class="section-number-3">1.4</span> 使用命令</h3>
-<div class="outline-text-3" id="text-1-4">
-<div class="col-auto">
-<pre><code class="shell">$ mpd  # 启动服务
-$ mpd --kill  # 杀死进程
-$ mpd update  # 更新
-</code></pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org56728dc" class="outline-3">
-<h3 id="org56728dc"><span class="section-number-3">1.5</span> 注意点</h3>
-<div class="outline-text-3" id="text-1-5">
-<ul class="org-ul">
-<li>本配置及安装过程仅适用于macos系统。</li>
-<li>linux系统参考 <a href="https://wiki.archlinux.org/index.php/Music_Player_Daemon">arch-wiki/Music Player Daemon</a></li>
-<li>如果你连接了蓝牙耳机，初次启动mpd时建议断开连接，能够正常播放后再连接蓝牙。（防止音乐声音断断续续）</li>
-</ul>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org40c740f" class="outline-2">
-<h2 id="org40c740f"><span class="section-number-2">2</span> mingus安装及使用</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgd99c096" class="outline-3">
-<h3 id="orgd99c096"><span class="section-number-3">2.1</span> 安装</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界面。
-</p>
-
-<div class="col-auto">
-<pre><code class="emacs-lisp">(use-package mingus
-  :ensure t
-  :defer t
-  :bind (("C-c m" . mingus)))
-</code></pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org34c3321" class="outline-3">
-<h3 id="org34c3321"><span class="section-number-3">2.2</span> 使用</h3>
-<div class="outline-text-3" id="text-2-2">
-<p>
-mingus功能十分强大，内置大量快捷键，可以一键满足音乐播放方方面面的需求。使用 <code>M-x mingus</code> 启动mingus后，便可使用这些快捷键。
+OK，这样每次在org发布项目的时候就会自动添加日期、分类和统计字数了。但是，每次在写blog的时候都要在开头加上<a href="#org06210dc">这一段内容</a>实在是麻烦。可以将这些内容放在单独的文件中，然后用 <code>#+INCLUDE:</code> 引入。
 </p>
 
 <p>
-mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用数字键 <code>1</code> <code>2</code> <code>3</code> 进行切换。"Mingus Help"是帮助信息界面，介绍了所有的快捷键使用。"Mingus"是播放列表界面。"Mingus Browser"是搜索浏览界面，可以在音乐目录下进行分类搜索，将歌曲添加到播放列表中。
+我将它们放在 <code>post-info.org</code> 这个文件中，完整的内容是：
+</p>
+
+<pre class="example">
+#+MACRO: wc (eval (my/word-count))
+#+begin_center
+[ 分类: {{{keyword(category)}}} / 日期: {{{date}}} / 字数: {{{wc}}} ]
+#+end_center
+</pre>
+
+<p>
+然后在文章开头加上 <code>#+INCLUDE: "../code/post-info.org"</code> 即可。
 </p>
 
 <p>
-具体功能使用查看"Mingus Help"，不再赘述。值得一提的是，对于同类别的歌曲可以使用 <code>C-x C-s</code> 保存为playlist, 下次可以一键load歌单到播放列表中。
+注意：如果宏定义中执行的函数需要参数，一定要注意参数必须是字符串类型。比如参数中传入一个list，这个list就变成了字符串。在函数执行前需要先 <code>(read &lt;list&gt;)</code> 将字符串转为列表。
 </p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org878b750" class="outline-2">
-<h2 id="org878b750"><span class="section-number-2">3</span> 效果</h2>
-<div class="outline-text-2" id="text-3">
-<div class="img-container"><div class="img-row"><a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/mingus.png"><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/mingus.png"/></a></div></div> 
-</div>
-</div>
-<div id="outline-container-org84b2bf5" class="outline-2">
-<h2 id="org84b2bf5"><span class="section-number-2">4</span> 参考文档</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-<a href="https://computingforgeeks.com/install-configure-mpd-ncmpcpp-macos">Install and configure mpd and ncmpcpp on MacOS</a>
-</p>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 
@@ -493,7 +433,7 @@ placeholder: '留下你的评论吧～'
 })
 </script>
 <p class="author">Author: Kinney Zhang (<a href="mailto:kinneyzhang666@gmail.com">kinneyzhang666@gmail.com</a>)</p>
-<p class="date">Date: 2019-08-31</p>
+<p class="date">Date: 2020-02-21</p>
 <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)</p>
 
 
