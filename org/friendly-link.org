@@ -4,5 +4,5 @@
 #+TOC: headlines:2
 
 *友情链接*
-
  * [[https://hiwannz.com][见字如面]] (生活.职场)
+ * [[https://www.91the.top][IT玩客]] (技术)
