@@ -6,9 +6,9 @@
 #+OPTIONS: toc:nil H:2 num:2
 #+TOC: headlines:2
 
-一篇博客文章除了标题、正文，还有一些辅助的信息，比如：日期，分类，字数等。使用orgmode生成html不会自动生成这些内容，于是想hack一下。折腾的效果如下图：
+一篇博客文章除了标题、正文，还有一些辅助的信息，比如：日期，分类，字数等。使用orgmode生成html不会自动生成这些内容，于是想hack一下。折腾效果如博文开头的：
 
-{{{org-img(1,1,("https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/post-relative-info.png"))}}}
+[ 分类: {{{keyword(category)}}} / 日期: {{{date}}} / 字数: {{{wc}}} ]
 
 这里主要使用了orgMode的 [[https://orgmode.org/manual/Macro-Replacement.html][Macro Replacement]] 功能。我们可以在org文件开头定义宏，然后在正文需要的位置调用宏就可以实现辅助信息的插入。
 
