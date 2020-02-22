@@ -1,5 +1,6 @@
 #+TITLE: Sitemap for project geekblog
 
+- [[file:auto-generate-blog-digest-page.org][自动生成blog摘要页]]
 - [[file:friendly-link.org][友情链接]]
 - [[file:auto-generate-blog-relative-info.org][自动生成org blog辅助信息]]
 - [[file:elisp-hack-compress-and-convert-video.org][elisp hack|视频压缩及格式(gif)转换]]
