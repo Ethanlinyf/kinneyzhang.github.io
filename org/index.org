@@ -15,8 +15,8 @@
 "listen-music-in-emacs.org"
 "reading-notes-of-how-to-read-a-book-efficiently.org"
 "get-started-with-emacs.org"
-"thinking-about-cs-teaching-in-college.org"
 "thinking-about-journaling.org"
+"thinking-about-cs-teaching-in-college.org"
 "pick-up-reading-after-read-the-moon-and-sixpence.org"
 "reading-notes-of-bullet-journal.org"
 "emacs-learning-note.org")

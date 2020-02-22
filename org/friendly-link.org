@@ -8,3 +8,4 @@
  * [[https://www.91the.top][IT玩客]] (技术)
  * [[https://www.boatsky.com][太空船博客]] (前端.书评.影评)
  * [[https://mikukonai.com][Project Aurora]] (综合)
+ * [[https://diygod.me][Hi,DIYgod]] (大佬)
