@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-22 Sat 12:02 -->
+<!-- 2020-02-22 Sat 12:13 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>自动生成org blog摘要页</title>
@@ -271,11 +271,11 @@ for the JavaScript code in this tag.
 <h1 class="title">自动生成org blog摘要页</h1>
 </header><div class="org-center">
 <p>
-[ 分类: Emacs / 日期: 2020-02-22 / 字数: 700 ]
+[ 分类: Emacs / 日期: 2020-02-22 / 字数: 738 ]
 </p>
 </div>
 <p>
-博客摘要页面可以让读者快速了解文章的大概信息，因此一般将这种页面作为博客首页，其重要性不言而喻。摘要页的主要信息包括：标题，摘要，日期，分类等。每篇文章都手动输入这些文字太麻烦，于是我用elisp和orgMode的<a href="https://orgmode.org/manual/Macro-Replacement.html">宏替代</a>自动生成摘要页面。
+博客摘要页面可以让读者快速了解文章的大概信息，因此一般将它作为博客首页，其重要性不言而喻。摘要页的主要信息包括：标题，摘要，日期，分类等。每篇文章都手动输入这些文字太麻烦，于是我用elisp和orgMode的<a href="https://orgmode.org/manual/Macro-Replacement.html">宏替代</a>自动生成摘要页面。
 </p>
 
 <p>
@@ -305,13 +305,12 @@ for the JavaScript code in this tag.
 </div>
 
 <p>
-接下来，需要使用elisp获取每篇文章的 <code>title</code> <code>digest</code> <code>date</code> <code>category</code> <code>post-url</code> <code>category-url</code> 这些变量的值。将这些值填入html对应的位置，再将所有文章的html代码连接在一起插入orgMode导出模版内。
+接下来，需要使用elisp获取每篇文章的 <code>title</code> <code>digest</code> <code>date</code> <code>category</code> <code>post-url</code> <code>category-url</code> 这些变量的值。将这些值填入html对应的位置，再将所有文章的html代码连接在一起插入orgMode的html导出模版内。
 </p>
 
 <p>
 处理html的elisp函数如下：
 </p>
-
 
 <div class="col-auto">
 <pre><code class="emacs-lisp">(defun my/insert-html-tag-with-attr (tag &amp;optional attr)
@@ -340,7 +339,7 @@ for the JavaScript code in this tag.
 	(category-url "https://blog.geekinney.com/post/category.html")
 	(html-str ""))
     (if (stringp posts)
-	(setq posts (read posts)))
+	(setq posts (read posts))) ;;宏的参数为字符串，需要先转为list
     (mapcar (lambda (post)
 	      (with-temp-buffer
 		(setq post-url (concat "https://blog.geekinney.com/post/" (car (split-string post "\\.")) ".html"))
@@ -394,7 +393,7 @@ for the JavaScript code in this tag.
 </div>
 
 <p>
-最后就是在摘要页定义一个宏，执行 <code>my/blog-generate-index</code> 函数：
+最后就是在摘要页定义一个宏，执行 <code>my/blog-generate-index</code> 函数（关于“宏替代”的使用可以参看<a href="https://blog.geekinney.com/post/auto-generate-blog-relative-info.html">这篇文章</a>）：
 </p>
 
 <pre class="example">

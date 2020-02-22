@@ -6,7 +6,7 @@
 #+OPTIONS: toc:nil H:2 num:2
 #+TOC: headlines:2
 
-博客摘要页面可以让读者快速了解文章的大概信息，因此一般将这种页面作为博客首页，其重要性不言而喻。摘要页的主要信息包括：标题，摘要，日期，分类等。每篇文章都手动输入这些文字太麻烦，于是我用elisp和orgMode的[[https://orgmode.org/manual/Macro-Replacement.html][宏替代]]自动生成摘要页面。
+博客摘要页面可以让读者快速了解文章的大概信息，因此一般将它作为博客首页，其重要性不言而喻。摘要页的主要信息包括：标题，摘要，日期，分类等。每篇文章都手动输入这些文字太麻烦，于是我用elisp和orgMode的[[https://orgmode.org/manual/Macro-Replacement.html][宏替代]]自动生成摘要页面。
 
 先来看看折腾的效果，我用边框将每篇文章的主要信息区分开。
 {{{org-img(1,1,("https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/post-digest-page.png"))}}}
@@ -27,10 +27,9 @@
 </div>
 #+END_SRC
 
-接下来，需要使用elisp获取每篇文章的 =title= =digest= =date= =category= =post-url= =category-url= 这些变量的值。将这些值填入html对应的位置，再将所有文章的html代码连接在一起插入orgMode导出模版内。
+接下来，需要使用elisp获取每篇文章的 =title= =digest= =date= =category= =post-url= =category-url= 这些变量的值。将这些值填入html对应的位置，再将所有文章的html代码连接在一起插入orgMode的html导出模版内。
 
 处理html的elisp函数如下：
-
 
 #+BEGIN_SRC emacs-lisp
 (defun my/insert-html-tag-with-attr (tag &optional attr)
@@ -59,7 +58,7 @@
 	(category-url "https://blog.geekinney.com/post/category.html")
 	(html-str ""))
     (if (stringp posts)
-	(setq posts (read posts)))
+	(setq posts (read posts))) ;;宏的参数为字符串，需要先转为list
     (mapcar (lambda (post)
 	      (with-temp-buffer
 		(setq post-url (concat "https://blog.geekinney.com/post/" (car (split-string post "\\.")) ".html"))
@@ -111,7 +110,7 @@
     (concat "#+begin_export html\n" html-str "#+end_export")))
 #+END_SRC
 
-最后就是在摘要页定义一个宏，执行 =my/blog-generate-index= 函数：
+最后就是在摘要页定义一个宏，执行 =my/blog-generate-index= 函数（关于“宏替代”的使用可以参看[[https://blog.geekinney.com/post/auto-generate-blog-relative-info.html][这篇文章]]）：
 
 #+begin_example
 #+MACRO: generate-index (eval (my/blog-generate-index $1))
