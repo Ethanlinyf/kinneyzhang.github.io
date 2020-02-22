@@ -7,7 +7,6 @@
 - [[file:blog-light-and-dark-theme-switch.org][博客亮/暗色主题切换]]
 - [[file:category.org][Category]]
 - [[file:archive.org][Archive]]
-- [[file:insert-gird-image-in-org-mode.org][elisp hack | orgMode插入网格图片]]
 - [[file:index.org][Geekinney Blog]]
 - [[file:habit-recording-2020.org][2020习惯培养记录]]
 - [[file:using-org-to-blog-with-jekyll.org][使用org-mode撰写Jekyll blog]]

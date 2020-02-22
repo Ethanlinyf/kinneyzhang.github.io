@@ -1,4 +1,4 @@
-#+TITLE: 自动生成blog摘要页
+#+TITLE: 自动生成org blog摘要页
 #+DATE: 2020-02-22
 #+CATEGORY: Emacs
 #+INCLUDE: "../code/post-info.org"
