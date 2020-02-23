@@ -15,7 +15,7 @@
  1.在适当位置引入切换按钮。每次点击时触发 =switchTheme= 函数，实现主题切换。
 
     #+BEGIN_SRC html
-    <span onclick=\"switchTheme();\">切换主题</span>
+    <span onclick="switchTheme();">切换主题</span>
     #+END_SRC
 
  2.在 =head= 标签间引入博客主题的css文件，我的默认为 =light.css= 。
