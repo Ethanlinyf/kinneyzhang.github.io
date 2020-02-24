@@ -1,4 +1,6 @@
 #+TITLE: 文章归档
+#+OPTIONS: toc:nil H:1 num:1 title:nil
+
 *文章归档*
 
 =2020=

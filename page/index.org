@@ -1,4 +1,5 @@
 #+TITLE: Geekinney Blog
+#+OPTIONS: toc:nil H:2 num:2 title:nil
 #+MACRO: generate-index (eval (my/blog-generate-index $1))
 {{{generate-index(
 ("auto-generate-blog-digest-page.org"
