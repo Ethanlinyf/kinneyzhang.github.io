@@ -2,7 +2,9 @@ User-agent: *
 Allow: /
 Disallow: /org/
 Disallow: /code/
+Disallow: /page/
 Disallow: /post/habit-recording.html
 Disallow: /post/habit-recording-*.html
-Disallow: /post/my-mood-diary-*.html
-Sitemap: https://blog.geekinney.com/post/sitemap.html
+Disallow: /post/mood-diary.html
+Disallow: /post/mood-diary-*.html
+Sitemap: https://blog.geekinney.com/sitemap.xml
