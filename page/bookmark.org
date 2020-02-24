@@ -1,5 +1,3 @@
-#+TITLE: 链接收藏
-#+DATE: 2019-01-01
 #+STARTUP: content
 #+OPTIONS: toc:nil H:1 num:1 title:nil
 

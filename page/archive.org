@@ -1,7 +1,3 @@
-#+TITLE:Archive
-#+STARTUP: showall
-#+OPTIONS: toc:nil H:2 num:2 title:nil
-
 *文章归档*
 
 =2020=

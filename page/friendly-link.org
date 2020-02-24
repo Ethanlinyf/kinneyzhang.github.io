@@ -1,7 +1,5 @@
-#+TITLE: 友情链接
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2 title:nil
-#+TOC: headlines:2
 
 *友情链接*
  * [[https://hiwannz.com][见字如面]] (生活.职场)
