@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-24 Mon 20:04 -->
+<!-- 2020-02-24 Mon 21:41 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Get Started With Emacs</title>
@@ -278,20 +278,20 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7164af9">1. 介绍</a></li>
-<li><a href="#orga560f86">2. 安装</a>
+<li><a href="#org71f5a45">1. 介绍</a></li>
+<li><a href="#org086a170">2. 安装</a>
 <ul>
-<li><a href="#orge589aed">2.1. 安装emacs</a></li>
-<li><a href="#org120f570">2.2. 克隆配置文件</a></li>
-<li><a href="#org2d7126e">2.3. 启动emacs，等待所有package安装完毕</a></li>
+<li><a href="#org9fd7a2a">2.1. 安装emacs</a></li>
+<li><a href="#orgb57d1a0">2.2. 克隆配置文件</a></li>
+<li><a href="#org9fd2468">2.3. 启动emacs，等待所有package安装完毕</a></li>
 </ul>
 </li>
-<li><a href="#orge2731fb">3. 使用</a>
+<li><a href="#orgd571f5f">3. 使用</a>
 <ul>
-<li><a href="#org87fb3bc">3.1. 常用快捷键</a></li>
+<li><a href="#org68cee3b">3.1. 常用快捷键</a></li>
 </ul>
 </li>
-<li><a href="#org7eda8ab">4. visual thinking</a></li>
+<li><a href="#org51ea5ac">4. visual thinking</a></li>
 </ul>
 </div>
 </nav>
@@ -314,8 +314,8 @@ for the JavaScript code in this tag.
 自从入坑emacs，它几乎就成了我每天必用的app(or os?)。我主要用emacs来做笔记、敲代码、管理时间、管理目录、管理代码、听音乐和podcast、学英语、hacking emacs&#x2026;
 </p>
 
-<div id="outline-container-org7164af9" class="outline-2">
-<h2 id="org7164af9"><span class="section-number-2">1</span> 介绍</h2>
+<div id="outline-container-org71f5a45" class="outline-2">
+<h2 id="org71f5a45"><span class="section-number-2">1</span> 介绍</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 你一定很好奇，这个emacs究竟是个什么东西，竟然可以同时拥有如此多的功能。其实它并不神秘，从本质上说，emacs就是一个文本编辑器。我们熟悉的文本编辑器有word, vim, atom, vscode等。
@@ -332,12 +332,12 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orga560f86" class="outline-2">
-<h2 id="orga560f86"><span class="section-number-2">2</span> 安装</h2>
+<div id="outline-container-org086a170" class="outline-2">
+<h2 id="org086a170"><span class="section-number-2">2</span> 安装</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orge589aed" class="outline-3">
-<h3 id="orge589aed"><span class="section-number-3">2.1</span> 安装emacs</h3>
+<div id="outline-container-org9fd7a2a" class="outline-3">
+<h3 id="org9fd7a2a"><span class="section-number-3">2.1</span> 安装emacs</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 可以从 <a href="https://www.gnu.org/software/emacs/">GNU Emacs 官网</a> 下载合适的版本。MacOS用户也可以通过homebrew安装。
@@ -351,8 +351,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org120f570" class="outline-3">
-<h3 id="org120f570"><span class="section-number-3">2.2</span> 克隆配置文件</h3>
+<div id="outline-container-orgb57d1a0" class="outline-3">
+<h3 id="orgb57d1a0"><span class="section-number-3">2.2</span> 克隆配置文件</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 可以使用我的emacs配置。第一行代码是备份，防止自己的 <code>.emacs.d</code> 被覆盖(如果是初次接触emacs，则无所谓)。第二行代码是克隆配置文件夹.emacs.d到用户主目录。
@@ -371,13 +371,13 @@ $ git clone --depth=1 https://github.com/Kinneyzhang/.emacs.d.git ~/.emacs.d --r
 </div>
 </div>
 
-<div id="outline-container-org2d7126e" class="outline-3">
-<h3 id="org2d7126e"><span class="section-number-3">2.3</span> 启动emacs，等待所有package安装完毕</h3>
+<div id="outline-container-org9fd2468" class="outline-3">
+<h3 id="org9fd2468"><span class="section-number-3">2.3</span> 启动emacs，等待所有package安装完毕</h3>
 </div>
 </div>
 
-<div id="outline-container-orge2731fb" class="outline-2">
-<h2 id="orge2731fb"><span class="section-number-2">3</span> 使用</h2>
+<div id="outline-container-orgd571f5f" class="outline-2">
+<h2 id="orgd571f5f"><span class="section-number-2">3</span> 使用</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Emacs 快捷键基本中的基本是这几个：
@@ -394,8 +394,8 @@ Emacs 快捷键基本中的基本是这几个：
 </p>
 </div>
 
-<div id="outline-container-org87fb3bc" class="outline-3">
-<h3 id="org87fb3bc"><span class="section-number-3">3.1</span> 常用快捷键</h3>
+<div id="outline-container-org68cee3b" class="outline-3">
+<h3 id="org68cee3b"><span class="section-number-3">3.1</span> 常用快捷键</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Ctrl + a：移到行首</li>
@@ -419,8 +419,8 @@ Emacs 快捷键基本中的基本是这几个：
 </div>
 </div>
 
-<div id="outline-container-org7eda8ab" class="outline-2">
-<h2 id="org7eda8ab"><span class="section-number-2">4</span> visual thinking</h2>
+<div id="outline-container-org51ea5ac" class="outline-2">
+<h2 id="org51ea5ac"><span class="section-number-2">4</span> visual thinking</h2>
 <div class="outline-text-2" id="text-4">
 
 <figure>
