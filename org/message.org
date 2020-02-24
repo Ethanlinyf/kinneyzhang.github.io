@@ -1,0 +1,3 @@
+#+TITLE: 留言板
+#+STARTUP: content
+#+OPTIONS: toc:nil H:2 num:2 title:nil
