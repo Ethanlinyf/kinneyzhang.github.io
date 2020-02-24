@@ -3,7 +3,7 @@
 #+OPTIONS: toc:nil H:2 num:2 title:nil
 
 #+begin_export html
-<br/><br/>
+<br>
 <script src="/static/Valine.min.js"></script>
 <div id="vcomments"></div>
 <script>
