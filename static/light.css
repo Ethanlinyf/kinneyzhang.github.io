@@ -502,38 +502,13 @@ pre {
     /* background-color: RGB(246,248,250); */
     margin: 1em 0;
     padding: 1em 1.5em;
+    overflow: auto;
     box-shadow: 0 0 0;
 }
 
 pre code {
     font-family: Lucida Console,monospace;
     font-size: 15px;
-}
-
-.org-src-container {
-    /* border: 1px solid #ccc; */
-    background-color: RGB(246,248,250);
-    font-family: Lucida Console,monospace;
-    font-size: 100%;
-    margin: 1em auto;
-    padding: .1em 0;
-    position: relative;
-}
-
-.org-src-container>pre {
-    overflow: auto;
-    font-size: 15px;
-    background-color: RGB(246,248,250);
-}
-
-.org-src-container>pre:before {
-    display: block;
-    position: absolute;
-    background-color: RGB(246,248,250);
-    top: 0;
-    right: 0;
-    /* color: #fff; */
-    font-size: 80%;
 }
 
 #org-div-home-and-up {
