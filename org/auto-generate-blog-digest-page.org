@@ -55,7 +55,7 @@
   "generate blog index page"
   (interactive)
   (let ((post-dir "~/iCloud/blog_site/org/")
-	(category-url "https://blog.geekinney.com/post/category.html")
+	(category-url "https://blog.geekinney.com/category.html")
 	(html-str ""))
     (if (stringp posts)
 	(setq posts (read posts))) ;;宏的参数为字符串，需要先转为list
