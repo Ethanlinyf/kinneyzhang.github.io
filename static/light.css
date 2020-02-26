@@ -250,6 +250,7 @@ figure {
 }
 
 img {
+    margin: 1.5em 0;
     max-width: 100%;
     vertical-align: middle;
 }
