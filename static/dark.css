@@ -199,14 +199,14 @@ dl,ol,ul {
     margin: 0 auto;
 }
 
-/* .title { */
-/*     text-align: center; */
-/*     margin: .8em auto; */
-/*     /\* color: #a5563d; *\/ */
-/*     font-size: 15px; */
-/*     font-weight: bold; */
-/*     font-family: sans-serif; */
-/* } */
+.title {
+    text-align: center;
+    margin: .8em auto;
+    /* color: #a5563d; */
+    /* font-size: 15px; */
+    font-weight: bold;
+    font-family: sans-serif;
+}
 
 .subtitle {
     text-align: center;
