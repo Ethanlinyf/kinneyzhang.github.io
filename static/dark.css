@@ -202,7 +202,8 @@ dl,ol,ul {
 .title {
     text-align: center;
     margin: .8em auto;
-    color: #000;
+    color: #a5563d;
+    font-family: sans-serif;
 }
 
 .subtitle {
@@ -527,10 +528,6 @@ h6 {
     font-size: 100%;
     /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     padding: .1em;
-}
-.title {
-    color: #a5563d;
-    font:bold 25px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 
 .NEXT {
