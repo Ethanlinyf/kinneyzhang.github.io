@@ -176,9 +176,9 @@ body {
 }
 
 @media screen and (min-width:600px) {
-    body {
-    	font-size: 15px;
-    }
+    /* body { */
+    /* 	font-size: 15px; */
+    /* } */
 }
 
 @media screen and (min-width:910px) {
@@ -498,6 +498,7 @@ h1 {
 
 .title {
     color: #a5563d;
+    font:bold 25px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 
 h2 {
