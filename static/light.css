@@ -43,8 +43,7 @@ body{
 .toptitle span:first-child {
     color: #555;
     margin-top: 0;
-    font-size: 2.2em;
-    font:bold 48px/2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+    font:bold 46px/2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 
 .toptitle span:last-child {
