@@ -576,8 +576,9 @@ h6 {
     /* padding: 0 1.2em; */
     padding-bottom: 1em;
 }
-.post-div h3 {
-    border-bottom: 0;
+.post-div h1 {
+    letter-spacing: 0.1em;
+    font:bold 25px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 .post-div p a {
     color: RGB(213,213,213);
