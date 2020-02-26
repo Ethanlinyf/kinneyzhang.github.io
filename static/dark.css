@@ -13,17 +13,6 @@ body {
     color: RGB(213,213,213);
     font-size: 15px;
 }
-
-h1,h2,h3,h4,h5,h6 {
-    color: #a5573e;
-    line-height: 1em;
-    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-
-#content {
-    line-height: 1.715;
-    font-size: 15px;
-}
 /* 平滑切换 */
 body{
     opacity: 0;
@@ -37,6 +26,49 @@ body{
     100% {
 	opacity: 1;
     }
+}
+
+#org-div-header{
+    font-size: 150%;
+    white-space: nowrap;
+}
+
+.toptitle {
+    font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-weight: bold;
+    padding: 1.2em 0em;
+    border-bottom: 1px dotted grey;
+    position: relative;
+}
+
+.toptitle span:first-child {
+    margin-top: 0;
+    font-size: 200%;
+}
+
+.toptitle span:last-child {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    border: 1px solid RGB(213,213,213);
+}
+
+.topnav {
+    font-weight: bold;
+    padding: 0.3em 0em;
+    border-bottom: 1px dotted grey;
+    text-align: center;
+}
+
+#content {
+    line-height: 1.715;
+    font-size: 15px;
+}
+
+#content h1,h2,h3,h4,h5,h6 {
+    color: #a5573e;
+    line-height: 1em;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 a {
@@ -516,37 +548,6 @@ h6 {
 
 .HOLD {
     background-color: magenta;
-}
-
-#org-div-header{
-    font-size: 100%;
-    white-space: nowrap;
-}
-
-.toptitle {
-    font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    font-weight: bold;
-    padding: 1.2em 0em;
-    border-bottom: 1px dotted grey;
-    position: relative;
-}
-
-.toptitle span:first-child {
-    margin-top: 0;
-    font-size: 200%;
-}
-
-.toptitle span:last-child {
-    position: absolute;
-    right: 0;
-    cursor: pointer;
-    border: 1px solid RGB(213,213,213);
-}
-
-.topnav {
-    padding: 0.3em 0em;
-    border-bottom: 1px dotted grey;
-    text-align: center;
 }
 
 .iframe-container {
