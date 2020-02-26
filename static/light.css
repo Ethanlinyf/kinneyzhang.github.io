@@ -595,6 +595,9 @@ h6 {
     border-bottom: 0;
     font-family: sans-serif;
 }
+.post-div h3 a {
+    font-family: sans-serif;
+}
 .post-div p a {
     color: black;
     border: 1px solid black;

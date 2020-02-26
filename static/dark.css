@@ -589,6 +589,8 @@ h6 {
 }
 .post-div h3 {
     border-bottom: 0;
+}
+.post-div h3 a {
     font-family: sans-serif;
 }
 .post-div p a {
