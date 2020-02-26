@@ -9,9 +9,9 @@ html {
 body {
     font-family:"TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
     -webkit-font-smoothing:antialiased;
-    font-size: 14px;
     background-color: white;
     color: #444;
+    font-size: 14px;
 }
 /* 平滑切换 */
 body{
