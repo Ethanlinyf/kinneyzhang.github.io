@@ -103,6 +103,6 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 具体功能使用查看"Mingus Help"，不再赘述。值得一提的是，对于同类别的歌曲可以使用 =C-x C-s= 保存为playlist, 下次可以一键load歌单到播放列表中。
 
 * 效果
-{{{org-img(1,1,("https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/mingus.png"))}}}
+https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/mingus.png
 * 参考文档
 [[https://computingforgeeks.com/install-configure-mpd-ncmpcpp-macos][Install and configure mpd and ncmpcpp on MacOS]]
