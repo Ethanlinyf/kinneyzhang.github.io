@@ -574,17 +574,13 @@ h6 {
 }
 .post-div {
     position: relative;
-    border: 0.5px dotted grey;
+    /* border: 0.5px dotted grey; */
     margin-top: 1em;
-    padding: 0 1.2em;
+    /* padding: 0 1.2em; */
     padding-bottom: 1em;
 }
 .post-div h3 {
     border-bottom: 0;
-    font-family: sans-serif;
-}
-.post-div h3 a {
-    font-family: sans-serif;
 }
 .post-div p a {
     color: black;
