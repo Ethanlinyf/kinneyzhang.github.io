@@ -579,7 +579,7 @@ h6 {
     /* padding: 0 1.2em; */
     padding-bottom: 1em;
 }
-.post-div h1 {
+.post-div h1 a{
     letter-spacing: 0.1em;
     font:bold 25px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
