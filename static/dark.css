@@ -29,7 +29,7 @@ body{
 }
 
 #org-div-header{
-    font-size: 150%;
+    font-size: 100%;
     white-space: nowrap;
 }
 
@@ -54,7 +54,6 @@ body{
 }
 
 .topnav {
-    font-weight: bold;
     padding: 0.3em 0em;
     border-bottom: 1px dotted grey;
     text-align: center;

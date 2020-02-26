@@ -50,11 +50,10 @@ body{
     position: absolute;
     right: 0;
     cursor: pointer;
-    border: 1px solid RGB(213,213,213);
+    border: 1px solid black;
 }
 
 .topnav {
-    font-weight: bold;
     padding: 0.3em 0em;
     border-bottom: 1px dotted grey;
     text-align: center;
