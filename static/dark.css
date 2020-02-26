@@ -605,6 +605,9 @@ h6 {
     position: absolute;
     right: 1.5em;
 }
+#postamble {
+    margin-top: 2.5em;
+}
 .author {
     margin-top: 2.5em;
 }
