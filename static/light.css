@@ -36,8 +36,7 @@ body{
 .toptitle {
     font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
     font-weight: bold;
-    padding: 1.2em 0em;
-    border-bottom: 1px dotted grey;
+    padding: 1.0em 0em;
     position: relative;
 }
 
@@ -57,7 +56,7 @@ body{
 
 .topnav {
     padding: 0.3em 0em;
-    border-bottom: 1px dotted grey;
+    border-bottom: 1px solid grey;
     text-align: center;
 }
 
