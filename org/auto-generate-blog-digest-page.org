@@ -110,6 +110,9 @@
     (concat "#+begin_export html\n" html-str "#+end_export")))
 #+END_SRC
 
+#+RESULTS:
+: my/blog-generate-index
+
 最后就是在摘要页定义一个宏，执行 =my/blog-generate-index= 函数（关于“宏替代”的使用可以参看[[https://blog.geekinney.com/post/auto-generate-blog-relative-info.html][这篇文章]]）：
 
 #+begin_example

@@ -7,7 +7,9 @@ html {
 }
 
 body {
-    font-family: "楷体","KaiTi","华文楷体","STKaiti","sans-serif","serif","Cardo", "Palatino Linotype", "Book Antiqua",Palatino;
+    font-family:"TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    font-size: 14px;
     margin: 0;
 }
 
@@ -18,11 +20,11 @@ body{
 }
 @keyframes page-fade-in {
     0% {
-	opacity: 0
+	opacity: 0;
     }
     
     100% {
-	opacity: 1
+	opacity: 1;
     }
 }
 
@@ -193,14 +195,13 @@ a {
 body {
     width: 95%;
     margin: 2% auto;
-    font-size: 15px;
     line-height: 1.4em;
 }
 
 @media screen and (min-width:600px) {
-    body {
-	font-size: 18px;
-    }
+    /* body { */
+    /* 	font-size: 18px; */
+    /* } */
 }
 
 @media screen and (min-width:910px) {
