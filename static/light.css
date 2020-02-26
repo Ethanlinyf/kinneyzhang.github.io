@@ -200,6 +200,7 @@ dl,ol,ul {
 }
 
 .title {
+    color:#555;
     text-align: center;
     margin: .8em auto;
     /* color: #a5563d; */
