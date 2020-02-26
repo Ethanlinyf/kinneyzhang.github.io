@@ -7,7 +7,7 @@
 #+TOC: headlines:2
 
 * 文件操作
- * C-x d 进入Dired-mode
+ * C-x d进入Dired-mode
  * + 新建文件夹
  * C-x C-f 新建文件
  * C 复制
