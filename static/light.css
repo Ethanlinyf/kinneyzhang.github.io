@@ -495,11 +495,6 @@ h1 {
     /* padding: 0.65em 0em; */
 }
 
-.title {
-    color: #a5563d;
-    font:bold 25px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
-}
-
 h2 {
     font-size: 130%;
     /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
@@ -531,6 +526,11 @@ h6 {
     font-size: 100%;
     /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     padding: .1em;
+}
+
+.title {
+    color: #a5563d;
+    font:bold 25px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 
 .NEXT {
