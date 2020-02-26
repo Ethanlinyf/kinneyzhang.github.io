@@ -59,6 +59,13 @@ body{
     text-align: center;
 }
 
+.title {
+    color:#555;
+    text-align: center;
+    margin: .8em auto;
+    font:bold 25px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+}
+
 h1 {
     font-size: 2em;
     margin: 0.67em 0;
@@ -72,13 +79,6 @@ h1 {
 #content h1,h2,h3,h4,h5,h6 {
     line-height: 1em;
     
-}
-
-.title {
-    color:#555;
-    text-align: center;
-    margin: .8em auto;
-    font:bold 25px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 
 a {
