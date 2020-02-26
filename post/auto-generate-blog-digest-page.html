@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-26 Wed 22:39 -->
+<!-- 2020-02-26 Wed 22:49 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>自动生成org blog摘要页</title>
@@ -43,7 +43,7 @@ ga('send', 'pageview');
 <h1 class="title">自动生成org blog摘要页</h1>
 </header><div class="org-center">
 <p>
-[ 分类: Emacs / 日期: 2020-02-22 / 字数: 739 ]
+[ 分类: Emacs / 日期: 2020-02-22 / 字数: 736 ]
 </p>
 </div>
 <p>
@@ -53,7 +53,12 @@ ga('send', 'pageview');
 <p>
 先来看看折腾的效果，我用边框将每篇文章的主要信息区分开。
 </p>
-<div class="img-container"><div class="img-row"><a href="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/post-digest-page.png"><img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/post-digest-page.png"/></a></div></div> 
+
+
+<figure>
+<img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/post-digest-page.png" alt="post-digest-page.png">
+
+</figure>
 
 <p>
 由于摘要页面对于排版有一定的要求，所以纯orgMode导出不能满足需求，我采取的办法是在orgMode中直接插入html。和Markdown不同，orgMode中插入html需要将代码包裹在 <code>#+begin_export html</code> 和 <code>#+end_export</code> 之间。

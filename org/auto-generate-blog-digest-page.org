@@ -9,7 +9,8 @@
 博客摘要页面可以让读者快速了解文章的大概信息，因此一般将它作为博客首页，其重要性不言而喻。摘要页的主要信息包括：标题，摘要，日期，分类等。每篇文章都手动输入这些文字太麻烦，于是我用elisp和orgMode的[[https://orgmode.org/manual/Macro-Replacement.html][宏替代]]自动生成摘要页面。
 
 先来看看折腾的效果，我用边框将每篇文章的主要信息区分开。
-{{{org-img(1,1,("https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/post-digest-page.png"))}}}
+
+https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/post-digest-page.png
 
 由于摘要页面对于排版有一定的要求，所以纯orgMode导出不能满足需求，我采取的办法是在orgMode中直接插入html。和Markdown不同，orgMode中插入html需要将代码包裹在 =#+begin_export html= 和 =#+end_export= 之间。
 
