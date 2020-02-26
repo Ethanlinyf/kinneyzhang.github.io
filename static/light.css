@@ -9,9 +9,8 @@ html {
 body {
     font-family:"TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
     -webkit-font-smoothing:antialiased;
-    font-size: 15px;
+    font-size: 14px;
     background-color: white;
-    color:#444;
 }
 
 /* 平滑切换 */
@@ -29,25 +28,6 @@ body{
     }
 }
 
-article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary {
-    display: block;
-}
-
-audio,canvas,progress,video {
-    display: inline-block;
-}
-
-audio:not([controls]) {
-    disp2lay: none;
-    height: 0;
-}
-
-progress {
-    vertical-align: baseline
-}[hidden],template {
-    display: none;
-}
-
 a {
     background-color: transparent;
     -webkit-text-decoration-skip: objects;
@@ -57,19 +37,9 @@ a:active,a:hover {
     outline-width: 0;
 }
 
-abbr[title] {
-    border-bottom: none;
-    text-decoration: underline;
-    text-decoration: underline dotted;
-}
-
 b,strong {
     font-weight: inherit;
     font-weight: bolder;
-}
-
-dfn {
-    font-style: italic;
 }
 
 h1 {
@@ -88,10 +58,6 @@ small {
 
 img {
     border-style: none;
-}
-
-svg:not(:root) {
-    overflow: hidden;
 }
 
 code,kbd,pre,samp {
@@ -154,38 +120,6 @@ textarea {
     font: inherit;
 }
 
-.org-bold {
-    font-weight: 700;
-}
-
-.org-bold-italic {
-    font-weight: 700;
-    font-style: italic;
-}
-
-.org-button {
-    color: #3a5fcd;
-    text-decoration: underline;
-}
-
-.org-italic {
-    font-style: italic
-}
-
-.org-keyword {
-    color: #a020f0
-}
-
-.org-link {
-    color: #3a5fcd;
-    text-decoration: underline
-}
-
-.org-link-visited {
-    color: #8b008b;
-    text-decoration: underline
-}
-
 a {
     color: inherit;
     background-color: inherit;
@@ -235,26 +169,6 @@ dl,ol,ul {
     line-height: 1.4;
     font-weight: 700;
     margin: 1em auto;
-}
-
-.abstract {
-    margin: auto;
-    width: 80%;
-    font-style: italic;
-}
-
-.abstract p:last-of-type:before {
-    content: "    ";
-    white-space: pre;
-}
-
-.status {
-    font-size: 90%;
-    margin: 2em auto;
-}[class^=section-number-] {
-    margin-right: .5em;
-}[id^=orgheadline] {
-    clear: both;
 }
 
 #footnotes {
@@ -576,14 +490,12 @@ h5 {
     font-size: 100%;
     /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     padding: .1em;
-    color: black;
 }
 
 h6 {
     font-size: 100%;
     /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     padding: .1em;
-    color: black;
 }
 
 .NEXT {
@@ -602,8 +514,13 @@ h6 {
     background-color: magenta;
 }
 
-#org-div-header
-{
+#content {
+    line-height: 1.715;
+    font-size: 15px;
+    color: #444;
+}
+
+#org-div-header{
     font-size: 100%;
     white-space: nowrap;
 }
