@@ -603,3 +603,17 @@ body {
 	float: right;
     }
 }
+pre,code {
+	padding:2px 4px;
+	background:#F8F8F8;
+	font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
+	font-size:.92857em;
+}
+pre {
+	padding:8px;
+	overflow:auto;
+	max-height:400px;
+}
+pre code {
+	padding:0;
+}
