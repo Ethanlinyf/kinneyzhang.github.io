@@ -57,8 +57,9 @@ body{
     font-size: 1.2em;
     padding: 0.3em 0em;
     margin-bottom: 2em;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid RGB(213,213,213);
     text-align: center;
+    color: RGB(213,213,213);
 }
 
 .title {
@@ -554,7 +555,7 @@ body {
 	font:bold 38px/2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
     }
     .topnav {
-	font-size: 1.0em;
+	font-size: 1.1em;
     }
     #content {
 	font-size: 14px;
