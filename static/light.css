@@ -87,7 +87,7 @@ a:hover {
     text-align: left;
     margin-top: 1.2em;
     margin-bottom: 0.5em;
-    font:bold 25px/1.2 Menlo,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+    font:bold 25px/1.2 "ff-tisa-web-pro",Menlo,Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 .post-div { /* index page div */
     position: relative;
@@ -98,7 +98,7 @@ a:hover {
 }
 .post-div h1 a{
     color: #666;
-    font:bold 24px/1.2 Menlo,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+    font:bold 24px/1.2 "ff-tisa-web-pro",Menlo,Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 .post-div p a {
     color: #666;
