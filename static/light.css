@@ -69,10 +69,10 @@ a:hover {
 }
 .topnav a {
     text-decoration: none;
-    color: #444;
+    color: #666;
 }
 .title {
-    color:#555;
+    color:#666;
     text-align: left;
     margin-top: 1.2em;
     margin-bottom: 0.5em;
@@ -86,12 +86,12 @@ a:hover {
     padding-bottom: 1em;
 }
 .post-div h1 a{
-    color: #444;
+    color: #666;
     font:bold 25px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 .post-div p a {
-    color: #444;
-    border: 1px solid #444;
+    color: #666;
+    border: 1px solid #666;
 }
 .post-div span {
     position: absolute;
