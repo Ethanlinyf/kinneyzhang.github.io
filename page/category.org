@@ -1,6 +1,6 @@
 #+TITLE: 标签分类
 #+STARTUP: content
-#+OPTIONS: toc:nil H:2 num:2 title:nil
+#+OPTIONS: toc:nil H:2 num:0 title:nil
 
 * 标签分类
 

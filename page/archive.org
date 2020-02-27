@@ -1,5 +1,5 @@
 #+TITLE: 文章归档
-#+OPTIONS: toc:nil H:1 num:0 title:nil
+#+OPTIONS: toc:nil H:2 num:0 title:nil
 
 * 文章归档
 
