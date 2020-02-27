@@ -398,31 +398,20 @@ kbd {
 p.verse {
     margin-left: 3%;
 }
-
-:not(pre)>code {
-    padding: 2px 5px;
-    margin: auto 1px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    /* background-clip: padding-box; */
-    /* color: #333; */
-    font-size: 80%;
+pre,code {
+	padding:2px 4px;
+	background:#F8F8F8;
+	font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
+	font-size:.92857em;
 }
-
 pre {
-    font-size: 1em;
-    border: 1px dotted RGB(213,213,213);
-    /* background-color: RGB(246,248,250); */
-    margin: 1em 0;
-    padding: 1em 1.5em;
-    overflow: auto;
-    box-shadow: 0 0 0;
+	padding:8px;
+	overflow:auto;
+	max-height:400px;
 }
-
 pre code {
-    font-size: 15px;
+	padding:0;
 }
-
 #org-div-home-and-up {
     font-size: 70%;
     text-align: right;
@@ -602,18 +591,4 @@ body {
 	display: inline;
 	float: right;
     }
-}
-pre,code {
-	padding:2px 4px;
-	background:#F8F8F8;
-	font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
-	font-size:.92857em;
-}
-pre {
-	padding:8px;
-	overflow:auto;
-	max-height:400px;
-}
-pre code {
-	padding:0;
 }
