@@ -554,6 +554,7 @@ body {
     }
     .topnav {
 	font-size: 1.1em;
+	padding: 0.8em 0;
     }
     #content {
 	font-size: 14px;
