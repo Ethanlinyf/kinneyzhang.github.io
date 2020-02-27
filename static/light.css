@@ -40,6 +40,7 @@ body{
 #logo {
     font:bold 50px/2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
     color:#555;
+    text-decoration: none;
 }
 #logo:hover {
     color:#777;
@@ -57,6 +58,7 @@ body{
     text-align: right;
 }
 .topnav a {
+    text-decoration: none;
     color: #444;
 }
 .title {
