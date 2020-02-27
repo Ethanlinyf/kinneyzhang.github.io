@@ -77,14 +77,11 @@ body{
 }
 .post-div h1 a{
     color: #444;
-    font:bold 20px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+    font:bold 25px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 .post-div p a {
-    color: black;
-    border: 1px solid black;
-}
-.post-div p a:hover {
-    color: black;
+    color: #444;
+    border: 1px solid #444;
 }
 .post-div span {
     position: absolute;
