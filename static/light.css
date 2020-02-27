@@ -58,10 +58,10 @@ body{
     padding: 0.3em 0em;
     margin-bottom: 2em;
     border-bottom: 1px solid grey;
-    text-align: center;
+    text-align: right;
 }
 .topnav a {
-    color: black;
+    color: #444;
 }
 .title {
     color:#555;
