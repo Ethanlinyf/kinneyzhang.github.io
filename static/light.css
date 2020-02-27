@@ -89,6 +89,9 @@ a:hover {
     margin-bottom: 0.5em;
     font:bold 25px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
+.post-info {
+    color: grey;
+}
 .post-div { /* index page div */
     position: relative;
     border-bottom: 0.5px dotted grey;
