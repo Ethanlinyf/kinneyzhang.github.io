@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-02-27 Thu 11:45 -->
+<!-- 2020-02-27 Thu 11:47 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp学习笔记</title>
@@ -64,15 +64,8 @@ ga('send', 'pageview');
 <header>
 <h1 class="title">elisp学习笔记</h1>
 </header><p>
-[ 分类: Emacs / 日期: 2019-11-12 / 字数: 11422 ]
+[ 分类: Emacs / 日期: 2019-11-12 / 字数: 11400 ]
 </p>
-
-<div class="col-auto">
-<pre><code class="html">&lt;div class="post-info"&gt;
-  [&amp;nbsp;&lt;span&gt;分类: &lt;/span&gt;&amp;nbsp;/&amp;nbsp;&lt;span&gt;日期: &lt;/span&gt;&amp;nbsp;/&amp;nbsp;&lt;span&gt;字数: &lt;/span&gt;&amp;nbsp;]
-&lt;/div&gt;
-</code></pre>
-</div>
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -80,7 +73,7 @@ ga('send', 'pageview');
 <li><a href="#org9c04db2">1. lisp介绍</a></li>
 <li><a href="#orgf974b59">2. Elisp</a>
 <ul>
-<li><a href="#orgcdd363b">2.1. 概览</a>
+<li><a href="#orgefa6179">2.1. 概览</a>
 <ul>
 <li><a href="#org71786f5">2.1.1. 运行emacs-lisp的几种方式</a></li>
 <li><a href="#org90a4625">2.1.2. 创建命令（interactive函数）</a></li>
@@ -117,7 +110,7 @@ ga('send', 'pageview');
 <li><a href="#orged515b7">2.7. 列表操作</a></li>
 <li><a href="#org02cbca6">2.8. 关联列表和属性列表</a>
 <ul>
-<li><a href="#orgefa6179">2.8.1. 概览</a></li>
+<li><a href="#org741e9a0">2.8.1. 概览</a></li>
 <li><a href="#orgf47de9a">2.8.2. 关联列表/Alist</a></li>
 <li><a href="#org46aec8c">2.8.3. 属性列表</a></li>
 <li><a href="#orgdcbd673">2.8.4. 转换Alist成Plist和vice-versa</a></li>
@@ -146,10 +139,10 @@ ga('send', 'pageview');
 <li><a href="#orgcda1b27">3.2. 宏</a></li>
 </ul>
 </li>
-<li><a href="#org491db9d">4. Emacs API</a>
+<li><a href="#org2d69834">4. Emacs API</a>
 <ul>
 <li><a href="#org3c598b8">4.1. Emacs术语</a></li>
-<li><a href="#org2d69834">4.2. Emacs API</a></li>
+<li><a href="#org9a8f7a0">4.2. Emacs API</a></li>
 <li><a href="#org8dc60d6">4.3. Buffers</a>
 <ul>
 <li><a href="#org7b40879">4.3.1. Buffer Attributes</a></li>
@@ -266,8 +259,8 @@ Lisp语言的主要现代版本包括Common Lisp, Scheme，Racket以及Clojure�
 <h2 id="orgf974b59"><span class="section-number-2">2</span> Elisp</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgcdd363b" class="outline-3">
-<h3 id="orgcdd363b"><span class="section-number-3">2.1</span> 概览</h3>
+<div id="outline-container-orgefa6179" class="outline-3">
+<h3 id="orgefa6179"><span class="section-number-3">2.1</span> 概览</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
 <div id="outline-container-org71786f5" class="outline-4">
@@ -1466,8 +1459,8 @@ ELISP&gt;
 <h3 id="org02cbca6"><span class="section-number-3">2.8</span> 关联列表和属性列表</h3>
 <div class="outline-text-3" id="text-2-8">
 </div>
-<div id="outline-container-orgefa6179" class="outline-4">
-<h4 id="orgefa6179"><span class="section-number-4">2.8.1</span> 概览</h4>
+<div id="outline-container-org741e9a0" class="outline-4">
+<h4 id="org741e9a0"><span class="section-number-4">2.8.1</span> 概览</h4>
 <div class="outline-text-4" id="text-2-8-1">
 <p>
 关联列表是一系列cons对，这里我可以称作 <code>clist</code> 或者 由两个元素组成的列表的集合，可以称为 <code>alist</code>
@@ -3734,8 +3727,8 @@ ELISP&gt;
 </div>
 </div>
 
-<div id="outline-container-org491db9d" class="outline-2">
-<h2 id="org491db9d"><span class="section-number-2">4</span> Emacs API</h2>
+<div id="outline-container-org2d69834" class="outline-2">
+<h2 id="org2d69834"><span class="section-number-2">4</span> Emacs API</h2>
 <div class="outline-text-2" id="text-4">
 </div>
 <div id="outline-container-org3c598b8" class="outline-3">
@@ -3828,8 +3821,8 @@ ELISP&gt;
 </p>
 </div>
 </div>
-<div id="outline-container-org2d69834" class="outline-3">
-<h3 id="org2d69834"><span class="section-number-3">4.2</span> Emacs API</h3>
+<div id="outline-container-org9a8f7a0" class="outline-3">
+<h3 id="org9a8f7a0"><span class="section-number-3">4.2</span> Emacs API</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 <b>API对象</b>

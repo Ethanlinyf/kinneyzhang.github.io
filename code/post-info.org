@@ -1,15 +1,3 @@
 #+MACRO: org-img (eval (my/org-grid-img $1 $2 $3))
 #+MACRO: wc (eval (my/word-count))
 [ 分类: {{{keyword(category)}}} / 日期: {{{date}}} / 字数: {{{wc}}} ]
-
-#+BEGIN_SRC emacs-lisp :exports results
-
-#+END_SRC
-
-
-#+BEGIN_SRC html
-<div class="post-info">
-  [&nbsp;<span>分类: </span>&nbsp;/&nbsp;<span>日期: </span>&nbsp;/&nbsp;<span>字数: </span>&nbsp;]
-</div>
-#+END_SRC
-
