@@ -177,29 +177,6 @@ a {
     text-decoration: inherit;
 }
 
-body {
-    width: 92%;
-    margin: 2% auto;
-    font-size: 13px;
-    line-height: 1.4em;
-}
-
-@media screen and (max-width:600px) {
-    #content {
-	font-size: 13px;
-    }
-    .post-div h1 a{
-	font:bold 18px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
-    }
-
-}
-
-@media screen and (min-width:910px) {
-    body {
-	width: 900px;
-    }
-}
-
 ::selection {
     background: #d6edff;
 }
@@ -264,28 +241,6 @@ img {
 .MathJax_Display {
     margin: 0!important;
     width: 90%!important;
-}
-
-@media screen and (min-width:600px) {
-    h1 {
-	font-size: 1.8em;
-    }
-
-    h2 {
-	font-size: 1.5em;
-    }
-
-    h3 {
-	font-size: 1.3em;
-    }
-
-    h1,h2,h3 {
-	line-height: 1.4em;
-    }
-
-    h4,h5,h6 {
-	font-size: 1.1em;
-    }
 }
 
 dt {
@@ -464,17 +419,6 @@ pre code {
     background-color: #ff0;
 }
 
-.creator {
-    display: block;
-}
-
-@media screen and (min-width:600px) {
-    .creator {
-	display: inline;
-	float: right;
-    }
-}
-
 /* self customed */
 
 p{
@@ -597,4 +541,57 @@ h6 {
 }
 #postamble {
     margin-top: 2.0em;
+}
+
+body {
+    width: 92%;
+    margin: 2% auto;
+    font-size: 14px;
+    line-height: 1.4em;
+}
+@media screen and (max-width:600px) {
+    #content {
+	font-size: 14px;
+    }
+    .post-div h1 a{
+	font:bold 18px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+    }
+
+}
+
+@media screen and (min-width:910px) {
+    body {
+	width: 900px;
+    }
+}
+@media screen and (min-width:600px) {
+    h1 {
+	font-size: 1.8em;
+    }
+
+    h2 {
+	font-size: 1.5em;
+    }
+
+    h3 {
+	font-size: 1.3em;
+    }
+
+    h1,h2,h3 {
+	line-height: 1.4em;
+    }
+
+    h4,h5,h6 {
+	font-size: 1.1em;
+    }
+}
+.creator {
+    display: block;
+}
+
+@media screen and (min-width:600px) {
+    .creator {
+	display: inline;
+	float: right;
+    }
 }
