@@ -188,6 +188,10 @@ body {
     #content {
 	font-size: 13px;
     }
+    .post-div h1 a{
+	font:bold 18px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+    }
+
 }
 
 @media screen and (min-width:910px) {
