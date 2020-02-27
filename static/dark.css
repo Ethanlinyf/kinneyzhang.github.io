@@ -65,8 +65,9 @@ body{
 }
 .title {
     color: RGB(213,213,213);
-    text-align: center;
-    margin: 1.2em auto;
+    text-align: left;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
     letter-spacing: 0.1em;
     font:bold 25px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
