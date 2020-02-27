@@ -59,9 +59,10 @@ body{
     margin-bottom: 2em;
     border-bottom: 1px solid grey;
     text-align: center;
+}
+.topnav a {
     color: black;
 }
-
 .title {
     color:#555;
     text-align: center;
