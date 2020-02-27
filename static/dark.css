@@ -65,10 +65,30 @@ body{
     text-align: left;
     margin-top: 1.2em;
     margin-bottom: 0.5em;
-    letter-spacing: 0.1em;
     font:bold 25px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
-
+.post-div { /* index page div */
+    position: relative;
+    border-bottom: 0.5px dotted RGB(213,213,213);
+    margin-top: 1em;
+    /* padding: 0 1.2em; */
+    padding-bottom: 1em;
+}
+.post-div h1 a{
+    /* color: #444; */
+    font:bold 20px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+}
+.post-div p a {
+    color: RGB(213,213,213);
+    border: 1px solid RGB(213,213,213);
+}
+.post-div p a:hover {
+    color: RGB(213,213,213);
+}
+.post-div span {
+    position: absolute;
+    right: 1.5em;
+}
 h1 {
     font-size: 2em;
     margin: 0.67em 0;
@@ -516,28 +536,6 @@ h6 {
 
 .img-row a{
     padding: 3px;
-}
-
-.post-div {
-    position: relative;
-    border-bottom: 0.5px dotted RGB(213,213,213);
-    margin-top: 1em;
-    /* padding: 0 1.2em; */
-    padding-bottom: 1em;
-}
-.post-div h1 a{
-    font:bold 20px/1.2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
-}
-.post-div p a {
-    color: RGB(213,213,213);
-    border: 1px solid RGB(213,213,213);
-}
-.post-div p a:hover {
-    color: RGB(213,213,213);
-}
-.post-div span {
-    position: absolute;
-    right: 1.5em;
 }
 #postamble {
     margin-top: 2.0em;
