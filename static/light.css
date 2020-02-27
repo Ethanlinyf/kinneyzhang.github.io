@@ -27,7 +27,16 @@ body{
 	opacity: 1
     }
 }
+a {
+    color: #527d9a;
+    text-decoration: none;
+}
 
+a:hover {
+    color: RGB(25,169,251);
+    text-decoration: none;
+    border-bottom: 1px dotted;
+}
 #org-div-header{
     font-size: 100%;
     /* white-space: nowrap; */
@@ -228,17 +237,6 @@ dl,ol,ul {
 
 .footdef sup {
     padding-right: .5em;
-}
-
-a {
-    color: #527d9a;
-    text-decoration: none;
-}
-
-a:hover {
-    color: RGB(25,169,251);
-    text-decoration: none;
-    border-bottom: 1px dotted;
 }
 
 figure {
