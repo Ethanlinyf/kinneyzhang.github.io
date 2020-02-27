@@ -9,7 +9,7 @@ body {
     margin:0;
     font-family:"TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
     -webkit-font-smoothing:antialiased;
-    background-image:url(../img/dot-grid.png);
+    background-image:url('/static/img/dot-grid.png');
     /* background-color: white; */
     color: #444;
     font-size: 14px;
