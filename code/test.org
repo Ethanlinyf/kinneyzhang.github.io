@@ -1,0 +1,10 @@
+#+DATE: 2020-02-27
+#+CATEGORY: Emacs
+
+
+#+BEGIN_SRC emacs-lisp
+buffer-file-name
+#+END_SRC
+
+#+RESULTS:
+: /Users/kinney/Library/Mobile Documents/com~apple~CloudDocs/blog_site/code/test.org
