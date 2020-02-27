@@ -28,10 +28,20 @@ body{
     }
 }
 a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+a:active,a:hover {
+    outline-width: 0;
+}
+a {
     color: #527d9a;
     text-decoration: none;
 }
-
+/* a:hover,a:active { */
+/*     color:#6E7173; */
+/* } */
 a:hover {
     color: RGB(25,169,251);
     text-decoration: none;
@@ -109,15 +119,6 @@ h1 {
 
 #content h1,h2,h3,h4,h5,h6 {
     line-height: 1em;
-}
-
-a {
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-}
-
-a:active,a:hover {
-    outline-width: 0;
 }
 
 b,strong {
