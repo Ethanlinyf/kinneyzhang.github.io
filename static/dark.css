@@ -550,6 +550,9 @@ body {
     line-height: 1.4em;
 }
 @media screen and (max-width:600px) {
+    .topnav {
+	font-size: 1.0em;
+    }
     #content {
 	font-size: 14px;
     }
