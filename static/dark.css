@@ -34,25 +34,21 @@ body{
 }
 
 .toptitle {
-    font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif;
-    font-weight: bold;
-    padding: 1.0em 0em;
-    position: relative;
+    padding-top: 1.0em;
+    padding-bottom: 0.5em;
+    text-align: left;
 }
-
-.toptitle span:first-child {
-    color: RGB(213,213,213);
-    margin-top: 0;
-    font:bold 44px/2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+#logo {
+    font:bold 50px/2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+    color:white;
 }
-
-.toptitle span:last-child {
-    position: absolute;
-    right: 0;
-    cursor: pointer;
-    border: 1px solid RGB(213,213,213);
+#logo:hover {
+    color:RGB(213,213,213);
 }
-
+.description {
+    margin:-18px 0 0;
+    color:RGB(213,213,213);
+}
 .topnav {
     font-size: 1.2em;
     padding: 0.3em 0em;
@@ -553,8 +549,8 @@ body {
     line-height: 1.4em;
 }
 @media screen and (max-width:600px) {
-    .toptitle span:first-child {
-	font:bold 38px/2 "ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+    .toptitle {
+	text-align: center;
     }
     .topnav {
 	font-size: 1.1em;
