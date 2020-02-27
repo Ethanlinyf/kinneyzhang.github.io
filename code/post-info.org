@@ -1,3 +1,3 @@
 #+MACRO: org-img (eval (my/org-grid-img $1 $2 $3))
 #+MACRO: wc (eval (my/word-count))
-[ 分类: {{{keyword(category)}}} / 日期: {{{date}}} / 字数: {{{wc}}} ]
+#+MACRO: post-info (eval (my/blog-get-post-info))

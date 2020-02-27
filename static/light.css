@@ -566,24 +566,6 @@ body {
     }
 }
 
-/* @media screen and (min-width:600px) { */
-/*     h2 { */
-/* 	font-size: 1.5em; */
-/*     } */
-
-/*     h3 { */
-/* 	font-size: 1.3em; */
-/*     } */
-
-/*     h1,h2,h3 { */
-/* 	line-height: 1.4em; */
-/*     } */
-
-/*     h4,h5,h6 { */
-/* 	font-size: 1.1em; */
-/*     } */
-/* } */
-
 @media screen and (min-width:600px) {
     .creator {
 	display: inline;
