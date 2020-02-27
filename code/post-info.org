@@ -1,4 +1,4 @@
 #+MACRO: org-img (eval (my/org-grid-img $1 $2 $3))
-#+BEGIN_SRC emacs-lisp :results value :exports results
+#+BEGIN_SRC emacs-lisp :results value html
 (my/blog-get-post-info)
 #+END_SRC
