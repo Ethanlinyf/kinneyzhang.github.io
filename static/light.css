@@ -567,10 +567,6 @@ body {
 }
 
 @media screen and (min-width:600px) {
-    h1 {
-	font-size: 1.8em;
-    }
-
     h2 {
 	font-size: 1.5em;
     }
