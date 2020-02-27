@@ -53,6 +53,7 @@ a:hover {
 }
 #logo:hover {
     color:#777;
+    border-bottom: 0;
 }
 .description {
     margin:-18px 0 0;
