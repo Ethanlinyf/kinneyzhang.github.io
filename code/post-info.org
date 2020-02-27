@@ -1,4 +1,4 @@
 #+MACRO: org-img (eval (my/org-grid-img $1 $2 $3))
 #+MACRO: wc (eval (my/word-count))
-#+MACRO: post-info (eval (my/blog-get-post-info))
+#+MACRO: post-info (eval (insert (my/blog-get-post-info)))
 {{{post-info}}}
