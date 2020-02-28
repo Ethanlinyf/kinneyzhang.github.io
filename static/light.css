@@ -86,8 +86,8 @@ a:hover {
     color:#555;
     text-align: left;
     margin-top: 1.2em;
-    margin-bottom: 0.5em;
-    font:bold 25px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+    margin-bottom: 0.3em;
+    font:bold 23px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 .post-info {
     color: #999;
@@ -101,7 +101,7 @@ a:hover {
 }
 .post-div h1 a{
     color: #555;
-    font:bold 24px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+    font:bold 23px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 .post-div p a {
     color: #666;
@@ -556,10 +556,10 @@ body {
 	font-size: 14px;
     }
     .post-div h1 a{
-	font:bold 23px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+	font:bold 22px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
     }
     .title {
-	font:bold 23px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+	font:bold 22px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
     }
 }
 
