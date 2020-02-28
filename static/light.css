@@ -84,12 +84,13 @@ a:hover {
 }
 .title {
     color:#555;
-    text-align: left;
+    text-align: center;
     margin-top: 1.2em;
     margin-bottom: 0;
     font:bold 23px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 .post-info {
+    text-align: center;
     color: #999;
     font-size: 0.9em;
 }
@@ -405,18 +406,18 @@ p.verse {
     margin-left: 3%;
 }
 pre,code {
-	padding:2px 4px;
-	background:#F8F8F8;
-	font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
-	font-size:.92857em;
+    padding:2px 4px;
+    background:#F8F8F8;
+    font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
+    font-size:.92857em;
 }
 pre {
-	padding:8px;
-	overflow:auto;
-	max-height:400px;
+    padding:8px;
+    overflow:auto;
+    max-height:400px;
 }
 pre code {
-	padding:0;
+    padding:0;
 }
 #org-div-home-and-up {
     font-size: 70%;
@@ -553,14 +554,18 @@ body {
 	font-size: 1.1em;
 	margin-top: 2em;
     }
-    #content {
-	font-size: 14px;
+    .title {
+	font:bold 22px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+	text-align: left;
+    }
+    .post-info {
+	text-align: left;
     }
     .post-div h1 a{
 	font:bold 22px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
     }
-    .title {
-	font:bold 22px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+    #content {
+	font-size: 14px;
     }
 }
 
