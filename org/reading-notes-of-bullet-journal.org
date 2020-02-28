@@ -1,7 +1,7 @@
 #+TITLE: 《子弹笔记》要点
 #+DATE: 2019-03-05
 #+STARTUP: content
-#+OPTIONS: toc:nil H:2 num:2
+#+OPTIONS: toc:nil H:2 num:0
 #+CATEGORY: 阅读
 #+INCLUDE: "../code/post-info.org"
 

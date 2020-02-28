@@ -1,7 +1,7 @@
 #+TITLE:emacs学习笔记 
 #+DATE: 2019-03-02
 #+STARTUP: content
-#+OPTIONS: toc:nil H:2 num:2
+#+OPTIONS: toc:nil H:2 num:0
 #+CATEGORY: Emacs
 #+INCLUDE: "../code/post-info.org"
 #+TOC: headlines:2

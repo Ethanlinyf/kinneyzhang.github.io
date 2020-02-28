@@ -1,12 +1,10 @@
 #+TITLE: 文章归档
 #+OPTIONS: toc:nil H:2 num:0 title:nil
-
 * 2020
  * 0222 [[https://blog.geekinney.com/post/auto-generate-blog-digest-page.html][自动生成org blog摘要页]]
  * 0221 [[https://blog.geekinney.com/post/auto-generate-blog-relative-info.html][自动生成org blog辅助信息]]
  * 0220 [[https://blog.geekinney.com/post/elisp-hack-compress-and-convert-video.html][视频压缩及格式(gif)转换]]
  * 0219 [[https://blog.geekinney.com/post/blog-light-and-dark-theme-switch.html][博客亮/暗色主题切换]]
-
 * 2019
  * 1231 [[https://blog.geekinney.com/post/at-the-end-of-2019.html][去你的2019，来我的2020]]
  * 1126 [[https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html][记我的博客折腾经历]]
