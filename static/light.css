@@ -91,6 +91,7 @@ a:hover {
 }
 .post-info {
     color: #999;
+    font-size: 0.8em;
 }
 .post-div { /* index page div */
     position: relative;
