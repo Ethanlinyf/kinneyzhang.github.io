@@ -37,14 +37,15 @@ a:active,a:hover {
     outline-width: 0;
 }
 a {
-    color: #527d9a;
+    /* color: #527d9a; */
+    color: #c83b23;
     text-decoration: none;
 }
 /* a:hover,a:active { */
 /*     color:#6E7173; */
 /* } */
 a:hover {
-    color: RGB(25,169,251);
+    /* color: RGB(25,169,251); */
     text-decoration: none;
     border-bottom: 1px dotted;
 }
