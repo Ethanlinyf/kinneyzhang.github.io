@@ -1,7 +1,6 @@
 #+TITLE: 关于
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:0
-#+INCLUDE: ../code/post-info.org
 
 “戈楷旎”就是我的英文名"Geekinney"的谐音，没什么特殊的含义。
 
