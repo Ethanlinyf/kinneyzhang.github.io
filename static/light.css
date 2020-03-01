@@ -106,8 +106,14 @@ a:hover,a:active {
     color: #555;
     font:bold 23px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
+.post-div h1 a:hover {
+    border-bottom: 0;
+}
 .post-div p a {
     color: #666;
+}
+.post-div p a:hover {
+    border-bottom: 0;
 }
 .post-div span {
     position: absolute;
