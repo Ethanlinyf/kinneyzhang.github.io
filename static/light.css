@@ -119,6 +119,9 @@ a:hover,a:active {
     position: absolute;
     right: 1.5em;
 }
+.post-div code a:hover {
+    border-bottom: 0;
+}
 h1 {
     font-size: 2em;
     margin: 0.67em 0;
