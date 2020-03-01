@@ -37,8 +37,7 @@ a:active,a:hover {
     outline-width: 0;
 }
 a {
-    /* color: #527d9a; */
-    color: #c83b23;
+    color: #527d9a;
     text-decoration: none;
 }
 /* a:hover,a:active { */
@@ -127,7 +126,9 @@ h1 {
 #content h1,h2,h3,h4,h5,h6 {
     line-height: 1em;
 }
-
+#content a {
+    color: #c83b23;
+}
 b,strong {
     font-weight: inherit;
     font-weight: bolder;
