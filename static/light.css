@@ -40,6 +40,9 @@ a {
     color: #527d9a;
     text-decoration: none;
 }
+#content p a {
+    color: #c83b23;
+}
 /* a:hover,a:active { */
 /*     color:#6E7173; */
 /* } */
@@ -125,9 +128,6 @@ h1 {
 
 #content h1,h2,h3,h4,h5,h6 {
     line-height: 1em;
-}
-#content p a {
-    color: #c83b23;
 }
 b,strong {
     font-weight: inherit;
