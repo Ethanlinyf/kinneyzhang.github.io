@@ -48,7 +48,8 @@ $ git clone --depth=1 https://github.com/Kinneyzhang/.emacs.d.git ~/.emacs.d --r
 
 如果你不知道如何使用命令行，一个简单的办法就是访问 [[https://github.com/Kinneyzhang/.emacs.d][.emacs.d]] ，点击 =Clone or download= 中的 =Download ZIP= 下载到本地，然后解压到用户主目录。
 
-** 启动emacs，等待所有package安装完毕
+** 启动emacs
+   等待所有package安装完毕。
 
 * 使用
 
@@ -75,6 +76,3 @@ Emacs 快捷键基本中的基本是这几个：
    * Ctrl + g：取消输入
 
 详细快捷键信息参见 [[https://caiorss.github.io/Emacs-Elisp-Programming/Keybindings.html][Emacs Key Bindings]]
-
-* visual thinking
-[[https://emacs.sexy/img/How-to-Learn-Emacs-v2-Large.png]]
