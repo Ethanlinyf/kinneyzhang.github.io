@@ -426,8 +426,8 @@ pre,code {
 pre {
     border-radius: 5px;
     padding:8px;
-    /* overflow:auto; */
-    max-height:400px;
+    overflow:auto;
+    /* max-height:400px; */
 }
 pre code {
     padding:0;
