@@ -316,6 +316,10 @@ td.org-center {
     text-align: center;
 }
 
+tbody tr:nth-child(even) {
+    background-color: #F5F5F5;
+}
+
 blockquote {
     margin: 1em 2em;
     padding-left: 1em;
@@ -420,6 +424,7 @@ pre,code {
     font-size:.92857em;
 }
 pre {
+    border-radius: 5px;
     padding:8px;
     overflow:auto;
     max-height:400px;
