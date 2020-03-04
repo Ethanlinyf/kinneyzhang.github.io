@@ -104,7 +104,7 @@ a:hover,a:active {
 }
 .post-div h1 a{
     color: #555;
-    font:bold 22px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+    font:bold 21px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 .post-div h1 a:hover {
     border-bottom: 0;
@@ -575,7 +575,7 @@ body {
 	text-align: left;
     }
     .post-div h1 a{
-	font:bold 22px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+	font:bold 21px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
     }
     #content {
 	font-size: 14px;
