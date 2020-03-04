@@ -6,13 +6,15 @@ html {
 }
 
 body {
-    margin:0;
     font-family: Arial,"TIBch", "Classic Grotesque W01", "Helvetica Neue", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
     -webkit-font-smoothing:antialiased;
     /* background-image:url('/static/img/dot-grid.png'); */
     /* background-color: white; */
     color: #444;
-    font-size: 14px;
+    font-size: 15px;
+    width: 92%;
+    margin: 2% auto;
+    line-height: 1.715em;
 }
 /* 平滑切换 */
 body{
@@ -554,12 +556,7 @@ h6 {
 #postamble {
     margin-top: 2.0em;
 }
-body {
-    width: 92%;
-    margin: 2% auto;
-    font-size: 14px;
-    line-height: 1.715em;
-}
+
 @media screen and (max-width:600px) {
     .toptitle {
 	text-align: center;
