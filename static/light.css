@@ -112,14 +112,16 @@ a:hover,a:active {
     border-bottom: 0;
 }
 .post-div p a {
-    color: #666;
+    position: absolute;
+    right: 0;
 }
 .post-div p a:hover {
     border-bottom: 0;
 }
 .post-div span {
+    color: #999;
     position: absolute;
-    right: 1.5em;
+    right: 0;
 }
 .post-div code a:hover {
     border-bottom: 0;
