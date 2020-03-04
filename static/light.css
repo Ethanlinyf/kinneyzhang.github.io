@@ -469,24 +469,29 @@ p{
 h2 {
     font-size: 1.3em;
     /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
-    border-bottom: 0.5px solid #ccc;
     padding: .2em;
 }
+/* #content h2 { */
+/*     border-bottom: 0.5px solid #ccc; */
+/* } */
 
 h3 {
     font-size: 1.2em;
     /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
-    border-bottom: 0.5px solid #eee;
     padding: .2em;
 }
+/* #content h3 { */
+/*     border-bottom: 0.5px solid #eee; */
+/* } */
 
 h4 {
     font-size: 1.1em;
     /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
-    border-bottom: 0.5px solid #eee;
     padding: .2em;
 }
-
+/* #content h4 { */
+/*     border-bottom: 0.5px solid #eee; */
+/* } */
 h5 {
     font-size: 1em;
     /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
