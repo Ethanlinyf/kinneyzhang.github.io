@@ -112,7 +112,7 @@ a:hover,a:active {
     border-bottom: 0;
 }
 .post-div p a {
-    position: absolute;
+    position: relative;
     right: 0;
 }
 .post-div p a:hover {
