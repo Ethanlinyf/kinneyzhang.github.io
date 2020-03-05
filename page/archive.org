@@ -11,7 +11,6 @@
  * 1112 [[https://blog.geekinney.com/post/emacs-lisp-learning-note.html][elisp学习笔记]]
  * 0903 [[https://blog.geekinney.com/post/using-org-to-blog-with-jekyll.html][使用org-mode撰写Jekyll blog]]
  * 0831 [[https://blog.geekinney.com/post/listen-music-in-emacs.html][Emacs中使用mpd+mingus听音乐]]
- * 0828 [[https://blog.geekinney.com/post/reading-notes-of-how-to-read-a-book-efficiently.html][书摘|如何有效阅读一本书]]
  * 0818 [[https://blog.geekinney.com/post/get-started-with-emacs.html][开始使用Emacs]]
  * 0805 [[https://blog.geekinney.com/post/thinking-about-journaling.html][关于写日志]]
  * 0802 [[https://blog.geekinney.com/post/thinking-about-cs-teaching-in-college.html][关于大学计算机科学]]
