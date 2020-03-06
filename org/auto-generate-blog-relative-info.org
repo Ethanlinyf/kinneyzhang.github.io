@@ -1,6 +1,6 @@
 #+TITLE: 自动生成org blog辅助信息
 #+DATE: 2020-02-21
-#+CATEGORY: Emacs
+#+CATEGORY: 博客
 #+MACRO: wc (eval (my/word-count))
 #+INCLUDE: "../code/post-info.org"
 #+STARTUP: content

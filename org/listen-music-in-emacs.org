@@ -105,4 +105,5 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 * 效果
 https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/mingus.png
 * 参考文档
+  DEADLINE: <2020-04-30 Thu>
 [[https://computingforgeeks.com/install-configure-mpd-ncmpcpp-macos][Install and configure mpd and ncmpcpp on MacOS]]

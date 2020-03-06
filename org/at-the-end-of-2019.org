@@ -2,7 +2,7 @@
 #+DATE: 2019-12-31
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2
-#+CATEGORY: 记录
+#+CATEGORY: 总结
 #+INCLUDE: "../code/post-info.org"
 
 2019接近尾声，这一年充满了选择与变化，虽然过程曲折但还算充实。我也慢慢的朝着自己想要的状态去走，有些慢，但没偏离轨迹。

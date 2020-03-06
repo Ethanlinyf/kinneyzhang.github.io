@@ -2,7 +2,7 @@
 #+DATE: 2019-11-26
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2
-#+CATEGORY: 记录
+#+CATEGORY: 博客
 #+INCLUDE: "../code/post-info.org"
 #+TOC: headlines:2
 
