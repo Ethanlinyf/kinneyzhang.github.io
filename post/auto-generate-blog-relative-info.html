@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-03-07 Sat 00:14 -->
+<!-- 2020-03-07 Sat 01:16 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>自动生成org blog辅助信息</title>
@@ -179,50 +179,50 @@ OK，这样每次在org发布项目的时候就会自动添加日期、分类和
 </div>
 <div id="postamble" class="status">
 
-		    <script src="/static/jQuery.min.js"></script>
-		    <script src="/static/Valine.min.js"></script>
+<script src="/static/jQuery.min.js"></script>
+<script src="/static/Valine.min.js"></script>
 
-		    <div id="vcomments"></div>
-		    <script>
-		    new Valine({
-		    el: '#vcomments',
-		    appId: 'jVMbXK6tJDtPCzR3Mp0V5L6V-gzGzoHsz',
-		    appKey: 'SX4oRFXp8K7KgeGhKTTDy3VI',
-		    visitor: true,
-		    notify: true,
-		    verify: false,
-		    avatar: 'identicon',
-		    placeholder: '留下你的评论吧～'
-		    })
-		    </script>
+<div id="vcomments"></div>
+<script>
+new Valine({
+el: '#vcomments',
+appId: 'jVMbXK6tJDtPCzR3Mp0V5L6V-gzGzoHsz',
+appKey: 'SX4oRFXp8K7KgeGhKTTDy3VI',
+visitor: true,
+notify: true,
+verify: false,
+avatar: 'identicon',
+placeholder: '留下你的评论吧～'
+})
+</script>
 
-		    <p>Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"/></a></p>
-		    <p class="author">Author: Kinney Zhang (<a href="mailto:kinneyzhang666@gmail.com">kinneyzhang666@gmail.com</a>)</p>
-		    <p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)</p>
+<p>Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png"/></a></p>
+<p class="author">Author: Kinney Zhang (<a href="mailto:kinneyzhang666@gmail.com">kinneyzhang666@gmail.com</a>)</p>
+<p class="creator"><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.1.9)</p>
 
 
-		    <script>
-		    $(document).ready(function(){
-		    var theme = sessionStorage.getItem("theme");
-		    if(theme=="dark"){
-		    document.getElementById("pagestyle").href="/static/dark.css";
-		    }else if(theme=="light"){
-		    document.getElementById("pagestyle").href="/static/light.css";
-		    }else{
-		    sessionStorage.setItem("theme","light");
-		    }});
+<script>
+$(document).ready(function(){
+var theme = sessionStorage.getItem("theme");
+if(theme=="dark"){
+document.getElementById("pagestyle").href="/static/dark.css";
+}else if(theme=="light"){
+document.getElementById("pagestyle").href="/static/light.css";
+}else{
+sessionStorage.setItem("theme","light");
+}});
 
-		    function switchTheme(){
-		    if(sessionStorage.getItem("flag")=="false"){
-		    document.getElementById("pagestyle").href="/static/light.css";
-		    sessionStorage.setItem("theme","light");
-		    sessionStorage.setItem("flag", "true");
-		    }else{
-		    document.getElementById("pagestyle").href="/static/dark.css";
-		    sessionStorage.setItem("theme","dark");
-		    sessionStorage.setItem("flag", "false");
-		    }};
-		    </script>
+function switchTheme(){
+if(sessionStorage.getItem("flag")=="false"){
+document.getElementById("pagestyle").href="/static/light.css";
+sessionStorage.setItem("theme","light");
+sessionStorage.setItem("flag", "true");
+}else{
+document.getElementById("pagestyle").href="/static/dark.css";
+sessionStorage.setItem("theme","dark");
+sessionStorage.setItem("flag", "false");
+}};
+</script>
 </div>
 </body>
 </html>
