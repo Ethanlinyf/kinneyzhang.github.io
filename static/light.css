@@ -118,10 +118,15 @@ a:hover,a:active {
 .post-div p a:hover {
     border-bottom: 0;
 }
-.post-div span {
+.post-date{
     color: #999;
     position: absolute;
     right: 0;
+}
+.leancloud_visitors {
+    color: #999;
+    position: absolute;
+    right: 20;
 }
 .post-div code a:hover {
     border-bottom: 0;
