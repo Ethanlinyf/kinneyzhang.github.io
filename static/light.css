@@ -126,7 +126,7 @@ a:hover,a:active {
 .leancloud_visitors {
     color: #999;
     position: absolute;
-    right: 0;
+    right: 25px;
 }
 .post-div code a:hover {
     border-bottom: 0;
