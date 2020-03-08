@@ -11,17 +11,18 @@ MacOS系统使用 =mov= 作为默认视频格式， =mov= 格式的缺点是文�
 
 #+BEGIN_SRC emacs-lisp
 (defun my/video-compress-and-convert (video new)
-  "compress and convert video"
-  (interactive "fvideo path: \nfnew item path: ")
-  (let ((video-format (cadr (split-string video "\\."))))
+  (interactive "fvideo path: \nfnew item name (eg. exam.mp4, exam.gif) : ")
+  (let ((video-format (cadr (split-string (file-name-nondirectory new) "\\."))))
     (if (string= video-format "gif")
 	(progn
-	  (shell-command (concat "ffmpeg -i " video " -r 5 " new))
+	  (shell-command
+	   (concat "ffmpeg -i " video " -r 5 " new))
 	  (message "%s convert to %s successfully!" video new))
       (progn
 	(shell-command
 	 (concat "ffmpeg -i " video " -vcodec libx264 -b:v 5000k -minrate 5000k -maxrate 5000k -bufsize 4200k -preset fast -crf 20 -y -acodec libmp3lame -ab 128k " new))
-	(message "%s compress and convert to %s successfully!" video new)))
+	(message "%s compress and convert to %s successfully!" video new))
+      )
     ))
 #+END_SRC
 
