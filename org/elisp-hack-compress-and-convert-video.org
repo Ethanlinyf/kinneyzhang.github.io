@@ -12,8 +12,8 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
 #+BEGIN_SRC emacs-lisp
 (defun my/video-compress-and-convert (video new)
   (interactive "fvideo path: \nfnew item name (eg. exam.mp4, exam.gif) : ")
-  (let ((video-format (cadr (split-string (file-name-nondirectory new) "\\."))))
-    (if (string= video-format "gif")
+  (let ((extension (cadr (split-string (file-name-nondirectory new) "\\."))))
+    (if (string= extension "gif")
 	(progn
 	  (shell-command
 	   (concat "ffmpeg -i " video " -r 5 " new))

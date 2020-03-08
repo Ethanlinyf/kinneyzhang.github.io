@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-03-08 Sun 15:53 -->
+<!-- 2020-03-08 Sun 16:20 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>视频压缩及格式(gif)转换</title>
@@ -48,8 +48,8 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
 <div class="col-auto">
 <pre><code class="emacs-lisp">(defun my/video-compress-and-convert (video new)
   (interactive "fvideo path: \nfnew item name (eg. exam.mp4, exam.gif) : ")
-  (let ((video-format (cadr (split-string (file-name-nondirectory new) "\\."))))
-    (if (string= video-format "gif")
+  (let ((extension (cadr (split-string (file-name-nondirectory new) "\\."))))
+    (if (string= extension "gif")
 	(progn
 	  (shell-command
 	   (concat "ffmpeg -i " video " -r 5 " new))
