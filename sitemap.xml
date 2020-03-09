@@ -1,19 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://blog.geekinney.com/post/parse-elisp-list-to-html.html</loc><lastmod>2020-03-09</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/auto-generate-blog-digest-page.html</loc><lastmod>2020-02-22</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/auto-generate-blog-relative-info.html</loc><lastmod>2020-02-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/elisp-hack-compress-and-convert-video.html</loc><lastmod>2020-02-20</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/blog-light-and-dark-theme-switch.html</loc><lastmod>2020-02-19</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/at-the-end-of-2019.html</loc><lastmod>2019-12-31</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html</loc><lastmod>2019-11-26</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/emacs-lisp-learning-note.html</loc><lastmod>2019-11-12</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/using-org-to-blog-with-jekyll.html</loc><lastmod>2019-09-03</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/listen-music-in-emacs.html</loc><lastmod>2019-08-31</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/get-started-with-emacs.html</loc><lastmod>2019-08-18</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/thinking-about-journaling.html</loc><lastmod>2019-08-05</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/thinking-about-cs-teaching-in-college.html</loc><lastmod>2019-08-02</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html</loc><lastmod>2019-07-21</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/reading-notes-of-bullet-journal.html</loc><lastmod>2019-03-05</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
-<url><loc>https://blog.geekinney.com/post/emacs-learning-note.html</loc><lastmod>2019-03-02</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>
+  <url>
+    <loc>https://blog.geekinney.com/post/parse-elisp-list-to-html.html</loc>
+    <lastmod>2020-03-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/auto-generate-blog-digest-page.html</loc>
+    <lastmod>2020-02-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/auto-generate-blog-relative-info.html</loc>
+    <lastmod>2020-02-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/elisp-hack-compress-and-convert-video.html</loc>
+    <lastmod>2020-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/blog-light-and-dark-theme-switch.html</loc>
+    <lastmod>2020-02-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/at-the-end-of-2019.html</loc>
+    <lastmod>2019-12-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html</loc>
+    <lastmod>2019-11-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/emacs-lisp-learning-note.html</loc>
+    <lastmod>2019-11-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/using-org-to-blog-with-jekyll.html</loc>
+    <lastmod>2019-09-03</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/listen-music-in-emacs.html</loc>
+    <lastmod>2019-08-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/get-started-with-emacs.html</loc>
+    <lastmod>2019-08-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/thinking-about-journaling.html</loc>
+    <lastmod>2019-08-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/thinking-about-cs-teaching-in-college.html</loc>
+    <lastmod>2019-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html</loc>
+    <lastmod>2019-07-21</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/reading-notes-of-bullet-journal.html</loc>
+    <lastmod>2019-03-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://blog.geekinney.com/post/emacs-learning-note.html</loc>
+    <lastmod>2019-03-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

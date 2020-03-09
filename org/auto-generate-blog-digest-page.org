@@ -1,4 +1,4 @@
-#+TITLE: 自动生成org blog摘要页(首页)
+#+TITLE: 自动生成org blog摘要页
 #+DATE: 2020-02-22
 #+CATEGORY: 博客
 #+INCLUDE: "../code/post-info.org"
@@ -6,13 +6,13 @@
 #+OPTIONS: toc:nil H:2 num:2
 #+TOC: headlines:2
 
-博客摘要页面可以让读者快速了解文章的大概信息，因此一般将它作为博客首页，其重要性不言而喻。摘要页的主要信息包括：标题，摘要，日期，分类等。每篇文章都手动输入这些文字太麻烦，于是我用elisp和orgMode的[[https://orgmode.org/manual/Macro-Replacement.html][宏替代]]自动生成摘要页面。
+博客摘要页面可以让读者快速了解文章的大概信息，因此一般将它作为博客首页，其重要性不言而喻。摘要页的主要信息包括：标题，摘要，日期，分类等。每篇文章都手动输入这些文字太麻烦，于是我用elisp自动生成博客摘要页。
 
-先来看看折腾的效果，我用边框将每篇文章的主要信息区分开。
+先来看看折腾的效果：
 
 https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/post-digest-page.png
 
-由于摘要页面对于排版有一定的要求，所以纯orgMode导出不能满足需求，我采取的办法是在orgMode中直接插入html。和Markdown不同，orgMode中插入html需要将代码包裹在 =#+begin_export html= 和 =#+end_export= 之间。
+由于摘要页对排版有一定的要求，所以纯orgMode导出不能满足需求，我采取的办法是在orgMode中直接插入html。和Markdown不同，orgMode中插入html需要将代码包裹在 =#+begin_export html= 和 =#+end_export= 之间。
 
 从上图看出，每篇文章的html代码有相同的格式：
 
@@ -28,123 +28,11 @@ https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/post-dige
 </div>
 #+END_SRC
 
-接下来，需要使用elisp获取每篇文章的 =title= =digest= =date= =category= =post-url= =category-url= 这些变量的值。将这些值填入html对应的位置，再将所有文章的html代码连接在一起插入orgMode的html导出模版内。
-
-处理html的elisp函数如下：
+接下来，需要使用elisp获取org文章目录下所有文章名，根据文章名获取每篇文章的 =title= =digest= =date= =category= =post-url= =category-url= 信息，使用我自己写的 [[https://blog.geekinney.com/post/parse-elisp-list-to-html.html][print-html]] 函数生成上面的html，并把相关变量插入html中。最后输出到 =index.org= 的html导出模块中。代码如下：
 
 #+BEGIN_SRC emacs-lisp
-(defun my/insert-html-tag-with-attr (tag &optional attr)
-  "insert a html tag and some attributes at cursor point"
-  ;; (interactive "sinput tag name: \nsis single tag? [y or n]: ")
-  (let ((single-tag-list '("img" "br" "hr" "input" "meta" "link" "param")))
-    (if (member tag single-tag-list)
-	(progn
-	  (insert (concat "<" tag "/>"))
-	  (backward-char 2)
-	  (mapcar (lambda (x) (insert (concat " " (car x) "=" "\"" (cadr x) "\""))) attr)
-	  (forward-char 2)
-	  )
-      (progn
-	(insert (concat "<" tag ">" "</" tag ">"))
-	(backward-char (+ 4 (length tag)))
-	(mapcar (lambda (x) (insert (concat " " (car x) "=" "\"" (cadr x) "\""))) attr)
-	(forward-char 1)
-	))
-    ))
+(require 'print-html)
 
-(defun my/blog-generate-index (posts)
-  "generate blog index page"
-  (interactive)
-  (let ((post-dir "~/iCloud/blog_site/org/")
-	(category-url "https://blog.geekinney.com/category.html")
-	(html-str ""))
-    (if (stringp posts)
-	(setq posts (read posts))) ;;宏的参数为字符串，需要先转为list
-    (mapcar (lambda (post)
-	      (with-temp-buffer
-		(setq post-url (concat "https://blog.geekinney.com/post/" (car (split-string post "\\.")) ".html"))
-		(insert-file-contents (concat post-dir post))
-		(setq count (my/word-count))
-		(goto-char (point-min))
-		(re-search-forward "^#\\+TITLE")
-		(setq title (plist-get (cadr (org-element-at-point)) :value))
-		(goto-char (point-min))
-		(re-search-forward "^#\\+DATE")
-		(setq date (plist-get (cadr (org-element-at-point)) :value))
-		(goto-char (point-min))
-		(re-search-forward "^#\\+CATEGORY")
-		(setq category (plist-get (cadr (org-element-at-point)) :value))
-		(setq buffer-string (replace-regexp-in-string "^#\\+.+\n+" "" (buffer-substring-no-properties (point-min) (point-max)))
-		      buffer-string (replace-regexp-in-string "\\([a-zA-Z0-9]\\)[ ]+\\(\\cc\\)" "" buffer-string)
-		      buffer-string (replace-regexp-in-string "\\[\\[.+\\]\\[" "" buffer-string)
-		      buffer-string (replace-regexp-in-string "\\]\\]" "" buffer-string)
-		      buffer-string (replace-regexp-in-string "\*+" "" buffer-string)
-		      buffer-string (replace-regexp-in-string "|-*" "" buffer-string)
-		      buffer-string (replace-regexp-in-string "\n+" "" buffer-string))
-		(setq digest (substring buffer-string 0 170))
-		
-		(erase-buffer)
-		
-		;;可继续封装，elisp解析html
-		(my/insert-html-tag-with-attr "div" '(("class" "post-div")))
-		(my/insert-html-tag-with-attr "h1")
-		(my/insert-html-tag-with-attr "a" `(("href" ,post-url)))
-		(insert title)
-		(forward-char 9)
-		(my/insert-html-tag-with-attr "p")
-		(insert (concat digest " ...... "))
-		(my/insert-html-tag-with-attr "a" `(("href" ,post-url)))
-		(insert "阅读全文")
-		(forward-char 8)
-		(my/insert-html-tag-with-attr "code")
-		(my/insert-html-tag-with-attr "a" `(("href" ,category-url)))
-		(insert category)
-		(forward-char 11)
-		(my/insert-html-tag-with-attr "span" '(("style" "color:grey;")))
-		(insert date)
-		(forward-char 13)
-		(insert "\n\n")
-		(setq html-str (concat html-str (buffer-substring-no-properties (point-min) (point-max))))
-		))
-	    posts)
-    (concat "#+begin_export html\n" html-str "#+end_export")))
-#+END_SRC
-
-最后就是在摘要页定义一个宏，执行 =my/blog-generate-index= 函数（关于“宏替代”的使用可以参看[[https://blog.geekinney.com/post/auto-generate-blog-relative-info.html][这篇文章]]）：
-
-#+begin_example
-#+MACRO: generate-index (eval (my/blog-generate-index $1))
-#+end_example
-
-宏调用的参数是一个包含文章名称的列表：
-
-#+begin_example
-{{{generate-index(
-("auto-generate-blog-relative-info.org"
-"elisp-hack-compress-and-convert-video.org"
-"blog-light-and-dark-theme-switch.org"
-"at-the-end-of-2019.org"
-"experience-of-setting-up-my-own-blog-site.org"
-"emacs-lisp-learning-note.org"
-"using-org-to-blog-with-jekyll.org"
-"listen-music-in-emacs.org"
-"reading-notes-of-how-to-read-a-book-efficiently.org"
-"get-started-with-emacs.org"
-"thinking-about-cs-teaching-in-college.org"
-"thinking-about-journaling.org"
-"pick-up-reading-after-read-the-moon-and-sixpence.org"
-"reading-notes-of-bullet-journal.org"
-"emacs-learning-note.org")
-)}}}
-#+end_example
-
-Ok，大功告成！
------
-*更新:*
-
-使用宏替代的方式生成博客主页需要及时更新 =generate-index= 宏的参数，添加最新的博客文章名称。虽然和写html相比，操作已经很简洁，但还不够极致。更好的做法是，使用elisp直接获取 =org= 文件夹(我的所有org文章的目录)下所有的文章名称，然后调用上面的函数，直接生成所有文章摘要页面的html，最后写到 =index.org= 的html导出模块中。代码如下：
-
-#+BEGIN_SRC emacs-lisp
 (defvar blog-root-dir "~/iCloud/blog_site/")
 (defvar blog-post-dir "~/iCloud/blog_site/org/")
 (defvar blog-html-dir "~/iCloud/blog_site/post/")
@@ -181,12 +69,13 @@ Ok，大功告成！
     post-list))
 
 (defun my/blog-generate-digest-html (posts)
-  "generate blog digest page html"
+  "generate blog's digest page html"
   (let ((html-str "")
 	(category-url (concat blog-site-domain "category.html")))
     (mapcar (lambda (post)
 	      (with-temp-buffer
 		(setq post-url (concat blog-site-domain (string-trim blog-html-dir blog-root-dir) (car (split-string post "\\.")) ".html"))
+		(setq valine-visitor-url (concat (string-trim blog-html-dir blog-root-dir) (car (split-string post "\\.")) ".html"))
 		(insert-file-contents (concat blog-post-dir post))
 		(setq count (my/word-count))
 		(goto-char (point-min))
@@ -202,32 +91,19 @@ Ok，大功告成！
 		      buffer-string (replace-regexp-in-string "\\([a-zA-Z0-9]\\)[ ]+\\(\\cc\\)" "" buffer-string)
 		      buffer-string (replace-regexp-in-string "\\[\\[.+\\]\\[" "" buffer-string)
 		      buffer-string (replace-regexp-in-string "\\]\\]" "" buffer-string)
-		      buffer-string (replace-regexp-in-string "\*+" "" buffer-string)
+		      buffer-string (replace-regexp-in-string "\\*+" "" buffer-string)
 		      buffer-string (replace-regexp-in-string "|-*" "" buffer-string)
-		      buffer-string (replace-regexp-in-string "\n+" "" buffer-string))
-		(setq digest (substring buffer-string 0 170))
-		
+		      buffer-string (replace-regexp-in-string "\n+" "" buffer-string)
+		      buffer-string (replace-regexp-in-string " =" "" buffer-string)
+		      buffer-string (replace-regexp-in-string "= " "" buffer-string))
+		(setq digest (substring buffer-string 0 155))
 		(erase-buffer)
-
-		;;可封装，elisp解析html
-		(my/insert-html-tag-with-attr "div" '(("class" "post-div")))
-		(my/insert-html-tag-with-attr "h1")
-		(my/insert-html-tag-with-attr "a" `(("href" ,post-url)))
-		(insert title)
-		(forward-char 9)
-		(my/insert-html-tag-with-attr "p")
-		(insert (concat digest " ...... "))
-		(my/insert-html-tag-with-attr "a" `(("href" ,post-url)))
-		(insert "「阅读全文」")
-		(forward-char 8)
-		(my/insert-html-tag-with-attr "code")
-		(my/insert-html-tag-with-attr "a" `(("href" ,category-url)))
-		(insert category)
-		(forward-char 11)
-		(my/insert-html-tag-with-attr "span" '(("style" "color:grey;")))
-		(insert date)
-		(forward-char 13)
-		(insert "\n\n")
+		(insert
+		 (print-html t `(div :class "post-div"
+				     (h1 (a :href ,post-url ,title))
+				     (p ,digest " ......" (a :href ,post-url "「阅读全文」"))
+				     (code (a :href ,category-url ,category))
+				     (span :class "post-date" ,date))))
 		(setq html-str (concat html-str (buffer-substring-no-properties (point-min) (point-max))))
 		))
 	    posts)
@@ -245,4 +121,4 @@ Ok，大功告成！
 
 =my/blog-posts-sorted-by-date= 函数按照日期获取 =blog-post-dir= 下的所有org文章名称，结果返回一个列表。 =my/blog-generate-digest-html= 函数将文章列表作为参数，返回生成页面的所有html。 =my/blog-generate-index-org= 将生成的html写入 =index.org= 的html导出模块内。
 
-再偷懒一点，将 =my/blog-generate-index-org= 函数设为 =org-publish-project-alist= 变量的 =:preparation-function= 选项的值，这样每次在项目发布前会自动执行生成index页面的函数。然后在发布时导出为index.html。
+最后，将 =my/blog-generate-index-org= 函数设为 =org-publish-project-alist= 变量的 =:preparation-function= 选项的值，这样每次在项目发布前会自动执行生成index页面的函数。然后在发布时导出为index.html。
