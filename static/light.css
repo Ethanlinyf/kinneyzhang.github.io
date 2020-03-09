@@ -442,7 +442,7 @@ pre{
     overflow:auto;
 }
 code {
-    color: #F8F8F8;
+    background-color: #F8F8F8;
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
 #org-div-home-and-up {

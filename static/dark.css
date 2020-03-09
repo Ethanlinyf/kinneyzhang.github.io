@@ -443,7 +443,7 @@ pre{
     overflow:auto;
 }
 code {
-    color: black;
+    background-color: black;
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
 #org-div-home-and-up {
