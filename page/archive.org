@@ -2,7 +2,7 @@
 #+STARTUP: showall
 #+OPTIONS: toc:nil H:1 num:0 title:nil
 * 2020
- * 0309 [[https://blog.geekinney.com/post/parse-elisp-list-to-html.html][将elisp列表解析为html]]
+ * 0309 [[https://blog.geekinney.com/post/parse-elisp-list-to-html.html][解析elisp列表生成html]]
  * 0222 [[https://blog.geekinney.com/post/auto-generate-blog-digest-page.html][自动生成org blog摘要页(首页)]]
  * 0221 [[https://blog.geekinney.com/post/auto-generate-blog-relative-info.html][自动生成org blog辅助信息]]
  * 0220 [[https://blog.geekinney.com/post/elisp-hack-compress-and-convert-video.html][视频压缩及格式(gif)转换]]

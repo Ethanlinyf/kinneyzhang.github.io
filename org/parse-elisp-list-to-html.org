@@ -1,4 +1,4 @@
-#+TITLE: 将elisp列表解析为html
+#+TITLE: 解析elisp列表生成html
 #+DATE: 2020-03-09
 #+CATEGORY: Emacs
 #+STARTUP: content
