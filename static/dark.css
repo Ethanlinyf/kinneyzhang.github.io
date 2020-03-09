@@ -115,7 +115,7 @@ a:hover,a:active {
 }
 .post-div h2 a{
     color: #19A9FB;
-    font:bold 21px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
+    font:KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
 .post-div h2 a:hover {
     border-bottom: 0;
