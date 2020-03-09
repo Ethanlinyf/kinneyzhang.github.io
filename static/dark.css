@@ -340,6 +340,7 @@ td.org-center {
 blockquote {
     margin: 1em 2em;
     padding-left: 1em;
+    color: white;
     border-left: 3px solid #d3d3d3;
 }
 
