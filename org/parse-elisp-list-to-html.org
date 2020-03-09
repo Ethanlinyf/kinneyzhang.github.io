@@ -61,6 +61,9 @@
 
 #+BEGIN_SRC emacs-lisp
 ;;; parse html with elisp
+(defvar html-parse--single-tag-list
+  '("img" "br" "hr" "input" "meta" "link" "param"))
+
 (defun parse-html--get-plist (list)
   "get attributes of a tag"
   (let* ((i 0)
@@ -94,10 +97,9 @@
 
 (defun parse-html--insert-html-tag (tag &optional attrs)
   "insert html tag and attributes"
-  (let ((single-tag-list '("img" "br" "hr" "input" "meta" "link" "param"))
-	(tag (symbol-name tag))
+  (let ((tag (symbol-name tag))
 	(attrs (parse-html--plist->alist attrs)))
-    (if (member tag single-tag-list)
+    (if (member tag html-parse--single-tag-list)
 	(progn
 	  (insert (concat "<" tag "/>"))
 	  (backward-char 2)
@@ -114,9 +116,8 @@
 
 (defun parse-html--jump-outside (tag)
   "jump outside of html tag"
-  (let ((single-tag-list '("img" "br" "hr" "input" "meta" "link" "param"))
-	(tag (symbol-name tag)))
-    (if (member tag single-tag-list)
+  (let ((tag (symbol-name tag)))
+    (if (member tag html-parse--single-tag-list)
 	(forward-char 0)
       (forward-char (+ 3 (length tag))))))
 ;;----------------------------------------
@@ -147,9 +148,8 @@
 
 (defun parse-html--format-html (tag inner)
   "format html tag, tag which has no child show in one line, others are well formated by default. change this function to redesign the format rule."
-  (let ((single-tag-list '("img" "br" "hr" "input" "meta" "link" "param"))
-	(tag (symbol-name tag)))
-    (if (member tag single-tag-list)
+  (let ((tag (symbol-name tag)))
+    (if (member tag html-parse--single-tag-list)
 	(insert "")
       (progn
 	(if (not (parse-html--if-no-child inner))
@@ -177,13 +177,11 @@
     html))
 ;;---------------------------------------
 (defun parse-html-unformated (LIST)
-  (interactive)
   (let ((html (parse-html--parse-list-unformated LIST)))
     (kill-buffer "*parse html*")
     html))
 
 (defun parse-html-formated (LIST)
-  (interactive)
   (let ((html (parse-html--parse-list-formated LIST)))
     (kill-buffer "*parse html*")
     html))
