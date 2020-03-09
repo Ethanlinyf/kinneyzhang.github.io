@@ -88,10 +88,10 @@ a:hover,a:active {
     text-decoration: none;
     color: #19A9FB;
 }
-.topnav span {
-    border: 0.5px solid #D5D5D5;   
+#switch-theme {
+    border: 0.5px solid #D5D5D5;
+    cursor: pointer;
 }
-
 .title {
     color: white;
     text-align: center;
