@@ -90,7 +90,7 @@ a:hover,a:active {
     color: #19A9FB;
 }
 #switch-theme {
-    color: #19A9FB;
+    color: white;
     font-weight: bold;
     font-style: italic;
     cursor: pointer;
