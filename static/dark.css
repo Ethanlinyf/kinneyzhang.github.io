@@ -128,7 +128,7 @@ a:hover,a:active {
     border-bottom: 0;
 }
 .post-date{
-    color: #D5D5D5;
+    color: grey;
     position: absolute;
     right: 0;
 }
