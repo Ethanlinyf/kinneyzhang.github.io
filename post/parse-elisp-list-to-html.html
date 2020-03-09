@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-03-09 Mon 15:01 -->
+<!-- 2020-03-09 Mon 15:15 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>将elisp列表解析为html</title>
@@ -35,7 +35,7 @@
 </div><div id="content">
 <header>
 <h1 class="title">将elisp列表解析为html</h1>
-</header><div class="post-info"><p>「 分类:Emacs / 日期:2020-03-09 / 字数:1125 」</p></div>
+</header><div class="post-info"><p>「 分类:Emacs / 日期:2020-03-09 / 字数:1128 」</p></div>
 
 <nav id="table-of-contents">
 <h2>Table of Contents</h2>
@@ -113,7 +113,7 @@
 </p>
 
 <p>
-那么，列表余下的内容便是该html标签内部的内容。这些内容可能是文本信息，也可能是子级html标签(文本与子标签的先后顺序有html具体结构决定)。子级html的列表同样按照以上思路解析，以此类推&#x2026;.直到整个列表解析完毕。根据以上思路，不难想到解析列表使用了 <code>递归</code> 思想。
+那么，列表余下的内容便是该html标签内部的内容。这些内容可能是文本信息，也可能是子级html标签(文本与子标签的先后顺序由html具体结构决定)。子级html的列表同样按照以上思路解析，以此类推&#x2026;.直到整个列表解析完毕。根据以上思路，不难想到解析列表使用了 <code>递归</code> 思想。
 </p>
 
 <p>
@@ -121,7 +121,7 @@
 </p>
 
 <p>
-使用Plist表示html的属性键值对比Alist简洁，少写了许多括号；用列表嵌套来表示html的层级关系，在书写时结构清晰。
+使用Plist表示html的属性键值比Alist少写了许多括号，视觉上更简洁；用列表嵌套来表示html的层级关系，在书写时结构清晰。
 </p>
 </div>
 </div>
