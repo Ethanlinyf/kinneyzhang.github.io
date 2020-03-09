@@ -1,0 +1,205 @@
+#+TITLE: 将elisp列表解析为html
+#+DATE: 2020-03-09
+#+CATEGORY: Emacs
+#+STARTUP: content
+#+OPTIONS: toc:nil H:2 num:2
+#+INCLUDE: ../code/post-info.org
+#+TOC: headlines:2
+
+我在使用orgMode搭建静态博客时，需要直接使用elisp生成部分html代码，于是写了这个 =parse-html= 函数。主要有两个功能 =parse-html-formated= 和 =parse-html-unformated= ，前者生成格式化的html，后者生成的html排在一行。
+
+* 使用方法
+
+形如如下列表：
+
+#+BEGIN_SRC emacs-lisp
+(setq list
+      '(div :class "post-container"
+	    (div :class "post-div"
+		 (h1 (a :href "url" "text of link"))
+		 (p "content of paragraph...")
+		 (img :src "src-url" :alt "alt-name")
+		 (code (span :class "post-date" "date")))))
+#+END_SRC
+
+经过格式化解析 =(parse-html-formated list)= 后生成如下html：
+
+#+BEGIN_SRC html
+<div class="post-container">
+  <div class="post-div">
+    <h1>
+      <a ref="url">text of link</a>
+    </h1>
+    <p>content of paragraph...</p>
+    <img src="src-url" alt="alt-name"/>
+    <code>
+      <span class="post-date">date</span>
+    </code>
+  </div>
+</div>
+#+END_SRC
+
+* 解析思路
+一个典型的输入列表格式为：
+
+#+BEGIN_SRC emacs-lisp
+'(tagname :attr1 value1 :attr2 value2 ...
+	  text
+	  (tagname ...)
+	  ...)
+#+END_SRC
+
+每个列表的第 *一个元素必须存在且只能是标签名* ，标签名为symbol类型。除了标签名，其余部分都是可选的。如果该html标签存在一些属性，比如 =class= =style= 等, 那么这些 *属性以属性列表(Plist)的形式排列在标签后面* 。至此便构建好了一个带属性的html标签。
+
+那么，列表余下的内容便是该html标签内部的内容。这些内容可能是文本信息，也可能是子级html标签(文本与子标签的先后顺序有html具体结构决定)。子级html的列表同样按照以上思路解析，以此类推....直到整个列表解析完毕。根据以上思路，不难想到解析列表使用了 =递归= 思想。
+
+*输入列表的设计思路：*
+
+使用Plist表示html的属性键值对比Alist简洁，少写了许多括号；用列表嵌套来表示html的层级关系，在书写时结构清晰。
+
+* 完整代码
+
+#+BEGIN_SRC emacs-lisp
+;;; parse html with elisp
+(defun parse-html--get-plist (list)
+  "get attributes of a tag"
+  (let* ((i 0)
+	 (plist nil))
+    (while (and (nth i list) (symbolp (nth i list)))
+      (setq key (nth i list))
+      (setq value (nth (1+ i) list))
+      (setq plist (append plist (list key value)))
+      (incf i 2))
+    plist))
+
+(defun parse-html--get-inner (list)
+  "get inner html of a tag"
+  (let* ((i 0)
+	 (inner nil)
+	 (plist (parse-html--get-plist list)))
+    (if (null plist)
+	(setq inner list)
+      (dolist (p plist)
+	(setq inner (remove p list))
+	(setq list inner)))
+    inner))
+
+(defun parse-html--plist->alist (plist)
+  "convert plist to alist"
+  (if (null plist)
+      '()
+    (cons
+     (list (car plist) (cadr plist))
+     (parse-html--plist->alist (cddr plist)))))
+
+(defun parse-html--insert-html-tag (tag &optional attrs)
+  "insert html tag and attributes"
+  (let ((single-tag-list '("img" "br" "hr" "input" "meta" "link" "param"))
+	(tag (symbol-name tag))
+	(attrs (parse-html--plist->alist attrs)))
+    (if (member tag single-tag-list)
+	(progn
+	  (insert (concat "<" tag "/>"))
+	  (backward-char 2)
+	  (dolist (attr attrs)
+	    (insert (concat " " (substring (symbol-name (car attr)) 1) "=" "\"" (cadr attr) "\"")))
+	  (forward-char 2))
+      (progn
+	(insert (concat "<" tag ">" "</" tag ">"))
+	(backward-char (+ 4 (length tag)))
+	(dolist (attr attrs)
+	  (insert (concat " " (substring (symbol-name (car attr)) 1) "=" "\"" (cadr attr) "\"")))
+	(forward-char 1)))
+    ))
+
+(defun parse-html--jump-outside (tag)
+  "jump outside of html tag"
+  (let ((single-tag-list '("img" "br" "hr" "input" "meta" "link" "param"))
+	(tag (symbol-name tag)))
+    (if (member tag single-tag-list)
+	(forward-char 0)
+      (forward-char (+ 3 (length tag))))))
+;;----------------------------------------
+(defun parse-html--parse-list-unformated (list)
+  "parse elisp to unformated html"
+  (let* ((tag (car list))
+	 (left (cdr list))
+	 (plist (parse-html--get-plist left))
+	 (inner (parse-html--get-inner left))
+	 (html ""))
+    (with-current-buffer (get-buffer-create "*parse html*")
+      (parse-html--insert-html-tag tag plist)
+      (dolist (item inner)
+	(if (listp item)
+	    (parse-html--parse-list-unformated item)
+	  (insert item)))
+      (parse-html--jump-outside tag)
+      (setq html (buffer-substring-no-properties (point-min) (point-max))))
+    html))
+;;----------------------------------------
+(defun parse-html--if-no-child (inner)
+  "judge if html tag has child-tag"
+  (let ((no-child t))
+    (dolist (item inner)
+      (if (listp item)
+	  (setq no-child nil)))
+    no-child))
+
+(defun parse-html--format-html (tag inner)
+  "format html tag, tag which has no child show in one line, others are well formated by default. change this function to redesign the format rule."
+  (let ((single-tag-list '("img" "br" "hr" "input" "meta" "link" "param"))
+	(tag (symbol-name tag)))
+    (if (member tag single-tag-list)
+	(insert "")
+      (progn
+	(if (not (parse-html--if-no-child inner))
+	    (insert "\n"))))))
+
+(defun parse-html--parse-list-formated (list)
+  "parse elisp to formated html"
+  (let* ((tag (car list))
+	 (left (cdr list))
+	 (plist (parse-html--get-plist left))
+	 (inner (parse-html--get-inner left))
+	 (html ""))
+    (with-current-buffer (get-buffer-create "*parse html*")
+      (parse-html--insert-html-tag tag plist)
+      (parse-html--format-html tag inner)
+      (dolist (item inner)
+	(if (listp item)
+	    (parse-html--parse-list-formated item)
+	  (progn
+	    (insert item)
+	    (parse-html--format-html tag inner))))
+      (parse-html--jump-outside tag)
+      (insert "\n")
+      (setq html (buffer-substring-no-properties (point-min) (point-max))))
+    html))
+;;---------------------------------------
+(defun parse-html-unformated (LIST)
+  (interactive)
+  (let ((html (parse-html--parse-list-unformated LIST)))
+    (kill-buffer "*parse html*")
+    html))
+
+(defun parse-html-formated (LIST)
+  (interactive)
+  (let ((html (parse-html--parse-list-formated LIST)))
+    (kill-buffer "*parse html*")
+    html))
+
+(defun parse-html (FORMATED LIST)
+  "parse html with elisp. the first elem of LIST is always a html tag, others could be attributes or text content or child tag. the three mentioned above are all optional. if has, attributes must be in first place, followed by text content and child tag."
+  (let ((html ""))
+    (if FORMATED
+	(parse-html-formated LIST)
+	(parse-html-unformated LIST)
+      )))
+#+END_SRC
+
+=parse-html= 函数就是将格式化和非格式化两个函数整合在一起，用 =FORMATED= 变量表示是否格式化显示。
+
+* 应用场景
+写 =parse-html= 的初衷是为了生成静态博客的首页、归档页、分类页等具体特定格式的页面。由于我对这些页面有布局上的要求，因此orgMode导出的html不能满足需求。除此之外，我还没有想到有其他应用场景。所以此番折腾更多的是为了熟悉elisp编程和递归思想。
+
+如果还有其他应用场景或拓展的思路，还望读者诸君留言～
