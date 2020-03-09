@@ -131,6 +131,7 @@ a:hover,a:active {
 .post-div code a:hover {
     border-bottom: 0;
 }
+
 h1 {
     font-size: 2em;
     margin: 0.67em 0;
@@ -428,7 +429,7 @@ p.verse {
 }
 pre,code {
     padding:2px 4px;
-    background:#F8F8F8;
+    background-color:#F8F8F8;
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
     font-size:.92857em;
     line-height: 1.4em;
@@ -447,66 +448,36 @@ pre code {
     text-align: right;
     white-space: nowrap;
 }
-
 .code-highlighted {
     background-color: #ff0;
 }
-
 .creator {
     display: block;
 }
-
 /* self customed */
 
 p{
     font-size: 1.0em;
 }
 
-/* h1 { */
-/*     /\* background: #369 none repeat scroll 0 0; *\/ */
-/*     /\* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; *\/ */
-/*     font-size: 150%; */
-/*     font-weight: bold; */
-/*     letter-spacing: 0.1em; */
-/*     /\* margin: -1em -1em .2em; *\/ */
-/*     /\* padding: 0.65em 0em; *\/ */
-/* } */
-
 h2 {
     font-size: 1.3em;
-    /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     padding: .2em;
 }
-/* #content h2 { */
-/*     border-bottom: 0.5px solid #ccc; */
-/* } */
-
 h3 {
     font-size: 1.2em;
-    /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     padding: .2em;
 }
-/* #content h3 { */
-/*     border-bottom: 0.5px solid #eee; */
-/* } */
-
 h4 {
     font-size: 1.1em;
-    /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     padding: .2em;
 }
-/* #content h4 { */
-/*     border-bottom: 0.5px solid #eee; */
-/* } */
 h5 {
     font-size: 1em;
-    /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     padding: .1em;
 }
-
 h6 {
     font-size: 1em;
-    /* font-family: "Cardo", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
     padding: .1em;
 }
 
@@ -558,11 +529,6 @@ h6 {
 }
 
 .img-row a {
-    /* position: absolute; */
-    /* left: 0; */
-    /* top: 0; */
-    /* width: 100%; */
-    /* height: 100%; */
     padding: 3px;
 }
 #postamble {

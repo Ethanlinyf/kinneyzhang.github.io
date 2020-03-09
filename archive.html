@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-03-09 Mon 22:26 -->
+<!-- 2020-03-09 Mon 23:31 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>文章归档</title>
@@ -31,6 +31,7 @@
 <a href="/category.html">分类</a>&nbsp;&nbsp;
 <a href="/about.html">关于</a>&nbsp;&nbsp;
 <a href="/message.html">留言</a>&nbsp;&nbsp;
+<a href="#" id="switch-theme" onclick="switchTheme();">暗色</a>
 </div>
 </div><div id="content">
 <div id="outline-container-orgf46027b" class="outline-2">
@@ -75,8 +76,10 @@
 $(document).ready(function(){
 var theme = sessionStorage.getItem("theme");
 if(theme=="dark"){
+document.getElementbyId("switch-theme").innerHTML = "亮色";
 document.getElementById("pagestyle").href="/static/dark.css";
 }else if(theme=="light"){
+document.getElementbyId("switch-theme").innerHTML = "暗色";
 document.getElementById("pagestyle").href="/static/light.css";
 }else{
 sessionStorage.setItem("theme","light");
@@ -84,10 +87,12 @@ sessionStorage.setItem("theme","light");
 
 function switchTheme(){
 if(sessionStorage.getItem("flag")=="false"){
+document.getElementbyId("switch-theme").innerHTML = "暗色";
 document.getElementById("pagestyle").href="/static/light.css";
 sessionStorage.setItem("theme","light");
 sessionStorage.setItem("flag", "true");
 }else{
+document.getElementbyId("switch-theme").innerHTML = "亮色";
 document.getElementById("pagestyle").href="/static/dark.css";
 sessionStorage.setItem("theme","dark");
 sessionStorage.setItem("flag", "false");
