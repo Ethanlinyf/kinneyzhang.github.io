@@ -435,16 +435,20 @@ kbd {
 p.verse {
     margin-left: 3%;
 }
+code {
+    background-color: #3c3c3c;
+    font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
+}
 pre{
     border-radius: 5px;
     padding:14px 16px;
-    background-color:#3c3c3c;
+    background-color:#282828;
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
     line-height: 1.4em;
     overflow:auto;
 }
-code {
-    background-color: #3c3c3c;
+pre code {
+    background-color: #282828;
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
 #org-div-home-and-up {
