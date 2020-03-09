@@ -87,7 +87,9 @@ a:hover,a:active {
     color: #666;
 }
 #switch-theme {
-    border: 1px solid #666;
+    color: #666;
+    font-weight: bold;
+    font-style: italic;
     cursor: pointer;
 }
 .title {
@@ -438,6 +440,10 @@ pre{
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
     line-height: 1.4em;
     overflow:auto;
+}
+code {
+    color: #F8F8F8;
+    font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
 #org-div-home-and-up {
     font-size: 70%;

@@ -47,10 +47,10 @@ a:hover,a:active {
     /* color:#6E7173; */
 }
 #content p a {
-    color: #c83b23;
+    color: #19A9FB;
 }
 #content p a:hover {
-    color: #c83b23;
+    color: #19A9FB;
 }
 
 #org-div-header{
@@ -71,6 +71,7 @@ a:hover,a:active {
 
 #logo:hover {
     color:#D5D5D5;
+    border-bottom: 0;
 }
 .description {
     margin:-18px 0 0;
@@ -89,7 +90,9 @@ a:hover,a:active {
     color: #19A9FB;
 }
 #switch-theme {
-    border: 1px solid #D5D5D5;
+    color: #19A9FB;
+    font-weight: bold;
+    font-style: italic;
     cursor: pointer;
 }
 .title {
@@ -438,6 +441,10 @@ pre{
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
     line-height: 1.4em;
     overflow:auto;
+}
+code {
+    color: black;
+    font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
 #org-div-home-and-up {
     font-size: 70%;
