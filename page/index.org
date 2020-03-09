@@ -1,7 +1,7 @@
 #+TITLE: Geekinney Blog
 #+OPTIONS: title:nil
 #+begin_export html
-<div class="post-div"><h1><a href="https://blog.geekinney.com/post/parse-elisp-list-to-html.html">解析elisp列表生成html</a></h1><p>我在使用orgMode搭建静态博客时，需要直接使用elisp生成部分html代码，于是写了这个 =parse-html= 函数。主要有两个功能 =parse-html-formated= 和 =parse-html-unformated= ，前者生成格式化的html，后者生成的html排在一行。 使用方法形如如下列表：(setq list      '(di ...... <a href="https://blog.geekinney.com/post/parse-elisp-list-to-html.html">「阅读全文」</a></p><code><a href="https://blog.geekinney.com/category.html">Emacs</a></code><span class="post-date">2020-03-09</span></div>
+<div class="post-div"><h1><a href="https://blog.geekinney.com/post/parse-elisp-list-to-html.html">解析elisp列表生成html</a></h1><p>我在使用orgMode搭建静态博客时，需要直接使用elisp生成部分html代码，于是写了这个 =print-html= 函数。主要有两个功能 =print-html-formated= 和 =print-html-unformated= ，前者生成格式化的html，后者生成的html排在一行。 使用方法形如如下列表：(setq list      '(di ...... <a href="https://blog.geekinney.com/post/parse-elisp-list-to-html.html">「阅读全文」</a></p><code><a href="https://blog.geekinney.com/category.html">Emacs</a></code><span class="post-date">2020-03-09</span></div>
 
 <div class="post-div"><h1><a href="https://blog.geekinney.com/post/auto-generate-blog-digest-page.html">自动生成org blog摘要页(首页)</a></h1><p>博客摘要页面可以让读者快速了解文章的大概信息，因此一般将它作为博客首页，其重要性不言而喻。摘要页的主要信息包括：标题，摘要，日期，分类等。每篇文章都手动输入这些文字太麻烦，于是我用elisp和orgMode的宏替代自动生成摘要页面。先来看看折腾的效果，我用边框将每篇文章的主要信息区分开。https://geekinney-1258820352.cos.ap- ...... <a href="https://blog.geekinney.com/post/auto-generate-blog-digest-page.html">「阅读全文」</a></p><code><a href="https://blog.geekinney.com/category.html">博客</a></code><span class="post-date">2020-02-22</span></div>
 
