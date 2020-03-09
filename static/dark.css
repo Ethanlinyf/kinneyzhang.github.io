@@ -113,11 +113,11 @@ a:hover,a:active {
     margin-top: 1em;
     padding-bottom: 1em;
 }
-.post-div h1 a{
+.post-div h2 a{
     color: #19A9FB;
     font:bold 21px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
-.post-div h1 a:hover {
+.post-div h2 a:hover {
     border-bottom: 0;
 }
 .post-div p a {
