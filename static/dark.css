@@ -431,21 +431,13 @@ kbd {
 p.verse {
     margin-left: 3%;
 }
-pre,code {
-    padding:2px 4px;
+pre{
+    border-radius: 5px;
+    padding:6px 4px;
     background-color:black;
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
-    font-size:.92857em;
     line-height: 1.4em;
-}
-pre {
-    border-radius: 5px;
-    padding:8px;
     overflow:auto;
-    /* max-height:400px; */
-}
-pre code {
-    padding:0;
 }
 #org-div-home-and-up {
     font-size: 70%;
