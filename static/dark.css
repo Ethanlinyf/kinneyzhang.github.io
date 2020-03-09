@@ -89,7 +89,7 @@ a:hover,a:active {
     color: #19A9FB;
 }
 #switch-theme {
-    border: 0.5px solid #D5D5D5;
+    border: 1px solid #D5D5D5;
     cursor: pointer;
 }
 .title {
