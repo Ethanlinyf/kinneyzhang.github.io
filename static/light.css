@@ -340,7 +340,7 @@ blockquote {
     margin: 1em 2em;
     padding-left: 1em;
     color: black;
-    border-left: 3px solid #ccc;
+    border-left: 3px solid black;
 }
 
 kbd {
