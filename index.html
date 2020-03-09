@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-03-10 Tue 00:22 -->
+<!-- 2020-03-10 Tue 00:26 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Geekinney Blog</title>
@@ -269,10 +269,10 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
 $(document).ready(function(){
 var theme = sessionStorage.getItem("theme");
 if(theme=="dark"){
-document.getElementbyId("switch-theme").innerHTML = "亮色";
+document.getElementById("switch-theme").innerHTML = "亮色";
 document.getElementById("pagestyle").href="/static/dark.css";
 }else if(theme=="light"){
-document.getElementbyId("switch-theme").innerHTML = "暗色";
+document.getElementById("switch-theme").innerHTML = "暗色";
 document.getElementById("pagestyle").href="/static/light.css";
 }else{
 sessionStorage.setItem("theme","light");
@@ -280,12 +280,12 @@ sessionStorage.setItem("theme","light");
 
 function switchTheme(){
 if(sessionStorage.getItem("flag")=="false"){
-document.getElementbyId("switch-theme").innerHTML = "暗色";
+document.getElementById("switch-theme").innerHTML = "暗色";
 document.getElementById("pagestyle").href="/static/light.css";
 sessionStorage.setItem("theme","light");
 sessionStorage.setItem("flag", "true");
 }else{
-document.getElementbyId("switch-theme").innerHTML = "亮色";
+document.getElementById("switch-theme").innerHTML = "亮色";
 document.getElementById("pagestyle").href="/static/dark.css";
 sessionStorage.setItem("theme","dark");
 sessionStorage.setItem("flag", "false");
