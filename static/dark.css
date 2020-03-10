@@ -448,10 +448,6 @@ code {
     background-color: #282828;
     font-family:Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
-.hljs {
-    background-color: #282828;
-    color: #eee;
-}
 #org-div-home-and-up {
     font-size: 70%;
     text-align: right;

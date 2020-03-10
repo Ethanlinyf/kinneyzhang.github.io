@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-03-10 Tue 10:34 -->
+<!-- 2020-03-10 Tue 10:53 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>视频压缩及格式(gif)转换</title>
@@ -10,7 +10,7 @@
 
 <link rel="shortcut icon" href="/static/img/favicon.ico"/>
 <link rel="bookmark" href="/static/img/favicon.ico" type="image/x-icon"/>
-<link id="hlstyle" rel="stylesheet" href="/static/tomorrow.min.css"/>
+<link id="hlstyle" rel="stylesheet" href="/static/tomorrow-night.min.css"/>
 <link id="pagestyle" rel="stylesheet" type="text/css" href="/static/light.css"/>
 <!-- Google Analytics -->
 <script>
@@ -103,11 +103,9 @@ var theme = sessionStorage.getItem("theme");
 if(theme=="dark"){
 document.getElementById("pagestyle").href="/static/dark.css";
 document.getElementById("switch-theme").innerHTML = "亮色";
-document.getElementById("hlstyle").href="/static/tomorrow-night.min.css";
 }else if(theme=="light"){
 document.getElementById("pagestyle").href="/static/light.css";
 document.getElementById("switch-theme").innerHTML = "暗色";
-document.getElementById("hlstyle").href="/static/tomorrow.min.css";
 }else{
 sessionStorage.setItem("theme","light");
 }});
@@ -116,13 +114,11 @@ function switchTheme(){
 if(sessionStorage.getItem("flag")=="false"){
 document.getElementById("pagestyle").href="/static/light.css";
 document.getElementById("switch-theme").innerHTML = "暗色";
-document.getElementById("hlstyle").href="/static/tomorrow-night.min.css";
 sessionStorage.setItem("theme","light");
 sessionStorage.setItem("flag", "true");
 }else{
 document.getElementById("pagestyle").href="/static/dark.css";
 document.getElementById("switch-theme").innerHTML = "亮色";
-document.getElementById("hlstyle").href="/static/tomorrow.min.css";
 sessionStorage.setItem("theme","dark");
 sessionStorage.setItem("flag", "false");
 }};
