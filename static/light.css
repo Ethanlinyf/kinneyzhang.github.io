@@ -447,7 +447,7 @@ code {
     background-color: #f8f8f8;
     font-family:Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
-pre code {
+.hljs {
     background-color: #f8f8f8;
 }
 #org-div-home-and-up {
