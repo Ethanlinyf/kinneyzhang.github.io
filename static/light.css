@@ -440,7 +440,7 @@ pre{
     padding:14px 16px;
     background-color:#F8F8F8;
     border: 1px solid RGB(213,213,213);
-    font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
+    font-family: monospace,Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
     line-height: 1.2em;
     overflow:auto;
 }
@@ -450,7 +450,7 @@ code {
     border-radius: 2px;
     border: 0.5px solid RGB(213,213,213);
     background-color: #f8f8f8;
-    font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
+    font-family: monospace,Menlo,Monaco,Consolas,"Lucida Console","Courier New";
 }
 pre code {
     border: 0;
