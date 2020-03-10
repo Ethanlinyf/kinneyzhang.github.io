@@ -439,7 +439,7 @@ p.verse {
 pre{
     border-radius: 5px;
     padding:14px 16px;
-    background-color:#282828;
+    /* background-color:#282828; */
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
     line-height: 1.2em;
     overflow:auto;
@@ -448,7 +448,9 @@ code {
     background-color: #282828;
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
-
+.hljs {
+    background-color: #282828;
+}
 #org-div-home-and-up {
     font-size: 70%;
     text-align: right;
