@@ -456,6 +456,9 @@ code {
 .code-highlighted {
     background-color: #ff0;
 }
+#vcomments {
+    color: #eee;
+}
 .creator {
     display: block;
 }
