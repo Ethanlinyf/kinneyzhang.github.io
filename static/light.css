@@ -449,6 +449,7 @@ code {
 }
 .hljs {
     background-color: #f8f8f8;
+    color: #444;
 }
 #org-div-home-and-up {
     font-size: 70%;
