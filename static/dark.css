@@ -10,7 +10,7 @@ body {
     font-family:"TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
     -webkit-font-smoothing:antialiased;
     background-color: #212121;
-    color: #D5D5D5;
+    color: #dddddd;
     font-size: 15px;
     width: 92%;
     margin: 2% auto;
@@ -96,7 +96,7 @@ a:hover,a:active {
     cursor: pointer;
 }
 .title {
-    color: #D5D5D5;
+    color: #dddddd;
     text-align: center;
     margin-top: 1.2em;
     margin-bottom: 0;
