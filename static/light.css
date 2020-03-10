@@ -444,6 +444,7 @@ pre{
     overflow:auto;
 }
 code {
+    font-weight: 600;
     background-color: #f8f8f8;
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
@@ -451,9 +452,6 @@ code {
     font-size: 70%;
     text-align: right;
     white-space: nowrap;
-}
-.code-highlighted {
-    background-color: #ff0;
 }
 .creator {
     display: block;
