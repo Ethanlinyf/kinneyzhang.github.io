@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-03-10 Tue 10:11 -->
+<!-- 2020-03-10 Tue 10:27 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Get Started With Emacs</title>
@@ -11,6 +11,7 @@
 <link rel="shortcut icon" href="/static/img/favicon.ico"/>
 <link rel="bookmark" href="/static/img/favicon.ico" type="image/x-icon"/>
 <link id="pagestyle" rel="stylesheet" type="text/css" href="/static/light.css"/>
+<link id="hlstyle" rel="stylesheet" href="/static/tomorrow.min.css"/>
 <!-- Google Analytics -->
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-149578968-1', 'auto');ga('send', 'pageview');
@@ -221,9 +222,11 @@ var theme = sessionStorage.getItem("theme");
 if(theme=="dark"){
 document.getElementById("pagestyle").href="/static/dark.css";
 document.getElementById("switch-theme").innerHTML = "亮色";
+document.getElementById("hlstyle").href="/static/tomorrow-night.min.css";
 }else if(theme=="light"){
 document.getElementById("pagestyle").href="/static/light.css";
 document.getElementById("switch-theme").innerHTML = "暗色";
+document.getElementById("hlstyle").href="/static/tomorrow.min.css";
 }else{
 sessionStorage.setItem("theme","light");
 }});
@@ -232,11 +235,13 @@ function switchTheme(){
 if(sessionStorage.getItem("flag")=="false"){
 document.getElementById("pagestyle").href="/static/light.css";
 document.getElementById("switch-theme").innerHTML = "暗色";
+document.getElementById("hlstyle").href="/static/tomorrow-night.min.css";
 sessionStorage.setItem("theme","light");
 sessionStorage.setItem("flag", "true");
 }else{
 document.getElementById("pagestyle").href="/static/dark.css";
 document.getElementById("switch-theme").innerHTML = "亮色";
+document.getElementById("hlstyle").href="/static/tomorrow.min.css";
 sessionStorage.setItem("theme","dark");
 sessionStorage.setItem("flag", "false");
 }};
