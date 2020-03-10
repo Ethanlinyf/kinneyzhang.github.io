@@ -434,17 +434,18 @@ kbd {
 p.verse {
     margin-left: 3%;
 }
+
 pre{
     border-radius: 5px;
     padding:14px 16px;
     background-color:#F8F8F8;
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
-    line-height: 1.4em;
+    line-height: 1.2em;
     overflow:auto;
 }
 code {
-    background-color: #F8F8F8;
-    font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
+    background-color: #f8f8f8;
+    font-family:Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
 #org-div-home-and-up {
     font-size: 70%;

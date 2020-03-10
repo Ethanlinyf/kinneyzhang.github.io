@@ -436,10 +436,6 @@ kbd {
 p.verse {
     margin-left: 3%;
 }
-code {
-    background-color: #3c3c3c;
-    font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
-}
 pre{
     border-radius: 5px;
     padding:14px 16px;
@@ -448,10 +444,9 @@ pre{
     line-height: 1.2em;
     overflow:auto;
 }
-pre code {
+code {
     background-color: #282828;
-    font-weight: 500;
-    font-family: Hack,"DejaVu Sans Mono","Source Code Pro",Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
+    font-family:Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
 #org-div-home-and-up {
     font-size: 70%;
