@@ -447,8 +447,12 @@ pre{
 }
 code {
     font-weight: 500;
+    border: 1px solid grey;
     background-color: #282828;
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
+}
+pre code {
+    border: 0;
 }
 #org-div-home-and-up {
     font-size: 70%;
