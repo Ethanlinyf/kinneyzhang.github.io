@@ -448,6 +448,7 @@ code {
     font-family:Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
 .hljs {
+    padding: 10px; 12px;
     background-color: #282828;
 }
 #org-div-home-and-up {
