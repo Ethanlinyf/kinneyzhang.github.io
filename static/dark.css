@@ -448,6 +448,9 @@ code {
     background-color: #282828;
     font-family:Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
+pre code {
+    background-color: #282828;
+}
 #org-div-home-and-up {
     font-size: 70%;
     text-align: right;
