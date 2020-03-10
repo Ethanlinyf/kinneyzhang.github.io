@@ -8,7 +8,6 @@ html {
 body {
     margin:0;
     font-family:"TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
-    font-weight: bold;
     -webkit-font-smoothing:antialiased;
     background-color: #212121;
     color: #D5D5D5;
@@ -149,6 +148,7 @@ h1 {
 
 #content {
     font-size: 15px;
+    font-weight: 500;
 }
 
 #content h1,h2,h3,h4,h5,h6 {
