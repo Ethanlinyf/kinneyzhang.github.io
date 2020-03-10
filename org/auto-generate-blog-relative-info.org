@@ -42,7 +42,7 @@
 
 不难理解，这个宏执行了 =my/word-count= 这个函数，然后插入到“字数：”后面。这个统计字数的函数定义如下：
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC lisp
 ;; count words
 (defvar wc-regexp-chinese-char-and-punc
   (rx (category chinese)))
