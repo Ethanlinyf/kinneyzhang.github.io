@@ -447,7 +447,8 @@ pre{
 }
 code {
     font-weight: 500;
-    border: 1px solid grey;
+    border-radius: 2px;
+    border: 0.5px solid grey;
     background-color: #282828;
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
