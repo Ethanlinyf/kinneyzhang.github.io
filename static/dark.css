@@ -450,7 +450,7 @@ pre{
 }
 pre code {
     background-color: #282828;
-    font-weight: normal;
+    font-weight: 500;
     font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
 #org-div-home-and-up {
