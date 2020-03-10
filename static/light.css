@@ -445,7 +445,7 @@ pre{
 }
 code {
     background-color: #f8f8f8;
-    font-family:Monaco,Consolas,"Lucida Console","Courier New",monospace;
+    font-family:Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
 }
 .hljs {
     padding: 10px; 12px;
