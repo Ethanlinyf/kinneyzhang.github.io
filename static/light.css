@@ -106,7 +106,7 @@ a:hover,a:active {
 }
 .post-div { /* index page div */
     position: relative;
-    border-bottom: 1px solid #313131;
+    border-bottom: 1px solid #999;
     margin-top: 1em;
     padding-bottom: 1em;
 }
