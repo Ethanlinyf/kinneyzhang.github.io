@@ -39,4 +39,4 @@ emacs入门，可以观看子龙山人的[[https://v.youku.com/v_show/id_XMTUwNj
  * [[https://diygod.me][Hi, DIYgod]] (综合)
  * [[https://www.huhexian.com][青山绿水]] (生活)
  * [[https://macplay.github.io][MacPlay]] (Mac.技术)
- * [[https://xuguoping.net/qinggan/wangzhanzhishang.html][徐果萍博客]] (原创小说.生活.评论)
+ * [[https://xuguoping.net][徐果萍博客]] (原创小说.生活.评论)
