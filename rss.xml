@@ -2,7 +2,6 @@
 <rss version="2.0">
 <channel>
 <title>戈楷旎</title>
-<atom:link href="https://blog.geekinney.com/feed" rel="self" type="application/rss+xml"/>
 <link>https://blog.geekinney.com/</link>
 <description>happy hacking emacs!</description>
 <language>zh-cn</language>
