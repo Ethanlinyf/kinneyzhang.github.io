@@ -6,6 +6,13 @@
 <link>https://blog.geekinney.com/</link>
 <description>happy hacking emacs!</description>
 <language>zh-cn</language>
+<image>
+<url>https://blog.geekinney.com/static/img/favicon.ico</url>
+<title>戈楷旎</title>
+<link>https://blog.geekinney.com/</link>
+<width>32</width>
+<height>32</height>
+</image>
 <item>
 <title>解析elisp列表生成html</title>
 <link>https://blog.geekinney.com/post/parse-elisp-list-to-html.html</link>
