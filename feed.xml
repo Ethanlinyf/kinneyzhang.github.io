@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+<title>戈楷旎</title>
+<link>https://blog.geekinney.com/</link>
+<description>happy hacking emacs!</description>
+<Webmaster>kinneyzhang666@gmail.com</Webmaster>
+<language>zh-cn</language>
+<generator>Emacs OrgMode 9.1.9</generator>
+<ttl>5</ttl>
+<image>
+<url>https://blog.geekinney.com/static/img/favicon.ico</url>
+<title>戈楷旎</title>
+<link>https://blog.geekinney.com/</link>
+<width>32</width>
+<height>32</height>
+</image>
+<item>
+<title>解析elisp列表生成html</title>
+<link>https://blog.geekinney.com/post/parse-elisp-list-to-html.html</link>
+<description>我在使用orgMode搭建静态博客时，需要直接使用elisp生成部分html代码，于是写了这个print-html函数。主要有两个功能print-html-formated和print-html-un</description>
+<author>Kinney Zhang</author>
+<pubDate>2020-03-09</pubDate>
+</item>
+<item>
+<title>自动生成org blog摘要页</title>
+<link>https://blog.geekinney.com/post/auto-generate-blog-digest-page.html</link>
+<description>博客摘要页面可以让读者快速了解文章的大概信息，因此一般将它作为博客首页，其重要性不言而喻。摘要页的主要信息包括：标题，摘要，日期，分类等。每篇文章都手动输入这些文字太麻烦，于是我用elisp自动生成博</description>
+<author>Kinney Zhang</author>
+<pubDate>2020-02-22</pubDate>
+</item>
+<item>
+<title>自动生成org blog辅助信息</title>
+<link>https://blog.geekinney.com/post/auto-generate-blog-relative-info.html</link>
+<description>一篇博客文章除了标题、正文，还有一些辅助的信息，比如：日期，分类，字数等。使用orgmode生成html不会自动生成这些内容，于是想hack一下。折腾效果如博文开头的：[ 分类: {{{keyword</description>
+<author>Kinney Zhang</author>
+<pubDate>2020-02-21</pubDate>
+</item>
+<item>
+<title>视频压缩及格式(gif)转换</title>
+<link>https://blog.geekinney.com/post/elisp-hack-compress-and-convert-video.html</link>
+<description>MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积大，不便传输与使用。大多数时候我需要将视频压缩为mp4格式。同时，写文档时经常需要使用gif图片展示hack效果，所以将视频转为gi</description>
+<author>Kinney Zhang</author>
+<pubDate>2020-02-20</pubDate>
+</item>
+<item>
+<title>博客亮/暗色主题切换</title>
+<link>https://blog.geekinney.com/post/blog-light-and-dark-theme-switch.html</link>
+<description>我的博客为亮色主题，晚间浏览时光线太强，于是想实现在亮色与暗色主题间的自由切换。实现原理参考了 https://gongzhitaao.org/orgcss/ ，即通过改变引入的css文件来实现主题切</description>
+<author>Kinney Zhang</author>
+<pubDate>2020-02-19</pubDate>
+</item>
+<item>
+<title>去你的2019，来我的2020</title>
+<link>https://blog.geekinney.com/post/at-the-end-of-2019.html</link>
+<description>2019接近尾声，这一年充满了选择与变化，虽然过程曲折但还算充实。我也慢慢的朝着自己想要的状态去走，有些慢，但没偏离轨迹。回顾2019，顺利毕业，完整读了6本书，听了许多播客，搭建了自己的博客网站，尝</description>
+<author>Kinney Zhang</author>
+<pubDate>2019-12-31</pubDate>
+</item>
+<item>
+<title>记我的博客折腾经历</title>
+<link>https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html</link>
+<description>我从2019年暑假初次学着搭建自己的blog网站。经历了从动态网站到静态网站，从markdown到org-mode。第一版使用 Django+mysql 。自己从零开始查资料、写代码，最终折腾的像那么</description>
+<author>Kinney Zhang</author>
+<pubDate>2019-11-26</pubDate>
+</item>
+<item>
+<title>elisp学习笔记</title>
+<link>https://blog.geekinney.com/post/emacs-lisp-learning-note.html</link>
+<description>原文参考： Elisp Programming lisp介绍Lisp（历史上拼写为LISP）是具有悠久历史的计算机编程语言家族，有独特和完全括号的前缀符号表示法。起源于公元1958年，是现今第二悠久而</description>
+<author>Kinney Zhang</author>
+<pubDate>2019-11-12</pubDate>
+</item>
+<item>
+<title>使用org-mode撰写Jekyll blog</title>
+<link>https://blog.geekinney.com/post/using-org-to-blog-with-jekyll.html</link>
+<description>Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本标记语言转变为静态html页面。Jekyll生成的静态站点可以被几乎所有的web server使用并且不需要额外的组件。Github </description>
+<author>Kinney Zhang</author>
+<pubDate>2019-09-03</pubDate>
+</item>
+<item>
+<title>Emacs中使用mpd+mingus听音乐</title>
+<link>https://blog.geekinney.com/post/listen-music-in-emacs.html</link>
+<description>在emacs中收听音乐的方案不止一个，我之前用过bongo，但它们在某些方面不能满足我的需求。在逛Reddit时看到使用mpd配合mingus播放音乐的帖子，折腾了一下发现这正是我想要的！总结安装配置</description>
+<author>Kinney Zhang</author>
+<pubDate>2019-08-31</pubDate>
+</item>
+<item>
+<title>Get Started With Emacs</title>
+<link>https://blog.geekinney.com/post/get-started-with-emacs.html</link>
+<description>懒猫说：“Emacs是开源社区的典范, 也是全球顶尖黑客的思想结晶。没有Emacs, 我真的不会这么多年坚持做开源软件。Emacs时刻提醒我, 这个世界上有太多太多的聪明人比我更勤奋和有趣, 它就像一</description>
+<author>Kinney Zhang</author>
+<pubDate>2019-08-18</pubDate>
+</item>
+<item>
+<title>关于写日志</title>
+<link>https://blog.geekinney.com/post/thinking-about-journaling.html</link>
+<description>写日志的一个重要好处就是通过每日的反思不断调整，使得事情朝着正确的方向发展。正确的标准是什么？首先自己得舒心，如果事情越做越难受，大抵是什么方面出了问题；其次是对事情的进展是否起促进作用，意识具有主观</description>
+<author>Kinney Zhang</author>
+<pubDate>2019-08-05</pubDate>
+</item>
+<item>
+<title>关于大学计算机科学</title>
+<link>https://blog.geekinney.com/post/thinking-about-cs-teaching-in-college.html</link>
+<description>我以为学习计算机科学的学生在刚进入大学的时候，学院学校就要让学生了解到这个学科的森林，而非树木。建立学科体系结构和了解学科本质对于学习相当重要。我指的不是像每个专业大一的导论课，讲解大学四年学习课程的</description>
+<author>Kinney Zhang</author>
+<pubDate>2019-08-02</pubDate>
+</item>
+<item>
+<title>重拾阅读</title>
+<link>https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html</link>
+<description>我相信，一本好书是值得反复阅读品鉴的。今天读完了《月亮与六便士》，想着应该写点什么，毕竟这是我时隔好久完整地读完一本书了。对于很难坚持阅读的我来说，这一刻是有重要意义的。这意味着我过去很多年在阅读上的</description>
+<author>Kinney Zhang</author>
+<pubDate>2019-07-21</pubDate>
+</item>
+<item>
+<title>《子弹笔记》要点</title>
+<link>https://blog.geekinney.com/post/reading-notes-of-bullet-journal.html</link>
+<description> 理论     子弹短句分为三类：任务(Task，需要做的事情), 事件(Event，你的经历), 笔记(Note，不想遗忘的信息)     任务子弹分类：任务(●), 完成的任务(x), 迁移的任务</description>
+<author>Kinney Zhang</author>
+<pubDate>2019-03-05</pubDate>
+</item>
+<item>
+<title>emacs学习笔记</title>
+<link>https://blog.geekinney.com/post/emacs-learning-note.html</link>
+<description> 文件操作  C-x d进入Dired-mode  + 新建文件夹  C-x C-建文件  制  除  记删除，x执行，u取消  命名文件  C-x C-开当前文件的目录  C-c p 当前git中查</description>
+<author>Kinney Zhang</author>
+<pubDate>2019-03-02</pubDate>
+</item>
+
+</channel>
+</rss>
