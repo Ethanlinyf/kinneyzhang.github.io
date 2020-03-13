@@ -4,10 +4,7 @@
 <title>戈楷旎</title>
 <link>https://blog.geekinney.com/</link>
 <description>happy hacking emacs!</description>
-<Webmaster>kinneyzhang666@gmail.com</Webmaster>
 <language>zh-cn</language>
-<generator>Emacs OrgMode 9.1.9</generator>
-<ttl>5</ttl>
 <item>
 <title>解析elisp列表生成html</title>
 <link>https://blog.geekinney.com/post/parse-elisp-list-to-html.html</link>
