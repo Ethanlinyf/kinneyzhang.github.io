@@ -130,11 +130,11 @@ a:hover,a:active {
 .post-div p span {
     color: grey;
 }
-.post-date{
-    color: grey;
+#post-div-meta {
     position: absolute;
     right: 0;
 }
+
 /* .leancloud_visitors { */
 /*     color: #999; */
 /*     position: absolute; */
