@@ -132,11 +132,11 @@ a:hover,a:active {
     position: absolute;
     right: 0;
 }
-.leancloud_visitors {
-    color: #999;
-    position: absolute;
-    right: 80px;
-}
+/* .leancloud_visitors { */
+/*     color: #999; */
+/*     position: absolute; */
+/*     right: 80px; */
+/* } */
 .post-div code a:hover {
     border-bottom: 0;
 }
