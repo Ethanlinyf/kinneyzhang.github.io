@@ -468,6 +468,9 @@ pre code {
 .creator {
     display: block;
 }
+.date {
+    color: grey;
+}
 /* self customed */
 
 p{
