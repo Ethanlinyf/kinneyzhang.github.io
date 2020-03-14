@@ -127,6 +127,9 @@ a:hover,a:active {
 .post-div p a:hover {
     border-bottom: 0;
 }
+.post-div p span {
+    color: grey;
+}
 .post-date{
     color: grey;
     position: absolute;
