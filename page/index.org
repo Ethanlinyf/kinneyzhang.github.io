@@ -16,11 +16,6 @@
 </code>
 <span id="post-div-meta">
 <span>1136字 · </span>
-<span id="/post/parse-elisp-list-to-html.html" class="leancloud_visitors" data-flag-title="解析elisp列表生成html">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2020-03-09</span>
 </span>
 </p>
@@ -40,11 +35,6 @@
 </code>
 <span id="post-div-meta">
 <span>807字 · </span>
-<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="自动生成org blog摘要页">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2020-02-22</span>
 </span>
 </p>
@@ -64,11 +54,6 @@
 </code>
 <span id="post-div-meta">
 <span>1111字 · </span>
-<span id="/post/auto-generate-blog-relative-info.html" class="leancloud_visitors" data-flag-title="自动生成org blog辅助信息">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2020-02-21</span>
 </span>
 </p>
@@ -88,11 +73,6 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
 </code>
 <span id="post-div-meta">
 <span>367字 · </span>
-<span id="/post/elisp-hack-compress-and-convert-video.html" class="leancloud_visitors" data-flag-title="视频压缩及格式(gif)转换">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2020-02-20</span>
 </span>
 </p>
@@ -112,11 +92,6 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
 </code>
 <span id="post-div-meta">
 <span>474字 · </span>
-<span id="/post/blog-light-and-dark-theme-switch.html" class="leancloud_visitors" data-flag-title="博客亮/暗色主题切换">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2020-02-19</span>
 </span>
 </p>
@@ -136,11 +111,6 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
 </code>
 <span id="post-div-meta">
 <span>1365字 · </span>
-<span id="/post/at-the-end-of-2019.html" class="leancloud_visitors" data-flag-title="去你的2019，来我的2020">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2019-12-31</span>
 </span>
 </p>
@@ -160,11 +130,6 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
 </code>
 <span id="post-div-meta">
 <span>1171字 · </span>
-<span id="/post/experience-of-setting-up-my-own-blog-site.html" class="leancloud_visitors" data-flag-title="记我的博客折腾经历">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2019-11-26</span>
 </span>
 </p>
@@ -184,11 +149,6 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
 </code>
 <span id="post-div-meta">
 <span>11451字 · </span>
-<span id="/post/emacs-lisp-learning-note.html" class="leancloud_visitors" data-flag-title="elisp学习笔记">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2019-11-12</span>
 </span>
 </p>
@@ -208,11 +168,6 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
 </code>
 <span id="post-div-meta">
 <span>2079字 · </span>
-<span id="/post/using-org-to-blog-with-jekyll.html" class="leancloud_visitors" data-flag-title="使用org-mode撰写Jekyll blog">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2019-09-03</span>
 </span>
 </p>
@@ -232,11 +187,6 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
 </code>
 <span id="post-div-meta">
 <span>888字 · </span>
-<span id="/post/listen-music-in-emacs.html" class="leancloud_visitors" data-flag-title="Emacs中使用mpd+mingus听音乐">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2019-08-31</span>
 </span>
 </p>
@@ -256,11 +206,6 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
 </code>
 <span id="post-div-meta">
 <span>1112字 · </span>
-<span id="/post/get-started-with-emacs.html" class="leancloud_visitors" data-flag-title="Get Started With Emacs">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2019-08-18</span>
 </span>
 </p>
@@ -280,11 +225,6 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
 </code>
 <span id="post-div-meta">
 <span>787字 · </span>
-<span id="/post/thinking-about-journaling.html" class="leancloud_visitors" data-flag-title="关于写日志">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2019-08-05</span>
 </span>
 </p>
@@ -304,11 +244,6 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
 </code>
 <span id="post-div-meta">
 <span>572字 · </span>
-<span id="/post/thinking-about-cs-teaching-in-college.html" class="leancloud_visitors" data-flag-title="关于大学计算机科学">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2019-08-02</span>
 </span>
 </p>
@@ -328,11 +263,6 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
 </code>
 <span id="post-div-meta">
 <span>1733字 · </span>
-<span id="/post/pick-up-reading-after-read-the-moon-and-sixpence.html" class="leancloud_visitors" data-flag-title="重拾阅读">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2019-07-21</span>
 </span>
 </p>
@@ -352,11 +282,6 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
 </code>
 <span id="post-div-meta">
 <span>1408字 · </span>
-<span id="/post/reading-notes-of-bullet-journal.html" class="leancloud_visitors" data-flag-title="《子弹笔记》要点">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2019-03-05</span>
 </span>
 </p>
@@ -376,11 +301,6 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
 </code>
 <span id="post-div-meta">
 <span>768字 · </span>
-<span id="/post/emacs-learning-note.html" class="leancloud_visitors" data-flag-title="emacs学习笔记">
-<span class="post-meta-item-text">阅读 </span>
-<span class="leancloud-visitors-count">..</span>
- 次 · 
-</span>
 <span class="post-date">2019-03-02</span>
 </span>
 </p>
