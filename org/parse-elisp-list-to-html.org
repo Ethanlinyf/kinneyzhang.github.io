@@ -6,7 +6,7 @@
 #+INCLUDE: ../code/post-info.org
 #+TOC: headlines:2
 
-我在使用orgMode搭建静态博客时，需要直接使用elisp生成部分html代码，于是写了这个 =print-html= 函数。主要有两个功能 =print-html-formated= 和 =print-html-unformated= ，前者生成格式化的html，后者生成的html排在一行。
+我在使用orgMode搭建静态博客时，需要直接使用elisp生成部分html代码，于是写了这个 =print-html= 函数，可以通过elisp列表生成格式化的html。
 
 * 使用方法
 
@@ -22,7 +22,7 @@
 		 (code (span :class "post-date" "date")))))
 #+END_SRC
 
-经过格式化解析 =(print-html-formated list)= 后生成如下html：
+经过格式化解析 =(print-html list)= 后生成如下html：
 
 #+BEGIN_SRC html
 <div class="post-container">
@@ -121,23 +121,6 @@
 	(forward-char 0)
       (forward-char (+ 3 (length tag))))))
 ;;----------------------------------------
-(defun print-html--parse-list-unformated (list)
-  "parse elisp to unformated html"
-  (let* ((tag (car list))
-	 (left (cdr list))
-	 (plist (print-html--get-plist left))
-	 (inner (print-html--get-inner left))
-	 (html ""))
-    (with-current-buffer (get-buffer-create "*print html*")
-      (print-html--insert-html-tag tag plist)
-      (dolist (item inner)
-	(if (listp item)
-	    (print-html--parse-list-unformated item)
-	  (insert item)))
-      (print-html--jump-outside tag)
-      (setq html (buffer-substring-no-properties (point-min) (point-max))))
-    html))
-;;----------------------------------------
 (defun print-html--if-no-child (inner)
   "judge if html tag has child-tag"
   (let ((no-child t))
@@ -176,26 +159,11 @@
       (setq html (buffer-substring-no-properties (point-min) (point-max))))
     html))
 ;;---------------------------------------
-(defun print-html-unformated (LIST)
-  (let ((html (print-html--parse-list-unformated LIST)))
-    (kill-buffer "*print html*")
-    html))
-
-(defun print-html-formated (LIST)
+(defun print-html (LIST)
   (let ((html (print-html--parse-list-formated LIST)))
     (kill-buffer "*print html*")
     html))
-
-(defun print-html (FORMATED LIST)
-  "print html with elisp. the first elem of LIST is always a html tag, others could be attributes or text content or child tag. the three mentioned above are all optional. if has, attributes must be in first place, followed by text content and child tag."
-  (let ((html ""))
-    (if FORMATED
-	(print-html-formated LIST)
-	(print-html-unformated LIST)
-      )))
 #+END_SRC
-
-=print-html= 函数就是将格式化和非格式化两个函数整合在一起，用 =FORMATED= 变量表示是否格式化显示。
 
 * 应用场景
 写 =print-html= 的初衷是为了生成静态博客的首页、归档页、分类页等具有特定格式的页面。因为我对这些页面有布局上的要求，所以orgMode导出的html不能满足需求。使用elisp生成的html可以嵌入在orgMode中，博客的可定制性便高了许多。
