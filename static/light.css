@@ -108,7 +108,6 @@ a:hover,a:active {
     position: relative;
     border-bottom: 0.5px solid #ddd;
     margin-top: 1em;
-    padding-bottom: 1em;
 }
 .post-div h2 {
     color: #555;
@@ -116,10 +115,6 @@ a:hover,a:active {
 }
 .post-div h2 a:hover {
     border-bottom: 0;
-}
-.post-div p a {
-    position: relative;
-    right: 0;
 }
 .post-div p a:hover {
     border-bottom: 0;
