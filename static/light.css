@@ -464,6 +464,7 @@ pre code {
 }
 .date {
     color: #999;
+    text-align: right;
 }
 .dim {
     color: #999;

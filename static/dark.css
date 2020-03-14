@@ -470,6 +470,7 @@ pre code {
 }
 .date {
     color: grey;
+    text-align: right;
 }
 .dim {
     color: grey;
