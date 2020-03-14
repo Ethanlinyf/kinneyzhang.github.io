@@ -10,10 +10,18 @@
  ......
 <a href="https://blog.geekinney.com/post/parse-elisp-list-to-html.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">Emacs</a>
 </code>
+<span>1136字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="解析elisp列表生成html">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2020-03-09</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -24,10 +32,18 @@
  ......
 <a href="https://blog.geekinney.com/post/auto-generate-blog-digest-page.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">博客</a>
 </code>
+<span>807字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="自动生成org blog摘要页">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2020-02-22</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -38,10 +54,18 @@
  ......
 <a href="https://blog.geekinney.com/post/auto-generate-blog-relative-info.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">博客</a>
 </code>
+<span>1111字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="自动生成org blog辅助信息">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2020-02-21</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -52,10 +76,18 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
  ......
 <a href="https://blog.geekinney.com/post/elisp-hack-compress-and-convert-video.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">Emacs</a>
 </code>
+<span>367字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="视频压缩及格式(gif)转换">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2020-02-20</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -66,10 +98,18 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
  ......
 <a href="https://blog.geekinney.com/post/blog-light-and-dark-theme-switch.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">博客</a>
 </code>
+<span>474字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="博客亮/暗色主题切换">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2020-02-19</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -80,10 +120,18 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
  ......
 <a href="https://blog.geekinney.com/post/at-the-end-of-2019.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">总结</a>
 </code>
+<span>1365字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="去你的2019，来我的2020">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2019-12-31</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -94,10 +142,18 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
  ......
 <a href="https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">博客</a>
 </code>
+<span>1171字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="记我的博客折腾经历">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2019-11-26</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -108,10 +164,18 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
  ......
 <a href="https://blog.geekinney.com/post/emacs-lisp-learning-note.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">Emacs</a>
 </code>
+<span>11451字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="elisp学习笔记">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2019-11-12</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -122,10 +186,18 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
  ......
 <a href="https://blog.geekinney.com/post/using-org-to-blog-with-jekyll.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">Emacs</a>
 </code>
+<span>2079字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="使用org-mode撰写Jekyll blog">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2019-09-03</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -136,10 +208,18 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
  ......
 <a href="https://blog.geekinney.com/post/listen-music-in-emacs.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">Emacs</a>
 </code>
+<span>888字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="Emacs中使用mpd+mingus听音乐">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2019-08-31</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -150,10 +230,18 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
  ......
 <a href="https://blog.geekinney.com/post/get-started-with-emacs.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">Emacs</a>
 </code>
+<span>1112字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="Get Started With Emacs">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2019-08-18</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -164,10 +252,18 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
  ......
 <a href="https://blog.geekinney.com/post/thinking-about-journaling.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">杂思</a>
 </code>
+<span>787字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="关于写日志">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2019-08-05</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -178,10 +274,18 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
  ......
 <a href="https://blog.geekinney.com/post/thinking-about-cs-teaching-in-college.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">杂思</a>
 </code>
+<span>572字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="关于大学计算机科学">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2019-08-02</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -192,10 +296,18 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
  ......
 <a href="https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">阅读</a>
 </code>
+<span>1733字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="重拾阅读">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2019-07-21</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -206,10 +318,18 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
  ......
 <a href="https://blog.geekinney.com/post/reading-notes-of-bullet-journal.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">阅读</a>
 </code>
+<span>1408字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="《子弹笔记》要点">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2019-03-05</span>
+</p>
 </div>
 <div class="post-div">
 <h2>
@@ -220,9 +340,17 @@ Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本�
  ......
 <a href="https://blog.geekinney.com/post/emacs-learning-note.html">「阅读全文」</a>
 </p>
+<p>
 <code>
 <a href="https://blog.geekinney.com/category.html">Emacs</a>
 </code>
+<span>768字 · </span>
+<span id="/post/auto-generate-blog-digest-page.html" class="leancloud_visitors" data-flag-title="emacs学习笔记">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">..</span>
+ 次 · 
+</span>
 <span class="post-date">2019-03-02</span>
+</p>
 </div>
 #+end_export
