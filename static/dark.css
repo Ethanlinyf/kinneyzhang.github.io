@@ -107,28 +107,25 @@ a:hover,a:active {
     color: grey;
     font-size: 0.9em;
 }
-.post-div { /* index page div */
+#post-div { /* index page div */
     position: relative;
     border-bottom: 1.2px solid #313131;
     margin-top: 1em;
 }
-.post-div a {
+#post-div a {
     color: #19A9FB;
 }
-.post-div h2{
+#post-div h2{
     color: #19A9FB;
     font-family: KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
-.post-div h2 a:hover {
+#post-div h2 a:hover {
     border-bottom: 0;
 }
-.post-div p a:hover {
+#post-div p a:hover {
     border-bottom: 0;
 }
-.post-div p code a {
-    color: #eee;
-}
-.post-div p span {
+#post-div p span {
     color: grey;
 }
 #post-div-meta {
@@ -141,7 +138,7 @@ a:hover,a:active {
 /*     position: absolute; */
 /*     right: 80px; */
 /* } */
-.post-div code a:hover {
+#post-div code a:hover {
     border-bottom: 0;
 }
 
@@ -573,9 +570,6 @@ h6 {
     }
     .post-info {
 	text-align: left;
-    }
-    .post-div h1 a{
-	font:bold 21px/1.2 KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
     }
     #content {
 	font-size: 14px;
