@@ -113,14 +113,14 @@ a:hover,a:active {
     color: #555;
     font-family: KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
+.post-div a {
+    color: #527d9a;
+}
 .post-div h2 a:hover {
     border-bottom: 0;
 }
 .post-div p a:hover {
     border-bottom: 0;
-}
-.post-div p code a {
-    color: #444;
 }
 .post-div p span {
     color: #999;

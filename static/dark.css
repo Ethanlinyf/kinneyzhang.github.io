@@ -112,6 +112,9 @@ a:hover,a:active {
     border-bottom: 1.2px solid #313131;
     margin-top: 1em;
 }
+.post-div a {
+    color: #19A9FB;
+}
 .post-div h2{
     color: #19A9FB;
     font-family: KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
