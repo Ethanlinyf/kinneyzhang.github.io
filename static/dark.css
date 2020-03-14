@@ -122,6 +122,9 @@ a:hover,a:active {
 .post-div p a:hover {
     border-bottom: 0;
 }
+.post-div p code a {
+    color: #eee;
+}
 .post-div p span {
     color: grey;
 }
