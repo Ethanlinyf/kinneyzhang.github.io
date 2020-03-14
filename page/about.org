@@ -27,9 +27,11 @@ emacs入门，可以观看子龙山人的[[https://v.youku.com/v_show/id_XMTUwNj
 欢迎评论留言，但请遵守基本的礼貌规范，禁止发布任何有关淫秽，反动，暴力，赌博，恐吓或违法的评论，在尊重言论自由的同时保持和平与理性。请勿对其中的任何评论者采取不友好的评论与过激争吵行为。对此我将保留删除评论的权利。
 
 * 交流联系
-  如对博客内容有更多问题，欢迎交流探讨：
+  如对博客内容有更多问题，欢迎交流探讨:
+  * /QQ: 2628987369/
   * /Email: kinneyzhang666@gmail.com/
   * /Github: https://github.com/Kinneyzhang/
+  * /RSS: https://blog.geekinney.com/feed.xml/
 
 * 友情链接
  * [[https://hiwannz.com][见字如面]] (生活.职场)
