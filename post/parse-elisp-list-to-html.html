@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-03-14 Sat 19:37 -->
+<!-- 2020-03-14 Sat 20:53 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>解析elisp列表生成html</title>
@@ -39,7 +39,7 @@
 <p>
 「
 <span>分类: Emacs · </span>
-<span>字数: 1136 · </span>
+<span>字数: 968 · </span>
 <span id="/post/parse-elisp-list-to-html.html" class="leancloud_visitors" data-flag-title="解析elisp列表生成html">
 <span class="post-meta-item-text">阅读 </span>
 <span class="leancloud-visitors-count">...</span>
@@ -62,7 +62,7 @@
 </nav>
 
 <p>
-我在使用orgMode搭建静态博客时，需要直接使用elisp生成部分html代码，于是写了这个 <code>print-html</code> 函数。主要有两个功能 <code>print-html-formated</code> 和 <code>print-html-unformated</code> ，前者生成格式化的html，后者生成的html排在一行。
+我在使用orgMode搭建静态博客时，需要直接使用elisp生成部分html代码，于是写了这个 <code>print-html</code> 函数，可以通过elisp列表生成格式化的html。
 </p>
 
 <div id="outline-container-org2cb401c" class="outline-2">
@@ -84,7 +84,7 @@
 </div>
 
 <p>
-经过格式化解析 <code>(print-html-formated list)</code> 后生成如下html：
+经过格式化解析 <code>(print-html list)</code> 后生成如下html：
 </p>
 
 <div class="col-auto">
@@ -203,23 +203,6 @@
 	(forward-char 0)
       (forward-char (+ 3 (length tag))))))
 ;;----------------------------------------
-(defun print-html--parse-list-unformated (list)
-  "parse elisp to unformated html"
-  (let* ((tag (car list))
-	 (left (cdr list))
-	 (plist (print-html--get-plist left))
-	 (inner (print-html--get-inner left))
-	 (html ""))
-    (with-current-buffer (get-buffer-create "*print html*")
-      (print-html--insert-html-tag tag plist)
-      (dolist (item inner)
-	(if (listp item)
-	    (print-html--parse-list-unformated item)
-	  (insert item)))
-      (print-html--jump-outside tag)
-      (setq html (buffer-substring-no-properties (point-min) (point-max))))
-    html))
-;;----------------------------------------
 (defun print-html--if-no-child (inner)
   "judge if html tag has child-tag"
   (let ((no-child t))
@@ -258,29 +241,12 @@
       (setq html (buffer-substring-no-properties (point-min) (point-max))))
     html))
 ;;---------------------------------------
-(defun print-html-unformated (LIST)
-  (let ((html (print-html--parse-list-unformated LIST)))
-    (kill-buffer "*print html*")
-    html))
-
-(defun print-html-formated (LIST)
+(defun print-html (LIST)
   (let ((html (print-html--parse-list-formated LIST)))
     (kill-buffer "*print html*")
     html))
-
-(defun print-html (FORMATED LIST)
-  "print html with elisp. the first elem of LIST is always a html tag, others could be attributes or text content or child tag. the three mentioned above are all optional. if has, attributes must be in first place, followed by text content and child tag."
-  (let ((html ""))
-    (if FORMATED
-	(print-html-formated LIST)
-	(print-html-unformated LIST)
-      )))
 </code></pre>
 </div>
-
-<p>
-<code>print-html</code> 函数就是将格式化和非格式化两个函数整合在一起，用 <code>FORMATED</code> 变量表示是否格式化显示。
-</p>
 </div>
 </div>
 

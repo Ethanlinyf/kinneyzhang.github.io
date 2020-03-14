@@ -6,7 +6,7 @@
 <a href="https://blog.geekinney.com/post/parse-elisp-list-to-html.html">解析elisp列表生成html</a>
 </h2>
 <p>
-我在使用orgMode搭建静态博客时，需要直接使用elisp生成部分html代码，于是写了这个print-html函数。主要有两个功能print-html-formated和print-html-unformated，前者生成格式化的html，后者生成的html排在一行。 使用方法形如如下列表：(setq list      '(di
+我在使用orgMode搭建静态博客时，需要直接使用elisp生成部分html代码，于是写了这个print-html函数，可以通过elisp列表生成格式化的html。 使用方法形如如下列表：(setq list      '(div :class "post-container"	    (div :class "post-div"		
  ......
 <a href="https://blog.geekinney.com/post/parse-elisp-list-to-html.html">「阅读全文」</a>
 </p>
@@ -15,7 +15,7 @@
 <a href="https://blog.geekinney.com/category.html">Emacs</a>
 </code>
 <span id="post-div-meta">
-<span>1136字 · </span>
+<span>968字 · </span>
 <span class="post-date">2020-03-09</span>
 </span>
 </p>
