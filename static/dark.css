@@ -347,7 +347,7 @@ blockquote {
     border-left: 3px solid #d3d3d3;
 }
 .mycomment {
-    font-family: KaiTi,STKaiti,KaiTi_GB2312,sans-serif,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times;
+    /* font-family: KaiTi,STKaiti,KaiTi_GB2312,sans-serif,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times; */
     /* font-weight: bold; */
     line-height: 1.4em;
 }
