@@ -339,8 +339,8 @@ tbody tr:nth-child(even) {
 blockquote {
     margin: 1em 2em;
     padding-left: 1em;
-    color: black;
-    border-left: 3px solid black;
+    /* color: grey; */
+    border-left: 3px solid grey;
 }
 .mycomment {
     font-family: KaiTi,STKaiti,KaiTi_GB2312,sans-serif,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times;
