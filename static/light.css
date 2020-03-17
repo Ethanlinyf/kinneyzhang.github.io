@@ -176,10 +176,19 @@ figure {
     margin: 1em 40px;
 }
 
+/* hr { */
+/*     /\* box-sizing: content-box; *\/ */
+/*     color: #ddd; */
+/*     height: 1; */
+/* } */
+
 hr {
-    /* box-sizing: content-box; */
+    margin-top:7px;
+    *margin: 0;
+    border: 0;
     color: #ddd;
-    height: 1;
+    background-color: #ddd;
+    height: 1px;
 }
 
 button,input,optgroup,select,textarea {
