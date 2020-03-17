@@ -177,7 +177,7 @@ figure {
 }
 
 hr {
-    box-sizing: content-box;
+    /* box-sizing: content-box; */
     color: #ddd;
     height: 0;
     overflow: visible;
