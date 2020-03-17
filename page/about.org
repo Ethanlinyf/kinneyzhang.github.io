@@ -2,7 +2,7 @@
 #+STARTUP: showall
 #+OPTIONS: toc:nil H:2 num:0 title:nil
 
-=戈楷旎= 就是我的英文名 /Geekinney/ 的谐音～
+*戈楷旎* 就是我的英文名 /Geekinney/ 的谐音～
 
 * 关于我和EMACS
 emacser，本科计算机专业毕业。喜爱读书和唱歌，喜爱折腾和hack emacs。我的一天90%的时间是在[[https://www.gnu.org/software/emacs/][emacs]]中的度过的。我在emacs中编程、写作、学习、管理日程...，我的博客中相当一部分内容是与emacs相关的。关于什么是emacs，可以看懒猫的这两篇文章：[[https://manateelazycat.github.io/emacs/2016/03/06/what-is-emacs.html][Emacs是一种生活方式]] 和 [[https://manateelazycat.github.io/emacs/2018/12/11/study-emacs.html][如何学习emacs]]。
