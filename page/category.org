@@ -21,6 +21,7 @@
  * [[https://blog.geekinney.com/post/thinking-about-journaling.html][关于写日志]]
 * 评论
  * [[https://blog.geekinney.com/post/inspire-my-potential-of-making-a-comment.html][开设「评论」栏目]]
+ * [[https://blog.geekinney.com/post/anxiety-of-product-manager.html][产品经理的焦虑]]
 * 阅读
  * [[https://blog.geekinney.com/post/reading-notes-of-bullet-journal.html][《子弹笔记》要点]]
  * [[https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html][重拾阅读]]
