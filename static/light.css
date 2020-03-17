@@ -164,7 +164,7 @@ small {
 }
 
 img {
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 code,kbd,pre,samp {
@@ -178,7 +178,7 @@ figure {
 
 hr {
     box-sizing: content-box;
-    border-bottom: 0.5px solid RGB(213,213,213);
+    border-bottom: 1px solid #ddd;
     height: 0;
     overflow: visible;
 }
@@ -341,7 +341,10 @@ blockquote {
     color: black;
     border-left: 3px solid black;
 }
-
+.mycomment {
+    font-size: 14px;
+    font-family: KaiTi,STKaiti,KaiTi_GB2312,sans-serif,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times;
+}
 kbd {
     background-color: #f7f7f7;
     font-size: 80%;
