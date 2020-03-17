@@ -3,6 +3,25 @@
 #+begin_export html
 <div id="post-div">
 <h2>
+<a href="https://blog.geekinney.com/post/anxiety-of-product-manager.html">产品经理的焦虑</a>
+</h2>
+<p>
+https://hiwannz.com/wp-content/uploads/2020/03/at-a-loss-2773594_640.jpg最近的焦虑越来越严重了。有媒体问张朝阳“现在还焦虑吗？”张回答“现在比较平和了。”记者追问“你是如何缓解焦虑的呢？““不去缓解，接受他。”今年算是我正式从事产品岗位的第四年（从2017年算起）
+ ......
+<a href="https://blog.geekinney.com/post/anxiety-of-product-manager.html">「阅读全文」</a>
+</p>
+<p>
+<code>
+<a href="https://blog.geekinney.com/category.html">评论</a>
+</code>
+<span id="post-div-meta">
+<span>2210字 · </span>
+<span class="post-date">2020-03-17</span>
+</span>
+</p>
+</div>
+<div id="post-div">
+<h2>
 <a href="https://blog.geekinney.com/post/inspire-my-potential-of-making-a-comment.html">开设「评论」栏目</a>
 </h2>
 <p>
