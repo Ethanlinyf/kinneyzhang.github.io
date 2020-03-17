@@ -15,7 +15,7 @@
 <a href="https://blog.geekinney.com/category.html">评论</a>
 </code>
 <span id="post-div-meta">
-<span>2244字 · </span>
+<span>2247字 · </span>
 <span class="post-date">2020-03-17</span>
 </span>
 </p>
