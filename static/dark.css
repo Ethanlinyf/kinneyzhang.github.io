@@ -280,14 +280,14 @@ dl,ol,ul {
 
 figure {
     padding: 0;
-    margin: 1em auto;
-    text-align: center;
+    margin: 2em auto;
+    text-align: left;
 }
 
 img {
     margin: 0;
     max-width: 100%;
-    vertical-align: left;
+    vertical-align: middle;
 }
 
 .MathJax_Display {
