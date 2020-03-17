@@ -185,7 +185,7 @@ figure {
 
 hr {
     box-sizing: content-box;
-    border-bottom: 1px solid #313131;
+    color: #313131;
     height: 0;
     overflow: visible;
 }
@@ -346,7 +346,6 @@ blockquote {
     border-left: 3px solid #d3d3d3;
 }
 .mycomment {
-    font-size: 14px;
     font-family: KaiTi,STKaiti,KaiTi_GB2312,sans-serif,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times;
 }
 

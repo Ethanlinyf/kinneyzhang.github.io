@@ -178,7 +178,7 @@ figure {
 
 hr {
     box-sizing: content-box;
-    border-bottom: 1px solid #ddd;
+    color: #ddd;
     height: 0;
     overflow: visible;
 }
@@ -342,7 +342,6 @@ blockquote {
     border-left: 3px solid black;
 }
 .mycomment {
-    font-size: 14px;
     font-family: KaiTi,STKaiti,KaiTi_GB2312,sans-serif,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times;
 }
 kbd {
