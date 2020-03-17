@@ -7,12 +7,6 @@
 <priority>0.8</priority>
 </url>
 <url>
-<loc>https://blog.geekinney.com/post/inspire-my-potential-of-making-a-comment.html</loc>
-<lastmod>2020-03-17</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.8</priority>
-</url>
-<url>
 <loc>https://blog.geekinney.com/post/parse-elisp-list-to-html.html</loc>
 <lastmod>2020-03-09</lastmod>
 <changefreq>daily</changefreq>
