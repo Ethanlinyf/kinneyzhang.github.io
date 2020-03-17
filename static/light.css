@@ -175,13 +175,6 @@ code,kbd,pre,samp {
 figure {
     margin: 1em 40px;
 }
-
-/* hr { */
-/*     /\* box-sizing: content-box; *\/ */
-/*     color: #ddd; */
-/*     height: 1; */
-/* } */
-
 hr {
     margin-top:7px;
     *margin: 0;
