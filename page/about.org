@@ -23,11 +23,11 @@
 入门emacs，推荐观看子龙山人的 [[https://v.youku.com/v_show/id_XMTUwNjU0MjE0OA==.html][Master Emacs in 21 Days]] 系列视频。使用emacs过程遇到问题可以在 [[https://emacs-china.org][emacs-china]] 论坛向大神求助。 *At Last, happy hacking emacs!*
 
 * 为什么开设博客
-学计算机的人，热衷于技术从理论到实践的探索，想用学过的技术做点实用的事情。
+*学计算机的人，热衷于技术从理论到实践的探索，想用学过的技术做点实用的事情。*
 
 一直想拥有自己的独立博客，正好毕设又学习了Django框架，便折腾起来。2019年暑假博客初步建成，使用Django+mysql，后面又改为静态博客。经过多次探索自己喜爱的blogging方式，最后决定使用 /Emacs orgMode/ 。折腾过程详细记录在[[https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html][记我的博客折腾经历]]这篇文章中。
 
-除了实现对技术的想象，搭建博客更多的是想记录自己的成长。
+*除了实现对技术的想象，搭建博客更多的是想记录自己的成长。*
 
 交流、学习、工作、电影、播客、动漫、文章....我们接触生活的每一种方式都会在脑海中留下大量信息。这些信息进行提炼、联系、再创造就产生了灵感和思考。某些深刻的思考成了我们的生活经验，潜移默化的指导生活；一般的思考留在了我们的记忆中，等待被诉诸文字或言语的机会；而大多数的灵感则在片刻停留后，销声匿迹。 *我的博客要记录那些于生活有益的经验，于工作有助的思考，于无声处作用的灵感，这些便是成长的印记。*
 
@@ -49,7 +49,8 @@
   * /RSS: https://blog.geekinney.com/feed.xml/
 
 * 公号推荐
-  微信公众号: *Oops Elena* , 好友Elena的个人公众号，分享美剧知识，记录旅行生活，扫码👇二维码关注。
+  好友Elena的微信公众号: *Oops Elena*\\
+  分享美剧知识，记录旅行生活，扫描👇二维码关注吧~
   
   [[../static/img/Oops-Elena.png]]
   
