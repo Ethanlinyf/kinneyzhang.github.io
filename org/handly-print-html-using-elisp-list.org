@@ -1,0 +1,11 @@
+#+TITLE: handly print html by using elisp list
+#+DATE: 2020-03-18
+#+CATEGORY: Emacs
+#+INCLUDE: "../code/post-info.org"
+#+STARTUP: showall
+#+OPTIONS: toc:nil H:2 num:2
+#+TOC: headlines:2
+
+#+begin_export html
+<iframe src="https://mp.weixin.qq.com/s/J6JJc90LXVS7XCcfevj-9g"></iframe>
+#+end_export
