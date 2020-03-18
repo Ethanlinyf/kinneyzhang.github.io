@@ -46,7 +46,7 @@
   * /Github: https://github.com/Kinneyzhang/
   * /RSS: https://blog.geekinney.com/feed.xml/
 
-* 特别推荐
+* 公号推荐
   微信公众号: *Oops Elena* ,好友Elena的个人公众号，分享美剧知识，记录旅行生活，扫码👇二维码关注。
   
   [[../static/img/Oops-Elena.png]]
