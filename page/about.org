@@ -36,8 +36,7 @@ emacs入门，可以观看子龙山人的[[https://v.youku.com/v_show/id_XMTUwNj
   * /RSS: https://blog.geekinney.com/feed.xml/
 
 * 特别推荐
-  微信公众号: *Oops Elena* \\
-  好友Elena的个人公众号，分享美剧知识，记录旅行生活，扫码关注吧～
+  微信公众号: *Oops Elena* ,好友Elena的个人公众号，分享美剧知识，记录旅行生活，扫码关注吧～
   
   [[../static/img/Oops-Elena.png]]
   
