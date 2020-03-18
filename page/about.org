@@ -14,9 +14,7 @@
  * 最喜欢的动漫角色是 /平泽唯/
  * 最喜欢且唯一使用的(+操作系统+)编辑器是 /*Emacs*/
 
-我的一天90%的时间是在[[https://www.gnu.org/software/emacs/][emacs]]中的度过的。我在emacs中编程、写作、学习、管理日程、搭建博客...(此处省略一万字)。
-
-Emacs是什么？看懒猫的这两篇文章：[[https://manateelazycat.github.io/emacs/2016/03/06/what-is-emacs.html][Emacs是一种生活方式]] 和 [[https://manateelazycat.github.io/emacs/2018/12/11/study-emacs.html][如何学习emacs]]。
+我的一天90%的时间是在[[https://www.gnu.org/software/emacs/][emacs]]中的度过的。我在emacs中编程、写作、学习、管理日程、搭建博客...(此处省略一万字)。Emacs是什么？看懒猫的这两篇文章：[[https://manateelazycat.github.io/emacs/2016/03/06/what-is-emacs.html][Emacs是一种生活方式]] 和 [[https://manateelazycat.github.io/emacs/2018/12/11/study-emacs.html][如何学习emacs]]。
 
 如果你是程序员，我强烈推荐你使用emacs，它会极大的提高学习工作效率；如果你不是程序员，但不怕折腾，我也推荐你尝试emacs，它会成为你时间管理与文档书写的利器。
 
