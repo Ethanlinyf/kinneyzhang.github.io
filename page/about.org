@@ -5,13 +5,26 @@
 *戈楷旎* 就是我的英文名 /Geekinney/ 的谐音～
 
 * 关于我和Emacs
-emacser，本科计算机专业毕业。喜爱读书和唱歌，喜爱折腾和hack emacs。我的一天90%的时间是在[[https://www.gnu.org/software/emacs/][emacs]]中的度过的。我在emacs中编程、写作、学习、管理日程...，我的博客中相当一部分内容是与emacs相关的。
+我是谁？emacser，本科计算机专业毕业。兴趣广泛，喜爱阅读、听歌、追番、折腾计算机技术、hack emacs...
 
-关于什么是emacs，可以看懒猫的这两篇文章：[[https://manateelazycat.github.io/emacs/2016/03/06/what-is-emacs.html][Emacs是一种生活方式]] 和 [[https://manateelazycat.github.io/emacs/2018/12/11/study-emacs.html][如何学习emacs]]。
+ * 最喜欢听的播客是 /《大内密谈》/ 
+ * 最喜爱的日文歌是 /[[https://www.bilibili.com/video/av3108239][God knows]]/
+ * 最爱听的韩文歌手是 /[[https://music.163.com/#/artist?id=160947][IU]]/
+ * 最喜欢的日漫是[[https://www.bilibili.com/bangumi/media/md24120616][《凉宫春日的忧郁》]]
+ * 最喜欢的动漫角色是 /平泽唯/
+ * 最喜欢且唯一使用的(+操作系统+)编辑器是 /*Emacs*/
 
-如果你是程序员，我强烈推荐你使用emacs，它会极大的提高你的学习工作效率。如果你不是程序员，但是爱折腾，我也推荐你尝试emacs，它会成为你时间管理与文档书写的利器。
+我的一天90%的时间是在[[https://www.gnu.org/software/emacs/][emacs]]中的度过的。我在emacs中编程、写作、学习、管理日程、搭建博客...(此处省略一万字)。
 
-emacs入门，可以观看子龙山人的[[https://v.youku.com/v_show/id_XMTUwNjU0MjE0OA==.html][Master Emacs in 21 Days]]系列视频。使用emacs过程遇到问题可以在[[https://emacs-china.org][emacs-china]]论坛向大神求助。At last, happy hacking emacs!
+Emacs是什么？看懒猫的这两篇文章：[[https://manateelazycat.github.io/emacs/2016/03/06/what-is-emacs.html][Emacs是一种生活方式]] 和 [[https://manateelazycat.github.io/emacs/2018/12/11/study-emacs.html][如何学习emacs]]。
+
+如果你是程序员，我强烈推荐你使用emacs，它会极大的提高学习工作效率；如果你不是程序员，但不怕折腾，我也推荐你尝试emacs，它会成为你时间管理与文档书写的利器。
+
+入门emacs，推荐观看子龙山人的 [[https://v.youku.com/v_show/id_XMTUwNjU0MjE0OA==.html][Master Emacs in 21 Days]] 系列视频。使用emacs过程遇到问题可以在 [[https://emacs-china.org][emacs-china]] 论坛向大神求助。
+
+#+begin_center
+*At Last, Happy Hacking Emacs!*
+#+end_center
 
 * 为什么开设博客
 计算机专业出身，对于技术从理论到实践的想象从未停止，于是想用学过的技术做点实用的事情。一直有拥有独立博客的想法，正好毕设又学习了Django框架，便开始折腾起来。2019年暑假博客初步建成，使用Django+mysql，后面又改为静态博客，经过了多次改动，最后纯粹使用 /Emacs orgMode/ 。过程详细记录在[[https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html][记我的博客折腾经历]]这篇文章中。
