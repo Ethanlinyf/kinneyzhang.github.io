@@ -25,7 +25,7 @@
 * 为什么开设博客
 *学计算机的人，热衷于技术从理论到实践的探索，想用学过的技术做点实用的事情。*
 
-一直想拥有自己的独立博客，正好毕设又学习了Django框架，便折腾起来。2019年暑假博客初步建成，使用Django+mysql，后面又改为静态博客。经过多次探索自己喜爱的blogging方式，最后决定使用 /Emacs orgMode/ 。折腾过程详细记录在[[https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html][记我的博客折腾经历]]这篇文章中。
+一直想拥有自己的独立博客，正好毕设又学习了Django框架，便折腾起来。2019年暑假博客初步建成，使用Django+mysql，后面又改为静态博客。经过多次探索自己喜爱的blogging方式，最后决定使用 /Emacs orgMode/ 。折腾过程详细记录在[[https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html][记我的博客折腾经历]]这篇文章中。( 👉 如果想体验暗色主题，移步[[https://blog.geekinney.com/post/blog-light-and-dark-theme-switch.html][这里]] )
 
 *除了实现对技术的想象，搭建博客更多的是想记录自己的成长。*
 
