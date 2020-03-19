@@ -91,9 +91,10 @@ a:hover,a:active {
 }
 #switch-theme {
     color: white;
+    padding: 2px;
     font-weight: bold;
     cursor: pointer;
-    border: 1px solid white;
+    border: 2px solid white;
 }
 .title {
     color: #eee;
