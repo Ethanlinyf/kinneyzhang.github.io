@@ -6,12 +6,12 @@
 #+INCLUDE: ../code/post-info.org
 #+TOC: headlines:2
 
-*Congratulations, this is an amazing page!*
+/Congratulations, this is an amazing page!/
 
 我的博客为亮色主题，晚间浏览时光线太强，于是想实现在亮色与暗色主题间的自由切换。实现原理参考了 https://gongzhitaao.org/orgcss/ ，即通过改变引入的css文件来实现主题切换。话不多说，点击切换主题按钮感受一下吧~
 
 #+begin_export html
-<p style="text-align:"center";">
+<p style="text-align:center;">
 <span id="switch-theme" onclick="switchTheme();">切换主题</span>
 </p>
 #+end_export
