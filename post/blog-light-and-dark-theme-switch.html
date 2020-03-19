@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-03-17 Tue 16:46 -->
+<!-- 2020-03-19 Thu 12:33 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>博客亮/暗色主题切换</title>
@@ -30,7 +30,6 @@
 <a href="/category.html">分类</a>&nbsp;&nbsp;
 <a href="/about.html">关于</a>&nbsp;&nbsp;
 <a href="/message.html">留言</a>&nbsp;&nbsp;
-<span id="switch-theme" onclick="switchTheme();">暗色</span>
 </div>
 </div><div id="content">
 <header>
@@ -39,7 +38,7 @@
 <p>
 「
 <span>分类: 博客 · </span>
-<span>字数: 474 · </span>
+<span>字数: 549 · </span>
 <span id="/post/blog-light-and-dark-theme-switch.html" class="leancloud_visitors" data-flag-title="博客亮/暗色主题切换">
 <span class="post-meta-item-text">阅读 </span>
 <span class="leancloud-visitors-count">...</span>
@@ -50,14 +49,14 @@
 </div>
 
 <p>
-我的博客为亮色主题，晚间浏览时光线太强，于是想实现在亮色与暗色主题间的自由切换。实现原理参考了 <a href="https://gongzhitaao.org/orgcss/">https://gongzhitaao.org/orgcss/</a> ，即通过改变引入的css文件来实现主题切换。话不多说，先看看效果：
+<b>Congratulations, this is an amazing page!</b>
 </p>
 
+<p>
+我的博客为亮色主题，晚间浏览时光线太强，于是想实现在亮色与暗色主题间的自由切换。实现原理参考了 <a href="https://gongzhitaao.org/orgcss/">https://gongzhitaao.org/orgcss/</a> ，即通过改变引入的css文件来实现主题切换。话不多说，点击切换主题按钮感受一下吧~
+</p>
 
-<figure>
-<img src="../static/img/blog-theme-switch.gif" alt="blog-theme-switch.gif">
-
-</figure>
+<p style="text-align='center';"><span id=\"switch-theme\" onclick=\"switchTheme();\">切换主题</span></p>
 
 <p>
 下面是具体的实现步骤：
@@ -129,6 +128,19 @@ function switchTheme(){
 <p>
 Ok，这样就可以自由的切换博客主题，刷新也不会丢失状态啦～
 </p>
+
+<script>
+function switchTheme(){
+if(sessionStorage.getItem(\"flag\")==\"false\"){
+document.getElementById(\"pagestyle\").href=\"/static/light.css\";
+sessionStorage.setItem(\"theme\",\"light\");
+sessionStorage.setItem(\"flag\", \"true\");
+}else{
+document.getElementById(\"pagestyle\").href=\"/static/dark.css\";
+sessionStorage.setItem(\"theme\",\"dark\");
+sessionStorage.setItem(\"flag\", \"false\");
+}};
+</script>
 </div>
 <div id="postamble" class="status">
 
@@ -160,26 +172,11 @@ $(document).ready(function(){
 var theme = sessionStorage.getItem("theme");
 if(theme=="dark"){
 document.getElementById("pagestyle").href="/static/dark.css";
-document.getElementById("switch-theme").innerHTML = "亮色";
 }else if(theme=="light"){
 document.getElementById("pagestyle").href="/static/light.css";
-document.getElementById("switch-theme").innerHTML = "暗色";
 }else{
 sessionStorage.setItem("theme","light");
 }});
-
-function switchTheme(){
-if(sessionStorage.getItem("flag")=="false"){
-document.getElementById("pagestyle").href="/static/light.css";
-document.getElementById("switch-theme").innerHTML = "暗色";
-sessionStorage.setItem("theme","light");
-sessionStorage.setItem("flag", "true");
-}else{
-document.getElementById("pagestyle").href="/static/dark.css";
-document.getElementById("switch-theme").innerHTML = "亮色";
-sessionStorage.setItem("theme","dark");
-sessionStorage.setItem("flag", "false");
-}};
 </script>
 </div>
 </body>

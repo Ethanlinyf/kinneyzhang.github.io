@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2020-03-18 Wed 13:50 -->
+<!-- 2020-03-19 Thu 12:33 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>elisp学习笔记</title>
@@ -52,7 +52,6 @@
 <a href="/category.html">分类</a>&nbsp;&nbsp;
 <a href="/about.html">关于</a>&nbsp;&nbsp;
 <a href="/message.html">留言</a>&nbsp;&nbsp;
-<span id="switch-theme" onclick="switchTheme();">暗色</span>
 </div>
 </div><div id="content">
 <header>
@@ -78,7 +77,7 @@
 <li><a href="#org9c04db2">1. lisp介绍</a></li>
 <li><a href="#orgf974b59">2. Elisp</a>
 <ul>
-<li><a href="#orga6fb905">2.1. 概览</a>
+<li><a href="#org312293c">2.1. 概览</a>
 <ul>
 <li><a href="#org71786f5">2.1.1. 运行emacs-lisp的几种方式</a></li>
 <li><a href="#org90a4625">2.1.2. 创建命令（interactive函数）</a></li>
@@ -115,7 +114,7 @@
 <li><a href="#orged515b7">2.7. 列表操作</a></li>
 <li><a href="#org02cbca6">2.8. 关联列表和属性列表</a>
 <ul>
-<li><a href="#org312293c">2.8.1. 概览</a></li>
+<li><a href="#org801d0ab">2.8.1. 概览</a></li>
 <li><a href="#orgf47de9a">2.8.2. 关联列表/Alist</a></li>
 <li><a href="#org46aec8c">2.8.3. 属性列表</a></li>
 <li><a href="#orgdcbd673">2.8.4. 转换Alist成Plist和vice-versa</a></li>
@@ -144,10 +143,10 @@
 <li><a href="#orgcda1b27">3.2. 宏</a></li>
 </ul>
 </li>
-<li><a href="#org20d8605">4. Emacs API</a>
+<li><a href="#org8159da9">4. Emacs API</a>
 <ul>
 <li><a href="#org3c598b8">4.1. Emacs术语</a></li>
-<li><a href="#org8159da9">4.2. Emacs API</a></li>
+<li><a href="#org0fc6168">4.2. Emacs API</a></li>
 <li><a href="#org8dc60d6">4.3. Buffers</a>
 <ul>
 <li><a href="#org7b40879">4.3.1. Buffer Attributes</a></li>
@@ -264,8 +263,8 @@ Lisp语言的主要现代版本包括Common Lisp, Scheme，Racket以及Clojure�
 <h2 id="orgf974b59"><span class="section-number-2">2</span> Elisp</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orga6fb905" class="outline-3">
-<h3 id="orga6fb905"><span class="section-number-3">2.1</span> 概览</h3>
+<div id="outline-container-org312293c" class="outline-3">
+<h3 id="org312293c"><span class="section-number-3">2.1</span> 概览</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
 <div id="outline-container-org71786f5" class="outline-4">
@@ -1464,8 +1463,8 @@ ELISP&gt;
 <h3 id="org02cbca6"><span class="section-number-3">2.8</span> 关联列表和属性列表</h3>
 <div class="outline-text-3" id="text-2-8">
 </div>
-<div id="outline-container-org312293c" class="outline-4">
-<h4 id="org312293c"><span class="section-number-4">2.8.1</span> 概览</h4>
+<div id="outline-container-org801d0ab" class="outline-4">
+<h4 id="org801d0ab"><span class="section-number-4">2.8.1</span> 概览</h4>
 <div class="outline-text-4" id="text-2-8-1">
 <p>
 关联列表是一系列cons对，这里我可以称作 <code>clist</code> 或者 由两个元素组成的列表的集合，可以称为 <code>alist</code>
@@ -3732,8 +3731,8 @@ ELISP&gt;
 </div>
 </div>
 
-<div id="outline-container-org20d8605" class="outline-2">
-<h2 id="org20d8605"><span class="section-number-2">4</span> Emacs API</h2>
+<div id="outline-container-org8159da9" class="outline-2">
+<h2 id="org8159da9"><span class="section-number-2">4</span> Emacs API</h2>
 <div class="outline-text-2" id="text-4">
 </div>
 <div id="outline-container-org3c598b8" class="outline-3">
@@ -3826,8 +3825,8 @@ ELISP&gt;
 </p>
 </div>
 </div>
-<div id="outline-container-org8159da9" class="outline-3">
-<h3 id="org8159da9"><span class="section-number-3">4.2</span> Emacs API</h3>
+<div id="outline-container-org0fc6168" class="outline-3">
+<h3 id="org0fc6168"><span class="section-number-3">4.2</span> Emacs API</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 <b>API对象</b>
@@ -5561,26 +5560,11 @@ $(document).ready(function(){
 var theme = sessionStorage.getItem("theme");
 if(theme=="dark"){
 document.getElementById("pagestyle").href="/static/dark.css";
-document.getElementById("switch-theme").innerHTML = "亮色";
 }else if(theme=="light"){
 document.getElementById("pagestyle").href="/static/light.css";
-document.getElementById("switch-theme").innerHTML = "暗色";
 }else{
 sessionStorage.setItem("theme","light");
 }});
-
-function switchTheme(){
-if(sessionStorage.getItem("flag")=="false"){
-document.getElementById("pagestyle").href="/static/light.css";
-document.getElementById("switch-theme").innerHTML = "暗色";
-sessionStorage.setItem("theme","light");
-sessionStorage.setItem("flag", "true");
-}else{
-document.getElementById("pagestyle").href="/static/dark.css";
-document.getElementById("switch-theme").innerHTML = "亮色";
-sessionStorage.setItem("theme","dark");
-sessionStorage.setItem("flag", "false");
-}};
 </script>
 </div>
 </body>
