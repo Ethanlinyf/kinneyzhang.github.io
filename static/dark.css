@@ -92,8 +92,8 @@ a:hover,a:active {
 #switch-theme {
     color: white;
     font-weight: bold;
-    font-style: italic;
     cursor: pointer;
+    border: 1px solid white;
 }
 .title {
     color: #eee;
