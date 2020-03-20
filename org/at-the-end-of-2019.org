@@ -9,7 +9,7 @@
 
 回顾2019，顺利毕业，完整读了6本书，听了许多播客，搭建了自己的博客网站，尝试hack emacs，养成了一些好的习惯。最开心的是更加的了解自己，知道如何和自己相处。
 
-2年前买的kindle，放在宿舍吃灰了很久，寒假心血来潮的重新拿起便[[https://blog.geekinney.com/post/pick-up-reading-after-read-the-moon-and-sixpence.html][重拾了阅读]]这件事情。
+2年前买的kindle，放在宿舍吃灰了很久，寒假心血来潮的重新拿起便[[../post/pick-up-reading-after-read-the-moon-and-sixpence.html][重拾了阅读]]这件事情。
 
 从[[https://book.douban.com/subject/26954760/][《月亮与六便士》]]开始，我开始认清一个道理：追随自己的内心，月亮或六便士，无论选择哪个，只要是心中所愿，便无谓对错。我想真正理解并且有勇气去践行这个道理，才算读懂了毛姆笔下的斯特里克兰，才算理解他那些”荒谬”的行为背后的逻辑。
 
@@ -21,7 +21,7 @@
 
 2019，听《大内密探》、《日谈公园》、《软件那些事儿》、《故事FM》、《黑水公园》、《文化土豆》、《晓说》等播客，让我看到了更广阔的世界和多样的人生。
 
-2019，购买了VPS和域名，学着[[https://blog.geekinney.com/post/experience-of-setting-up-my-own-blog-site.html][搭建自己的博客网站]]，经历了从动态网站到静态网站，从markdown到org mode。博客的搭建和浏览别人的博客让我对计算机这个行业有了更深的认同感。
+2019，购买了VPS和域名，学着[[../post/experience-of-setting-up-my-own-blog-site.html][搭建自己的博客网站]]，经历了从动态网站到静态网站，从markdown到org mode。博客的搭建和浏览别人的博客让我对计算机这个行业有了更深的认同感。
 
 2019，继续折腾emacs，并且不满足于折腾。学习了elisp，从一些小函数开始，期待写一个自己的package。
 

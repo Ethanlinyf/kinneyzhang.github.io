@@ -28,7 +28,7 @@ https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/post-dige
 </div>
 #+END_SRC
 
-接下来，需要使用elisp获取org文章目录下所有文章名，根据文章名获取每篇文章的 =title= =digest= =date= =category= =post-url= =category-url= 信息，使用我自己写的 [[https://blog.geekinney.com/post/parse-elisp-list-to-html.html][print-html]] 函数生成上面的html，并把相关变量插入html中。最后输出到 =index.org= 的html导出模块中。代码如下：
+接下来，需要使用elisp获取org文章目录下所有文章名，根据文章名获取每篇文章的 =title= =digest= =date= =category= =post-url= =category-url= 信息，使用我自己写的 [[https://geekinney.com/post/parse-elisp-list-to-html.html][print-html]] 函数生成上面的html，并把相关变量插入html中。最后输出到 =index.org= 的html导出模块中。代码如下：
 
 #+BEGIN_SRC emacs-lisp
 (require 'print-html)
