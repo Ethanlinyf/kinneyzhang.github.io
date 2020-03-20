@@ -114,10 +114,8 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
 <a href="https://geekinney.com/post/blog-light-and-dark-theme-switch.html">博客亮/暗色主题切换</a>
 </h2>
 <p>
-我的博客为亮色主题，晚间浏览时光线太强，于是想实现在亮色与暗色主题间的自由切换。实现原理参考了这里，即通过改变引入的css实现主题切换。(文末有彩蛋 ->->)下面是具体的实现步骤： 1.在适当位置引入切换按钮。每次点击时触发switchTheme函数，实现主题切换。    #+BEGIN_SRC html    
-<span oncl ......<a href="https://geekinney.com/post/blog-light-and-dark-theme-switch.html">
-「阅读全文」
-</a>
+我的博客为亮色主题，晚间浏览时光线太强，于是想实现在亮色与暗色主题间的自由切换。实现原理参考了这里，即通过改变引入的css实现主题切换。(文末有彩蛋 ->->)下面是具体的实现步骤： 1.在适当位置引入切换按钮。每次点击时触发switchTheme函数，实现主题切换。 2.在head标签间引入博客主题的css文件，我的默认为light ......
+<a href="https://geekinney.com/post/blog-light-and-dark-theme-switch.html">「阅读全文」</a>
 </p>
 <p>
 <code>
