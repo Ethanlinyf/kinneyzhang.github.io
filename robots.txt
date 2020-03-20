@@ -7,4 +7,4 @@ Disallow: /post/habit-recording.html
 Disallow: /post/habit-recording-*.html
 Disallow: /post/mood-diary.html
 Disallow: /post/mood-diary-*.html
-Sitemap: https://blog.geekinney.com/sitemap.xml
+Sitemap: https://geekinney.com/sitemap.xml
