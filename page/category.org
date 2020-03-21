@@ -3,7 +3,6 @@
 #+OPTIONS: toc:nil H:1 num:0 title:nil
 * Emacs
  * [[https://geekinney.com/post/emacs-learning-note.html][emacs学习笔记]]
- * [[https://geekinney.com/post/get-started-with-emacs.html][Get Started With Emacs]]
  * [[https://geekinney.com/post/listen-music-in-emacs.html][Emacs中使用mpd+mingus听音乐]]
  * [[https://geekinney.com/post/using-org-to-blog-with-jekyll.html][使用org-mode撰写Jekyll blog]]
  * [[https://geekinney.com/post/emacs-lisp-learning-note.html][elisp学习笔记]]
