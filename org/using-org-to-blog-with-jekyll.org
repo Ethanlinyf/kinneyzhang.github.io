@@ -1,8 +1,8 @@
 #+TITLE:使用org-mode撰写Jekyll blog 
 #+DATE: 2019-09-03
+#+CATEGORY: Emacs
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2
-#+CATEGORY: Emacs
 #+INCLUDE: "../code/post-info.org"
 #+TOC: headlines:2
 
