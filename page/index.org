@@ -75,24 +75,6 @@
 </div>
 <div id="post-div">
 <h2>
-<a href="/post/auto-generate-blog-relative-info.html">自动生成org blog辅助信息</a>
-</h2>
-<p>
-一篇博客文章除了标题、正文，还有一些辅助的信息，比如：日期，分类，字数等。使用orgmode生成html不会自动生成这些内容，于是想hack一下。折腾效果如：[ 分类: 博客 日期: 2020-02-21 字数: 1019 ]。这里主要使用了orgMode的 Macro Replacement 功能。我们可以在org文件开头定义宏，然后在 ....  ......
-<a href="/post/auto-generate-blog-relative-info.html">「阅读全文」</a>
-</p>
-<p>
-<code>
-<a href="/category.html">博客</a>
-</code>
-<span id="post-div-meta">
-<span>1106字 · </span>
-<span class="post-date">2020-02-21</span>
-</span>
-</p>
-</div>
-<div id="post-div">
-<h2>
 <a href="/post/elisp-hack-compress-and-convert-video.html">视频压缩及格式(gif)转换</a>
 </h2>
 <p>
