@@ -2,15 +2,12 @@
 #+DATE: 2020-02-21
 #+CATEGORY: 博客
 #+MACRO: wc (eval (my/word-count))
-#+MACRO: org-img (eval (my/org-grid-img $1 $2 $3))
-#+BEGIN_SRC emacs-lisp :results value html :exports results
-(my/blog-get-post-info)
-#+END_SRC
+#+INCLUDE: "../code/post-info.org"
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2
 #+TOC: headlines:2
 
-一篇博客文章除了标题、正文，还有一些辅助的信息，比如：日期，分类，字数等。使用orgmode生成html不会自动生成这些内容，于是想hack一下。折腾效果如博文开头的：[ 分类: 博客 / 日期: 2020-02-21 / 字数: 1019 ]。
+一篇博客文章除了标题、正文，还有一些辅助的信息，比如：日期，分类，字数等。使用orgmode生成html不会自动生成这些内容，于是想hack一下。折腾效果如：[ 分类: 博客 / 日期: 2020-02-21 / 字数: 1019 ]。
 
 这里主要使用了orgMode的 [[https://orgmode.org/manual/Macro-Replacement.html][Macro Replacement]] 功能。我们可以在org文件开头定义宏，然后在正文需要的位置调用宏就可以实现辅助信息的插入。
 
