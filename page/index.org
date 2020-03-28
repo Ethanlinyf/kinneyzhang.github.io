@@ -165,24 +165,6 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
 </div>
 <div id="post-div">
 <h2>
-<a href="/post/using-org-to-blog-with-jekyll.html">使用org-mode撰写Jekyll blog</a>
-</h2>
-<p>
-Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本标记语言转变为静态html页面。Jekyll生成的静态站点可以被几乎所有的web server使用并且不需要额外的组件。Github Page就是使用Jekyll构建的。这篇文章将讨论如何使用org-mode撰写，发布jekyll blog，我不会面面俱到地介绍每个概念，比 ....  ......
-<a href="/post/using-org-to-blog-with-jekyll.html">「阅读全文」</a>
-</p>
-<p>
-<code>
-<a href="/category.html">Emacs</a>
-</code>
-<span id="post-div-meta">
-<span>2079字 · </span>
-<span class="post-date">2019-09-03</span>
-</span>
-</p>
-</div>
-<div id="post-div">
-<h2>
 <a href="/post/listen-music-in-emacs.html">Emacs中使用mpd+mingus听音乐</a>
 </h2>
 <p>

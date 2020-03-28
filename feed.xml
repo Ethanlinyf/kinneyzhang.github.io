@@ -88,14 +88,6 @@ https://blog.geekinney.com/post/emacs-lisp-learning-note.html
 <pubDate>2019-11-12</pubDate>
 </item>
 <item>
-<title>使用org-mode撰写Jekyll blog</title>
-<link/>
-https://blog.geekinney.com/post/using-org-to-blog-with-jekyll.html
-<description>Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本标记语言转变为静态html页面。Jekyll生成的静态站点可以被几乎所有的web server使用并且不需要额外的组件。Github  .... </description>
-<author>Kinney Zhang</author>
-<pubDate>2019-09-03</pubDate>
-</item>
-<item>
 <title>Emacs中使用mpd+mingus听音乐</title>
 <link/>
 https://blog.geekinney.com/post/listen-music-in-emacs.html

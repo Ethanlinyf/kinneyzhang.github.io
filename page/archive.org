@@ -12,7 +12,6 @@
  * 1231 [[/post/at-the-end-of-2019.html][去你的2019，来我的2020]]
  * 1126 [[/post/experience-of-setting-up-my-own-blog-site.html][记我的博客折腾经历]]
  * 1112 [[/post/emacs-lisp-learning-note.html][elisp学习笔记]]
- * 0903 [[/post/using-org-to-blog-with-jekyll.html][使用org-mode撰写Jekyll blog]]
  * 0831 [[/post/listen-music-in-emacs.html][Emacs中使用mpd+mingus听音乐]]
  * 0805 [[/post/thinking-about-journaling.html][关于写日志]]
  * 0802 [[/post/thinking-about-cs-teaching-in-college.html][关于大学计算机科学]]
