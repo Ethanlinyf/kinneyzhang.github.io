@@ -105,28 +105,29 @@ a:hover,a:active {
     color: #999;
     font-size: 0.9em;
 }
-.post-div { /* index page div */
+/* replace #postdiv to .post-div */
+#post-div { /* index page div */
     position: relative;
     border-bottom: 0.5px solid #ddd;
     margin-top: 1em;
 }
-.post-div h2 {
+#post-div h2 {
     color: #555;
     font-family: KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
-.post-div a {
+#post-div a {
     color: #527d9a;
 }
-.post-div h2 a:hover {
+#post-div h2 a:hover {
     border-bottom: 0;
 }
-.post-div p a:hover {
+#post-div p a:hover {
     border-bottom: 0;
 }
-.post-div p span {
+#post-div p span {
     color: #999;
 }
-.post-div-meta {
+#post-div-meta {
     position: absolute;
     right: 0;
 }
@@ -134,7 +135,7 @@ a:hover,a:active {
 /* .leancloud_visitors { */
 /*     color: #999; */
 /* } */
-.post-div code a:hover {
+#post-div code a:hover {
     border-bottom: 0;
 }
 

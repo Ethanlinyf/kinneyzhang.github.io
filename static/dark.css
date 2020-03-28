@@ -108,28 +108,29 @@ a:hover,a:active {
     color: grey;
     font-size: 0.9em;
 }
-.post-div { /* index page div */
+/* replace #postdiv to .post-div */
+#post-div { /* index page div */
     position: relative;
     border-bottom: 1.2px solid #313131;
     margin-top: 1em;
 }
-.post-div a {
+#post-div a {
     color: #19A9FB;
 }
-.post-div h2{
+#post-div h2{
     color: #19A9FB;
     font-family: KaiTi,STKaiti,KaiTi_GB2312,"ff-tisa-web-pro",Cambria,"Times New Roman",Georgia,Times, sans-serif;
 }
-.post-div h2 a:hover {
+#post-div h2 a:hover {
     border-bottom: 0;
 }
-.post-div p a:hover {
+#post-div p a:hover {
     border-bottom: 0;
 }
-.post-div p span {
+#post-div p span {
     color: grey;
 }
-.post-div-meta {
+#post-div-meta {
     position: absolute;
     right: 0;
 }
@@ -139,7 +140,7 @@ a:hover,a:active {
 /*     position: absolute; */
 /*     right: 80px; */
 /* } */
-.post-div code a:hover {
+#post-div code a:hover {
     border-bottom: 0;
 }
 
