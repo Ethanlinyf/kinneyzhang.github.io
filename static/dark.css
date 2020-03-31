@@ -453,7 +453,7 @@ pre{
     font-family: monospace,Menlo,Monaco,Consolas,"Lucida Console","Courier New";
     line-height: 1.3em;
     overflow:auto;
-    box-shadow: 3px 3px 3px black;
+    /* box-shadow: 3px 3px 3px black; */
 }
 code {
     padding: 2px;
