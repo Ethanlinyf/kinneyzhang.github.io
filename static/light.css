@@ -445,7 +445,7 @@ p.verse {
 pre{
     border-radius: 2px;
     padding:14px 16px;
-    background-color:#F8F8F8;
+    background-color:#f6f8fa;
     /* border: 1px solid RGB(213,213,213); */
     font-family: monospace,Menlo,Monaco,Consolas,"Lucida Console","Courier New",monospace;
     line-height: 1.3em;
