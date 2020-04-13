@@ -27,7 +27,8 @@
     #+BEGIN_SRC js
     function switchTheme(){
 	if(sessionStorage.getItem("flag")=="false"){
-	    document.getElementById("pagestyle").href="/static/light.css";
+	    document.ge
+tElementById("pagestyle").href="/static/light.css";
 	    sessionStorage.setItem("flag", "true");
 	}else{
 	    document.getElementById("pagestyle").href="/static/dark.css";
