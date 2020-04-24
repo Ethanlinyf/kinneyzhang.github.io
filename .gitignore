@@ -1,1 +1,2 @@
-valine
+*.DS_Store*
+config.el

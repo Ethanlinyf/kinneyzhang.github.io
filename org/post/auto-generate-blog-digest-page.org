@@ -1,7 +1,6 @@
 #+TITLE: 自动生成org blog摘要页
 #+DATE: 2020-02-22
 #+CATEGORY: 博客
-#+INCLUDE: "../code/post-info.org"
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2
 #+TOC: headlines:2

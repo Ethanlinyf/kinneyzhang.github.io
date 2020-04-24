@@ -3,7 +3,6 @@
 #+CATEGORY: Emacs
 #+STARTUP: showall
 #+OPTIONS: toc:nil H:2 num:2
-#+INCLUDE: ../code/post-info.org
 #+TOC: headlines:2
 
 我在使用orgMode搭建静态博客时，需要直接使用elisp生成部分html代码，于是写了这个 =print-html= 函数，可以通过elisp列表生成格式化的html。

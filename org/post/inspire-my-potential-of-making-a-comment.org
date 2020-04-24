@@ -1,7 +1,6 @@
 #+TITLE: 开设「评论」专栏
 #+DATE: 2020-03-17
 #+CATEGORY: 评论
-#+INCLUDE: "../code/post-info.org"
 #+STARTUP: showall
 #+OPTIONS: toc:nil H:2 num:2
 #+TOC: headlines:2

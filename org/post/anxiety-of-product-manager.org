@@ -1,7 +1,6 @@
 #+TITLE: 产品经理的焦虑
 #+DATE: 2020-03-17
 #+CATEGORY: 评论
-#+INCLUDE: "~/iCloud/blog_site/code/post-info.org"
 #+STARTUP: showall
 #+OPTIONS: toc:nil H:2 num:2
 #+TOC: headlines:2

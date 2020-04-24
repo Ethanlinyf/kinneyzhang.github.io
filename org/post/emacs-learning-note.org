@@ -3,7 +3,6 @@
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:0
 #+CATEGORY: Emacs
-#+INCLUDE: "../code/post-info.org"
 #+TOC: headlines:2
 
 * 文件操作

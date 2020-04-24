@@ -3,7 +3,6 @@
 #+CATEGORY: Emacs
 #+STARTUP: content
 #+OPTIONS: toc:nil H:2 num:2
-#+INCLUDE: "../code/post-info.org"
 
 MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积大，不便传输与使用。大多数时候我需要将视频压缩为mp4格式。同时，写文档时经常需要使用gif图片展示hack效果，所以将视频转为gif也成了硬需求之一。关于视频的压缩与格式转换，有很多在线工具以及app可以实现，但我更钟爱命令行工具。因为命令行比封装好的ui使用方便，可选参数多。最重要的是，可以和emacs结合。
 

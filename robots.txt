@@ -1,10 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /org/
-Disallow: /code/
-Disallow: /page/
-Disallow: /post/habit-recording.html
-Disallow: /post/habit-recording-*.html
-Disallow: /post/mood-diary.html
-Disallow: /post/mood-diary-*.html
 Sitemap: https://geekinney.com/sitemap.xml

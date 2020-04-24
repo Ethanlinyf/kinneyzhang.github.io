@@ -3,7 +3,6 @@
 #+STARTUP: showall
 #+OPTIONS: toc:nil H:2 num:0
 #+CATEGORY: 阅读
-#+INCLUDE: "../code/post-info.org"
 
 ** 理论
     * 子弹短句分为三类：任务(Task，需要做的事情), 事件(Event，你的经历), 笔记(Note，不想遗忘的信息)
