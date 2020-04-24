@@ -111,6 +111,7 @@ a:active,a:hover {
     border-bottom: 0;
 }
 #sidebar {
+    margin-top: 5px;
 }
 
 h1 {
