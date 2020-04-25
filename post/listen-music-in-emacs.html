@@ -56,23 +56,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org66a32eb">1. mpd安装及配置(macos)</a>
+<li><a href="#org9c2b820">1. mpd安装及配置(macos)</a>
 <ul>
-<li><a href="#org8ecc33c">1.1. 安装</a></li>
-<li><a href="#orgaa71e27">1.2. 创建配置文件</a></li>
-<li><a href="#org33d2e0b">1.3. 编辑配置</a></li>
-<li><a href="#org4430378">1.4. 使用命令</a></li>
-<li><a href="#orgb3bf0e5">1.5. 注意点</a></li>
+<li><a href="#org0d70f55">1.1. 安装</a></li>
+<li><a href="#org852b7de">1.2. 创建配置文件</a></li>
+<li><a href="#org2694f3c">1.3. 编辑配置</a></li>
+<li><a href="#orgbdbb651">1.4. 使用命令</a></li>
+<li><a href="#orgaec63c1">1.5. 注意点</a></li>
 </ul>
 </li>
-<li><a href="#org0819b08">2. mingus安装及使用</a>
+<li><a href="#orgafce0cf">2. mingus安装及使用</a>
 <ul>
-<li><a href="#org03b555e">2.1. 安装</a></li>
-<li><a href="#org043f73e">2.2. 使用</a></li>
+<li><a href="#org9fce693">2.1. 安装</a></li>
+<li><a href="#org7ca043d">2.2. 使用</a></li>
 </ul>
 </li>
-<li><a href="#org6dae936">3. 效果</a></li>
-<li><a href="#org658e165">4. 参考文档</a></li>
+<li><a href="#org7c0849a">3. 效果</a></li>
+<li><a href="#org48edaca">4. 参考文档</a></li>
 </ul>
 </div>
 </nav>
@@ -89,12 +89,12 @@ Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音�
 而emacs的<a href="https://github.com/pft/mingus.git">mingus package</a>就相当于mpd在emacs中的client端。下面介绍mpd和mingus的安装和使用。
 </p>
 
-<div id="outline-container-org66a32eb" class="outline-2">
-<h2 id="org66a32eb"><span class="section-number-2">1</span> mpd安装及配置(macos)</h2>
+<div id="outline-container-org9c2b820" class="outline-2">
+<h2 id="org9c2b820"><span class="section-number-2">1</span> mpd安装及配置(macos)</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org8ecc33c" class="outline-3">
-<h3 id="org8ecc33c"><span class="section-number-3">1.1</span> 安装</h3>
+<div id="outline-container-org0d70f55" class="outline-3">
+<h3 id="org0d70f55"><span class="section-number-3">1.1</span> 安装</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Mac用户可以很方便的使用homebrew安装mpd
@@ -111,8 +111,8 @@ Mac用户可以很方便的使用homebrew安装mpd
 </div>
 </div>
 
-<div id="outline-container-orgaa71e27" class="outline-3">
-<h3 id="orgaa71e27"><span class="section-number-3">1.2</span> 创建配置文件</h3>
+<div id="outline-container-org852b7de" class="outline-3">
+<h3 id="org852b7de"><span class="section-number-3">1.2</span> 创建配置文件</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 mpd默认的配置文件查找路经为 <code>~/.mpd/mpd.conf</code> 或 <code>~/.mpdconf</code> ，这里建议将所有配置及相关数据文件放在一个.mpd文件夹中。
@@ -126,8 +126,8 @@ $ touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
 </div>
 </div>
 
-<div id="outline-container-org33d2e0b" class="outline-3">
-<h3 id="org33d2e0b"><span class="section-number-3">1.3</span> 编辑配置</h3>
+<div id="outline-container-org2694f3c" class="outline-3">
+<h3 id="org2694f3c"><span class="section-number-3">1.3</span> 编辑配置</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 进入 <code>~/.mpd/mpd.conf</code> ，粘贴如下配置
@@ -172,8 +172,8 @@ audio_output {
 </div>
 </div>
 
-<div id="outline-container-org4430378" class="outline-3">
-<h3 id="org4430378"><span class="section-number-3">1.4</span> 使用命令</h3>
+<div id="outline-container-orgbdbb651" class="outline-3">
+<h3 id="orgbdbb651"><span class="section-number-3">1.4</span> 使用命令</h3>
 <div class="outline-text-3" id="text-1-4">
 <div class="col-auto">
 <pre><code class="shell">$ mpd  # 启动服务
@@ -184,8 +184,8 @@ $ mpd update  # 更新
 </div>
 </div>
 
-<div id="outline-container-orgb3bf0e5" class="outline-3">
-<h3 id="orgb3bf0e5"><span class="section-number-3">1.5</span> 注意点</h3>
+<div id="outline-container-orgaec63c1" class="outline-3">
+<h3 id="orgaec63c1"><span class="section-number-3">1.5</span> 注意点</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>本配置及安装过程仅适用于macos系统。</li>
@@ -196,12 +196,12 @@ $ mpd update  # 更新
 </div>
 </div>
 
-<div id="outline-container-org0819b08" class="outline-2">
-<h2 id="org0819b08"><span class="section-number-2">2</span> mingus安装及使用</h2>
+<div id="outline-container-orgafce0cf" class="outline-2">
+<h2 id="orgafce0cf"><span class="section-number-2">2</span> mingus安装及使用</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org03b555e" class="outline-3">
-<h3 id="org03b555e"><span class="section-number-3">2.1</span> 安装</h3>
+<div id="outline-container-org9fce693" class="outline-3">
+<h3 id="org9fce693"><span class="section-number-3">2.1</span> 安装</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界面。
@@ -217,8 +217,8 @@ mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界�
 </div>
 </div>
 
-<div id="outline-container-org043f73e" class="outline-3">
-<h3 id="org043f73e"><span class="section-number-3">2.2</span> 使用</h3>
+<div id="outline-container-org7ca043d" class="outline-3">
+<h3 id="org7ca043d"><span class="section-number-3">2.2</span> 使用</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 mingus功能十分强大，内置大量快捷键，可以一键满足音乐播放方方面面的需求。使用 <code>M-x mingus</code> 启动mingus后，便可使用这些快捷键。
@@ -235,8 +235,8 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 </div>
 </div>
 
-<div id="outline-container-org6dae936" class="outline-2">
-<h2 id="org6dae936"><span class="section-number-2">3</span> 效果</h2>
+<div id="outline-container-org7c0849a" class="outline-2">
+<h2 id="org7c0849a"><span class="section-number-2">3</span> 效果</h2>
 <div class="outline-text-2" id="text-3">
 
 <figure>
@@ -245,8 +245,8 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 </figure>
 </div>
 </div>
-<div id="outline-container-org658e165" class="outline-2">
-<h2 id="org658e165"><span class="section-number-2">4</span> 参考文档</h2>
+<div id="outline-container-org48edaca" class="outline-2">
+<h2 id="org48edaca"><span class="section-number-2">4</span> 参考文档</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="https://computingforgeeks.com/install-configure-mpd-ncmpcpp-macos">Install and configure mpd and ncmpcpp on MacOS</a>

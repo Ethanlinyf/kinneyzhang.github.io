@@ -56,10 +56,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org55bd026">1. 使用方法</a></li>
-<li><a href="#orga9c6e75">2. 解析思路</a></li>
-<li><a href="#org27e5976">3. 完整代码</a></li>
-<li><a href="#org463330a">4. 应用场景</a></li>
+<li><a href="#org605dc66">1. 使用方法</a></li>
+<li><a href="#orgd559d08">2. 解析思路</a></li>
+<li><a href="#org5570d80">3. 完整代码</a></li>
+<li><a href="#orgb009c14">4. 应用场景</a></li>
 </ul>
 </div>
 </nav>
@@ -68,8 +68,8 @@
 我在使用orgMode搭建静态博客时，需要直接使用elisp生成部分html代码，于是写了这个 <code>print-html</code> 函数，可以通过elisp列表生成格式化的html。
 </p>
 
-<div id="outline-container-org55bd026" class="outline-2">
-<h2 id="org55bd026"><span class="section-number-2">1</span> 使用方法</h2>
+<div id="outline-container-org605dc66" class="outline-2">
+<h2 id="org605dc66"><span class="section-number-2">1</span> 使用方法</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 形如如下列表：
@@ -108,8 +108,8 @@
 </div>
 </div>
 
-<div id="outline-container-orga9c6e75" class="outline-2">
-<h2 id="orga9c6e75"><span class="section-number-2">2</span> 解析思路</h2>
+<div id="outline-container-orgd559d08" class="outline-2">
+<h2 id="orgd559d08"><span class="section-number-2">2</span> 解析思路</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 一个典型的输入列表格式为：
@@ -141,8 +141,8 @@
 </div>
 </div>
 
-<div id="outline-container-org27e5976" class="outline-2">
-<h2 id="org27e5976"><span class="section-number-2">3</span> 完整代码</h2>
+<div id="outline-container-org5570d80" class="outline-2">
+<h2 id="org5570d80"><span class="section-number-2">3</span> 完整代码</h2>
 <div class="outline-text-2" id="text-3">
 <div class="col-auto">
 <pre><code class="emacs-lisp">;;; print html with elisp
@@ -253,8 +253,8 @@
 </div>
 </div>
 
-<div id="outline-container-org463330a" class="outline-2">
-<h2 id="org463330a"><span class="section-number-2">4</span> 应用场景</h2>
+<div id="outline-container-orgb009c14" class="outline-2">
+<h2 id="orgb009c14"><span class="section-number-2">4</span> 应用场景</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 写 <code>print-html</code> 的初衷是为了生成静态博客的首页、归档页、分类页等具有特定格式的页面。因为我对这些页面有布局上的要求，所以orgMode导出的html不能满足需求。使用elisp生成的html可以嵌入在orgMode中，博客的可定制性便高了许多。
