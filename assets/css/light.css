@@ -112,6 +112,9 @@ a:active,a:hover {
 #sidebar {
     margin-top: 5px;
 }
+#adsense-side1 {
+    border: 1px solid #ddd;
+}
 
 h1 {
     font-size: 2em;
