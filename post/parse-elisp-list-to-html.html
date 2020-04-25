@@ -27,6 +27,9 @@
 <a href="/about.html">关于</a>
 <a href="/message.html">留言</a>
 </nav>
+</div>
+</div>
+</div>
 <section class="container">
 <div class="row">
 <div class="col-xl-8 col-md-8 col-lg-8 col-12">
@@ -52,10 +55,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org42f23c6">1. 使用方法</a></li>
-<li><a href="#org97491f1">2. 解析思路</a></li>
-<li><a href="#orgc8b390d">3. 完整代码</a></li>
-<li><a href="#org62b3cc4">4. 应用场景</a></li>
+<li><a href="#orgdce8e30">1. 使用方法</a></li>
+<li><a href="#org6e99a52">2. 解析思路</a></li>
+<li><a href="#org465a6b0">3. 完整代码</a></li>
+<li><a href="#org4b6774c">4. 应用场景</a></li>
 </ul>
 </div>
 </nav>
@@ -64,8 +67,8 @@
 我在使用orgMode搭建静态博客时，需要直接使用elisp生成部分html代码，于是写了这个 <code>print-html</code> 函数，可以通过elisp列表生成格式化的html。
 </p>
 
-<div id="outline-container-org42f23c6" class="outline-2">
-<h2 id="org42f23c6"><span class="section-number-2">1</span> 使用方法</h2>
+<div id="outline-container-orgdce8e30" class="outline-2">
+<h2 id="orgdce8e30"><span class="section-number-2">1</span> 使用方法</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 形如如下列表：
@@ -104,8 +107,8 @@
 </div>
 </div>
 
-<div id="outline-container-org97491f1" class="outline-2">
-<h2 id="org97491f1"><span class="section-number-2">2</span> 解析思路</h2>
+<div id="outline-container-org6e99a52" class="outline-2">
+<h2 id="org6e99a52"><span class="section-number-2">2</span> 解析思路</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 一个典型的输入列表格式为：
@@ -137,8 +140,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgc8b390d" class="outline-2">
-<h2 id="orgc8b390d"><span class="section-number-2">3</span> 完整代码</h2>
+<div id="outline-container-org465a6b0" class="outline-2">
+<h2 id="org465a6b0"><span class="section-number-2">3</span> 完整代码</h2>
 <div class="outline-text-2" id="text-3">
 <div class="col-auto">
 <pre><code class="emacs-lisp">;;; print html with elisp
@@ -249,8 +252,8 @@
 </div>
 </div>
 
-<div id="outline-container-org62b3cc4" class="outline-2">
-<h2 id="org62b3cc4"><span class="section-number-2">4</span> 应用场景</h2>
+<div id="outline-container-org4b6774c" class="outline-2">
+<h2 id="org4b6774c"><span class="section-number-2">4</span> 应用场景</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 写 <code>print-html</code> 的初衷是为了生成静态博客的首页、归档页、分类页等具有特定格式的页面。因为我对这些页面有布局上的要求，所以orgMode导出的html不能满足需求。使用elisp生成的html可以嵌入在orgMode中，博客的可定制性便高了许多。
@@ -277,6 +280,18 @@ avatar: 'identicon',
 placeholder: '留下你的评论吧～'
 })</script>
 </div>
+<footer class="mt-4">
+<small>
+©2019-2020 戈楷旎 | Licensed under 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="知识共享许可协议" style="border-width:0" src="/assets/image/license.png"/>
+</a>
+</small>
+<small>
+ | Powered by 
+<a href="https://github.com/Kinneyzhang/geekblog">GeekBlog</a>
+</small>
+</footer>
 </div>
 <aside class="col-xl-4 col-md-4 col-lg-4">
 <div id="sidebar">
@@ -307,20 +322,5 @@ placeholder: '留下你的评论吧～'
 </aside>
 </div>
 </section>
-<footer class="mt-4">
-<small>
-©2019-2020 戈楷旎 | Licensed under 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-<img alt="知识共享许可协议" style="border-width:0" src="/assets/image/license.png"/>
-</a>
-</small>
-<small>
- | Powered by 
-<a href="https://github.com/Kinneyzhang/geekblog">GeekBlog</a>
-</small>
-</footer>
-</div>
-</div>
-</div>
 </body>
 </html>

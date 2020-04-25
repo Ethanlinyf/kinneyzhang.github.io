@@ -27,6 +27,9 @@
 <a href="/about.html">关于</a>
 <a href="/message.html">留言</a>
 </nav>
+</div>
+</div>
+</div>
 <section class="container">
 <div class="row">
 <div class="col-xl-8 col-md-8 col-lg-8 col-12">
@@ -52,23 +55,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge0a9751">1. mpd安装及配置(macos)</a>
+<li><a href="#org8fa031c">1. mpd安装及配置(macos)</a>
 <ul>
-<li><a href="#org7cf1e5f">1.1. 安装</a></li>
-<li><a href="#org3ebbabe">1.2. 创建配置文件</a></li>
-<li><a href="#orgd19d8d7">1.3. 编辑配置</a></li>
-<li><a href="#orgda23b4b">1.4. 使用命令</a></li>
-<li><a href="#org6246dfc">1.5. 注意点</a></li>
+<li><a href="#org8a97d88">1.1. 安装</a></li>
+<li><a href="#org86fd359">1.2. 创建配置文件</a></li>
+<li><a href="#org3ff8d96">1.3. 编辑配置</a></li>
+<li><a href="#org7465aae">1.4. 使用命令</a></li>
+<li><a href="#org7d8a4ba">1.5. 注意点</a></li>
 </ul>
 </li>
-<li><a href="#orgc0b8c03">2. mingus安装及使用</a>
+<li><a href="#orgbcc8d63">2. mingus安装及使用</a>
 <ul>
-<li><a href="#org226301b">2.1. 安装</a></li>
-<li><a href="#orgeb6645d">2.2. 使用</a></li>
+<li><a href="#orgf7de50a">2.1. 安装</a></li>
+<li><a href="#org780b105">2.2. 使用</a></li>
 </ul>
 </li>
-<li><a href="#org5088146">3. 效果</a></li>
-<li><a href="#org8f8881d">4. 参考文档</a></li>
+<li><a href="#orgb617efa">3. 效果</a></li>
+<li><a href="#org8ef2d25">4. 参考文档</a></li>
 </ul>
 </div>
 </nav>
@@ -85,12 +88,12 @@ Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音�
 而emacs的<a href="https://github.com/pft/mingus.git">mingus package</a>就相当于mpd在emacs中的client端。下面介绍mpd和mingus的安装和使用。
 </p>
 
-<div id="outline-container-orge0a9751" class="outline-2">
-<h2 id="orge0a9751"><span class="section-number-2">1</span> mpd安装及配置(macos)</h2>
+<div id="outline-container-org8fa031c" class="outline-2">
+<h2 id="org8fa031c"><span class="section-number-2">1</span> mpd安装及配置(macos)</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org7cf1e5f" class="outline-3">
-<h3 id="org7cf1e5f"><span class="section-number-3">1.1</span> 安装</h3>
+<div id="outline-container-org8a97d88" class="outline-3">
+<h3 id="org8a97d88"><span class="section-number-3">1.1</span> 安装</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Mac用户可以很方便的使用homebrew安装mpd
@@ -107,8 +110,8 @@ Mac用户可以很方便的使用homebrew安装mpd
 </div>
 </div>
 
-<div id="outline-container-org3ebbabe" class="outline-3">
-<h3 id="org3ebbabe"><span class="section-number-3">1.2</span> 创建配置文件</h3>
+<div id="outline-container-org86fd359" class="outline-3">
+<h3 id="org86fd359"><span class="section-number-3">1.2</span> 创建配置文件</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 mpd默认的配置文件查找路经为 <code>~/.mpd/mpd.conf</code> 或 <code>~/.mpdconf</code> ，这里建议将所有配置及相关数据文件放在一个.mpd文件夹中。
@@ -122,8 +125,8 @@ $ touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
 </div>
 </div>
 
-<div id="outline-container-orgd19d8d7" class="outline-3">
-<h3 id="orgd19d8d7"><span class="section-number-3">1.3</span> 编辑配置</h3>
+<div id="outline-container-org3ff8d96" class="outline-3">
+<h3 id="org3ff8d96"><span class="section-number-3">1.3</span> 编辑配置</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 进入 <code>~/.mpd/mpd.conf</code> ，粘贴如下配置
@@ -168,8 +171,8 @@ audio_output {
 </div>
 </div>
 
-<div id="outline-container-orgda23b4b" class="outline-3">
-<h3 id="orgda23b4b"><span class="section-number-3">1.4</span> 使用命令</h3>
+<div id="outline-container-org7465aae" class="outline-3">
+<h3 id="org7465aae"><span class="section-number-3">1.4</span> 使用命令</h3>
 <div class="outline-text-3" id="text-1-4">
 <div class="col-auto">
 <pre><code class="shell">$ mpd  # 启动服务
@@ -180,8 +183,8 @@ $ mpd update  # 更新
 </div>
 </div>
 
-<div id="outline-container-org6246dfc" class="outline-3">
-<h3 id="org6246dfc"><span class="section-number-3">1.5</span> 注意点</h3>
+<div id="outline-container-org7d8a4ba" class="outline-3">
+<h3 id="org7d8a4ba"><span class="section-number-3">1.5</span> 注意点</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>本配置及安装过程仅适用于macos系统。</li>
@@ -192,12 +195,12 @@ $ mpd update  # 更新
 </div>
 </div>
 
-<div id="outline-container-orgc0b8c03" class="outline-2">
-<h2 id="orgc0b8c03"><span class="section-number-2">2</span> mingus安装及使用</h2>
+<div id="outline-container-orgbcc8d63" class="outline-2">
+<h2 id="orgbcc8d63"><span class="section-number-2">2</span> mingus安装及使用</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org226301b" class="outline-3">
-<h3 id="org226301b"><span class="section-number-3">2.1</span> 安装</h3>
+<div id="outline-container-orgf7de50a" class="outline-3">
+<h3 id="orgf7de50a"><span class="section-number-3">2.1</span> 安装</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界面。
@@ -213,8 +216,8 @@ mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界�
 </div>
 </div>
 
-<div id="outline-container-orgeb6645d" class="outline-3">
-<h3 id="orgeb6645d"><span class="section-number-3">2.2</span> 使用</h3>
+<div id="outline-container-org780b105" class="outline-3">
+<h3 id="org780b105"><span class="section-number-3">2.2</span> 使用</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 mingus功能十分强大，内置大量快捷键，可以一键满足音乐播放方方面面的需求。使用 <code>M-x mingus</code> 启动mingus后，便可使用这些快捷键。
@@ -231,8 +234,8 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 </div>
 </div>
 
-<div id="outline-container-org5088146" class="outline-2">
-<h2 id="org5088146"><span class="section-number-2">3</span> 效果</h2>
+<div id="outline-container-orgb617efa" class="outline-2">
+<h2 id="orgb617efa"><span class="section-number-2">3</span> 效果</h2>
 <div class="outline-text-2" id="text-3">
 
 <figure>
@@ -241,8 +244,8 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 </figure>
 </div>
 </div>
-<div id="outline-container-org8f8881d" class="outline-2">
-<h2 id="org8f8881d"><span class="section-number-2">4</span> 参考文档</h2>
+<div id="outline-container-org8ef2d25" class="outline-2">
+<h2 id="org8ef2d25"><span class="section-number-2">4</span> 参考文档</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="https://computingforgeeks.com/install-configure-mpd-ncmpcpp-macos">Install and configure mpd and ncmpcpp on MacOS</a>
@@ -265,6 +268,18 @@ avatar: 'identicon',
 placeholder: '留下你的评论吧～'
 })</script>
 </div>
+<footer class="mt-4">
+<small>
+©2019-2020 戈楷旎 | Licensed under 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="知识共享许可协议" style="border-width:0" src="/assets/image/license.png"/>
+</a>
+</small>
+<small>
+ | Powered by 
+<a href="https://github.com/Kinneyzhang/geekblog">GeekBlog</a>
+</small>
+</footer>
 </div>
 <aside class="col-xl-4 col-md-4 col-lg-4">
 <div id="sidebar">
@@ -295,20 +310,5 @@ placeholder: '留下你的评论吧～'
 </aside>
 </div>
 </section>
-<footer class="mt-4">
-<small>
-©2019-2020 戈楷旎 | Licensed under 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-<img alt="知识共享许可协议" style="border-width:0" src="/assets/image/license.png"/>
-</a>
-</small>
-<small>
- | Powered by 
-<a href="https://github.com/Kinneyzhang/geekblog">GeekBlog</a>
-</small>
-</footer>
-</div>
-</div>
-</div>
 </body>
 </html>
