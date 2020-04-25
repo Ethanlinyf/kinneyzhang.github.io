@@ -56,23 +56,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9c2b820">1. mpd安装及配置(macos)</a>
+<li><a href="#org7b4fd31">1. mpd安装及配置(macos)</a>
 <ul>
-<li><a href="#org0d70f55">1.1. 安装</a></li>
-<li><a href="#org852b7de">1.2. 创建配置文件</a></li>
-<li><a href="#org2694f3c">1.3. 编辑配置</a></li>
-<li><a href="#orgbdbb651">1.4. 使用命令</a></li>
-<li><a href="#orgaec63c1">1.5. 注意点</a></li>
+<li><a href="#org9e39e02">1.1. 安装</a></li>
+<li><a href="#orgf3161cb">1.2. 创建配置文件</a></li>
+<li><a href="#org9340bce">1.3. 编辑配置</a></li>
+<li><a href="#orge73b4ae">1.4. 使用命令</a></li>
+<li><a href="#org9c23d1f">1.5. 注意点</a></li>
 </ul>
 </li>
-<li><a href="#orgafce0cf">2. mingus安装及使用</a>
+<li><a href="#orge8b5b76">2. mingus安装及使用</a>
 <ul>
-<li><a href="#org9fce693">2.1. 安装</a></li>
-<li><a href="#org7ca043d">2.2. 使用</a></li>
+<li><a href="#orgb595b57">2.1. 安装</a></li>
+<li><a href="#org111d544">2.2. 使用</a></li>
 </ul>
 </li>
-<li><a href="#org7c0849a">3. 效果</a></li>
-<li><a href="#org48edaca">4. 参考文档</a></li>
+<li><a href="#org7b52e87">3. 效果</a></li>
+<li><a href="#org90566c6">4. 参考文档</a></li>
 </ul>
 </div>
 </nav>
@@ -89,12 +89,12 @@ Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音�
 而emacs的<a href="https://github.com/pft/mingus.git">mingus package</a>就相当于mpd在emacs中的client端。下面介绍mpd和mingus的安装和使用。
 </p>
 
-<div id="outline-container-org9c2b820" class="outline-2">
-<h2 id="org9c2b820"><span class="section-number-2">1</span> mpd安装及配置(macos)</h2>
+<div id="outline-container-org7b4fd31" class="outline-2">
+<h2 id="org7b4fd31"><span class="section-number-2">1</span> mpd安装及配置(macos)</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org0d70f55" class="outline-3">
-<h3 id="org0d70f55"><span class="section-number-3">1.1</span> 安装</h3>
+<div id="outline-container-org9e39e02" class="outline-3">
+<h3 id="org9e39e02"><span class="section-number-3">1.1</span> 安装</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Mac用户可以很方便的使用homebrew安装mpd
@@ -111,8 +111,8 @@ Mac用户可以很方便的使用homebrew安装mpd
 </div>
 </div>
 
-<div id="outline-container-org852b7de" class="outline-3">
-<h3 id="org852b7de"><span class="section-number-3">1.2</span> 创建配置文件</h3>
+<div id="outline-container-orgf3161cb" class="outline-3">
+<h3 id="orgf3161cb"><span class="section-number-3">1.2</span> 创建配置文件</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 mpd默认的配置文件查找路经为 <code>~/.mpd/mpd.conf</code> 或 <code>~/.mpdconf</code> ，这里建议将所有配置及相关数据文件放在一个.mpd文件夹中。
@@ -126,8 +126,8 @@ $ touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
 </div>
 </div>
 
-<div id="outline-container-org2694f3c" class="outline-3">
-<h3 id="org2694f3c"><span class="section-number-3">1.3</span> 编辑配置</h3>
+<div id="outline-container-org9340bce" class="outline-3">
+<h3 id="org9340bce"><span class="section-number-3">1.3</span> 编辑配置</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 进入 <code>~/.mpd/mpd.conf</code> ，粘贴如下配置
@@ -172,8 +172,8 @@ audio_output {
 </div>
 </div>
 
-<div id="outline-container-orgbdbb651" class="outline-3">
-<h3 id="orgbdbb651"><span class="section-number-3">1.4</span> 使用命令</h3>
+<div id="outline-container-orge73b4ae" class="outline-3">
+<h3 id="orge73b4ae"><span class="section-number-3">1.4</span> 使用命令</h3>
 <div class="outline-text-3" id="text-1-4">
 <div class="col-auto">
 <pre><code class="shell">$ mpd  # 启动服务
@@ -184,8 +184,8 @@ $ mpd update  # 更新
 </div>
 </div>
 
-<div id="outline-container-orgaec63c1" class="outline-3">
-<h3 id="orgaec63c1"><span class="section-number-3">1.5</span> 注意点</h3>
+<div id="outline-container-org9c23d1f" class="outline-3">
+<h3 id="org9c23d1f"><span class="section-number-3">1.5</span> 注意点</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>本配置及安装过程仅适用于macos系统。</li>
@@ -196,12 +196,12 @@ $ mpd update  # 更新
 </div>
 </div>
 
-<div id="outline-container-orgafce0cf" class="outline-2">
-<h2 id="orgafce0cf"><span class="section-number-2">2</span> mingus安装及使用</h2>
+<div id="outline-container-orge8b5b76" class="outline-2">
+<h2 id="orge8b5b76"><span class="section-number-2">2</span> mingus安装及使用</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org9fce693" class="outline-3">
-<h3 id="org9fce693"><span class="section-number-3">2.1</span> 安装</h3>
+<div id="outline-container-orgb595b57" class="outline-3">
+<h3 id="orgb595b57"><span class="section-number-3">2.1</span> 安装</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界面。
@@ -217,8 +217,8 @@ mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界�
 </div>
 </div>
 
-<div id="outline-container-org7ca043d" class="outline-3">
-<h3 id="org7ca043d"><span class="section-number-3">2.2</span> 使用</h3>
+<div id="outline-container-org111d544" class="outline-3">
+<h3 id="org111d544"><span class="section-number-3">2.2</span> 使用</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 mingus功能十分强大，内置大量快捷键，可以一键满足音乐播放方方面面的需求。使用 <code>M-x mingus</code> 启动mingus后，便可使用这些快捷键。
@@ -235,8 +235,8 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 </div>
 </div>
 
-<div id="outline-container-org7c0849a" class="outline-2">
-<h2 id="org7c0849a"><span class="section-number-2">3</span> 效果</h2>
+<div id="outline-container-org7b52e87" class="outline-2">
+<h2 id="org7b52e87"><span class="section-number-2">3</span> 效果</h2>
 <div class="outline-text-2" id="text-3">
 
 <figure>
@@ -245,8 +245,8 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 </figure>
 </div>
 </div>
-<div id="outline-container-org48edaca" class="outline-2">
-<h2 id="org48edaca"><span class="section-number-2">4</span> 参考文档</h2>
+<div id="outline-container-org90566c6" class="outline-2">
+<h2 id="org90566c6"><span class="section-number-2">4</span> 参考文档</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="https://computingforgeeks.com/install-configure-mpd-ncmpcpp-macos">Install and configure mpd and ncmpcpp on MacOS</a>
@@ -285,9 +285,9 @@ placeholder: '留下你的评论吧～'
 <script>$(document).ready(function(){
 	 var theme = sessionStorage.getItem("theme");
 	 if(theme=="dark"){
-	   document.getElementById("pagestyle").href="/static/dark.css";
+	   document.getElementById("pagestyle").href="/assets/css/dark.css";
 	 }else if(theme=="light"){
-	   document.getElementById("pagestyle").href="/static/light.css";
+	   document.getElementById("pagestyle").href="/assets/css/light.css";
 	 }else{
 	   sessionStorage.setItem("theme","light");
 	 }});</script>

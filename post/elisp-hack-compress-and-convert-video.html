@@ -113,9 +113,9 @@ placeholder: '留下你的评论吧～'
 <script>$(document).ready(function(){
 	 var theme = sessionStorage.getItem("theme");
 	 if(theme=="dark"){
-	   document.getElementById("pagestyle").href="/static/dark.css";
+	   document.getElementById("pagestyle").href="/assets/css/dark.css";
 	 }else if(theme=="light"){
-	   document.getElementById("pagestyle").href="/static/light.css";
+	   document.getElementById("pagestyle").href="/assets/css/light.css";
 	 }else{
 	   sessionStorage.setItem("theme","light");
 	 }});</script>
