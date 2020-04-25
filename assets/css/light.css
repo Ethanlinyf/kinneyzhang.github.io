@@ -110,9 +110,9 @@ a:active,a:hover {
     border-bottom: 0;
 }
 #sidebar {
-    margin-top: 5px;
+    margin-top: 6px;
 }
-#adsense-side1 {
+.adsense-side {
     border: 1px solid #ddd;
 }
 
