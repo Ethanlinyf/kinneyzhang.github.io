@@ -63,12 +63,12 @@ tElementById("pagestyle").href="/static/light.css";
 
 Ok，这样就可以自由的切换博客主题并保持状态了，快点击下面的切换主题按钮体验一下吧～
 
+#+begin_comment
 #+begin_export html
 <p style="text-align:center;">
 <span id="switch-theme" onclick="switchTheme();">切换主题</span>
 </p>
 #+end_export
-
 #+begin_export html
 <script>
 function switchTheme(){
@@ -83,3 +83,4 @@ sessionStorage.setItem("flag", "false");
 }};
 </script>
 #+end_export
+#+end_comment
