@@ -57,23 +57,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgeb8cd35">1. mpd安装及配置(macos)</a>
+<li><a href="#org1bd231b">1. mpd安装及配置(macos)</a>
 <ul>
-<li><a href="#org869d8c4">1.1. 安装</a></li>
-<li><a href="#org009ce6b">1.2. 创建配置文件</a></li>
-<li><a href="#orged49c0d">1.3. 编辑配置</a></li>
-<li><a href="#orgdad0186">1.4. 使用命令</a></li>
-<li><a href="#orgaec4b6a">1.5. 注意点</a></li>
+<li><a href="#orgd200e99">1.1. 安装</a></li>
+<li><a href="#org7a778bf">1.2. 创建配置文件</a></li>
+<li><a href="#org6826c3d">1.3. 编辑配置</a></li>
+<li><a href="#org80d20da">1.4. 使用命令</a></li>
+<li><a href="#org61799b9">1.5. 注意点</a></li>
 </ul>
 </li>
-<li><a href="#orgbf8a140">2. mingus安装及使用</a>
+<li><a href="#orgdd9ab98">2. mingus安装及使用</a>
 <ul>
-<li><a href="#org27fe5cb">2.1. 安装</a></li>
-<li><a href="#org28439a8">2.2. 使用</a></li>
+<li><a href="#org300a455">2.1. 安装</a></li>
+<li><a href="#org986cee4">2.2. 使用</a></li>
 </ul>
 </li>
-<li><a href="#orgcfc2173">3. 效果</a></li>
-<li><a href="#orge828c52">4. 参考文档</a></li>
+<li><a href="#orgfea6171">3. 效果</a></li>
+<li><a href="#orge4fdd18">4. 参考文档</a></li>
 </ul>
 </div>
 </nav>
@@ -90,12 +90,12 @@ Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音�
 而emacs的<a href="https://github.com/pft/mingus.git">mingus package</a>就相当于mpd在emacs中的client端。下面介绍mpd和mingus的安装和使用。
 </p>
 
-<div id="outline-container-orgeb8cd35" class="outline-2">
-<h2 id="orgeb8cd35"><span class="section-number-2">1</span> mpd安装及配置(macos)</h2>
+<div id="outline-container-org1bd231b" class="outline-2">
+<h2 id="org1bd231b"><span class="section-number-2">1</span> mpd安装及配置(macos)</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org869d8c4" class="outline-3">
-<h3 id="org869d8c4"><span class="section-number-3">1.1</span> 安装</h3>
+<div id="outline-container-orgd200e99" class="outline-3">
+<h3 id="orgd200e99"><span class="section-number-3">1.1</span> 安装</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Mac用户可以很方便的使用homebrew安装mpd
@@ -112,8 +112,8 @@ Mac用户可以很方便的使用homebrew安装mpd
 </div>
 </div>
 
-<div id="outline-container-org009ce6b" class="outline-3">
-<h3 id="org009ce6b"><span class="section-number-3">1.2</span> 创建配置文件</h3>
+<div id="outline-container-org7a778bf" class="outline-3">
+<h3 id="org7a778bf"><span class="section-number-3">1.2</span> 创建配置文件</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 mpd默认的配置文件查找路经为 <code>~/.mpd/mpd.conf</code> 或 <code>~/.mpdconf</code> ，这里建议将所有配置及相关数据文件放在一个.mpd文件夹中。
@@ -127,8 +127,8 @@ $ touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
 </div>
 </div>
 
-<div id="outline-container-orged49c0d" class="outline-3">
-<h3 id="orged49c0d"><span class="section-number-3">1.3</span> 编辑配置</h3>
+<div id="outline-container-org6826c3d" class="outline-3">
+<h3 id="org6826c3d"><span class="section-number-3">1.3</span> 编辑配置</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 进入 <code>~/.mpd/mpd.conf</code> ，粘贴如下配置
@@ -173,8 +173,8 @@ audio_output {
 </div>
 </div>
 
-<div id="outline-container-orgdad0186" class="outline-3">
-<h3 id="orgdad0186"><span class="section-number-3">1.4</span> 使用命令</h3>
+<div id="outline-container-org80d20da" class="outline-3">
+<h3 id="org80d20da"><span class="section-number-3">1.4</span> 使用命令</h3>
 <div class="outline-text-3" id="text-1-4">
 <div class="col-auto">
 <pre><code class="shell">$ mpd  # 启动服务
@@ -185,8 +185,8 @@ $ mpd update  # 更新
 </div>
 </div>
 
-<div id="outline-container-orgaec4b6a" class="outline-3">
-<h3 id="orgaec4b6a"><span class="section-number-3">1.5</span> 注意点</h3>
+<div id="outline-container-org61799b9" class="outline-3">
+<h3 id="org61799b9"><span class="section-number-3">1.5</span> 注意点</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>本配置及安装过程仅适用于macos系统。</li>
@@ -197,12 +197,12 @@ $ mpd update  # 更新
 </div>
 </div>
 
-<div id="outline-container-orgbf8a140" class="outline-2">
-<h2 id="orgbf8a140"><span class="section-number-2">2</span> mingus安装及使用</h2>
+<div id="outline-container-orgdd9ab98" class="outline-2">
+<h2 id="orgdd9ab98"><span class="section-number-2">2</span> mingus安装及使用</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org27fe5cb" class="outline-3">
-<h3 id="org27fe5cb"><span class="section-number-3">2.1</span> 安装</h3>
+<div id="outline-container-org300a455" class="outline-3">
+<h3 id="org300a455"><span class="section-number-3">2.1</span> 安装</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界面。
@@ -218,8 +218,8 @@ mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界�
 </div>
 </div>
 
-<div id="outline-container-org28439a8" class="outline-3">
-<h3 id="org28439a8"><span class="section-number-3">2.2</span> 使用</h3>
+<div id="outline-container-org986cee4" class="outline-3">
+<h3 id="org986cee4"><span class="section-number-3">2.2</span> 使用</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 mingus功能十分强大，内置大量快捷键，可以一键满足音乐播放方方面面的需求。使用 <code>M-x mingus</code> 启动mingus后，便可使用这些快捷键。
@@ -236,8 +236,8 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 </div>
 </div>
 
-<div id="outline-container-orgcfc2173" class="outline-2">
-<h2 id="orgcfc2173"><span class="section-number-2">3</span> 效果</h2>
+<div id="outline-container-orgfea6171" class="outline-2">
+<h2 id="orgfea6171"><span class="section-number-2">3</span> 效果</h2>
 <div class="outline-text-2" id="text-3">
 
 <figure>
@@ -246,8 +246,8 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 </figure>
 </div>
 </div>
-<div id="outline-container-orge828c52" class="outline-2">
-<h2 id="orge828c52"><span class="section-number-2">4</span> 参考文档</h2>
+<div id="outline-container-orge4fdd18" class="outline-2">
+<h2 id="orge4fdd18"><span class="section-number-2">4</span> 参考文档</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 <a href="https://computingforgeeks.com/install-configure-mpd-ncmpcpp-macos">Install and configure mpd and ncmpcpp on MacOS</a>
@@ -298,18 +298,23 @@ placeholder: '留下你的评论吧～'
 <div class="adsense-bar ml-3 mr-3">
 <h2 style="text-align:center; border:1px solid #ddd;">广而告之</h2>
 <div class="adsense-side">
-<amp-ad width="100vw" height="320"
-     type="adsense"
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+<!-- side1 -->
+
+
+<ins class="adsbygoogle"
+     style="display:block"
      data-ad-client="ca-pub-3231589012114037"
      data-ad-slot="9630125312"
-     data-auto-format="rspv"
-     data-full-width="">
-
-  
-<div overflow=""></div>
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
 
 
-</amp-ad>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 </div>
 <div class="adsense-side mt-2">
 <amp-ad width="100vw" height="320"
