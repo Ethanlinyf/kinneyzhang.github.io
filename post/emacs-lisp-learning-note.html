@@ -9,7 +9,7 @@
 <meta name="description" content="happy hacking emacs!"/>
 <link rel="shortcut icon" href="/assets/image/favicon.ico"/>
 <link rel="bookmark" href="/assets/image/favicon.ico" type="image/x-icon"/>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap"/>
 <link id="pagestyle" rel="stylesheet" href="/assets/css/light.css"/>
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-149578968-1', 'auto');ga('send', 'pageview');</script>
@@ -66,36 +66,36 @@
 
 
 <li>
-<a href="#org0bbdcc8">1. lisp介绍</a>
+<a href="#org25c17f6">1. lisp介绍</a>
 </li>
 
 
 <li>
-<a href="#org237af6b">2. Elisp</a>
+<a href="#orge569efc">2. Elisp</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org9b940d7">2.1. 概览</a>
+<a href="#orga037782">2.1. 概览</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org472f8fa">2.1.1. 运行emacs-lisp的几种方式</a>
+<a href="#orgf3ae6d5">2.1.1. 运行emacs-lisp的几种方式</a>
 </li>
 
 
 <li>
-<a href="#org0498f78">2.1.2. 创建命令（interactive函数）</a>
+<a href="#org1b16683">2.1.2. 创建命令（interactive函数）</a>
 </li>
 
 
 <li>
-<a href="#org5f55b31">2.1.3. emacs探索</a>
+<a href="#orgcb59519">2.1.3. emacs探索</a>
 </li>
 
 
@@ -106,57 +106,29 @@
 
 
 <li>
-<a href="#orgaf7da20">2.2. elisp编程的基本设置</a>
+<a href="#org6ba57f7">2.2. elisp编程的基本设置</a>
 </li>
 
 
 <li>
-<a href="#org4e1b13f">2.3. 基本运算</a>
-
-
-<ul>
-
-
-<li>
-<a href="#orgc489a3f">2.3.1. 算术</a>
-</li>
-
-
-<li>
-<a href="#org70285e8">2.3.2. 比较</a>
-</li>
-
-
-<li>
-<a href="#org71ec092">2.3.3. 列表</a>
-</li>
-
-
-</ul>
-
-
-</li>
-
-
-<li>
-<a href="#org44a31a7">2.4. 类型判断和Literals</a>
+<a href="#org6537bad">2.3. 基本运算</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org207f586">2.4.1. Emacs Literals</a>
+<a href="#org1653c78">2.3.1. 算术</a>
 </li>
 
 
 <li>
-<a href="#org2110916">2.4.2. 基本类型判断</a>
+<a href="#orge6542ba">2.3.2. 比较</a>
 </li>
 
 
 <li>
-<a href="#orgf4fcc88">2.4.3. 获取对象类型</a>
+<a href="#org7e1b9e5">2.3.3. 列表</a>
 </li>
 
 
@@ -167,49 +139,24 @@
 
 
 <li>
-<a href="#org3eec3e3">2.5. 变量定义</a>
-</li>
-
-
-<li>
-<a href="#org1630f91">2.6. 函数定义</a>
+<a href="#org2d1f899">2.4. 类型判断和Literals</a>
 
 
 <ul>
 
 
 <li>
-<a href="#orge0e4661">2.6.1. 定义简单函数</a>
+<a href="#orgae8c194">2.4.1. Emacs Literals</a>
 </li>
 
 
 <li>
-<a href="#org6b77cda">2.6.2. 匿名函数/Lambda函数</a>
+<a href="#org74f7f49">2.4.2. 基本类型判断</a>
 </li>
 
 
 <li>
-<a href="#org41260d4">2.6.3. 函数作为参数</a>
-</li>
-
-
-<li>
-<a href="#orgb219980">2.6.4. 多参函数</a>
-</li>
-
-
-<li>
-<a href="#orgcfb9eb6">2.6.5. 可选参数函数</a>
-</li>
-
-
-<li>
-<a href="#orgf77e4dc">2.6.6. 含属性列表参数函数</a>
-</li>
-
-
-<li>
-<a href="#orgc0a08ee">2.6.7. Closures</a>
+<a href="#org76ac7b1">2.4.3. 获取对象类型</a>
 </li>
 
 
@@ -220,34 +167,49 @@
 
 
 <li>
-<a href="#org1667f02">2.7. 列表操作</a>
+<a href="#orge4b2b41">2.5. 变量定义</a>
 </li>
 
 
 <li>
-<a href="#orgabdee98">2.8. 关联列表和属性列表</a>
+<a href="#org3a1acc7">2.6. 函数定义</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org6c6331a">2.8.1. 概览</a>
+<a href="#orgfe71899">2.6.1. 定义简单函数</a>
 </li>
 
 
 <li>
-<a href="#org2aa7219">2.8.2. 关联列表/Alist</a>
+<a href="#org86b9f11">2.6.2. 匿名函数/Lambda函数</a>
 </li>
 
 
 <li>
-<a href="#orgde51889">2.8.3. 属性列表</a>
+<a href="#org3268b9b">2.6.3. 函数作为参数</a>
 </li>
 
 
 <li>
-<a href="#orgb4cd947">2.8.4. 转换Alist成Plist和vice-versa</a>
+<a href="#orgfb43b7f">2.6.4. 多参函数</a>
+</li>
+
+
+<li>
+<a href="#orgbd5e69a">2.6.5. 可选参数函数</a>
+</li>
+
+
+<li>
+<a href="#org6ff05fa">2.6.6. 含属性列表参数函数</a>
+</li>
+
+
+<li>
+<a href="#org2d39d0c">2.6.7. Closures</a>
 </li>
 
 
@@ -258,59 +220,34 @@
 
 
 <li>
-<a href="#orgdb5fbca">2.9. 字符串</a>
+<a href="#org7e0f2f9">2.7. 列表操作</a>
 </li>
 
 
 <li>
-<a href="#org26a14d7">2.10. 符号</a>
-</li>
-
-
-<li>
-<a href="#org244aa2e">2.11. 类型转换</a>
-</li>
-
-
-<li>
-<a href="#org29be3af">2.12. 求值</a>
-</li>
-
-
-<li>
-<a href="#orga237f58">2.13. Defalias</a>
-</li>
-
-
-<li>
-<a href="#orga5a749b">2.14. 控制结构</a>
+<a href="#orge205ac5">2.8. 关联列表和属性列表</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org5fe1530">2.14.1. Conditional Statement</a>
+<a href="#orgd2a5423">2.8.1. 概览</a>
 </li>
 
 
 <li>
-<a href="#orga5787da">2.14.2. Cond - Case Switch</a>
+<a href="#org9e46220">2.8.2. 关联列表/Alist</a>
 </li>
 
 
 <li>
-<a href="#orga6e1b2f">2.14.3. CL-Case - Case Switch</a>
+<a href="#org1b0a6c4">2.8.3. 属性列表</a>
 </li>
 
 
 <li>
-<a href="#orgd87a5b2">2.14.4. 循环</a>
-</li>
-
-
-<li>
-<a href="#org36c37d9">2.14.5. 函数式编程</a>
+<a href="#org88bd4ba">2.8.4. 转换Alist成Plist和vice-versa</a>
 </li>
 
 
@@ -321,30 +258,59 @@
 
 
 <li>
-<a href="#orgff80d67">2.15. Structures</a>
-</li>
-
-
-</ul>
-
-
+<a href="#org7d7b655">2.9. 字符串</a>
 </li>
 
 
 <li>
-<a href="#orga77182b">3. 宏和元编程</a>
+<a href="#org0a73973">2.10. 符号</a>
+</li>
+
+
+<li>
+<a href="#orga6e9c6b">2.11. 类型转换</a>
+</li>
+
+
+<li>
+<a href="#orgabf1545">2.12. 求值</a>
+</li>
+
+
+<li>
+<a href="#org55e1413">2.13. Defalias</a>
+</li>
+
+
+<li>
+<a href="#org64f0d4d">2.14. 控制结构</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org9daa0cb">3.1. Quasi-quote</a>
+<a href="#org4538cc8">2.14.1. Conditional Statement</a>
 </li>
 
 
 <li>
-<a href="#org6c5fe4f">3.2. 宏</a>
+<a href="#org3887793">2.14.2. Cond - Case Switch</a>
+</li>
+
+
+<li>
+<a href="#org177f915">2.14.3. CL-Case - Case Switch</a>
+</li>
+
+
+<li>
+<a href="#org92a9e4c">2.14.4. 循环</a>
+</li>
+
+
+<li>
+<a href="#org380253e">2.14.5. 函数式编程</a>
 </li>
 
 
@@ -355,69 +321,80 @@
 
 
 <li>
-<a href="#org42bb4a7">4. Emacs API</a>
+<a href="#orge97c0cb">2.15. Structures</a>
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+<li>
+<a href="#org5681358">3. 宏和元编程</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org2ed71f4">4.1. Emacs术语</a>
+<a href="#org0e7fdee">3.1. Quasi-quote</a>
 </li>
 
 
 <li>
-<a href="#orgac5a82d">4.2. Emacs API</a>
+<a href="#org48c7a40">3.2. 宏</a>
+</li>
+
+
+</ul>
+
+
 </li>
 
 
 <li>
-<a href="#orgb6701a3">4.3. Buffers</a>
+<a href="#orgf7271b1">4. Emacs API</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org958a08b">4.3.1. Buffer Attributes</a>
+<a href="#org1ec7afe">4.1. Emacs术语</a>
 </li>
 
 
 <li>
-<a href="#org94a954a">4.3.2. Buffer Mode</a>
+<a href="#org14657af">4.2. Emacs API</a>
 </li>
 
 
 <li>
-<a href="#org40549b2">4.3.3. Get Buffer Contents / Selection / Line</a>
-</li>
-
-
-<li>
-<a href="#org8f1c3fc">4.3.4. Search and Replace in the entire Buffer</a>
-</li>
-
-
-</ul>
-
-
-</li>
-
-
-<li>
-<a href="#org8fc1a4d">4.4. Point, Region, Line and Buffer</a>
+<a href="#org8f1b7cb">4.3. Buffers</a>
 
 
 <ul>
 
 
 <li>
-<a href="#orgca0c6ec">4.4.1. Point</a>
+<a href="#orgdb22bb2">4.3.1. Buffer Attributes</a>
 </li>
 
 
 <li>
-<a href="#orgc679a18">4.4.2. Thing at Point API</a>
+<a href="#org30fe59f">4.3.2. Buffer Mode</a>
+</li>
+
+
+<li>
+<a href="#org897a644">4.3.3. Get Buffer Contents / Selection / Line</a>
+</li>
+
+
+<li>
+<a href="#org64b1de0">4.3.4. Search and Replace in the entire Buffer</a>
 </li>
 
 
@@ -428,29 +405,19 @@
 
 
 <li>
-<a href="#orga8bfe18">4.5. Message / Output</a>
-</li>
-
-
-<li>
-<a href="#org1763250">4.6. Files, Directories and Path</a>
+<a href="#orgf26d1f2">4.4. Point, Region, Line and Buffer</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org9e7736b">4.6.1. Basic Functions</a>
+<a href="#org8517478">4.4.1. Point</a>
 </li>
 
 
 <li>
-<a href="#orgfc19e47">4.6.2. File Name Components</a>
-</li>
-
-
-<li>
-<a href="#org6836a23">4.6.3. Read / Write file to a string</a>
+<a href="#org34e1c22">4.4.2. Thing at Point API</a>
 </li>
 
 
@@ -461,24 +428,29 @@
 
 
 <li>
-<a href="#org4118fd7">4.7. Window Functions</a>
+<a href="#org930873b">4.5. Message / Output</a>
+</li>
+
+
+<li>
+<a href="#orgc7baa26">4.6. Files, Directories and Path</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org02bf7ce">4.7.1. Basic Window Functions</a>
+<a href="#org01d3f8c">4.6.1. Basic Functions</a>
 </li>
 
 
 <li>
-<a href="#orge1ce138">4.7.2. Manipulate Buffer in Another Window</a>
+<a href="#orge500704">4.6.2. File Name Components</a>
 </li>
 
 
 <li>
-<a href="#org301841e">4.7.3. Window Configuration</a>
+<a href="#orgfe7da37">4.6.3. Read / Write file to a string</a>
 </li>
 
 
@@ -489,34 +461,24 @@
 
 
 <li>
-<a href="#org7b01ad3">4.8. OS Interface</a>
+<a href="#org6d27246">4.7. Window Functions</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org1a114e2">4.8.1. Find the current operating system</a>
+<a href="#org57f00bb">4.7.1. Basic Window Functions</a>
 </li>
 
 
 <li>
-<a href="#org36aa693">4.8.2. Date and Time</a>
+<a href="#org7bfe64e">4.7.2. Manipulate Buffer in Another Window</a>
 </li>
 
 
 <li>
-<a href="#org398e6df">4.8.3. Call External Commands or Apps</a>
-</li>
-
-
-<li>
-<a href="#org9389c32">4.8.4. Environment Variables</a>
-</li>
-
-
-<li>
-<a href="#org7c53548">4.8.5. Process Management</a>
+<a href="#org0ae64d2">4.7.3. Window Configuration</a>
 </li>
 
 
@@ -527,19 +489,34 @@
 
 
 <li>
-<a href="#org8f5a80e">4.9. Interfaces</a>
+<a href="#org8baa33d">4.8. OS Interface</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org7eaa563">4.9.1. Creating Quick Access Menu</a>
+<a href="#org653519a">4.8.1. Find the current operating system</a>
 </li>
 
 
 <li>
-<a href="#org6d54111">4.9.2. Add Icons to toolbar</a>
+<a href="#orge82f6b7">4.8.2. Date and Time</a>
+</li>
+
+
+<li>
+<a href="#orgf1d85cf">4.8.3. Call External Commands or Apps</a>
+</li>
+
+
+<li>
+<a href="#orgd06475b">4.8.4. Environment Variables</a>
+</li>
+
+
+<li>
+<a href="#orgc6fcae5">4.8.5. Process Management</a>
 </li>
 
 
@@ -550,14 +527,19 @@
 
 
 <li>
-<a href="#org32d9f98">4.10. Timer</a>
+<a href="#org8fe8627">4.9. Interfaces</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org8f57122">4.10.1. run-with-timer</a>
+<a href="#orgd785ad4">4.9.1. Creating Quick Access Menu</a>
+</li>
+
+
+<li>
+<a href="#orgb615d9a">4.9.2. Add Icons to toolbar</a>
 </li>
 
 
@@ -568,24 +550,14 @@
 
 
 <li>
-<a href="#orgf78d82c">4.11. Emacs Modes</a>
+<a href="#org0e12ec4">4.10. Timer</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org3785011">4.11.1. Mode Association with Files</a>
-</li>
-
-
-<li>
-<a href="#orgab395ff">4.11.2. Lisp Routines to introspect modes??</a>
-</li>
-
-
-<li>
-<a href="#org8bd1b2e">4.11.3. Mode Specific Key Bindings</a>
+<a href="#org2f269e5">4.10.1. run-with-timer</a>
 </li>
 
 
@@ -596,77 +568,105 @@
 
 
 <li>
-<a href="#org99af1d9">4.12. Special Variables</a>
-</li>
-
-
-<li>
-<a href="#orgdf83777">4.13. Network</a>
-</li>
-
-
-</ul>
-
-
-</li>
-
-
-<li>
-<a href="#orga5298a9">5. 正则表达式</a>
+<a href="#org47310f3">4.11. Emacs Modes</a>
 
 
 <ul>
 
 
 <li>
-<a href="#orgf694bf7">5.1. Emacs Regex</a>
+<a href="#org8dc1557">4.11.1. Mode Association with Files</a>
 </li>
 
 
 <li>
-<a href="#orgbd1601c">5.2. Regex Commands</a>
+<a href="#orga38e918">4.11.2. Lisp Routines to introspect modes??</a>
 </li>
 
 
 <li>
-<a href="#org2a32dca">5.3. Regex Functions</a>
+<a href="#org579fc49">4.11.3. Mode Specific Key Bindings</a>
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+<li>
+<a href="#org59ba444">4.12. Special Variables</a>
+</li>
+
+
+<li>
+<a href="#org6d39310">4.13. Network</a>
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+<li>
+<a href="#org76f1c6c">5. 正则表达式</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org964e926">5.3.1. match-string</a>
+<a href="#orgfd61f90">5.1. Emacs Regex</a>
 </li>
 
 
 <li>
-<a href="#orged121dd">5.3.2. match-end</a>
+<a href="#orgc323567">5.2. Regex Commands</a>
 </li>
 
 
 <li>
-<a href="#org1aebf32">5.3.3. match-beginning</a>
+<a href="#orgd5b1ecf">5.3. Regex Functions</a>
+
+
+<ul>
+
+
+<li>
+<a href="#org9986e40">5.3.1. match-string</a>
 </li>
 
 
 <li>
-<a href="#org8b75687">5.3.4. re-search</a>
+<a href="#org45727ae">5.3.2. match-end</a>
 </li>
 
 
 <li>
-<a href="#orgebc517f">5.3.5. re-search-forward</a>
+<a href="#org1e373f7">5.3.3. match-beginning</a>
 </li>
 
 
 <li>
-<a href="#orgbd9400f">5.3.6. replace-string-in-regexp</a>
+<a href="#org54311a5">5.3.4. re-search</a>
 </li>
 
 
 <li>
-<a href="#orgfa18995">5.3.7. replace-string</a>
+<a href="#org46af3b2">5.3.5. re-search-forward</a>
+</li>
+
+
+<li>
+<a href="#orgc074485">5.3.6. replace-string-in-regexp</a>
+</li>
+
+
+<li>
+<a href="#org3c91029">5.3.7. replace-string</a>
 </li>
 
 
@@ -677,12 +677,12 @@
 
 
 <li>
-<a href="#org4975737">5.4. Build regex interactively</a>
+<a href="#org8839587">5.4. Build regex interactively</a>
 </li>
 
 
 <li>
-<a href="#org34d833c">5.5. Emacs Regex rx-notation</a>
+<a href="#org20b1573">5.5. Emacs Regex rx-notation</a>
 </li>
 
 
@@ -693,12 +693,12 @@
 
 
 <li>
-<a href="#org9c73276">6. Color Scheme</a>
+<a href="#org59a03c7">6. Color Scheme</a>
 </li>
 
 
 <li>
-<a href="#orgb1133a6">7. Key Bindings</a>
+<a href="#org6eb155f">7. Key Bindings</a>
 </li>
 
 
@@ -721,10 +721,10 @@
 </p>
 
 
-<div id="outline-container-org0bbdcc8" class="outline-2">
+<div id="outline-container-org25c17f6" class="outline-2">
 
 
-<h2 id="org0bbdcc8">
+<h2 id="org25c17f6">
 <span class="section-number-2">1</span>
  lisp介绍
 </h2>
@@ -768,10 +768,10 @@ Lisp语言的主要现代版本包括Common Lisp, Scheme，Racket以及Clojure�
 </div>
 
 
-<div id="outline-container-org237af6b" class="outline-2">
+<div id="outline-container-orge569efc" class="outline-2">
 
 
-<h2 id="org237af6b">
+<h2 id="orge569efc">
 <span class="section-number-2">2</span>
  Elisp
 </h2>
@@ -781,10 +781,10 @@ Lisp语言的主要现代版本包括Common Lisp, Scheme，Racket以及Clojure�
 </div>
 
 
-<div id="outline-container-org9b940d7" class="outline-3">
+<div id="outline-container-orga037782" class="outline-3">
 
 
-<h3 id="org9b940d7">
+<h3 id="orga037782">
 <span class="section-number-3">2.1</span>
  概览
 </h3>
@@ -794,10 +794,10 @@ Lisp语言的主要现代版本包括Common Lisp, Scheme，Racket以及Clojure�
 </div>
 
 
-<div id="outline-container-org472f8fa" class="outline-4">
+<div id="outline-container-orgf3ae6d5" class="outline-4">
 
 
-<h4 id="org472f8fa">
+<h4 id="orgf3ae6d5">
 <span class="section-number-4">2.1.1</span>
  运行emacs-lisp的几种方式
 </h4>
@@ -944,10 +944,10 @@ Lisp语言的主要现代版本包括Common Lisp, Scheme，Racket以及Clojure�
 
 
 
-<div id="outline-container-org0498f78" class="outline-4">
+<div id="outline-container-org1b16683" class="outline-4">
 
 
-<h4 id="org0498f78">
+<h4 id="org1b16683">
 <span class="section-number-4">2.1.2</span>
  创建命令（interactive函数）
 </h4>
@@ -977,10 +977,10 @@ Lisp语言的主要现代版本包括Common Lisp, Scheme，Racket以及Clojure�
 
 
 
-<div id="outline-container-org5f55b31" class="outline-4">
+<div id="outline-container-orgcb59519" class="outline-4">
 
 
-<h4 id="org5f55b31">
+<h4 id="orgcb59519">
 <span class="section-number-4">2.1.3</span>
  emacs探索
 </h4>
@@ -1114,10 +1114,10 @@ Lisp语言的主要现代版本包括Common Lisp, Scheme，Racket以及Clojure�
 
 
 
-<div id="outline-container-orgaf7da20" class="outline-3">
+<div id="outline-container-org6ba57f7" class="outline-3">
 
 
-<h3 id="orgaf7da20">
+<h3 id="org6ba57f7">
 <span class="section-number-3">2.2</span>
  elisp编程的基本设置
 </h3>
@@ -1153,10 +1153,10 @@ Lisp语言的主要现代版本包括Common Lisp, Scheme，Racket以及Clojure�
 
 
 
-<div id="outline-container-org4e1b13f" class="outline-3">
+<div id="outline-container-org6537bad" class="outline-3">
 
 
-<h3 id="org4e1b13f">
+<h3 id="org6537bad">
 <span class="section-number-3">2.3</span>
  基本运算
 </h3>
@@ -1166,10 +1166,10 @@ Lisp语言的主要现代版本包括Common Lisp, Scheme，Racket以及Clojure�
 </div>
 
 
-<div id="outline-container-orgc489a3f" class="outline-4">
+<div id="outline-container-org1653c78" class="outline-4">
 
 
-<h4 id="orgc489a3f">
+<h4 id="org1653c78">
 <span class="section-number-4">2.3.1</span>
  算术
 </h4>
@@ -1225,10 +1225,10 @@ ELISP&gt;
 
 
 
-<div id="outline-container-org70285e8" class="outline-4">
+<div id="outline-container-orge6542ba" class="outline-4">
 
 
-<h4 id="org70285e8">
+<h4 id="orge6542ba">
 <span class="section-number-4">2.3.2</span>
  比较
 </h4>
@@ -1270,10 +1270,10 @@ t
 
 
 
-<div id="outline-container-org71ec092" class="outline-4">
+<div id="outline-container-org7e1b9e5" class="outline-4">
 
 
-<h4 id="org71ec092">
+<h4 id="org7e1b9e5">
 <span class="section-number-4">2.3.3</span>
  列表
 </h4>
@@ -1302,10 +1302,10 @@ ELISP&gt; '(10 203 40 "hello" () ("empty" 65))
 
 
 
-<div id="outline-container-org44a31a7" class="outline-3">
+<div id="outline-container-org2d1f899" class="outline-3">
 
 
-<h3 id="org44a31a7">
+<h3 id="org2d1f899">
 <span class="section-number-3">2.4</span>
  类型判断和Literals
 </h3>
@@ -1315,10 +1315,10 @@ ELISP&gt; '(10 203 40 "hello" () ("empty" 65))
 </div>
 
 
-<div id="outline-container-org207f586" class="outline-4">
+<div id="outline-container-orgae8c194" class="outline-4">
 
 
-<h4 id="org207f586">
+<h4 id="orgae8c194">
 <span class="section-number-4">2.4.1</span>
  Emacs Literals
 </h4>
@@ -1413,10 +1413,10 @@ ELISP&gt; [1 2 3 4 (+ 1 2 3 54)]
 
 
 
-<div id="outline-container-org2110916" class="outline-4">
+<div id="outline-container-org74f7f49" class="outline-4">
 
 
-<h4 id="org2110916">
+<h4 id="org74f7f49">
 <span class="section-number-4">2.4.2</span>
  基本类型判断
 </h4>
@@ -1787,10 +1787,10 @@ ELISP&gt;
 
 
 
-<div id="outline-container-orgf4fcc88" class="outline-4">
+<div id="outline-container-org76ac7b1" class="outline-4">
 
 
-<h4 id="orgf4fcc88">
+<h4 id="org76ac7b1">
 <span class="section-number-4">2.4.3</span>
  获取对象类型
 </h4>
@@ -1824,10 +1824,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org3eec3e3" class="outline-3">
+<div id="outline-container-orge4b2b41" class="outline-3">
 
 
-<h3 id="org3eec3e3">
+<h3 id="orge4b2b41">
 <span class="section-number-3">2.5</span>
  变量定义
 </h3>
@@ -1911,10 +1911,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org1630f91" class="outline-3">
+<div id="outline-container-org3a1acc7" class="outline-3">
 
 
-<h3 id="org1630f91">
+<h3 id="org3a1acc7">
 <span class="section-number-3">2.6</span>
  函数定义
 </h3>
@@ -1924,10 +1924,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-orge0e4661" class="outline-4">
+<div id="outline-container-orgfe71899" class="outline-4">
 
 
-<h4 id="orge0e4661">
+<h4 id="orgfe71899">
 <span class="section-number-4">2.6.1</span>
  定义简单函数
 </h4>
@@ -1988,10 +1988,10 @@ ELISP
 </div>
 
 
-<div id="outline-container-org6b77cda" class="outline-4">
+<div id="outline-container-org86b9f11" class="outline-4">
 
 
-<h4 id="org6b77cda">
+<h4 id="org86b9f11">
 <span class="section-number-4">2.6.2</span>
  匿名函数/Lambda函数
 </h4>
@@ -2056,10 +2056,10 @@ ELISP&gt; (mapcar (lambda (x) (+ x 3))  '(1 2 3 4 5))
 </div>
 
 
-<div id="outline-container-org41260d4" class="outline-4">
+<div id="outline-container-org3268b9b" class="outline-4">
 
 
-<h4 id="org41260d4">
+<h4 id="org3268b9b">
 <span class="section-number-4">2.6.3</span>
  函数作为参数
 </h4>
@@ -2130,10 +2130,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-orgb219980" class="outline-4">
+<div id="outline-container-orgfb43b7f" class="outline-4">
 
 
-<h4 id="orgb219980">
+<h4 id="orgfb43b7f">
 <span class="section-number-4">2.6.4</span>
  多参函数
 </h4>
@@ -2185,10 +2185,10 @@ ELISP&gt; (sum-prod 1 1 2 3 4 5)
 </div>
 
 
-<div id="outline-container-orgcfb9eb6" class="outline-4">
+<div id="outline-container-orgbd5e69a" class="outline-4">
 
 
-<h4 id="orgcfb9eb6">
+<h4 id="orgbd5e69a">
 <span class="section-number-4">2.6.5</span>
  可选参数函数
 </h4>
@@ -2255,10 +2255,10 @@ ELISP&gt; (test-optional-default-b 1 nil)
 </div>
 
 
-<div id="outline-container-orgf77e4dc" class="outline-4">
+<div id="outline-container-org6ff05fa" class="outline-4">
 
 
-<h4 id="orgf77e4dc">
+<h4 id="org6ff05fa">
 <span class="section-number-4">2.6.6</span>
  含属性列表参数函数
 </h4>
@@ -2342,10 +2342,10 @@ ELISP&gt; (make-shell-interface :buffer "pyshell"  :path "/usr/bin/python" :type
 </div>
 
 
-<div id="outline-container-orgc0a08ee" class="outline-4">
+<div id="outline-container-org2d39d0c" class="outline-4">
 
 
-<h4 id="orgc0a08ee">
+<h4 id="org2d39d0c">
 <span class="section-number-4">2.6.7</span>
  Closures
 </h4>
@@ -2496,10 +2496,10 @@ ELISP&gt; (map (make-sum-fun sin cos) '(1 2 3 4 5))
 </div>
 
 
-<div id="outline-container-org1667f02" class="outline-3">
+<div id="outline-container-org7e0f2f9" class="outline-3">
 
 
-<h3 id="org1667f02">
+<h3 id="org7e0f2f9">
 <span class="section-number-3">2.7</span>
  列表操作
 </h3>
@@ -2748,10 +2748,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-orgabdee98" class="outline-3">
+<div id="outline-container-orge205ac5" class="outline-3">
 
 
-<h3 id="orgabdee98">
+<h3 id="orge205ac5">
 <span class="section-number-3">2.8</span>
  关联列表和属性列表
 </h3>
@@ -2761,10 +2761,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org6c6331a" class="outline-4">
+<div id="outline-container-orgd2a5423" class="outline-4">
 
 
-<h4 id="org6c6331a">
+<h4 id="orgd2a5423">
 <span class="section-number-4">2.8.1</span>
  概览
 </h4>
@@ -2893,10 +2893,10 @@ ELISP&gt; '(:key1 value1 :key2 value2 :key3 1002.23 :key4 (a b c d e))
 </div>
 
 
-<div id="outline-container-org2aa7219" class="outline-4">
+<div id="outline-container-org9e46220" class="outline-4">
 
 
-<h4 id="org2aa7219">
+<h4 id="org9e46220">
 <span class="section-number-4">2.8.2</span>
  关联列表/Alist
 </h4>
@@ -3157,10 +3157,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-orgde51889" class="outline-4">
+<div id="outline-container-org1b0a6c4" class="outline-4">
 
 
-<h4 id="orgde51889">
+<h4 id="org1b0a6c4">
 <span class="section-number-4">2.8.3</span>
  属性列表
 </h4>
@@ -3212,10 +3212,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-orgb4cd947" class="outline-4">
+<div id="outline-container-org88bd4ba" class="outline-4">
 
 
-<h4 id="orgb4cd947">
+<h4 id="org88bd4ba">
 <span class="section-number-4">2.8.4</span>
  转换Alist成Plist和vice-versa
 </h4>
@@ -3316,10 +3316,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-orgdb5fbca" class="outline-3">
+<div id="outline-container-org7d7b655" class="outline-3">
 
 
-<h3 id="orgdb5fbca">
+<h3 id="org7d7b655">
 <span class="section-number-3">2.9</span>
  字符串
 </h3>
@@ -3453,10 +3453,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org26a14d7" class="outline-3">
+<div id="outline-container-org0a73973" class="outline-3">
 
 
-<h3 id="org26a14d7">
+<h3 id="org0a73973">
 <span class="section-number-3">2.10</span>
  符号
 </h3>
@@ -3576,10 +3576,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org244aa2e" class="outline-3">
+<div id="outline-container-orga6e9c6b" class="outline-3">
 
 
-<h3 id="org244aa2e">
+<h3 id="orga6e9c6b">
 <span class="section-number-3">2.11</span>
  类型转换
 </h3>
@@ -3809,10 +3809,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org29be3af" class="outline-3">
+<div id="outline-container-orgabf1545" class="outline-3">
 
 
-<h3 id="org29be3af">
+<h3 id="orgabf1545">
 <span class="section-number-3">2.12</span>
  求值
 </h3>
@@ -4035,10 +4035,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-orga237f58" class="outline-3">
+<div id="outline-container-org55e1413" class="outline-3">
 
 
-<h3 id="orga237f58">
+<h3 id="org55e1413">
 <span class="section-number-3">2.13</span>
  Defalias
 </h3>
@@ -4132,10 +4132,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-orga5a749b" class="outline-3">
+<div id="outline-container-org64f0d4d" class="outline-3">
 
 
-<h3 id="orga5a749b">
+<h3 id="org64f0d4d">
 <span class="section-number-3">2.14</span>
  控制结构
 </h3>
@@ -4145,10 +4145,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org5fe1530" class="outline-4">
+<div id="outline-container-org4538cc8" class="outline-4">
 
 
-<h4 id="org5fe1530">
+<h4 id="org4538cc8">
 <span class="section-number-4">2.14.1</span>
  Conditional Statement
 </h4>
@@ -4292,10 +4292,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-orga5787da" class="outline-4">
+<div id="outline-container-org3887793" class="outline-4">
 
 
-<h4 id="orga5787da">
+<h4 id="org3887793">
 <span class="section-number-4">2.14.2</span>
  Cond - Case Switch
 </h4>
@@ -4327,10 +4327,10 @@ ELISP&gt;
 
 
 
-<div id="outline-container-orga6e1b2f" class="outline-4">
+<div id="outline-container-org177f915" class="outline-4">
 
 
-<h4 id="orga6e1b2f">
+<h4 id="org177f915">
 <span class="section-number-4">2.14.3</span>
  CL-Case - Case Switch
 </h4>
@@ -4371,10 +4371,10 @@ nil
 
 
 
-<div id="outline-container-orgd87a5b2" class="outline-4">
+<div id="outline-container-org92a9e4c" class="outline-4">
 
 
-<h4 id="orgd87a5b2">
+<h4 id="org92a9e4c">
 <span class="section-number-4">2.14.4</span>
  循环
 </h4>
@@ -4641,10 +4641,10 @@ nil
 
 
 
-<div id="outline-container-org36c37d9" class="outline-4">
+<div id="outline-container-org380253e" class="outline-4">
 
 
-<h4 id="org36c37d9">
+<h4 id="org380253e">
 <span class="section-number-4">2.14.5</span>
  函数式编程
 </h4>
@@ -5479,10 +5479,10 @@ ELISP&gt;
 
 
 
-<div id="outline-container-orgff80d67" class="outline-3">
+<div id="outline-container-orge97c0cb" class="outline-3">
 
 
-<h3 id="orgff80d67">
+<h3 id="orge97c0cb">
 <span class="section-number-3">2.15</span>
  Structures
 </h3>
@@ -5622,10 +5622,10 @@ ELISP&gt;
 
 
 
-<div id="outline-container-orga77182b" class="outline-2">
+<div id="outline-container-org5681358" class="outline-2">
 
 
-<h2 id="orga77182b">
+<h2 id="org5681358">
 <span class="section-number-2">3</span>
  宏和元编程
 </h2>
@@ -5635,10 +5635,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org9daa0cb" class="outline-3">
+<div id="outline-container-org0e7fdee" class="outline-3">
 
 
-<h3 id="org9daa0cb">
+<h3 id="org0e7fdee">
 <span class="section-number-3">3.1</span>
  Quasi-quote
 </h3>
@@ -5724,10 +5724,10 @@ ELISP&gt;
 
 
 
-<div id="outline-container-org6c5fe4f" class="outline-3">
+<div id="outline-container-org48c7a40" class="outline-3">
 
 
-<h3 id="org6c5fe4f">
+<h3 id="org48c7a40">
 <span class="section-number-3">3.2</span>
  宏
 </h3>
@@ -5868,10 +5868,10 @@ ELISP&gt;
 
 
 
-<div id="outline-container-org42bb4a7" class="outline-2">
+<div id="outline-container-orgf7271b1" class="outline-2">
 
 
-<h2 id="org42bb4a7">
+<h2 id="orgf7271b1">
 <span class="section-number-2">4</span>
  Emacs API
 </h2>
@@ -5881,10 +5881,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org2ed71f4" class="outline-3">
+<div id="outline-container-org1ec7afe" class="outline-3">
 
 
-<h3 id="org2ed71f4">
+<h3 id="org1ec7afe">
 <span class="section-number-3">4.1</span>
  Emacs术语
 </h3>
@@ -6122,10 +6122,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-orgac5a82d" class="outline-3">
+<div id="outline-container-org14657af" class="outline-3">
 
 
-<h3 id="orgac5a82d">
+<h3 id="org14657af">
 <span class="section-number-3">4.2</span>
  Emacs API
 </h3>
@@ -6189,10 +6189,10 @@ ELISP&gt;
 
 
 
-<div id="outline-container-orgb6701a3" class="outline-3">
+<div id="outline-container-org8f1b7cb" class="outline-3">
 
 
-<h3 id="orgb6701a3">
+<h3 id="org8f1b7cb">
 <span class="section-number-3">4.3</span>
  Buffers
 </h3>
@@ -6202,10 +6202,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org958a08b" class="outline-4">
+<div id="outline-container-orgdb22bb2" class="outline-4">
 
 
-<h4 id="org958a08b">
+<h4 id="orgdb22bb2">
 <span class="section-number-4">4.3.1</span>
  Buffer Attributes
 </h4>
@@ -6339,10 +6339,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org94a954a" class="outline-4">
+<div id="outline-container-org30fe59f" class="outline-4">
 
 
-<h4 id="org94a954a">
+<h4 id="org30fe59f">
 <span class="section-number-4">4.3.2</span>
  Buffer Mode
 </h4>
@@ -6402,10 +6402,10 @@ ELISP&gt; (mapcar (lambda (b)(
 </div>
 
 
-<div id="outline-container-org40549b2" class="outline-4">
+<div id="outline-container-org897a644" class="outline-4">
 
 
-<h4 id="org40549b2">
+<h4 id="org897a644">
 <span class="section-number-4">4.3.3</span>
  Get Buffer Contents / Selection / Line
 </h4>
@@ -6497,10 +6497,10 @@ ELISP&gt; (buffer-content "test3.ml")
 </div>
 
 
-<div id="outline-container-org8f1c3fc" class="outline-4">
+<div id="outline-container-org64b1de0" class="outline-4">
 
 
-<h4 id="org8f1c3fc">
+<h4 id="org64b1de0">
 <span class="section-number-4">4.3.4</span>
  Search and Replace in the entire Buffer
 </h4>
@@ -6537,10 +6537,10 @@ ELISP&gt; (buffer-content "test3.ml")
 </div>
 
 
-<div id="outline-container-org8fc1a4d" class="outline-3">
+<div id="outline-container-orgf26d1f2" class="outline-3">
 
 
-<h3 id="org8fc1a4d">
+<h3 id="orgf26d1f2">
 <span class="section-number-3">4.4</span>
  Point, Region, Line and Buffer
 </h3>
@@ -6550,10 +6550,10 @@ ELISP&gt; (buffer-content "test3.ml")
 </div>
 
 
-<div id="outline-container-orgca0c6ec" class="outline-4">
+<div id="outline-container-org8517478" class="outline-4">
 
 
-<h4 id="orgca0c6ec">
+<h4 id="org8517478">
 <span class="section-number-4">4.4.1</span>
  Point
 </h4>
@@ -6934,10 +6934,10 @@ ELISP&gt; (buffer-content "test3.ml")
 </div>
 
 
-<div id="outline-container-orgc679a18" class="outline-4">
+<div id="outline-container-org34e1c22" class="outline-4">
 
 
-<h4 id="orgc679a18">
+<h4 id="org34e1c22">
 <span class="section-number-4">4.4.2</span>
  Thing at Point API
 </h4>
@@ -6960,10 +6960,10 @@ ELISP&gt; (buffer-content "test3.ml")
 </div>
 
 
-<div id="outline-container-orga8bfe18" class="outline-3">
+<div id="outline-container-org930873b" class="outline-3">
 
 
-<h3 id="orga8bfe18">
+<h3 id="org930873b">
 <span class="section-number-3">4.5</span>
  Message / Output
 </h3>
@@ -6989,10 +6989,10 @@ ELISP&gt; (buffer-content "test3.ml")
 </div>
 
 
-<div id="outline-container-org1763250" class="outline-3">
+<div id="outline-container-orgc7baa26" class="outline-3">
 
 
-<h3 id="org1763250">
+<h3 id="orgc7baa26">
 <span class="section-number-3">4.6</span>
  Files, Directories and Path
 </h3>
@@ -7002,10 +7002,10 @@ ELISP&gt; (buffer-content "test3.ml")
 </div>
 
 
-<div id="outline-container-org9e7736b" class="outline-4">
+<div id="outline-container-org01d3f8c" class="outline-4">
 
 
-<h4 id="org9e7736b">
+<h4 id="org01d3f8c">
 <span class="section-number-4">4.6.1</span>
  Basic Functions
 </h4>
@@ -7071,10 +7071,10 @@ ELISP&gt; (directory-files "/home/tux/PycharmProjects/Haskell/")
 </div>
 
 
-<div id="outline-container-orgfc19e47" class="outline-4">
+<div id="outline-container-orge500704" class="outline-4">
 
 
-<h4 id="orgfc19e47">
+<h4 id="orge500704">
 <span class="section-number-4">4.6.2</span>
  File Name Components
 </h4>
@@ -7111,10 +7111,10 @@ ELISP&gt; (file-name-base "/home/foo/zoo1.c.back")
 </div>
 
 
-<div id="outline-container-org6836a23" class="outline-4">
+<div id="outline-container-orgfe7da37" class="outline-4">
 
 
-<h4 id="org6836a23">
+<h4 id="orgfe7da37">
 <span class="section-number-4">4.6.3</span>
  Read / Write file to a string
 </h4>
@@ -7184,10 +7184,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org4118fd7" class="outline-3">
+<div id="outline-container-org6d27246" class="outline-3">
 
 
-<h3 id="org4118fd7">
+<h3 id="org6d27246">
 <span class="section-number-3">4.7</span>
  Window Functions
 </h3>
@@ -7197,10 +7197,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org02bf7ce" class="outline-4">
+<div id="outline-container-org57f00bb" class="outline-4">
 
 
-<h4 id="org02bf7ce">
+<h4 id="org57f00bb">
 <span class="section-number-4">4.7.1</span>
  Basic Window Functions
 </h4>
@@ -7232,10 +7232,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-orge1ce138" class="outline-4">
+<div id="outline-container-org7bfe64e" class="outline-4">
 
 
-<h4 id="orge1ce138">
+<h4 id="org7bfe64e">
 <span class="section-number-4">4.7.2</span>
  Manipulate Buffer in Another Window
 </h4>
@@ -7259,10 +7259,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org301841e" class="outline-4">
+<div id="outline-container-org0ae64d2" class="outline-4">
 
 
-<h4 id="org301841e">
+<h4 id="org0ae64d2">
 <span class="section-number-4">4.7.3</span>
  Window Configuration
 </h4>
@@ -7333,10 +7333,10 @@ ELISP&gt;
 
 
 
-<div id="outline-container-org7b01ad3" class="outline-3">
+<div id="outline-container-org8baa33d" class="outline-3">
 
 
-<h3 id="org7b01ad3">
+<h3 id="org8baa33d">
 <span class="section-number-3">4.8</span>
  OS Interface
 </h3>
@@ -7346,10 +7346,10 @@ ELISP&gt;
 </div>
 
 
-<div id="outline-container-org1a114e2" class="outline-4">
+<div id="outline-container-org653519a" class="outline-4">
 
 
-<h4 id="org1a114e2">
+<h4 id="org653519a">
 <span class="section-number-4">4.8.1</span>
  Find the current operating system
 </h4>
@@ -7512,10 +7512,10 @@ system-configuration
 
 
 
-<div id="outline-container-org36aa693" class="outline-4">
+<div id="outline-container-orge82f6b7" class="outline-4">
 
 
-<h4 id="org36aa693">
+<h4 id="orge82f6b7">
 <span class="section-number-4">4.8.2</span>
  Date and Time
 </h4>
@@ -7544,10 +7544,10 @@ system-configuration
 
 
 
-<div id="outline-container-org398e6df" class="outline-4">
+<div id="outline-container-orgf1d85cf" class="outline-4">
 
 
-<h4 id="org398e6df">
+<h4 id="orgf1d85cf">
 <span class="section-number-4">4.8.3</span>
  Call External Commands or Apps
 </h4>
@@ -7574,10 +7574,10 @@ system-configuration
 
 
 
-<div id="outline-container-org9389c32" class="outline-4">
+<div id="outline-container-orgd06475b" class="outline-4">
 
 
-<h4 id="org9389c32">
+<h4 id="orgd06475b">
 <span class="section-number-4">4.8.4</span>
  Environment Variables
 </h4>
@@ -7612,10 +7612,10 @@ system-type
 
 
 
-<div id="outline-container-org7c53548" class="outline-4">
+<div id="outline-container-orgc6fcae5" class="outline-4">
 
 
-<h4 id="org7c53548">
+<h4 id="orgc6fcae5">
 <span class="section-number-4">4.8.5</span>
  Process Management
 </h4>
@@ -7676,10 +7676,10 @@ system-type
 
 
 
-<div id="outline-container-org8f5a80e" class="outline-3">
+<div id="outline-container-org8fe8627" class="outline-3">
 
 
-<h3 id="org8f5a80e">
+<h3 id="org8fe8627">
 <span class="section-number-3">4.9</span>
  Interfaces
 </h3>
@@ -7689,10 +7689,10 @@ system-type
 </div>
 
 
-<div id="outline-container-org7eaa563" class="outline-4">
+<div id="outline-container-orgd785ad4" class="outline-4">
 
 
-<h4 id="org7eaa563">
+<h4 id="orgd785ad4">
 <span class="section-number-4">4.9.1</span>
  Creating Quick Access Menu
 </h4>
@@ -7749,10 +7749,10 @@ system-type
 
 
 
-<div id="outline-container-org6d54111" class="outline-4">
+<div id="outline-container-orgb615d9a" class="outline-4">
 
 
-<h4 id="org6d54111">
+<h4 id="orgb615d9a">
 <span class="section-number-4">4.9.2</span>
  Add Icons to toolbar
 </h4>
@@ -7779,10 +7779,10 @@ system-type
 </div>
 
 
-<div id="outline-container-org32d9f98" class="outline-3">
+<div id="outline-container-org0e12ec4" class="outline-3">
 
 
-<h3 id="org32d9f98">
+<h3 id="org0e12ec4">
 <span class="section-number-3">4.10</span>
  Timer
 </h3>
@@ -7792,10 +7792,10 @@ system-type
 </div>
 
 
-<div id="outline-container-org8f57122" class="outline-4">
+<div id="outline-container-org2f269e5" class="outline-4">
 
 
-<h4 id="org8f57122">
+<h4 id="org2f269e5">
 <span class="section-number-4">4.10.1</span>
  run-with-timer
 </h4>
@@ -7834,10 +7834,10 @@ system-type
 </div>
 
 
-<div id="outline-container-orgf78d82c" class="outline-3">
+<div id="outline-container-org47310f3" class="outline-3">
 
 
-<h3 id="orgf78d82c">
+<h3 id="org47310f3">
 <span class="section-number-3">4.11</span>
  Emacs Modes
 </h3>
@@ -7847,10 +7847,10 @@ system-type
 </div>
 
 
-<div id="outline-container-org3785011" class="outline-4">
+<div id="outline-container-org8dc1557" class="outline-4">
 
 
-<h4 id="org3785011">
+<h4 id="org8dc1557">
 <span class="section-number-4">4.11.1</span>
  Mode Association with Files
 </h4>
@@ -7882,10 +7882,10 @@ auto-mode-alist
 
 
 
-<div id="outline-container-orgab395ff" class="outline-4">
+<div id="outline-container-orga38e918" class="outline-4">
 
 
-<h4 id="orgab395ff">
+<h4 id="orga38e918">
 <span class="section-number-4">4.11.2</span>
  Lisp Routines to introspect modes??
 </h4>
@@ -7961,10 +7961,10 @@ ELISP&gt; (get-mode-ftypes 'markdown-mode)
 
 
 
-<div id="outline-container-org8bd1b2e" class="outline-4">
+<div id="outline-container-org579fc49" class="outline-4">
 
 
-<h4 id="org8bd1b2e">
+<h4 id="org579fc49">
 <span class="section-number-4">4.11.3</span>
  Mode Specific Key Bindings
 </h4>
@@ -7995,10 +7995,10 @@ ELISP&gt; (get-mode-ftypes 'markdown-mode)
 
 
 
-<div id="outline-container-org99af1d9" class="outline-3">
+<div id="outline-container-org59ba444" class="outline-3">
 
 
-<h3 id="org99af1d9">
+<h3 id="org59ba444">
 <span class="section-number-3">4.12</span>
  Special Variables
 </h3>
@@ -8034,10 +8034,10 @@ exec-directory
 
 
 
-<div id="outline-container-orgdf83777" class="outline-3">
+<div id="outline-container-org6d39310" class="outline-3">
 
 
-<h3 id="orgdf83777">
+<h3 id="org6d39310">
 <span class="section-number-3">4.13</span>
  Network
 </h3>
@@ -8065,10 +8065,10 @@ exec-directory
 
 
 
-<div id="outline-container-orga5298a9" class="outline-2">
+<div id="outline-container-org76f1c6c" class="outline-2">
 
 
-<h2 id="orga5298a9">
+<h2 id="org76f1c6c">
 <span class="section-number-2">5</span>
  正则表达式
 </h2>
@@ -8078,10 +8078,10 @@ exec-directory
 </div>
 
 
-<div id="outline-container-orgf694bf7" class="outline-3">
+<div id="outline-container-orgfd61f90" class="outline-3">
 
 
-<h3 id="orgf694bf7">
+<h3 id="orgfd61f90">
 <span class="section-number-3">5.1</span>
  Emacs Regex
 </h3>
@@ -8922,10 +8922,10 @@ exec-directory
 </div>
 
 
-<div id="outline-container-orgbd1601c" class="outline-3">
+<div id="outline-container-orgc323567" class="outline-3">
 
 
-<h3 id="orgbd1601c">
+<h3 id="orgc323567">
 <span class="section-number-3">5.2</span>
  Regex Commands
 </h3>
@@ -9317,10 +9317,10 @@ exec-directory
 </div>
 
 
-<div id="outline-container-org2a32dca" class="outline-3">
+<div id="outline-container-orgd5b1ecf" class="outline-3">
 
 
-<h3 id="org2a32dca">
+<h3 id="orgd5b1ecf">
 <span class="section-number-3">5.3</span>
  Regex Functions
 </h3>
@@ -9330,10 +9330,10 @@ exec-directory
 </div>
 
 
-<div id="outline-container-org964e926" class="outline-4">
+<div id="outline-container-org9986e40" class="outline-4">
 
 
-<h4 id="org964e926">
+<h4 id="org9986e40">
 <span class="section-number-4">5.3.1</span>
  match-string
 </h4>
@@ -9342,10 +9342,10 @@ exec-directory
 </div>
 
 
-<div id="outline-container-orged121dd" class="outline-4">
+<div id="outline-container-org45727ae" class="outline-4">
 
 
-<h4 id="orged121dd">
+<h4 id="org45727ae">
 <span class="section-number-4">5.3.2</span>
  match-end
 </h4>
@@ -9354,10 +9354,10 @@ exec-directory
 </div>
 
 
-<div id="outline-container-org1aebf32" class="outline-4">
+<div id="outline-container-org1e373f7" class="outline-4">
 
 
-<h4 id="org1aebf32">
+<h4 id="org1e373f7">
 <span class="section-number-4">5.3.3</span>
  match-beginning
 </h4>
@@ -9366,10 +9366,10 @@ exec-directory
 </div>
 
 
-<div id="outline-container-org8b75687" class="outline-4">
+<div id="outline-container-org54311a5" class="outline-4">
 
 
-<h4 id="org8b75687">
+<h4 id="org54311a5">
 <span class="section-number-4">5.3.4</span>
  re-search
 </h4>
@@ -9378,10 +9378,10 @@ exec-directory
 </div>
 
 
-<div id="outline-container-orgebc517f" class="outline-4">
+<div id="outline-container-org46af3b2" class="outline-4">
 
 
-<h4 id="orgebc517f">
+<h4 id="org46af3b2">
 <span class="section-number-4">5.3.5</span>
  re-search-forward
 </h4>
@@ -9390,10 +9390,10 @@ exec-directory
 </div>
 
 
-<div id="outline-container-orgbd9400f" class="outline-4">
+<div id="outline-container-orgc074485" class="outline-4">
 
 
-<h4 id="orgbd9400f">
+<h4 id="orgc074485">
 <span class="section-number-4">5.3.6</span>
  replace-string-in-regexp
 </h4>
@@ -9402,10 +9402,10 @@ exec-directory
 </div>
 
 
-<div id="outline-container-orgfa18995" class="outline-4">
+<div id="outline-container-org3c91029" class="outline-4">
 
 
-<h4 id="orgfa18995">
+<h4 id="org3c91029">
 <span class="section-number-4">5.3.7</span>
  replace-string
 </h4>
@@ -9417,10 +9417,10 @@ exec-directory
 </div>
 
 
-<div id="outline-container-org4975737" class="outline-3">
+<div id="outline-container-org8839587" class="outline-3">
 
 
-<h3 id="org4975737">
+<h3 id="org8839587">
 <span class="section-number-3">5.4</span>
  Build regex interactively
 </h3>
@@ -9446,10 +9446,10 @@ M-x query-replace-regexp
 </div>
 
 
-<div id="outline-container-org34d833c" class="outline-3">
+<div id="outline-container-org20b1573" class="outline-3">
 
 
-<h3 id="org34d833c">
+<h3 id="org20b1573">
 <span class="section-number-3">5.5</span>
  Emacs Regex rx-notation
 </h3>
@@ -9892,10 +9892,10 @@ ELISP&gt; (rx (submatch bow (or "cat" "rat" "dog") eow))
 
 
 
-<div id="outline-container-org9c73276" class="outline-2">
+<div id="outline-container-org59a03c7" class="outline-2">
 
 
-<h2 id="org9c73276">
+<h2 id="org59a03c7">
 <span class="section-number-2">6</span>
  Color Scheme
 </h2>
@@ -9919,10 +9919,10 @@ ELISP&gt; (rx (submatch bow (or "cat" "rat" "dog") eow))
 </div>
 
 
-<div id="outline-container-orgb1133a6" class="outline-2">
+<div id="outline-container-org6eb155f" class="outline-2">
 
 
-<h2 id="orgb1133a6">
+<h2 id="org6eb155f">
 <span class="section-number-2">7</span>
  Key Bindings
 </h2>
