@@ -4,12 +4,13 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Emacs中使用mpd+mingus听音乐</title>
-<meta name="generator" content="GeekBlog 1.0.0"/>
+<meta name="generator" content="GeekBlog"/>
 <meta name="author" content="Geekinney"/>
 <meta name="description" content="happy hacking emacs!"/>
 <link rel="shortcut icon" href="/assets/image/favicon.ico"/>
 <link rel="bookmark" href="/assets/image/favicon.ico" type="image/x-icon"/>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=Source+Sans+Pro&display=swap"/>
 <link id="pagestyle" rel="stylesheet" href="/assets/css/light.css"/>
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-149578968-1', 'auto');ga('send', 'pageview');</script>
 </head>
@@ -51,90 +52,254 @@
 」
 </p>
 </div>
-
+<div id="main-content">
 <nav id="table-of-contents">
+
+
 <h2>Table of Contents</h2>
+
+
 <div id="text-table-of-contents">
+
+
 <ul>
-<li><a href="#org605d568">1. mpd安装及配置(macos)</a>
+
+
+<li>
+<a href="#org24030b9">1. mpd安装及配置(macos)</a>
+
+
 <ul>
-<li><a href="#orgfbe5061">1.1. 安装</a></li>
-<li><a href="#orgd6756a9">1.2. 创建配置文件</a></li>
-<li><a href="#orgdb7a407">1.3. 编辑配置</a></li>
-<li><a href="#org2598630">1.4. 使用命令</a></li>
-<li><a href="#orgfbccf55">1.5. 注意点</a></li>
-</ul>
+
+
+<li>
+<a href="#org02b16f6">1.1. 安装</a>
 </li>
-<li><a href="#orgab2f685">2. mingus安装及使用</a>
-<ul>
-<li><a href="#org16263c7">2.1. 安装</a></li>
-<li><a href="#org97cd88f">2.2. 使用</a></li>
-</ul>
+
+
+<li>
+<a href="#orge59d345">1.2. 创建配置文件</a>
 </li>
-<li><a href="#org0e81f04">3. 效果</a></li>
-<li><a href="#org9cbfc14">4. 参考文档</a></li>
+
+
+<li>
+<a href="#orgcfd64ce">1.3. 编辑配置</a>
+</li>
+
+
+<li>
+<a href="#org0816e97">1.4. 使用命令</a>
+</li>
+
+
+<li>
+<a href="#org586a845">1.5. 注意点</a>
+</li>
+
+
 </ul>
+
+
+</li>
+
+
+<li>
+<a href="#org69be96a">2. mingus安装及使用</a>
+
+
+<ul>
+
+
+<li>
+<a href="#orgdbe6305">2.1. 安装</a>
+</li>
+
+
+<li>
+<a href="#org1135bd3">2.2. 使用</a>
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+<li>
+<a href="#orge51d0d2">3. 效果</a>
+</li>
+
+
+<li>
+<a href="#org7d13a41">4. 参考文档</a>
+</li>
+
+
+</ul>
+
+
 </div>
+
+
 </nav>
 
+
+
 <p>
-在emacs中收听音乐的方案不止一个，我之前用过<a href="https://github.com/emacsmirror/emms">emms</a>和<a href="https://github.com/dbrock/bongo">bongo</a>，但它们在某些方面不能满足我的需求。在逛Reddit时看到使用mpd配合mingus播放音乐的帖子，折腾了一下发现这正是我想要的！总结安装配置和踩坑经验，和大家分享。
+
+在emacs中收听音乐的方案不止一个，我之前用过
+<a href="https://github.com/emacsmirror/emms">emms</a>
+和
+<a href="https://github.com/dbrock/bongo">bongo</a>
+，但它们在某些方面不能满足我的需求。在逛Reddit时看到使用mpd配合mingus播放音乐的帖子，折腾了一下发现这正是我想要的！总结安装配置和踩坑经验，和大家分享。
+
 </p>
+
+
 
 <p>
 Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音乐播放器。它可以播放音乐、管理播放列表、维护音乐数据库等。mpd作为服务端程序，需要与客户端配合才能展现其强大的功能。最常使用的mpd客户端有mpc, ncmpcpp等。
 </p>
 
+
+
 <p>
-而emacs的<a href="https://github.com/pft/mingus.git">mingus package</a>就相当于mpd在emacs中的client端。下面介绍mpd和mingus的安装和使用。
+
+而emacs的
+<a href="https://github.com/pft/mingus.git">mingus package</a>
+就相当于mpd在emacs中的client端。下面介绍mpd和mingus的安装和使用。
+
 </p>
 
-<div id="outline-container-org605d568" class="outline-2">
-<h2 id="org605d568"><span class="section-number-2">1</span> mpd安装及配置(macos)</h2>
+
+
+<div id="outline-container-org24030b9" class="outline-2">
+
+
+<h2 id="org24030b9">
+<span class="section-number-2">1</span>
+ mpd安装及配置(macos)
+</h2>
+
+
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgfbe5061" class="outline-3">
-<h3 id="orgfbe5061"><span class="section-number-3">1.1</span> 安装</h3>
+
+
+<div id="outline-container-org02b16f6" class="outline-3">
+
+
+<h3 id="org02b16f6">
+<span class="section-number-3">1.1</span>
+ 安装
+</h3>
+
+
 <div class="outline-text-3" id="text-1-1">
+
+
 <p>
 Mac用户可以很方便的使用homebrew安装mpd
 </p>
 
-<div class="col-auto">
-<pre><code class="shell">$ brew install mpd
-</code></pre>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-shell">$ brew install mpd
+</pre>
+
+
 </div>
+
+
 
 <p>
-也可以到<a href="https://www.musicpd.org">MPD官网</a>下载解压安装
+
+也可以到
+<a href="https://www.musicpd.org">MPD官网</a>
+下载解压安装
+
 </p>
-</div>
+
+
 </div>
 
-<div id="outline-container-orgd6756a9" class="outline-3">
-<h3 id="orgd6756a9"><span class="section-number-3">1.2</span> 创建配置文件</h3>
+
+</div>
+
+
+
+<div id="outline-container-orge59d345" class="outline-3">
+
+
+<h3 id="orge59d345">
+<span class="section-number-3">1.2</span>
+ 创建配置文件
+</h3>
+
+
 <div class="outline-text-3" id="text-1-2">
+
+
 <p>
-mpd默认的配置文件查找路经为 <code>~/.mpd/mpd.conf</code> 或 <code>~/.mpdconf</code> ，这里建议将所有配置及相关数据文件放在一个.mpd文件夹中。
+
+mpd默认的配置文件查找路经为 
+<code>~/.mpd/mpd.conf</code>
+ 或 
+<code>~/.mpdconf</code>
+ ，这里建议将所有配置及相关数据文件放在一个.mpd文件夹中。
+
 </p>
 
-<div class="col-auto">
-<pre><code class="shell">$ mkdir -p ~/.mpd/playlists
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-shell">$ mkdir -p ~/.mpd/playlists
 $ touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
-</code></pre>
-</div>
-</div>
+</pre>
+
+
 </div>
 
-<div id="outline-container-orgdb7a407" class="outline-3">
-<h3 id="orgdb7a407"><span class="section-number-3">1.3</span> 编辑配置</h3>
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-orgcfd64ce" class="outline-3">
+
+
+<h3 id="orgcfd64ce">
+<span class="section-number-3">1.3</span>
+ 编辑配置
+</h3>
+
+
 <div class="outline-text-3" id="text-1-3">
+
+
 <p>
-进入 <code>~/.mpd/mpd.conf</code> ，粘贴如下配置
+
+进入 
+<code>~/.mpd/mpd.conf</code>
+ ，粘贴如下配置
+
 </p>
 
-<div class="col-auto">
-<pre><code class="TOML">music_directory "~/Music"  # 音乐文件目录
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-TOML">music_directory "~/Music"  # 音乐文件目录
 playlist_directory "~/.mpd/playlists"  # 播放列表目录
 db_file "~/.mpd/mpd.db"  # 数据库
 log_file "~/.mpd/mpd.log"  # 日志文件
@@ -167,93 +332,253 @@ audio_output {
  auto_resample "no"
  use_mmap "yes"
 }
-</code></pre>
-</div>
-</div>
+</pre>
+
+
 </div>
 
-<div id="outline-container-org2598630" class="outline-3">
-<h3 id="org2598630"><span class="section-number-3">1.4</span> 使用命令</h3>
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org0816e97" class="outline-3">
+
+
+<h3 id="org0816e97">
+<span class="section-number-3">1.4</span>
+ 使用命令
+</h3>
+
+
 <div class="outline-text-3" id="text-1-4">
-<div class="col-auto">
-<pre><code class="shell">$ mpd  # 启动服务
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-shell">$ mpd  # 启动服务
 $ mpd --kill  # 杀死进程
 $ mpd update  # 更新
-</code></pre>
-</div>
-</div>
+</pre>
+
+
 </div>
 
-<div id="outline-container-orgfbccf55" class="outline-3">
-<h3 id="orgfbccf55"><span class="section-number-3">1.5</span> 注意点</h3>
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org586a845" class="outline-3">
+
+
+<h3 id="org586a845">
+<span class="section-number-3">1.5</span>
+ 注意点
+</h3>
+
+
 <div class="outline-text-3" id="text-1-5">
+
+
 <ul class="org-ul">
+
+
 <li>本配置及安装过程仅适用于macos系统。</li>
-<li>linux系统参考 <a href="https://wiki.archlinux.org/index.php/Music_Player_Daemon">arch-wiki/Music Player Daemon</a></li>
+
+
+<li>
+linux系统参考 
+<a href="https://wiki.archlinux.org/index.php/Music_Player_Daemon">arch-wiki/Music Player Daemon</a>
+</li>
+
+
 <li>如果你连接了蓝牙耳机，初次启动mpd时建议断开连接，能够正常播放后再连接蓝牙。（防止音乐声音断断续续）</li>
+
+
 </ul>
-</div>
-</div>
+
+
 </div>
 
-<div id="outline-container-orgab2f685" class="outline-2">
-<h2 id="orgab2f685"><span class="section-number-2">2</span> mingus安装及使用</h2>
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org69be96a" class="outline-2">
+
+
+<h2 id="org69be96a">
+<span class="section-number-2">2</span>
+ mingus安装及使用
+</h2>
+
+
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org16263c7" class="outline-3">
-<h3 id="org16263c7"><span class="section-number-3">2.1</span> 安装</h3>
+
+
+<div id="outline-container-orgdbe6305" class="outline-3">
+
+
+<h3 id="orgdbe6305">
+<span class="section-number-3">2.1</span>
+ 安装
+</h3>
+
+
 <div class="outline-text-3" id="text-2-1">
+
+
 <p>
 mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界面。
 </p>
 
-<div class="col-auto">
-<pre><code class="emacs-lisp">(use-package mingus
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(use-package mingus
   :ensure t
   :defer t
   :bind (("C-c m" . mingus)))
-</code></pre>
-</div>
-</div>
+</pre>
+
+
 </div>
 
-<div id="outline-container-org97cd88f" class="outline-3">
-<h3 id="org97cd88f"><span class="section-number-3">2.2</span> 使用</h3>
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org1135bd3" class="outline-3">
+
+
+<h3 id="org1135bd3">
+<span class="section-number-3">2.2</span>
+ 使用
+</h3>
+
+
 <div class="outline-text-3" id="text-2-2">
-<p>
-mingus功能十分强大，内置大量快捷键，可以一键满足音乐播放方方面面的需求。使用 <code>M-x mingus</code> 启动mingus后，便可使用这些快捷键。
-</p>
+
 
 <p>
-mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用数字键 <code>1</code> <code>2</code> <code>3</code> 进行切换。"Mingus Help"是帮助信息界面，介绍了所有的快捷键使用。"Mingus"是播放列表界面。"Mingus Browser"是搜索浏览界面，可以在音乐目录下进行分类搜索，将歌曲添加到播放列表中。
+
+mingus功能十分强大，内置大量快捷键，可以一键满足音乐播放方方面面的需求。使用 
+<code>M-x mingus</code>
+ 启动mingus后，便可使用这些快捷键。
+
 </p>
+
+
 
 <p>
-具体功能使用查看"Mingus Help"，不再赘述。值得一提的是，对于同类别的歌曲可以使用 <code>C-x C-s</code> 保存为playlist, 下次可以一键load歌单到播放列表中。
+
+mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用数字键 
+<code>1</code>
+ 
+<code>2</code>
+ 
+<code>3</code>
+ 进行切换。"Mingus Help"是帮助信息界面，介绍了所有的快捷键使用。"Mingus"是播放列表界面。"Mingus Browser"是搜索浏览界面，可以在音乐目录下进行分类搜索，将歌曲添加到播放列表中。
+
 </p>
-</div>
-</div>
+
+
+
+<p>
+
+具体功能使用查看"Mingus Help"，不再赘述。值得一提的是，对于同类别的歌曲可以使用 
+<code>C-x C-s</code>
+ 保存为playlist, 下次可以一键load歌单到播放列表中。
+
+</p>
+
+
 </div>
 
-<div id="outline-container-org0e81f04" class="outline-2">
-<h2 id="org0e81f04"><span class="section-number-2">3</span> 效果</h2>
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-orge51d0d2" class="outline-2">
+
+
+<h2 id="orge51d0d2">
+<span class="section-number-2">3</span>
+ 效果
+</h2>
+
+
 <div class="outline-text-2" id="text-3">
 
+
+
 <figure>
+
+
 <img src="https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/mingus.png" alt="mingus.png">
 
+
+
 </figure>
-</div>
-</div>
-<div id="outline-container-org9cbfc14" class="outline-2">
-<h2 id="org9cbfc14"><span class="section-number-2">4</span> 参考文档</h2>
-<div class="outline-text-2" id="text-4">
-<p>
-<a href="https://computingforgeeks.com/install-configure-mpd-ncmpcpp-macos">Install and configure mpd and ncmpcpp on MacOS</a>
-</p>
-</div>
+
+
 </div>
 
+
+</div>
+
+
+<div id="outline-container-org7d13a41" class="outline-2">
+
+
+<h2 id="org7d13a41">
+<span class="section-number-2">4</span>
+ 参考文档
+</h2>
+
+
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+
+
+<a href="https://computingforgeeks.com/install-configure-mpd-ncmpcpp-macos">Install and configure mpd and ncmpcpp on MacOS</a>
+
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
 <div class="adsense-post mt-2">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
@@ -285,18 +610,6 @@ avatar: 'identicon',
 placeholder: '留下你的评论吧～'
 })</script>
 </div>
-<footer class="mt-4">
-<small>
-©2019-2020 戈楷旎 | Licensed under 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-<img alt="知识共享许可协议" style="border-width:0" src="/assets/image/license.png"/>
-</a>
-</small>
-<small>
- | Powered by 
-<a href="https://github.com/Kinneyzhang/geekblog">GeekBlog</a>
-</small>
-</footer>
 <script src="/assets/js/jQuery.min.js"></script>
 <script>$(document).ready(function(){
 	 var theme = sessionStorage.getItem("theme");
@@ -310,8 +623,8 @@ placeholder: '留下你的评论吧～'
 </div>
 <aside class="col-xl-4 col-md-4 col-lg-4 d-none d-sm-block">
 <div id="sidebar">
-<div class="adsense-bar ml-3 mr-3">
-<h2 style="text-align:center; border:1px solid #ddd;">广而告之</h2>
+<div class="ml-2 mr-2">
+<h3 class="border-bottom">广而告之</h3>
 <div class="adsense-side">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
@@ -332,9 +645,143 @@ placeholder: '留下你的评论吧～'
 </script>
 </div>
 </div>
+<div id="side-archive" class="mt-4">
+<h3 class="border-bottom">友情链接</h3>
+<p>
+<strong>独立博客是一座座孤岛，里面藏着丰富而有趣的灵魂。</strong>
+</p>
+<div class="ml-2">
+<span>
+<strong>»  </strong>
+<a href="https://hiwannz.com">见字如面</a>
+ · 来这里和我见面
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://www.91the.top">IT玩客</a>
+ · 几个同道中人记录工作中的经验、问题和交流，旨在记录、总结点滴，给未来的自己
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://www.boatsky.com">太空船博客</a>
+ · 西法前端个人博客
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://mikukonai.com">Project Aurora</a>
+ · 怕什么真理无穷，进一步有进一步的欢喜
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://diygod.me">Hi, DIYgod</a>
+ · 写代码是热爱，写到世界充满爱
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://www.huhexian.com">青山绿水</a>
+ · 高中生胡和先的个人博客, 主要分享自己的生活故事, 对世间百态的简单看法, 同时分享简单好玩的新奇玩意, 分享生活与你的美。
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://macplay.github.io">MacPlay</a>
+ · Share something interesting about byte ocean
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://blog.xjqxz.top">Dogge's blog</a>
+ · 向往未来
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://betterman.xyz">青衫不是山</a>
+ · To be a betterman
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://achuan.io">阿川的个人博客</a>
+ · 执着于理想, 纯粹于当下
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://lotabout.me">三点水</a>
+ · 不积小流, 无以成江海
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://beyondstars.xyz">探索子</a>
+ · 越过星空去探索
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://www.meitubk.com/">美图博客</a>
+ · 本博客纯娱乐, 用来听听音乐、看看美图、写写代码、聊聊人生而已
+</span>
+<br/>
+</div>
+</div>
+<div class="mt-4">
+<h3 class="border-bottom">关注我</h3>
+<span>
+Github: 
+<a href="https://github.com/Kinneyzhang/">https://github.com/Kinneyzhang/</a>
+</span>
+<br/>
+<span>
+RSS: 
+<a href="https://geekinney.com/feed.xml">https://geekinney.com/feed.xml</a>
+</span>
+</div>
+<div class="ml-2 mr-2 mt-3">
+<div class="adsense-side">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+<!-- side1 -->
+
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3231589012114037"
+     data-ad-slot="8335610542"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+
+
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
 </div>
 </aside>
 </div>
 </section>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<footer class="mt-2">
+<small>
+©2019-2020 戈楷旎 | Licensed under 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="知识共享许可协议" style="border-width:0" src="/assets/image/license.png"/>
+</a>
+</small>
+<small> | Powered by Geekblog</small>
+</footer>
+</div>
+</div>
+</div>
 </body>
 </html>

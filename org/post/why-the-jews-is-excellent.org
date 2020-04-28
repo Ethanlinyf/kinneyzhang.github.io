@@ -1,11 +1,11 @@
-#+TITLE: 为什么犹太人如此优秀?
+#+TITLE: [转]为什么犹太人如此优秀?
 #+DATE: 2020-04-01
 #+CATEGORY: 评论
 #+STARTUP: showall
 #+OPTIONS: toc:nil H:2 num:2
 
 #+begin_quote
-本文转载自 [[https://www.zhihu.com/question/20802135/answer/643670445\\][知乎回答]] , 作者：有个老外叫马绍飞。
+本文转载自[[https://www.zhihu.com/question/20802135/answer/643670445\\][知乎回答]], 作者：有个老外叫马绍飞。
 #+end_quote
 
 虽然我几乎在每一个回复下都说“本人是土生土长的纽约人”，但我同时也是德系（Ashkenazi）犹太人。 *我选择回答这个问题并不是为了吹嘘或贬低自己的民族，而是想尽可能地消除很多人对德系犹太人的误解。*
