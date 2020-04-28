@@ -4,9 +4,9 @@
 <title>戈楷旎</title>
 <link>https://geekinney.com/</link>
 <description>happy hacking emacs!</description>
-<Webmaster>Your Email</Webmaster>
-<language>en-us</language>
-<generator>GeekBlog 1.0.0</generator>
+<Webmaster>kinneyzhang666@gmail.com</Webmaster>
+<language>en</language>
+<generator>GeekBlog</generator>
 <ttl>5</ttl>
 <image>
 <url>/assets/image/favicon.ico</url>
@@ -16,14 +16,14 @@
 <height>32</height>
 </image>
 <item>
-<title>为什么犹太人如此优秀?</title>
+<title>[转]为什么犹太人如此优秀?</title>
 <link>https://geekinney.com/post/why-the-jews-is-excellent.html</link>
 <description>虽然我几乎在每一个回复下都说“本人是土生土长的纽约人”，但我同时也是德系（Ashkenazi）犹太人。我选择回答这个问题并不是为了吹嘘或贬低自己的民族，而是想尽可能地消除很多人对德系犹太人的误解。首先 .... </description>
 <author>Geekinney</author>
 <pubDate>2020-04-01</pubDate>
 </item>
 <item>
-<title>产品经理的焦虑</title>
+<title>[转]产品经理的焦虑</title>
 <link>https://geekinney.com/post/anxiety-of-product-manager.html</link>
 <description>最近的焦虑越来越严重了。有媒体问张朝阳“现在还焦虑吗？”张回答“现在比较平和了。”记者追问“你是如何缓解焦虑的呢？““不去缓解，接受他。”今年算是我正式从事产品岗位的第四年（从2017年算起），从业这 .... </description>
 <author>Geekinney</author>
