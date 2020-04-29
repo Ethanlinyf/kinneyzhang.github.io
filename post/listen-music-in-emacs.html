@@ -6,7 +6,7 @@
 <title>Emacs中使用mpd+mingus听音乐</title>
 <meta name="generator" content="GeekBlog"/>
 <meta name="author" content="Geekinney"/>
-<meta name="description" content="happy hacking emacs!"/>
+<meta name="description" content="Emacs is a lifestyle  :-)<br>And happy hacking emacs!"/>
 <link rel="shortcut icon" href="/assets/image/favicon.ico"/>
 <link rel="bookmark" href="/assets/image/favicon.ico" type="image/x-icon"/>
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
@@ -21,7 +21,11 @@
 <div class="col-12">
 <header class="tophead">
 <a id="logo" href="/">戈楷旎</a>
-<p class="description">happy hacking emacs!</p>
+<p class="description">
+Emacs is a lifestyle  :-)
+<br>
+And happy hacking emacs!
+</p>
 </header>
 <nav class="topnav">
 <a href="/index.html">主页</a>
@@ -35,7 +39,7 @@
 </div>
 <section class="container">
 <div class="row">
-<div class="col-xl-8 col-md-8 col-lg-8 col-12">
+<div class="col-xl-8 col-md-8 col-lg-8 col-sm-12 col-12">
 <article class="post-content mb-4">
 <header>
 <h1 class="title">Emacs中使用mpd+mingus听音乐</h1>
@@ -67,34 +71,34 @@
 
 
 <li>
-<a href="#org03ce3b7">1. mpd安装及配置(macos)</a>
+<a href="#org97f0d0f">1. mpd安装及配置(macos)</a>
 
 
 <ul>
 
 
 <li>
-<a href="#orgb04535d">1.1. 安装</a>
+<a href="#org2e571af">1.1. 安装</a>
 </li>
 
 
 <li>
-<a href="#org28c0faf">1.2. 创建配置文件</a>
+<a href="#org7b91426">1.2. 创建配置文件</a>
 </li>
 
 
 <li>
-<a href="#org40283f1">1.3. 编辑配置</a>
+<a href="#org394fd37">1.3. 编辑配置</a>
 </li>
 
 
 <li>
-<a href="#org1137faa">1.4. 使用命令</a>
+<a href="#org6461032">1.4. 使用命令</a>
 </li>
 
 
 <li>
-<a href="#org60a028b">1.5. 注意点</a>
+<a href="#orgbb4a7c6">1.5. 注意点</a>
 </li>
 
 
@@ -105,19 +109,19 @@
 
 
 <li>
-<a href="#org3783c33">2. mingus安装及使用</a>
+<a href="#org950c27a">2. mingus安装及使用</a>
 
 
 <ul>
 
 
 <li>
-<a href="#orgfeab3d8">2.1. 安装</a>
+<a href="#org01ac039">2.1. 安装</a>
 </li>
 
 
 <li>
-<a href="#org2c13d78">2.2. 使用</a>
+<a href="#org1559fa5">2.2. 使用</a>
 </li>
 
 
@@ -128,12 +132,12 @@
 
 
 <li>
-<a href="#orgc713dd1">3. 效果</a>
+<a href="#orgcf6b1d4">3. 效果</a>
 </li>
 
 
 <li>
-<a href="#org73f3b0e">4. 参考文档</a>
+<a href="#org2b5f7a2">4. 参考文档</a>
 </li>
 
 
@@ -175,10 +179,10 @@ Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音�
 
 
 
-<div id="outline-container-org03ce3b7" class="outline-2">
+<div id="outline-container-org97f0d0f" class="outline-2">
 
 
-<h2 id="org03ce3b7">
+<h2 id="org97f0d0f">
 <span class="section-number-2">1</span>
  mpd安装及配置(macos)
 </h2>
@@ -188,10 +192,10 @@ Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音�
 </div>
 
 
-<div id="outline-container-orgb04535d" class="outline-3">
+<div id="outline-container-org2e571af" class="outline-3">
 
 
-<h3 id="orgb04535d">
+<h3 id="org2e571af">
 <span class="section-number-3">1.1</span>
  安装
 </h3>
@@ -233,10 +237,10 @@ Mac用户可以很方便的使用homebrew安装mpd
 
 
 
-<div id="outline-container-org28c0faf" class="outline-3">
+<div id="outline-container-org7b91426" class="outline-3">
 
 
-<h3 id="org28c0faf">
+<h3 id="org7b91426">
 <span class="section-number-3">1.2</span>
  创建配置文件
 </h3>
@@ -275,10 +279,10 @@ $ touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
 
 
 
-<div id="outline-container-org40283f1" class="outline-3">
+<div id="outline-container-org394fd37" class="outline-3">
 
 
-<h3 id="org40283f1">
+<h3 id="org394fd37">
 <span class="section-number-3">1.3</span>
  编辑配置
 </h3>
@@ -346,10 +350,10 @@ audio_output {
 
 
 
-<div id="outline-container-org1137faa" class="outline-3">
+<div id="outline-container-org6461032" class="outline-3">
 
 
-<h3 id="org1137faa">
+<h3 id="org6461032">
 <span class="section-number-3">1.4</span>
  使用命令
 </h3>
@@ -377,10 +381,10 @@ $ mpd update  # 更新
 
 
 
-<div id="outline-container-org60a028b" class="outline-3">
+<div id="outline-container-orgbb4a7c6" class="outline-3">
 
 
-<h3 id="org60a028b">
+<h3 id="orgbb4a7c6">
 <span class="section-number-3">1.5</span>
  注意点
 </h3>
@@ -417,10 +421,10 @@ linux系统参考
 
 
 
-<div id="outline-container-org3783c33" class="outline-2">
+<div id="outline-container-org950c27a" class="outline-2">
 
 
-<h2 id="org3783c33">
+<h2 id="org950c27a">
 <span class="section-number-2">2</span>
  mingus安装及使用
 </h2>
@@ -430,10 +434,10 @@ linux系统参考
 </div>
 
 
-<div id="outline-container-orgfeab3d8" class="outline-3">
+<div id="outline-container-org01ac039" class="outline-3">
 
 
-<h3 id="orgfeab3d8">
+<h3 id="org01ac039">
 <span class="section-number-3">2.1</span>
  安装
 </h3>
@@ -468,10 +472,10 @@ mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界�
 
 
 
-<div id="outline-container-org2c13d78" class="outline-3">
+<div id="outline-container-org1559fa5" class="outline-3">
 
 
-<h3 id="org2c13d78">
+<h3 id="org1559fa5">
 <span class="section-number-3">2.2</span>
  使用
 </h3>
@@ -523,10 +527,10 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 
 
 
-<div id="outline-container-orgc713dd1" class="outline-2">
+<div id="outline-container-orgcf6b1d4" class="outline-2">
 
 
-<h2 id="orgc713dd1">
+<h2 id="orgcf6b1d4">
 <span class="section-number-2">3</span>
  效果
 </h2>
@@ -552,10 +556,10 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 </div>
 
 
-<div id="outline-container-org73f3b0e" class="outline-2">
+<div id="outline-container-org2b5f7a2" class="outline-2">
 
 
-<h2 id="org73f3b0e">
+<h2 id="org2b5f7a2">
 <span class="section-number-2">4</span>
  参考文档
 </h2>
@@ -619,7 +623,7 @@ placeholder: '留下你的评论吧～'
 	   sessionStorage.setItem("theme","light");
 	 }});</script>
 </div>
-<aside class="col-xl-4 col-md-4 col-lg-4 d-none d-sm-block">
+<aside class="col-xl-4 col-md-4 col-lg-4">
 <div id="sidebar">
 <div>
 <h3 class="border-bottom">广而告之</h3>

@@ -43,19 +43,12 @@
 
 * 交流联系
   如对博客内容有更多问题，欢迎交流探讨:
-  * /WeChat: zhangk1996/
-  * /Email: kinneyzhang666@gmail.com/
-  
-  Github: https://github.com/Kinneyzhang/\\
-  RSS: https://geekinney.com/feed.xml/
+
+  /WeChat: zhangk1996/\\
+  /Email: kinneyzhang666@gmail.com/\\
 
 * 公号推荐
   好友Elena的微信公众号: *Oops Elena*\\
   分享美剧知识，记录旅行生活，扫描👇二维码关注吧~
   
   [[https://geekinney.com/assets/image/Oops-Elena.png]]
-  
-* 友情链接
-  需要交换友链可以留言~
-
-  [[https://hiwannz.com][见字如面]] (生活.职场) |  [[https://www.91the.top][IT玩客]] (技术) | [[https://www.boatsky.com][太空船博客]] (前端.书评.影评) |  [[https://mikukonai.com][Project Aurora]] (综合) |  [[https://diygod.me][Hi, DIYgod]] (综合) |  [[https://www.huhexian.com][青山绿水]] (生活) |  [[https://macplay.github.io][MacPlay]] (Mac.技术) |  [[https://blog.xjqxz.top][Dogge's blog]] (综合) |  [[https://betterman.xyz][青衫不是山]] (技术) |  [[https://achuan.io][阿川的个人博客]] (技术) |  [[https://lotabout.me][三点水]] (技术) |  [[https://beyondstars.xyz][探索子]] (技术) |  [[https://www.meitubk.com/][美图博客]] (美图.技术)
