@@ -7,7 +7,7 @@ html {
 
 body {
     font-family: 'Noto Sans SC', sans-serif;
-	/* Arial,"TIBch", "Classic Grotesque W01", "Helvetica Neue", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif; */
+    /* Arial,"TIBch", "Classic Grotesque W01", "Helvetica Neue", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif; */
     -webkit-font-smoothing:antialiased;
     /* background-image:url('/static/img/dot-grid.png'); */
     /* background-color: white; */
@@ -63,7 +63,7 @@ a:active,a:hover {
 .topnav {
     font-size: 1.2em;
     padding: 0.3em 0em;
-    margin-top: 2em;
+    margin-top: 1.5em;
     margin-bottom: 1.5em;
     border-bottom: 1px solid #ddd;
     text-align: right;
@@ -568,9 +568,11 @@ h6 {
 /*     } */
 /* } */
 
-/* @media screen and (min-width:600px) { */
-/*     .creator { */
-/* 	display: inline; */
-/* 	float: right; */
-/*     } */
-/* } */
+@media screen and (min-width:600px) {
+    .tophead {
+	text-align: center;
+    }
+    .topnav {
+	margin-top: 2em;
+    }
+}
