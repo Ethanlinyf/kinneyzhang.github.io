@@ -64,7 +64,7 @@ a:active,a:hover {
     font-size: 1.2em;
     padding: 0.3em 0em;
     margin-top: 1.5em;
-    margin-bottom: 1.5em;
+    margin-bottom: 1.2em;
     border-bottom: 1px solid #ddd;
     text-align: right;
 }
@@ -568,7 +568,7 @@ h6 {
 /*     } */
 /* } */
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:767px) {
     .tophead {
 	text-align: center;
     }
