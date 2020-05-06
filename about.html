@@ -19,7 +19,7 @@
 <div class="container">
 <div class="row">
 <div class="col-12">
-<header class="tophead">
+<header id="topheader">
 <a id="logo" href="/">戈楷旎</a>
 <p class="description">
 Emacs is a lifestyle  :-)
@@ -27,7 +27,7 @@ Emacs is a lifestyle  :-)
 And happy hacking emacs!
 </p>
 </header>
-<nav class="topnav">
+<nav id="topmenu">
 <a href="/index.html">主页</a>
 <a href="/archive.html">归档</a>
 <a href="/category.html">分类</a>
@@ -37,10 +37,9 @@ And happy hacking emacs!
 </div>
 </div>
 </div>
-<section class="container">
+<main class="container">
 <div class="row">
-<div class="col-xl-8 col-md-8 col-lg-8 col-sm-12 col-12">
-<article class="post-content mb-4">
+<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
 <div>
 <p>
 
@@ -54,13 +53,13 @@ And happy hacking emacs!
 
 
 
-<div id="outline-container-org8b05eb0" class="outline-2">
+<div id="outline-container-org5df28a3" class="outline-2">
 
 
-<h2 id="org8b05eb0">关于我和Emacs</h2>
+<h2 id="org5df28a3">关于我和Emacs</h2>
 
 
-<div class="outline-text-2" id="text-org8b05eb0">
+<div class="outline-text-2" id="text-org5df28a3">
 
 
 <p>
@@ -196,13 +195,13 @@ And happy hacking emacs!
 
 
 
-<div id="outline-container-org7569903" class="outline-2">
+<div id="outline-container-org380272a" class="outline-2">
 
 
-<h2 id="org7569903">为什么开设博客</h2>
+<h2 id="org380272a">为什么开设博客</h2>
 
 
-<div class="outline-text-2" id="text-org7569903">
+<div class="outline-text-2" id="text-org380272a">
 
 
 <p>
@@ -255,13 +254,13 @@ And happy hacking emacs!
 
 
 
-<div id="outline-container-org05313df" class="outline-2">
+<div id="outline-container-org577e833" class="outline-2">
 
 
-<h2 id="org05313df">关于版权的说明</h2>
+<h2 id="org577e833">关于版权的说明</h2>
 
 
-<div class="outline-text-2" id="text-org05313df">
+<div class="outline-text-2" id="text-org577e833">
 
 
 <p>
@@ -286,13 +285,13 @@ And happy hacking emacs!
 
 
 
-<div id="outline-container-orga719b48" class="outline-2">
+<div id="outline-container-orgf4f33a2" class="outline-2">
 
 
-<h2 id="orga719b48">关于隐私与评论</h2>
+<h2 id="orgf4f33a2">关于隐私与评论</h2>
 
 
-<div class="outline-text-2" id="text-orga719b48">
+<div class="outline-text-2" id="text-orgf4f33a2">
 
 
 <p>
@@ -313,13 +312,13 @@ And happy hacking emacs!
 
 
 
-<div id="outline-container-orgac40c8d" class="outline-2">
+<div id="outline-container-orge6a1b62" class="outline-2">
 
 
-<h2 id="orgac40c8d">交流联系</h2>
+<h2 id="orge6a1b62">交流联系</h2>
 
 
-<div class="outline-text-2" id="text-orgac40c8d">
+<div class="outline-text-2" id="text-orge6a1b62">
 
 
 <p>
@@ -349,13 +348,13 @@ And happy hacking emacs!
 
 
 
-<div id="outline-container-org7397870" class="outline-2">
+<div id="outline-container-orge6d460a" class="outline-2">
 
 
-<h2 id="org7397870">公号推荐</h2>
+<h2 id="orge6d460a">公号推荐</h2>
 
 
-<div class="outline-text-2" id="text-org7397870">
+<div class="outline-text-2" id="text-orge6d460a">
 
 
 <p>
@@ -388,40 +387,10 @@ And happy hacking emacs!
 
 
 </div>
-</article>
-<script src="/assets/js/jQuery.min.js"></script>
-<script>$(document).ready(function(){
-	 var theme = sessionStorage.getItem("theme");
-	 if(theme=="dark"){
-	   document.getElementById("pagestyle").href="/assets/css/dark.css";
-	 }else if(theme=="light"){
-	   document.getElementById("pagestyle").href="/assets/css/light.css";
-	 }else{
-	   sessionStorage.setItem("theme","light");
-	 }});</script>
 </div>
-<aside class="col-xl-4 col-md-4 col-lg-4">
+<aside class="col-md-4 col-lg-4 col-xl-4">
 <div id="sidebar">
-<div>
-<h3 class="border-bottom">广而告之</h3>
-<div class="adsense-side">
-<!-- side1 -->
-
-
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3231589012114037"
-     data-ad-slot="9630125312"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-
-
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
-</div>
-<div id="side-archive" class="mt-4">
+<div id="side-friend" class="mt-4">
 <h3 class="border-bottom">友情链接</h3>
 <p>
 <strong>独立博客是一座座孤岛，里面藏着丰富有趣的灵魂。友链是孤岛的桥梁，欢迎常串门儿～</strong>
@@ -519,28 +488,23 @@ RSS:
 <a href="https://geekinney.com/feed.xml">https://geekinney.com/feed.xml</a>
 </span>
 </div>
-<div class="mt-4 border-top border-bottom">
-<div class="adsense-side">
-<!-- side2 -->
-
-
+<div class="adsense-side mt-2">
 <ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3231589012114037"
-     data-ad-slot="8335610542"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+     style="display:block; text-align:center;"
+	data-ad-layout="in-article"
+	data-ad-format="fluid"
+	data-ad-client="ca-pub-3231589012114037"
+	data-ad-slot="9630125312"></ins>
 
-
+	
 <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
 </div>
 </div>
 </aside>
 </div>
-</section>
+</main>
 <div class="container">
 <div class="row">
 <div class="col-12">
@@ -550,11 +514,21 @@ RSS:
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="知识共享许可协议" style="border-width:0" src="/assets/image/license.png"/>
 </a>
+ | Powered by Geekblog
 </small>
-<small> | Powered by Geekblog</small>
 </footer>
 </div>
 </div>
 </div>
+<script src="/assets/js/jQuery.min.js"></script>
+<script>$(document).ready(function(){
+	 var theme = sessionStorage.getItem("theme");
+	 if(theme=="dark"){
+	   document.getElementById("pagestyle").href="/assets/css/dark.css";
+	 }else if(theme=="light"){
+	   document.getElementById("pagestyle").href="/assets/css/light.css";
+	 }else{
+	   sessionStorage.setItem("theme","light");
+	 }});</script>
 </body>
 </html>

@@ -42,7 +42,7 @@ a:active,a:hover {
 /*     color: #c83b23; */
 /* } */
 
-.tophead {
+#topheader {
     padding-top: 1em;
     padding-bottom: 0.5em;
     text-align: left;
@@ -60,7 +60,7 @@ a:active,a:hover {
     margin:-18px 0 0;
     color:#999;
 }
-.topnav {
+#topmenu {
     font-size: 1.2em;
     padding: 0.3em 0em;
     margin-top: 1.5em;
@@ -68,7 +68,7 @@ a:active,a:hover {
     border-bottom: 1px solid #ddd;
     text-align: right;
 }
-.topnav a {
+#topmenu a {
     text-decoration: none;
     margin-right: 10px;
     color: #666;
@@ -546,7 +546,7 @@ h6 {
 /*     .toptitle { */
 /* 	text-align: center; */
 /*     } */
-/*     .topnav { */
+/*     .topmenu { */
 /* 	font-size: 1.1em; */
 /* 	margin-top: 2em; */
 /*     } */
@@ -569,10 +569,10 @@ h6 {
 /* } */
 
 @media screen and (max-width:767px) {
-    .tophead {
+    #topheader {
 	text-align: center;
     }
-    .topnav {
+    #topmenu {
 	margin-top: 2em;
     }
 }

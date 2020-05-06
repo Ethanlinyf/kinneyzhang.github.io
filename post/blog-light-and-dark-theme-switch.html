@@ -19,7 +19,7 @@
 <div class="container">
 <div class="row">
 <div class="col-12">
-<header class="tophead">
+<header id="topheader">
 <a id="logo" href="/">戈楷旎</a>
 <p class="description">
 Emacs is a lifestyle  :-)
@@ -27,7 +27,7 @@ Emacs is a lifestyle  :-)
 And happy hacking emacs!
 </p>
 </header>
-<nav class="topnav">
+<nav id="topmenu">
 <a href="/index.html">主页</a>
 <a href="/archive.html">归档</a>
 <a href="/category.html">分类</a>
@@ -37,10 +37,10 @@ And happy hacking emacs!
 </div>
 </div>
 </div>
-<section class="container">
+<main class="container">
 <div class="row">
-<div class="col-xl-8 col-md-8 col-lg-8 col-sm-12 col-12">
-<article class="post-content mb-4">
+<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+<div id="post-content">
 <header>
 <h1 class="title">博客亮/暗色主题切换</h1>
 </header>
@@ -207,8 +207,7 @@ Ok，这样就可以自由的切换博客主题并保持状态了，快点击下
 	(adsbygoogle = window.adsbygoogle || []).push({});
 	</script>
 </div>
-</article>
-<div id="comment-block" class="mt-4">
+<div class="comment-block mt-4">
 <script src="/assets/js/valine.min.js"></script>
 <div id="vcomments"></div>
 <script>new Valine({
@@ -222,39 +221,11 @@ avatar: 'identicon',
 placeholder: '留下你的评论吧～'
 })</script>
 </div>
-<script src="/assets/js/jQuery.min.js"></script>
-<script>$(document).ready(function(){
-	 var theme = sessionStorage.getItem("theme");
-	 if(theme=="dark"){
-	   document.getElementById("pagestyle").href="/assets/css/dark.css";
-	 }else if(theme=="light"){
-	   document.getElementById("pagestyle").href="/assets/css/light.css";
-	 }else{
-	   sessionStorage.setItem("theme","light");
-	 }});</script>
 </div>
-<aside class="col-xl-4 col-md-4 col-lg-4">
+</div>
+<aside class="col-md-4 col-lg-4 col-xl-4">
 <div id="sidebar">
-<div>
-<h3 class="border-bottom">广而告之</h3>
-<div class="adsense-side">
-<!-- side1 -->
-
-
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3231589012114037"
-     data-ad-slot="9630125312"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-
-
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
-</div>
-<div id="side-archive" class="mt-4">
+<div id="side-friend" class="mt-4">
 <h3 class="border-bottom">友情链接</h3>
 <p>
 <strong>独立博客是一座座孤岛，里面藏着丰富有趣的灵魂。友链是孤岛的桥梁，欢迎常串门儿～</strong>
@@ -352,28 +323,23 @@ RSS:
 <a href="https://geekinney.com/feed.xml">https://geekinney.com/feed.xml</a>
 </span>
 </div>
-<div class="mt-4 border-top border-bottom">
-<div class="adsense-side">
-<!-- side2 -->
-
-
+<div class="adsense-side mt-2">
 <ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3231589012114037"
-     data-ad-slot="8335610542"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+     style="display:block; text-align:center;"
+	data-ad-layout="in-article"
+	data-ad-format="fluid"
+	data-ad-client="ca-pub-3231589012114037"
+	data-ad-slot="9630125312"></ins>
 
-
+	
 <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
 </div>
 </div>
 </aside>
 </div>
-</section>
+</main>
 <div class="container">
 <div class="row">
 <div class="col-12">
@@ -383,11 +349,21 @@ RSS:
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="知识共享许可协议" style="border-width:0" src="/assets/image/license.png"/>
 </a>
+ | Powered by Geekblog
 </small>
-<small> | Powered by Geekblog</small>
 </footer>
 </div>
 </div>
 </div>
+<script src="/assets/js/jQuery.min.js"></script>
+<script>$(document).ready(function(){
+	 var theme = sessionStorage.getItem("theme");
+	 if(theme=="dark"){
+	   document.getElementById("pagestyle").href="/assets/css/dark.css";
+	 }else if(theme=="light"){
+	   document.getElementById("pagestyle").href="/assets/css/light.css";
+	 }else{
+	   sessionStorage.setItem("theme","light");
+	 }});</script>
 </body>
 </html>

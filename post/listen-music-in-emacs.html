@@ -19,7 +19,7 @@
 <div class="container">
 <div class="row">
 <div class="col-12">
-<header class="tophead">
+<header id="topheader">
 <a id="logo" href="/">戈楷旎</a>
 <p class="description">
 Emacs is a lifestyle  :-)
@@ -27,7 +27,7 @@ Emacs is a lifestyle  :-)
 And happy hacking emacs!
 </p>
 </header>
-<nav class="topnav">
+<nav id="topmenu">
 <a href="/index.html">主页</a>
 <a href="/archive.html">归档</a>
 <a href="/category.html">分类</a>
@@ -37,10 +37,10 @@ And happy hacking emacs!
 </div>
 </div>
 </div>
-<section class="container">
+<main class="container">
 <div class="row">
-<div class="col-xl-8 col-md-8 col-lg-8 col-sm-12 col-12">
-<article class="post-content mb-4">
+<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+<div id="post-content">
 <header>
 <h1 class="title">Emacs中使用mpd+mingus听音乐</h1>
 </header>
@@ -71,34 +71,34 @@ And happy hacking emacs!
 
 
 <li>
-<a href="#org97f0d0f">1. mpd安装及配置(macos)</a>
+<a href="#org2d2e947">1. mpd安装及配置(macos)</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org2e571af">1.1. 安装</a>
+<a href="#org545bc2a">1.1. 安装</a>
 </li>
 
 
 <li>
-<a href="#org7b91426">1.2. 创建配置文件</a>
+<a href="#org942fbe6">1.2. 创建配置文件</a>
 </li>
 
 
 <li>
-<a href="#org394fd37">1.3. 编辑配置</a>
+<a href="#orgd6fa738">1.3. 编辑配置</a>
 </li>
 
 
 <li>
-<a href="#org6461032">1.4. 使用命令</a>
+<a href="#org22e44ac">1.4. 使用命令</a>
 </li>
 
 
 <li>
-<a href="#orgbb4a7c6">1.5. 注意点</a>
+<a href="#orgd180181">1.5. 注意点</a>
 </li>
 
 
@@ -109,19 +109,19 @@ And happy hacking emacs!
 
 
 <li>
-<a href="#org950c27a">2. mingus安装及使用</a>
+<a href="#orgd37c682">2. mingus安装及使用</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org01ac039">2.1. 安装</a>
+<a href="#org7c23087">2.1. 安装</a>
 </li>
 
 
 <li>
-<a href="#org1559fa5">2.2. 使用</a>
+<a href="#org8e5b3c8">2.2. 使用</a>
 </li>
 
 
@@ -132,12 +132,12 @@ And happy hacking emacs!
 
 
 <li>
-<a href="#orgcf6b1d4">3. 效果</a>
+<a href="#org5ec7252">3. 效果</a>
 </li>
 
 
 <li>
-<a href="#org2b5f7a2">4. 参考文档</a>
+<a href="#org73b0cf6">4. 参考文档</a>
 </li>
 
 
@@ -179,10 +179,10 @@ Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音�
 
 
 
-<div id="outline-container-org97f0d0f" class="outline-2">
+<div id="outline-container-org2d2e947" class="outline-2">
 
 
-<h2 id="org97f0d0f">
+<h2 id="org2d2e947">
 <span class="section-number-2">1</span>
  mpd安装及配置(macos)
 </h2>
@@ -192,10 +192,10 @@ Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音�
 </div>
 
 
-<div id="outline-container-org2e571af" class="outline-3">
+<div id="outline-container-org545bc2a" class="outline-3">
 
 
-<h3 id="org2e571af">
+<h3 id="org545bc2a">
 <span class="section-number-3">1.1</span>
  安装
 </h3>
@@ -237,10 +237,10 @@ Mac用户可以很方便的使用homebrew安装mpd
 
 
 
-<div id="outline-container-org7b91426" class="outline-3">
+<div id="outline-container-org942fbe6" class="outline-3">
 
 
-<h3 id="org7b91426">
+<h3 id="org942fbe6">
 <span class="section-number-3">1.2</span>
  创建配置文件
 </h3>
@@ -279,10 +279,10 @@ $ touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
 
 
 
-<div id="outline-container-org394fd37" class="outline-3">
+<div id="outline-container-orgd6fa738" class="outline-3">
 
 
-<h3 id="org394fd37">
+<h3 id="orgd6fa738">
 <span class="section-number-3">1.3</span>
  编辑配置
 </h3>
@@ -350,10 +350,10 @@ audio_output {
 
 
 
-<div id="outline-container-org6461032" class="outline-3">
+<div id="outline-container-org22e44ac" class="outline-3">
 
 
-<h3 id="org6461032">
+<h3 id="org22e44ac">
 <span class="section-number-3">1.4</span>
  使用命令
 </h3>
@@ -381,10 +381,10 @@ $ mpd update  # 更新
 
 
 
-<div id="outline-container-orgbb4a7c6" class="outline-3">
+<div id="outline-container-orgd180181" class="outline-3">
 
 
-<h3 id="orgbb4a7c6">
+<h3 id="orgd180181">
 <span class="section-number-3">1.5</span>
  注意点
 </h3>
@@ -421,10 +421,10 @@ linux系统参考
 
 
 
-<div id="outline-container-org950c27a" class="outline-2">
+<div id="outline-container-orgd37c682" class="outline-2">
 
 
-<h2 id="org950c27a">
+<h2 id="orgd37c682">
 <span class="section-number-2">2</span>
  mingus安装及使用
 </h2>
@@ -434,10 +434,10 @@ linux系统参考
 </div>
 
 
-<div id="outline-container-org01ac039" class="outline-3">
+<div id="outline-container-org7c23087" class="outline-3">
 
 
-<h3 id="org01ac039">
+<h3 id="org7c23087">
 <span class="section-number-3">2.1</span>
  安装
 </h3>
@@ -472,10 +472,10 @@ mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界�
 
 
 
-<div id="outline-container-org1559fa5" class="outline-3">
+<div id="outline-container-org8e5b3c8" class="outline-3">
 
 
-<h3 id="org1559fa5">
+<h3 id="org8e5b3c8">
 <span class="section-number-3">2.2</span>
  使用
 </h3>
@@ -527,10 +527,10 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 
 
 
-<div id="outline-container-orgcf6b1d4" class="outline-2">
+<div id="outline-container-org5ec7252" class="outline-2">
 
 
-<h2 id="orgcf6b1d4">
+<h2 id="org5ec7252">
 <span class="section-number-2">3</span>
  效果
 </h2>
@@ -556,10 +556,10 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 </div>
 
 
-<div id="outline-container-org2b5f7a2" class="outline-2">
+<div id="outline-container-org73b0cf6" class="outline-2">
 
 
-<h2 id="org2b5f7a2">
+<h2 id="org73b0cf6">
 <span class="section-number-2">4</span>
  参考文档
 </h2>
@@ -597,8 +597,7 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 	(adsbygoogle = window.adsbygoogle || []).push({});
 	</script>
 </div>
-</article>
-<div id="comment-block" class="mt-4">
+<div class="comment-block mt-4">
 <script src="/assets/js/valine.min.js"></script>
 <div id="vcomments"></div>
 <script>new Valine({
@@ -612,39 +611,11 @@ avatar: 'identicon',
 placeholder: '留下你的评论吧～'
 })</script>
 </div>
-<script src="/assets/js/jQuery.min.js"></script>
-<script>$(document).ready(function(){
-	 var theme = sessionStorage.getItem("theme");
-	 if(theme=="dark"){
-	   document.getElementById("pagestyle").href="/assets/css/dark.css";
-	 }else if(theme=="light"){
-	   document.getElementById("pagestyle").href="/assets/css/light.css";
-	 }else{
-	   sessionStorage.setItem("theme","light");
-	 }});</script>
 </div>
-<aside class="col-xl-4 col-md-4 col-lg-4">
+</div>
+<aside class="col-md-4 col-lg-4 col-xl-4">
 <div id="sidebar">
-<div>
-<h3 class="border-bottom">广而告之</h3>
-<div class="adsense-side">
-<!-- side1 -->
-
-
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3231589012114037"
-     data-ad-slot="9630125312"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-
-
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
-</div>
-<div id="side-archive" class="mt-4">
+<div id="side-friend" class="mt-4">
 <h3 class="border-bottom">友情链接</h3>
 <p>
 <strong>独立博客是一座座孤岛，里面藏着丰富有趣的灵魂。友链是孤岛的桥梁，欢迎常串门儿～</strong>
@@ -742,28 +713,23 @@ RSS:
 <a href="https://geekinney.com/feed.xml">https://geekinney.com/feed.xml</a>
 </span>
 </div>
-<div class="mt-4 border-top border-bottom">
-<div class="adsense-side">
-<!-- side2 -->
-
-
+<div class="adsense-side mt-2">
 <ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3231589012114037"
-     data-ad-slot="8335610542"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+     style="display:block; text-align:center;"
+	data-ad-layout="in-article"
+	data-ad-format="fluid"
+	data-ad-client="ca-pub-3231589012114037"
+	data-ad-slot="9630125312"></ins>
 
-
+	
 <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
 </div>
 </div>
 </aside>
 </div>
-</section>
+</main>
 <div class="container">
 <div class="row">
 <div class="col-12">
@@ -773,11 +739,21 @@ RSS:
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
 <img alt="知识共享许可协议" style="border-width:0" src="/assets/image/license.png"/>
 </a>
+ | Powered by Geekblog
 </small>
-<small> | Powered by Geekblog</small>
 </footer>
 </div>
 </div>
 </div>
+<script src="/assets/js/jQuery.min.js"></script>
+<script>$(document).ready(function(){
+	 var theme = sessionStorage.getItem("theme");
+	 if(theme=="dark"){
+	   document.getElementById("pagestyle").href="/assets/css/dark.css";
+	 }else if(theme=="light"){
+	   document.getElementById("pagestyle").href="/assets/css/light.css";
+	 }else{
+	   sessionStorage.setItem("theme","light");
+	 }});</script>
 </body>
 </html>
