@@ -41,433 +41,150 @@ And happy hacking emacs!
 <div class="row">
 <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
 <div>
-<nav id="table-of-contents">
+<p>
 
 
-<h2>Table of Contents</h2>
+<b>戈楷旎</b>
+ 就是我的英文名 
+<i>Geekinney</i>
+ 的谐音～
 
+</p>
 
-<div id="text-table-of-contents">
 
 
-<ul>
+<div id="outline-container-org4edbc53" class="outline-2">
 
 
-<li>
-<a href="#orgec7987c">文件操作</a>
-</li>
+<h2 id="org4edbc53">关于我和Emacs</h2>
 
 
-<li>
-<a href="#org64cf92d">列表</a>
-</li>
-
-
-<li>
-<a href="#org93cef77">表格</a>
-</li>
-
-
-<li>
-<a href="#orgd7b92e4">链接</a>
-</li>
-
-
-<li>
-<a href="#org9b929b0">待做列表</a>
-</li>
-
-
-<li>
-<a href="#orgcd0529a">时间</a>
-</li>
-
-
-<li>
-<a href="#org163aab8">特殊文本格式</a>
-</li>
-
-
-<li>
-<a href="#org0465d14">富文本导出</a>
-
-
-<ul>
-
-
-<li>
-<a href="#org0a0a870">设置标题和目录</a>
-</li>
-
-
-<li>
-<a href="#org29e97dc">居中</a>
-</li>
-
-
-<li>
-<a href="#orge614c56">注释</a>
-</li>
-
-
-<li>
-<a href="#org516f923">分隔符</a>
-</li>
-
-
-<li>
-<a href="#orgb62388e">引用</a>
-</li>
-
-
-<li>
-<a href="#org93c7329">多行换行</a>
-</li>
-
-
-</ul>
-
-
-</li>
-
-
-<li>
-<a href="#org541e46d">org-clock</a>
-</li>
-
-
-<li>
-<a href="#org42f7e69">标题间跳转</a>
-</li>
-
-
-<li>
-<a href="#org72971b0">how to study emacs</a>
-</li>
-
-
-<li>
-<a href="#org4582f80">查找替换</a>
-</li>
-
-
-<li>
-<a href="#org3b4fa17">proced</a>
-</li>
-
-
-</ul>
-
-
-</div>
-
-
-</nav>
-
-
-
-<div id="outline-container-orgec7987c" class="outline-2">
-
-
-<h2 id="orgec7987c">文件操作</h2>
-
-
-<div class="outline-text-2" id="text-orgec7987c">
-
-
-<ul class="org-ul">
-
-
-<li>C-x d进入Dired-mode</li>
-
-
-<li>+ 新建文件夹</li>
-
-
-<li>C-x C-f 新建文件</li>
-
-
-<li>C 复制</li>
-
-
-<li>D 删除</li>
-
-
-<li>d 标记删除，x执行，u取消</li>
-
-
-<li>R 重命名文件</li>
-
-
-<li>C-x C-j 打开当前文件的目录</li>
-
-
-<li>C-c p f 在当前git中查找</li>
-
-
-</ul>
-
-
-</div>
-
-
-</div>
-
-
-
-<div id="outline-container-org64cf92d" class="outline-2">
-
-
-<h2 id="org64cf92d">列表</h2>
-
-
-<div class="outline-text-2" id="text-org64cf92d">
-
-
-<pre class="example">
-1. [50%] 任务1
-   - [X] t1
-   - [ ] t2
-2. [1/3] 任务2
-   - [ ] t1
-   - [X] t2
-   - [ ] t3
-3. [ ] 任务3
-4. [X] 任务4
-
-</pre>
-
-
-<ol class="org-ol">
-
-
-<li>
-<code>[50%]</code>
- 任务1
-
-<ul class="org-ul">
-
-
-<li class="on">
-<code>[X]</code>
- t1
-</li>
-
-
-<li class="off">
-<code>[&#xa0;]</code>
- t2
-</li>
-
-
-</ul>
-</li>
-
-
-<li>
-<code>[1/3]</code>
- 任务2
-
-<ul class="org-ul">
-
-
-<li class="off">
-<code>[&#xa0;]</code>
- t1
-</li>
-
-
-<li class="on">
-<code>[X]</code>
- t2
-</li>
-
-
-<li class="off">
-<code>[&#xa0;]</code>
- t3
-</li>
-
-
-</ul>
-</li>
-
-
-<li class="off">
-<code>[&#xa0;]</code>
- 任务3
-</li>
-
-
-<li class="on">
-<code>[X]</code>
- 任务4
-</li>
-
-
-</ol>
-
-
-</div>
-
-
-</div>
-
-
-
-<div id="outline-container-org93cef77" class="outline-2">
-
-
-<h2 id="org93cef77">表格</h2>
-
-
-<div class="outline-text-2" id="text-org93cef77">
-
-
-<ul class="org-ul">
-
-
-<li>C-c | 通过输入大小的方式插入表格</li>
-
-
-<li>C-c C-c 对齐表格</li>
-
-
-<li>Tab 调到右边一个表格</li>
-
-
-<li>enter 跳到下方的表格</li>
-
-
-<li>M-up/right/left/right 上下左右移动行（列）</li>
-
-
-<li>M-S-up/right/left/right 移动当前行（列）,并插入空行</li>
-
-
-</ul>
-
-
-
-<pre class="example">
-| Name | Phone | sub1 | sub2 | total |
-|------+-------+------+------+-------|
-|kinney|  111  |  111 |  111 |  111  |
-</pre>
-
-
-
-<table>
-
-
-
-
-<colgroup>
-
-
-<col  class="org-left">
-
-
-
-<col  class="org-right">
-
-
-
-<col  class="org-right">
-
-
-
-<col  class="org-right">
-
-
-
-<col  class="org-right">
-
-
-</colgroup>
-
-
-<thead>
-
-
-<tr>
-
-
-<th scope="col" class="org-left">Name</th>
-
-
-<th scope="col" class="org-right">Phone</th>
-
-
-<th scope="col" class="org-right">sub1</th>
-
-
-<th scope="col" class="org-right">sub2</th>
-
-
-<th scope="col" class="org-right">total</th>
-
-
-</tr>
-
-
-</thead>
-
-
-<tbody>
-
-
-<tr>
-
-
-<td class="org-left">kinney</td>
-
-
-<td class="org-right">111</td>
-
-
-<td class="org-right">111</td>
-
-
-<td class="org-right">111</td>
-
-
-<td class="org-right">111</td>
-
-
-</tr>
-
-
-</tbody>
-
-
-</table>
-
-
-</div>
-
-
-</div>
-
-
-
-<div id="outline-container-orgd7b92e4" class="outline-2">
-
-
-<h2 id="orgd7b92e4">链接</h2>
-
-
-<div class="outline-text-2" id="text-orgd7b92e4">
-
-
-<pre class="example">
-[[http://orgmode.org/orgguide.pdf]grgguid.pdf]]
-[[file:/Users/kinney/Desktop/屏幕快照\2018-08-10\19.33.36.png][链接写法]]
-</pre>
+<div class="outline-text-2" id="text-org4edbc53">
 
 
 <p>
-直接显示的图片在Emacs里默认不显示，需按C-c C-x C-v才能显示，在输出成其他格式（html、pdf……）后也能看到.常用快捷键:- C-c C-x C-v 直接预览图片。
+我是谁？emacser，本科计算机专业毕业。兴趣广泛，喜爱阅读、听歌、追番、听播客、折腾计算机技术、hack emacs&#x2026;
+</p>
+
+
+
+<ul class="org-ul">
+
+
+<li>
+读过的最爱的书是: 
+<i>
+<b>
+<a href="https://book.douban.com/subject/6781808/">《杀死一只知更鸟》</a>
+</b>
+</i>
+</li>
+
+
+<li>
+最喜爱的日文歌是: 
+<i>
+<b>
+<a href="https://www.bilibili.com/video/av3108239">God knows</a>
+</b>
+</i>
+</li>
+
+
+<li>
+最爱听的韩文歌手是: 
+<i>
+<b>
+<a href="https://music.163.com/#/artist?id=160947">IU</a>
+</b>
+</i>
+</li>
+
+
+<li>
+最喜欢的日漫是: 
+<i>
+<b>
+<a href="https://www.bilibili.com/bangumi/media/md24120616">《凉宫春日的忧郁》</a>
+</b>
+</i>
+</li>
+
+
+<li>
+最喜欢的动漫角色是: 
+<i>
+<b>
+<a href="https://search.bilibili.com/all?keyword=%E5%B9%B3%E6%B3%BD%E5%94%AF">平泽唯</a>
+</b>
+</i>
+</li>
+
+
+<li>
+最喜欢听的播客是: 
+<i>
+<b>
+<a href="https://www.ximalaya.com/yinyue/8583636/">《大内密谈》</a>
+</b>
+</i>
+</li>
+
+
+<li>
+最崇拜的计算机hacker是: 
+<i>
+<b>
+<a href="https://zh.wikipedia.org/wiki/%E7%90%86%E6%9F%A5%E5%BE%B7%C2%B7%E6%96%AF%E6%89%98%E6%9B%BC">Richard Stallman</a>
+</b>
+</i>
+</li>
+
+
+<li>
+最喜欢且唯一使用的(
+<del>操作系统</del>
+)编辑器是: 
+<i>
+<b>
+<a href="https://www.gnu.org/software/emacs/">Emacs</a>
+</b>
+</i>
+</li>
+
+
+</ul>
+
+
+
+<p>
+
+我的一天绝大部分时间是在emacs中度过的。我在emacs中编程、写作、学习、管理日程、搭建博客&#x2026;(此处省略一万字)。那么Emacs是什么？看懒猫的这两篇文章：
+<a href="https://manateelazycat.github.io/emacs/2016/03/06/what-is-emacs.html">Emacs是一种生活方式</a>
+ 和 
+<a href="https://manateelazycat.github.io/emacs/2018/12/11/study-emacs.html">如何学习emacs</a>
+。
+
+</p>
+
+
+
+<p>
+如果你是程序员，我强烈推荐你使用emacs，它会极大的提高学习工作效率；如果你不是程序员，但不怕折腾，我也推荐你尝试emacs，它会成为你时间管理与文档书写的利器。
+</p>
+
+
+
+<p>
+
+入门emacs，推荐观看子龙山人的 
+<a href="https://v.youku.com/v_show/id_XMTUwNjU0MjE0OA==.html">Master Emacs in 21 Days</a>
+ 系列视频。使用emacs过程遇到问题可以在 
+<a href="https://emacs-china.org">emacs-china</a>
+ 论坛向大神求助。 
+<b>At Last, happy hacking emacs!</b>
+
+
 </p>
 
 
@@ -478,319 +195,53 @@ And happy hacking emacs!
 
 
 
-<div id="outline-container-org9b929b0" class="outline-2">
+<div id="outline-container-org21d320b" class="outline-2">
 
 
-<h2 id="org9b929b0">待做列表</h2>
+<h2 id="org21d320b">为什么开设博客</h2>
 
 
-<div class="outline-text-2" id="text-org9b929b0">
-
-
-<pre class="example">
-*DONE [ ] 任务1
-*TODO [#A] 任务2
-</pre>
-
-
-
-<p>
-一些常用操作如下： 
-</p>
-
-
-<ul class="org-ul">
-
-
-<li>C-c C-t 变换TODO的状态</li>
-
-
-<li>C-c / t以树的形式展示所有的 TODO</li>
-
-
-<li>C-c C-c 改变 checkbox状态</li>
-
-
-<li>C-c, 设置优先级（方括号里的ABC）</li>
-
-
-<li>M-S-RET 插入同级TODO标签</li>
-
-
-</ul>
-
-
-</div>
-
-
-</div>
-
-
-
-<div id="outline-container-orgcd0529a" class="outline-2">
-
-
-<h2 id="orgcd0529a">时间</h2>
-
-
-<div class="outline-text-2" id="text-orgcd0529a">
-
-
-<p>
-输入C-c . 会出现一个日历，我们点选相应的时间即可插入。
-</p>
-
-
-<pre class="example">
-DEADLINE: &lt;2018-08-10 Fri&gt;
-SCHEDULED: &lt;2018-08-18 Sat&gt;
-</pre>
-
-
-</div>
-
-
-</div>
-
-
-
-<div id="outline-container-org163aab8" class="outline-2">
-
-
-<h2 id="org163aab8">特殊文本格式</h2>
-
-
-<div class="outline-text-2" id="text-org163aab8">
-
-
-<pre class="example">
-*bold*
-/italic/ 
-_underline_
-=code=
-~verbatim~
-+strike-through+
-</pre>
+<div class="outline-text-2" id="text-org21d320b">
 
 
 <p>
 
 
-<b>bold</b>
- 
-<br>
-
-
-<i>italic</i>
- 
-<br>
-
-
-<span class="underline">underline</span>
- 
-<br>
-
-
-<code>code</code>
- 
-<br>
-
-
-<code>verbatim</code>
- 
-<br>
-
-
-<del>strike-through</del>
+<b>学计算机的人，热衷于技术从理论到实践的探索，想用学过的技术做点实用的事情。</b>
 
 
 </p>
 
-
-</div>
-
-
-</div>
-
-
-
-<div id="outline-container-org0465d14" class="outline-2">
-
-
-<h2 id="org0465d14">富文本导出</h2>
-
-
-<div class="outline-text-2" id="text-org0465d14">
-</div>
-
-
-<div id="outline-container-org0a0a870" class="outline-3">
-
-
-<h3 id="org0a0a870">设置标题和目录</h3>
-
-
-<div class="outline-text-3" id="text-org0a0a870">
-
-
-<pre class="example">
-#+TITLE: This is the title of the document
-#+OPTIONS: toc:2 (only to two levels in TOC)
-#+OPTIONS: toc:nil (no TOC at all)
-</pre>
-
-
-</div>
-
-
-</div>
-
-
-<div id="outline-container-org29e97dc" class="outline-3">
-
-
-<h3 id="org29e97dc">居中</h3>
-
-
-<div class="outline-text-3" id="text-org29e97dc">
-
-
-<pre class="example">
-#+BEGIN_CENTER
-这里是居中的内容
-#+END_CENTER
-</pre>
-
-
-
-<div class="org-center">
 
 
 <p>
-这里是居中的内容
+
+一直想拥有自己的独立博客，正好毕设又学习了Django框架，便折腾起来。2019年暑假博客初步建成，使用Django+mysql，后面又改为静态博客。经过多次探索自己喜爱的blogging方式，最后决定使用 
+<i>Emacs orgMode</i>
+ 。折腾过程详细记录在
+<a href="https://geekinney.com/post/experience-of-setting-up-my-own-blog-site.html">记我的博客折腾经历</a>
+这篇文章中。( 👉 点击
+<a href="https://geekinney.com/post/blog-light-and-dark-theme-switch.html">这里</a>
+试试 )
+
 </p>
 
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-<div id="outline-container-orge614c56" class="outline-3">
-
-
-<h3 id="orge614c56">注释</h3>
-
-
-<div class="outline-text-3" id="text-orge614c56">
-
-
-<pre class="example">
-#+BEGIN_COMMENT
-这里的注视不会被导出
-#+END_COMMENT
-</pre>
-
-
-</div>
-
-
-</div>
-
-
-<div id="outline-container-org516f923" class="outline-3">
-
-
-<h3 id="org516f923">分隔符</h3>
-
-
-<div class="outline-text-3" id="text-org516f923">
-
-
-<pre class="example">
-------
-</pre>
-
-
-<hr>
-
-
-</div>
-
-
-</div>
-
-
-
-<div id="outline-container-orgb62388e" class="outline-3">
-
-
-<h3 id="orgb62388e">引用</h3>
-
-
-<div class="outline-text-3" id="text-orgb62388e">
-
-
-<pre class="example">
-#+BEGIN_QUOTE
-这里是引用的内容
-#+END_QUOTE
-</pre>
-
-
-
-<blockquote>
 
 
 <p>
-这里是引用的内容
+
+
+<b>除了实现对技术的想象，搭建博客更多的是想记录自己的成长。</b>
+
+
 </p>
 
 
-</blockquote>
 
+<p>
 
-</div>
-
-
-</div>
-
-
-<div id="outline-container-org93c7329" class="outline-3">
-
-
-<h3 id="org93c7329">多行换行</h3>
-
-
-<div class="outline-text-3" id="text-org93c7329">
-
-
-<pre class="example">
-#+BEGIN_VERSE
-这里面的
-每一行
-都可以自动换行
-#+END_VERSE
-单行换行，在句尾加"\\"
-</pre>
-
-
-
-<p class="verse">
-
-这里面的
-<br>
-
-每一行
-<br>
-
-都可以自动换行
-<br>
+交流、学习、工作、电影、播客、动漫、文章&#x2026;.我们接触生活的每一种方式都会在脑海中留下大量信息。这些信息进行提炼、联系、再创造就产生了灵感和思考。某些深刻的思考成了我们的生活经验，潜移默化的指导生活；一般的思考留在了我们的记忆中，等待被诉诸文字或言语的机会；而大多数的灵感则在片刻停留后，销声匿迹。 
+<b>我的博客要记录那些于生活有益的经验，于工作有助的思考，于无声处作用的灵感，这些便是成长的印记。</b>
 
 
 </p>
@@ -802,41 +253,29 @@ _underline_
 </div>
 
 
-</div>
+
+<div id="outline-container-org36afa7a" class="outline-2">
+
+
+<h2 id="org36afa7a">关于版权的说明</h2>
+
+
+<div class="outline-text-2" id="text-org36afa7a">
+
+
+<p>
+若无特别说明，文章皆为原创，图片来自pixabay, unsplash等正版图像素材库。
+</p>
 
 
 
-<div id="outline-container-org541e46d" class="outline-2">
+<p>
 
+本站的所有内容均遵循“署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0)”协议，这意味着你可以在标记出处的情况下自由的分享或进行二次创作。关于此协议的详细内容请看
+<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">这里</a>
+。
 
-<h2 id="org541e46d">org-clock</h2>
-
-
-<div class="outline-text-2" id="text-org541e46d">
-
-
-<ul class="org-ul">
-
-
-<li>org-clock-in(C-c C-x C-i)</li>
-
-
-<li>org-clock-out(C-c C-x C-o)</li>
-
-
-<li>org-clock-display(C-c C-x C-d)</li>
-
-
-<li>org-clock-cancle(C-c C-x C-q)</li>
-
-
-<li>org-clock-report(C-c C-x C-r)</li>
-
-
-<li>org-dblock-update(C-c C-c), 光标放在#+Begin位置</li>
-
-
-</ul>
+</p>
 
 
 </div>
@@ -846,49 +285,24 @@ _underline_
 
 
 
-<div id="outline-container-org42f7e69" class="outline-2">
+<div id="outline-container-orgbbd320a" class="outline-2">
 
 
-<h2 id="org42f7e69">标题间跳转</h2>
+<h2 id="orgbbd320a">关于隐私与评论</h2>
 
 
-<div class="outline-text-2" id="text-org42f7e69">
+<div class="outline-text-2" id="text-orgbbd320a">
 
 
-<ul class="org-ul">
-
-
-<li>C-c C-n / C-c C-p</li>
-
-
-</ul>
-
-
-</div>
-
-
-</div>
+<p>
+博客不会追踪单个访客行为，且不要求访客提供敏感信息（比如真实姓名，身份证号码等），因而不会有任何隐私泄漏问题。
+</p>
 
 
 
-<div id="outline-container-org72971b0" class="outline-2">
-
-
-<h2 id="org72971b0">how to study emacs</h2>
-
-
-<div class="outline-text-2" id="text-org72971b0">
-
-
-<ul class="org-ul">
-
-
-<li>
-<a href="https://emacs-china.org/t/emacs/7532/16?u=kinneyzhang">https://emacs-china.org/t/emacs/7532/16?u=kinneyzhang</a>
-</li>
-
-
-</ul>
+<p>
+欢迎评论留言，但请遵守基本的礼貌规范，禁止发布任何有关淫秽，反动，暴力，赌博，恐吓或违法的评论，在尊重言论自由的同时保持和平与理性。请勿对其中的任何评论者采取不友好的评论与过激争吵行为。对此我将保留删除评论的权利。
+</p>
 
 
 </div>
@@ -898,22 +312,33 @@ _underline_
 
 
 
-<div id="outline-container-org4582f80" class="outline-2">
+<div id="outline-container-orge40587b" class="outline-2">
 
 
-<h2 id="org4582f80">查找替换</h2>
+<h2 id="orge40587b">交流联系</h2>
 
 
-<div class="outline-text-2" id="text-org4582f80">
+<div class="outline-text-2" id="text-orge40587b">
 
 
-<ul class="org-ul">
+<p>
+如对博客内容有更多问题，欢迎交流探讨:
+</p>
 
 
-<li>M-%</li>
+
+<p>
 
 
-</ul>
+<i>WeChat: zhangk1996</i>
+<br>
+
+
+<i>Email: kinneyzhang666@gmail.com</i>
+<br>
+
+
+</p>
 
 
 </div>
@@ -923,28 +348,36 @@ _underline_
 
 
 
-<div id="outline-container-org3b4fa17" class="outline-2">
+<div id="outline-container-org75ed16f" class="outline-2">
 
 
-<h2 id="org3b4fa17">proced</h2>
+<h2 id="org75ed16f">公号推荐</h2>
 
 
-<div class="outline-text-2" id="text-org3b4fa17">
+<div class="outline-text-2" id="text-org75ed16f">
 
 
-<ul class="org-ul">
+<p>
+
+好友Elena的微信公众号: 
+<b>Oops Elena</b>
+<br>
+
+分享美剧知识，记录旅行生活，扫描👇二维码关注吧~
+
+</p>
 
 
-<li>查看系统进程情况</li>
 
 
-<li>m标记，x选择向进程发送的命令</li>
+<figure>
 
 
-<li>按键s前缀选择展现方式</li>
+<img src="https://geekinney.com/assets/image/Oops-Elena.png" alt="Oops-Elena.png">
 
 
-</ul>
+
+</figure>
 
 
 </div>
