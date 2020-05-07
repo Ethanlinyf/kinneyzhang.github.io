@@ -1,0 +1,324 @@
+#+TITLE:使用org-mode撰写Jekyll blog 
+#+DATE: 2019-09-03
+#+CATEGORY: Emacs
+#+STARTUP: content
+#+OPTIONS: toc:nil H:2 num:2
+#+TOC: headlines:2
+
+Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本标记语言转变为静态html页面。Jekyll生成的静态站点可以被几乎所有的web server使用并且不需要额外的组件。Github Page就是使用Jekyll构建的。
+
+这篇文章将讨论如何使用org-mode撰写，发布jekyll blog，我不会面面俱到地介绍每个概念，比如：什么是org-mode，什么是jekyll以及如何安装使用它们等。如果你对以上问题存疑，可以自行研究，参考 [[http://doc.norang.ca/org-mode.html][Org Mode - Organize Your Life In Plain Text!]] 和 [[https://jekyllrb.com/][jekyll官网]]。
+
+Org-mode原生支持功能强大的HTML导出，但是没有内置关于blog的操作。
+
+使用Org发布jekyll blog分为三步：
+
+ * 使用org-mode撰写blog内容
+ * 将org文件导出为html并放置在Jekyll项目中
+ * 启动jekyll服务，将html格式的文章解析呈现
+
+接下来，着重介绍使用org-mode管理jekyll的原理和workflow，包括必要的elisp代码及折腾心得。
+
+
+* WorkFlow
+  :PROPERTIES:
+  :ID:       B8BD7823-FF2F-4133-B8D4-2369E01AFCEB
+  :PUBDATE:  <2020-02-11 Tue 14:32>
+  :END:
+首先，总体浏览一下workflow。这个流程不算完美，但对于日常使用emacs的用户已经可以很方便的使用org-mode撰写、发布jekyll blog了。
+
+ * 打开emacs, =M-x jekyll-draft-post= ,输入文章标题。emacs会在 =_draft= 目标下新建带有YAML信息的org文件。
+ * 文章编辑完成后, =M-x jekyll-publish-post= 。emacs会将文章移动到 =_post= 目录下，并修改文件名为符合jekyll规范的名称(_yyyy-mm-dd-title.org_)。
+ * 按键 =C-c C-e= 选择项目进行发布。发布后的org会转换成html格式保存在jekyll项目对应的 =_post= 目录下。
+ * 访问 _https://localhost:4000_ ，本地预览文章效果。如果需要修改，修改后重新发布项目。
+ * 确认无误后，git push 上传修改代码到github。
+
+* 流程分析
+  :PROPERTIES:
+  :ID:       5EDF80EB-5BA3-4619-A3F9-A673AE5375F1
+  :PUBDATE:  <2020-02-11 Tue 14:32>
+  :END:
+看了以上的workflow，读者可能会有些疑惑，下面对流程具体讲解并附上必要的代码。
+** 目录结构
+   :PROPERTIES:
+   :ID:       C48C1F9D-ABC3-4557-A2AD-37093C642A0F
+   :END:
+注意区分两个概念：Jekyll Blog目录 和 Jekyll项目目录。Jekyll Blog中存在的是原始的Org文件，Jekyll项目中存放的是用于Jekyll解析的HTML文件。我将Org文件存储在云盘中，项目文件托管在Github Page。当然你也可以将两者放在同一个目录下托管，whatever~
+
+我的Jekyll Blog目录放在 =~/iCloud/blog= 文件夹中，其中 =_drafts= 中为草稿，不会被导出, =_post= 中为待发布的post。当发布项目时, =_post= 中所有的org文件转换为HTML并发布到Jekyll项目根目录的 =_posts= 文件夹中。
+
+Jekyll Blog目录结构如下：
+
+#+BEGIN_SRC nohighlight
+.
+├── _drafts
+│   └── using-org-to-blog-with-jekyll.org
+├── _pages
+│   └── bookmark.org
+├── _posts
+│   ├── 2019-03-30-emacs-learning-note.org
+│   └── 2019-08-31-listen-music-in-emacs.org
+└── assets
+    ├── css
+    ├── img
+    └── js
+#+END_SRC
+
+目录结构变量定义的elisp代码：
+
+#+BEGIN_SRC emacs-lisp
+  (defvar jekyll-directory (expand-file-name "~/iCloud/blog/")
+    "Path to Jekyll blog.")
+  (defvar jekyll-drafts-dir "_drafts/"
+    "Relative path to drafts directory.")
+  (defvar jekyll-posts-dir "_posts/"
+    "Relative path to posts directory.")
+  (defvar jekyll-post-ext ".org"
+    "File extension of Jekyll posts.")
+#+END_SRC
+
+Jekyll项目目录结构如下：
+
+#+BEGIN_SRC nohighlight
+.
+|__ config.yml
+|__ _includes
+|__ _layouts
+|    |- default.html
+|    |- post.html
+|__ _posts
+|    |- 2019-03-30-emacs-learning-note.html
+|    |- 2019-08-31-listen-music-in-emacs.html
+|__ _site
+|__ index.html
+|__ assets
+     |- js
+     |- css
+        |- style.css
+#+END_SRC
+
+** 创建draft文件
+   :PROPERTIES:
+   :ID:       0C530771-C695-454F-A475-90A1C82F6F5B
+   :END:
+根据 =jekyll-post-template= 变量的内容和输入信息，生成org文件。elisp代码如下：
+
+#+BEGIN_SRC emacs-lisp
+  (defvar jekyll-post-template
+    "#+STARTUP: showall indent\n#+STARTUP: hidestars\n#+begin_export html\n---\ndate: \nlayout: post\ntitle: %s\nsubtitle: \nauthor: Geekinney\nheader-img: \ntags: \ncatalog: \n---\n#+end_export\n\n"
+    "Default template for Jekyll posts. %s will be replace by the post title."
+    )
+
+  (defun jekyll-make-slug (s)
+    "Turn a string into a slug."
+    (replace-regexp-in-string
+     " " "-" (downcase
+              (replace-regexp-in-string
+               "[^A-Za-z0-9 ]" "" s))))
+
+  (defun jekyll-yaml-escape (s)
+    "Escape a string for YAML."
+    (if (or (string-match ":" s)
+            (string-match "\"" s))
+        (concat "\"" (replace-regexp-in-string "\"" "\\\\\"" s) "\"")
+      s))
+
+  (defun jekyll-draft-post (title)
+    "Create a new Jekyll blog post."
+    (interactive "sPost Title: ")
+    (let ((draft-file (concat jekyll-directory jekyll-drafts-dir
+                              (jekyll-make-slug title)
+                              jekyll-post-ext)))
+      (if (file-exists-p draft-file)
+          (find-file draft-file)
+        (find-file draft-file)
+        (insert (format jekyll-post-template (jekyll-yaml-escape title))))))
+#+END_SRC
+
+值得注意的是，模版中的YAML信息被包裹在了 =#+begin_export html= 和 =#+end_export= 标签之间。该标签之间的文本在Org转为HTML时会以原始文本导出，这为Jekyll解析HTML文件提供了保证。
+
+带有合法YAML信息的markdown或html文件才能被Jekyll正常解析，我的YAML模版为：
+
+#+BEGIN_SRC YAML
+---
+date: 
+layout: post
+title: 
+subtitle: 
+author: Geekinney
+header-img: 
+tags: 
+catalog: 
+---
+#+END_SRC
+
+读者可以根据自己的项目需求修改 =jekyll-post-template= 变量。
+
+** 从draft到post
+   :PROPERTIES:
+   :ID:       BE24D09E-117A-4965-8841-33DEA9BA9844
+   :END:
+将 =_drafts= 目录中的Org文件移到 =_posts= 中，在文件名前面加上日期。elisp代码如下：
+
+#+BEGIN_SRC emacs-lisp
+  (defun jekyll-publish-post ()
+    "Move a draft post to the posts directory, and rename it so that it
+   contains the date."
+    (interactive)
+    (cond
+     ((not (equal
+            (file-name-directory (buffer-file-name (current-buffer)))
+            (concat jekyll-directory jekyll-drafts-dir)))
+      (message "This is not a draft post."))
+     ((buffer-modified-p)
+      (message "Can't publish post; buffer has modifications."))
+     (t
+      (let ((filename
+             (concat jekyll-directory jekyll-posts-dir
+                     (format-time-string "%Y-%m-%d-")
+                     (file-name-nondirectory
+                      (buffer-file-name (current-buffer)))))
+            (old-point (point)))
+        (rename-file (buffer-file-name (current-buffer))
+                     filename)
+        (kill-buffer nil)
+        (find-file filename)
+        (set-window-point (selected-window) old-point)))))
+#+END_SRC
+
+** 项目发布
+   :PROPERTIES:
+   :ID:       3E4E7282-B879-4666-8716-B556CBBFAFA3
+   :END:
+Org-mode使用原生的项目发布功能就可以将 =_posts= 目录下的Org文件发布至Jekyll。配置 =org-publish-project-alist= 变量即可。变量参数设置如下：
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-publish-project-alist
+        '(
+          ("jekyll-post"
+           :base-directory "~/iCloud/blog/_posts"
+           :base-extension "org"
+           :publishing-directory "~/iCloud/huxBlog/_posts"
+           :recursive nil
+           :publishing-function org-html-publish-to-html
+           :with-toc nil
+           :headline-levels 4
+           :auto-preamble nil
+           :auto-sitemap nil
+           :html-extension "html"
+           :table-of-contents nil
+           :section-numbers 2
+           :body-only t
+           )
+	
+          ("jekyll-static"
+           :base-directory "~/iCloud/blog/assets/"
+           :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|php"
+           :publishing-directory "~/iCloud/huxBlog/assets"
+           :recursive t
+           :publishing-function org-publish-attachment)
+	
+          ("jekyll"
+           :components ("jekyll-post" "jekyll-static"))
+          ))
+
+#+END_SRC
+
+org-publish参数设置参考 [[https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][HTML publishing tutorial]]
+
+=:body-only t= 表示只导出body标签之间的部分，因为其余的部分Jekyll已经构建好了。但是，由于Org导出的HTML的body标签之外包含一些CSS样式，这就埋下了一个隐患：部分org语法不能正常解析。需要手动添加缺失的CSS到Jekyll项目中。
+
+** 添加缺失样式
+   :PROPERTIES:
+   :ID:       3FDE6E2B-8804-44C1-96EE-022647DB158A
+   :END:
+主要缺失的样式有：代码块，表格，下划线，以及org-mode特有的keyword，timestamp等。下面给出添加的CSS参考：
+
+#+BEGIN_SRC css
+  pre {
+      background: #333;
+      color: #ddd;
+      overflow: auto;
+      padding: 8pt;
+      border: 1px solid #666;
+      border-radius: 5px;
+      font-size: 10pt;
+      font-family: 'PT Mono', 'PT Mono', monospace;
+      margin-top: 1em;
+      margin-bottom: 1em;
+  }
+  table {
+      font-size: 100%;
+      border-collapse: collapse;
+      margin: .5em 0;
+  }
+  th, td {
+      border: 1px solid #777;
+      padding: .3em;
+      margin: 2px;
+  }
+  th {
+      background: #eee;
+  }
+  table { border-collapse: collapse; }
+  td, th {
+      vertical-align: top;
+  }
+  .todo  { color: red; }
+  .done { color: green; }
+  .priority { font-family: monospace; color: orange; }
+  p.verse { margin-left: 3%; }
+  .timestamp { color: gray }
+  .timestamp-kwd { color: #f59ea0; }
+  .target { background-color: #551a8b; }
+  .underline { text-decoration: underline; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   {margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+#+END_SRC
+
+当然，你可以定制自己喜欢的样式，比如代码块的高亮可以使用 [[https://highlightjs.org][highlight.js]]。关于org导出为HTML的CSS设置参考 [[https://orgmode.org/org.html#CSS-support][The Org Manual | CSS support]]。
+
+** elisp代码
+   :PROPERTIES:
+   :ID:       60BBDB5E-9ABD-4334-9436-CBFE5C2688C0
+   :END:
+完整的elisp package参考我的 [[https://github.com/Kinneyzhang/.emacs.d/blob/master/elisp/init-org-jekyll.el#L15][init-org-jekyll.el]]。
+
+* 参考文档
+  :PROPERTIES:
+  :ID:       BD91D5A6-8067-4DF6-9FCB-58CF155C6318
+  :PUBDATE:  <2020-02-11 Tue 14:32>
+  :END:
+ * [[https://orgmode.org/worg/org-tutorials/org-jekyll.html][Using org to Blog with Jekyll | by Worg]]
+ * [[http://xshaun.github.io/jekyll-bootstrap/2014/08/27/jekyllbootstrap5-jekyll-introduction][Jekyll简介及工作原理]]
+ * [[https://segmentfault.com/a/1190000008313904][用Org-mode和Jekyll写博客]]
+
+* 更新!
+  :PROPERTIES:
+  :ID:       6F5E248F-3BB0-49A4-92B5-A333F42CFAD6
+  :PUBDATE:  <2020-02-11 Tue 14:32>
+  :END:
+** Oct 21, 2019
+   :PROPERTIES:
+   :ID:       012201B7-BC2D-4D46-8B8D-3FA647F1D926
+   :END:
+我的workflow使用了 [[https://huangxuan.me/][Hux Blog]] 默认的CSS，而默认的样式为markdown转html提供了相关样式支持，没有对org-mode的支持，这是需要添加“缺失样式“的原因。但是，这种方法太不优雅，并且我并不喜欢hux的默认样式。我希望自己可以控制整个org-mode导出效果，这样可以使用很多 [[https://emacs-china.org/t/org-mode-html/10120][漂亮的样式]] 来渲染orgmode。
+
+#+BEGIN_SRC plaintext
+.
+├── bootstrap.css
+├── bootstrap.min.css
+├── hux-blog.css
+├── hux-blog.min.css
+└── my-org.css
+#+END_SRC
+
+以上为css目录的内容，hux-blog文件中存放了站点的所有样式，包括网站的基本结构和文章的渲染。
+
+解决方法：
+ * 找出默认hux-blog CSS中与文章渲染的相关css注释掉。在hux中，所有包含 =.post-container= 的样式为文章渲染样式。
+ * 将用于orgmode导出渲染的 =my-org.css= 所有样式前面加上 =.post-container= 。
+ * 在html的header中引入 =my-org.css= 样式文件。
+
+以上方案，仅以hux为例，读者可以作为思路的参考。具体问题请具体分析。

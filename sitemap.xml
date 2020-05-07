@@ -61,6 +61,12 @@
 <priority>0.8</priority>
 </url>
 <url>
+<loc>https://geekinney.com/post/using-org-to-blog-with-jekyll.html</loc>
+<lastmod>2019-09-03</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
 <loc>https://geekinney.com/post/listen-music-in-emacs.html</loc>
 <lastmod>2019-08-31</lastmod>
 <changefreq>daily</changefreq>

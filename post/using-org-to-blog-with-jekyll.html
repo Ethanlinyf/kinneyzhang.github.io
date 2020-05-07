@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>使用org-mode撰写Jekyll blog</title>
+<meta name="generator" content="GeekBlog"/>
+<meta name="author" content="Geekinney"/>
+<meta name="description" content="Emacs is a lifestyle  :-)<br>And happy hacking emacs!"/>
+<link rel="shortcut icon" href="/assets/image/favicon.ico"/>
+<link rel="bookmark" href="/assets/image/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/assets/css/font.min.css"/>
+<link id="pagestyle" rel="stylesheet" href="/assets/css/light.css"/>
+<script data-ad-client="ca-pub-3231589012114037" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-149578968-1', 'auto');ga('send', 'pageview');</script>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<header id="topheader">
+<a id="logo" href="/">戈楷旎</a>
+<p class="description">
+Emacs is a lifestyle  :-)
+<br>
+And happy hacking emacs!
+</p>
+</header>
+<nav id="topmenu">
+<a href="/">主页</a>
+<a href="/archive.html">归档</a>
+<a href="/category.html">分类</a>
+<a href="/about.html">关于</a>
+<a href="/message.html">留言</a>
+</nav>
+</div>
+</div>
+</div>
+<main class="container">
+<div class="row">
+<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+<div id="post-content">
+<header>
+<h1 class="title">使用org-mode撰写Jekyll blog</h1>
+</header>
+<div id="post-info">
+<p>
+「
+<span>分类: Emacs · </span>
+<span>字数: 2075 · </span>
+<span class="leancloud_visitors" id="/post/using-org-to-blog-with-jekyll.html" data-flag-title="使用org-mode撰写Jekyll blog">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">...</span>
+ 次
+</span>
+」
+</p>
+</div>
+<div id="main-content">
+<nav id="table-of-contents">
+
+
+<h2>Table of Contents</h2>
+
+
+<div id="text-table-of-contents">
+
+
+<ul>
+
+
+<li>
+<a href="#org4ff972f">1. WorkFlow</a>
+</li>
+
+
+<li>
+<a href="#orgaa8acc3">2. 流程分析</a>
+
+
+<ul>
+
+
+<li>
+<a href="#orgeeca33c">2.1. 目录结构</a>
+</li>
+
+
+<li>
+<a href="#orgffe1e67">2.2. 创建draft文件</a>
+</li>
+
+
+<li>
+<a href="#org66d70a2">2.3. 从draft到post</a>
+</li>
+
+
+<li>
+<a href="#org027dd9f">2.4. 项目发布</a>
+</li>
+
+
+<li>
+<a href="#org3b5f7d0">2.5. 添加缺失样式</a>
+</li>
+
+
+<li>
+<a href="#orgd54dc1f">2.6. elisp代码</a>
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+<li>
+<a href="#org51506b9">3. 参考文档</a>
+</li>
+
+
+<li>
+<a href="#org4d7fe60">4. 更新!</a>
+
+
+<ul>
+
+
+<li>
+<a href="#org3e64eaf">4.1. Oct 21, 2019</a>
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+</nav>
+
+
+
+<p>
+Jekyll是使用ruby开发的静态网站生成器，它可以将不同的文本标记语言转变为静态html页面。Jekyll生成的静态站点可以被几乎所有的web server使用并且不需要额外的组件。Github Page就是使用Jekyll构建的。
+</p>
+
+
+
+<p>
+
+这篇文章将讨论如何使用org-mode撰写，发布jekyll blog，我不会面面俱到地介绍每个概念，比如：什么是org-mode，什么是jekyll以及如何安装使用它们等。如果你对以上问题存疑，可以自行研究，参考 
+<a href="http://doc.norang.ca/org-mode.html">Org Mode - Organize Your Life In Plain Text!</a>
+ 和 
+<a href="https://jekyllrb.com/">jekyll官网</a>
+。
+
+</p>
+
+
+
+<p>
+Org-mode原生支持功能强大的HTML导出，但是没有内置关于blog的操作。
+</p>
+
+
+
+<p>
+使用Org发布jekyll blog分为三步：
+</p>
+
+
+
+<ul class="org-ul">
+
+
+<li>使用org-mode撰写blog内容</li>
+
+
+<li>将org文件导出为html并放置在Jekyll项目中</li>
+
+
+<li>启动jekyll服务，将html格式的文章解析呈现</li>
+
+
+</ul>
+
+
+
+<p>
+接下来，着重介绍使用org-mode管理jekyll的原理和workflow，包括必要的elisp代码及折腾心得。
+</p>
+
+
+
+
+<div id="outline-container-org4ff972f" class="outline-2">
+
+
+<h2 id="org4ff972f">
+<span class="section-number-2">1</span>
+ WorkFlow
+</h2>
+
+
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+首先，总体浏览一下workflow。这个流程不算完美，但对于日常使用emacs的用户已经可以很方便的使用org-mode撰写、发布jekyll blog了。
+</p>
+
+
+
+<ul class="org-ul">
+
+
+<li>
+打开emacs, 
+<code>M-x jekyll-draft-post</code>
+ ,输入文章标题。emacs会在 
+<code>_draft</code>
+ 目标下新建带有YAML信息的org文件。
+</li>
+
+
+<li>
+文章编辑完成后, 
+<code>M-x jekyll-publish-post</code>
+ 。emacs会将文章移动到 
+<code>_post</code>
+ 目录下，并修改文件名为符合jekyll规范的名称(
+<sub>yyyy</sub>
+-mm-dd-title.org_)。
+</li>
+
+
+<li>
+按键 
+<code>C-c C-e</code>
+ 选择项目进行发布。发布后的org会转换成html格式保存在jekyll项目对应的 
+<code>_post</code>
+ 目录下。
+</li>
+
+
+<li>
+访问 
+<span class="underline">
+<a href="https://localhost:4000">https://localhost:4000</a>
+</span>
+ ，本地预览文章效果。如果需要修改，修改后重新发布项目。
+</li>
+
+
+<li>确认无误后，git push 上传修改代码到github。</li>
+
+
+</ul>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-orgaa8acc3" class="outline-2">
+
+
+<h2 id="orgaa8acc3">
+<span class="section-number-2">2</span>
+ 流程分析
+</h2>
+
+
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+看了以上的workflow，读者可能会有些疑惑，下面对流程具体讲解并附上必要的代码。
+</p>
+
+
+</div>
+
+
+<div id="outline-container-orgeeca33c" class="outline-3">
+
+
+<h3 id="orgeeca33c">
+<span class="section-number-3">2.1</span>
+ 目录结构
+</h3>
+
+
+<div class="outline-text-3" id="text-2-1">
+
+
+<p>
+注意区分两个概念：Jekyll Blog目录 和 Jekyll项目目录。Jekyll Blog中存在的是原始的Org文件，Jekyll项目中存放的是用于Jekyll解析的HTML文件。我将Org文件存储在云盘中，项目文件托管在Github Page。当然你也可以将两者放在同一个目录下托管，whatever~
+</p>
+
+
+
+<p>
+
+我的Jekyll Blog目录放在 
+<code>~/iCloud/blog</code>
+ 文件夹中，其中 
+<code>_drafts</code>
+ 中为草稿，不会被导出, 
+<code>_post</code>
+ 中为待发布的post。当发布项目时, 
+<code>_post</code>
+ 中所有的org文件转换为HTML并发布到Jekyll项目根目录的 
+<code>_posts</code>
+ 文件夹中。
+
+</p>
+
+
+
+<p>
+Jekyll Blog目录结构如下：
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-nohighlight">.
+├── _drafts
+│   └── using-org-to-blog-with-jekyll.org
+├── _pages
+│   └── bookmark.org
+├── _posts
+│   ├── 2019-03-30-emacs-learning-note.org
+│   └── 2019-08-31-listen-music-in-emacs.org
+└── assets
+    ├── css
+    ├── img
+    └── js
+</pre>
+
+
+</div>
+
+
+
+<p>
+目录结构变量定义的elisp代码：
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(defvar jekyll-directory (expand-file-name "~/iCloud/blog/")
+  "Path to Jekyll blog.")
+(defvar jekyll-drafts-dir "_drafts/"
+  "Relative path to drafts directory.")
+(defvar jekyll-posts-dir "_posts/"
+  "Relative path to posts directory.")
+(defvar jekyll-post-ext ".org"
+  "File extension of Jekyll posts.")
+</pre>
+
+
+</div>
+
+
+
+<p>
+Jekyll项目目录结构如下：
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-nohighlight">.
+|__ config.yml
+|__ _includes
+|__ _layouts
+|    |- default.html
+|    |- post.html
+|__ _posts
+|    |- 2019-03-30-emacs-learning-note.html
+|    |- 2019-08-31-listen-music-in-emacs.html
+|__ _site
+|__ index.html
+|__ assets
+     |- js
+     |- css
+	|- style.css
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-orgffe1e67" class="outline-3">
+
+
+<h3 id="orgffe1e67">
+<span class="section-number-3">2.2</span>
+ 创建draft文件
+</h3>
+
+
+<div class="outline-text-3" id="text-2-2">
+
+
+<p>
+
+根据 
+<code>jekyll-post-template</code>
+ 变量的内容和输入信息，生成org文件。elisp代码如下：
+
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(defvar jekyll-post-template
+  "#+STARTUP: showall indent\n#+STARTUP: hidestars\n#+begin_export html\n---\ndate: \nlayout: post\ntitle: %s\nsubtitle: \nauthor: Geekinney\nheader-img: \ntags: \ncatalog: \n---\n#+end_export\n\n"
+  "Default template for Jekyll posts. %s will be replace by the post title."
+  )
+
+(defun jekyll-make-slug (s)
+  "Turn a string into a slug."
+  (replace-regexp-in-string
+   " " "-" (downcase
+	    (replace-regexp-in-string
+	     "[^A-Za-z0-9 ]" "" s))))
+
+(defun jekyll-yaml-escape (s)
+  "Escape a string for YAML."
+  (if (or (string-match ":" s)
+	  (string-match "\"" s))
+      (concat "\"" (replace-regexp-in-string "\"" "\\\\\"" s) "\"")
+    s))
+
+(defun jekyll-draft-post (title)
+  "Create a new Jekyll blog post."
+  (interactive "sPost Title: ")
+  (let ((draft-file (concat jekyll-directory jekyll-drafts-dir
+			    (jekyll-make-slug title)
+			    jekyll-post-ext)))
+    (if (file-exists-p draft-file)
+	(find-file draft-file)
+      (find-file draft-file)
+      (insert (format jekyll-post-template (jekyll-yaml-escape title))))))
+</pre>
+
+
+</div>
+
+
+
+<p>
+
+值得注意的是，模版中的YAML信息被包裹在了 
+<code>#+begin_export html</code>
+ 和 
+<code>#+end_export</code>
+ 标签之间。该标签之间的文本在Org转为HTML时会以原始文本导出，这为Jekyll解析HTML文件提供了保证。
+
+</p>
+
+
+
+<p>
+带有合法YAML信息的markdown或html文件才能被Jekyll正常解析，我的YAML模版为：
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-YAML">---
+date: 
+layout: post
+title: 
+subtitle: 
+author: Geekinney
+header-img: 
+tags: 
+catalog: 
+---
+</pre>
+
+
+</div>
+
+
+
+<p>
+
+读者可以根据自己的项目需求修改 
+<code>jekyll-post-template</code>
+ 变量。
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org66d70a2" class="outline-3">
+
+
+<h3 id="org66d70a2">
+<span class="section-number-3">2.3</span>
+ 从draft到post
+</h3>
+
+
+<div class="outline-text-3" id="text-2-3">
+
+
+<p>
+
+将 
+<code>_drafts</code>
+ 目录中的Org文件移到 
+<code>_posts</code>
+ 中，在文件名前面加上日期。elisp代码如下：
+
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(defun jekyll-publish-post ()
+  "Move a draft post to the posts directory, and rename it so that it
+ contains the date."
+  (interactive)
+  (cond
+   ((not (equal
+	  (file-name-directory (buffer-file-name (current-buffer)))
+	  (concat jekyll-directory jekyll-drafts-dir)))
+    (message "This is not a draft post."))
+   ((buffer-modified-p)
+    (message "Can't publish post; buffer has modifications."))
+   (t
+    (let ((filename
+	   (concat jekyll-directory jekyll-posts-dir
+		   (format-time-string "%Y-%m-%d-")
+		   (file-name-nondirectory
+		    (buffer-file-name (current-buffer)))))
+	  (old-point (point)))
+      (rename-file (buffer-file-name (current-buffer))
+		   filename)
+      (kill-buffer nil)
+      (find-file filename)
+      (set-window-point (selected-window) old-point)))))
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org027dd9f" class="outline-3">
+
+
+<h3 id="org027dd9f">
+<span class="section-number-3">2.4</span>
+ 项目发布
+</h3>
+
+
+<div class="outline-text-3" id="text-2-4">
+
+
+<p>
+
+Org-mode使用原生的项目发布功能就可以将 
+<code>_posts</code>
+ 目录下的Org文件发布至Jekyll。配置 
+<code>org-publish-project-alist</code>
+ 变量即可。变量参数设置如下：
+
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(setq org-publish-project-alist
+      '(
+	("jekyll-post"
+	 :base-directory "~/iCloud/blog/_posts"
+	 :base-extension "org"
+	 :publishing-directory "~/iCloud/huxBlog/_posts"
+	 :recursive nil
+	 :publishing-function org-html-publish-to-html
+	 :with-toc nil
+	 :headline-levels 4
+	 :auto-preamble nil
+	 :auto-sitemap nil
+	 :html-extension "html"
+	 :table-of-contents nil
+	 :section-numbers 2
+	 :body-only t
+	 )
+
+	("jekyll-static"
+	 :base-directory "~/iCloud/blog/assets/"
+	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|php"
+	 :publishing-directory "~/iCloud/huxBlog/assets"
+	 :recursive t
+	 :publishing-function org-publish-attachment)
+
+	("jekyll"
+	 :components ("jekyll-post" "jekyll-static"))
+	))
+
+</pre>
+
+
+</div>
+
+
+
+<p>
+
+org-publish参数设置参考 
+<a href="https://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html">HTML publishing tutorial</a>
+
+
+</p>
+
+
+
+<p>
+
+
+<code>:body-only t</code>
+ 表示只导出body标签之间的部分，因为其余的部分Jekyll已经构建好了。但是，由于Org导出的HTML的body标签之外包含一些CSS样式，这就埋下了一个隐患：部分org语法不能正常解析。需要手动添加缺失的CSS到Jekyll项目中。
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org3b5f7d0" class="outline-3">
+
+
+<h3 id="org3b5f7d0">
+<span class="section-number-3">2.5</span>
+ 添加缺失样式
+</h3>
+
+
+<div class="outline-text-3" id="text-2-5">
+
+
+<p>
+主要缺失的样式有：代码块，表格，下划线，以及org-mode特有的keyword，timestamp等。下面给出添加的CSS参考：
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-css">pre {
+    background: #333;
+    color: #ddd;
+    overflow: auto;
+    padding: 8pt;
+    border: 1px solid #666;
+    border-radius: 5px;
+    font-size: 10pt;
+    font-family: 'PT Mono', 'PT Mono', monospace;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+table {
+    font-size: 100%;
+    border-collapse: collapse;
+    margin: .5em 0;
+}
+th, td {
+    border: 1px solid #777;
+    padding: .3em;
+    margin: 2px;
+}
+th {
+    background: #eee;
+}
+table { border-collapse: collapse; }
+td, th {
+    vertical-align: top;
+}
+.todo  { color: red; }
+.done { color: green; }
+.priority { font-family: monospace; color: orange; }
+p.verse { margin-left: 3%; }
+.timestamp { color: gray }
+.timestamp-kwd { color: #f59ea0; }
+.target { background-color: #551a8b; }
+.underline { text-decoration: underline; }
+.org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+.org-left   {margin-left: 0px;  margin-right: auto; text-align: left; }
+.org-center { margin-left: auto; margin-right: auto; text-align: center; }
+</pre>
+
+
+</div>
+
+
+
+<p>
+
+当然，你可以定制自己喜欢的样式，比如代码块的高亮可以使用 
+<a href="https://highlightjs.org">highlight.js</a>
+。关于org导出为HTML的CSS设置参考 
+<a href="https://orgmode.org/org.html#CSS-support">The Org Manual | CSS support</a>
+。
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-orgd54dc1f" class="outline-3">
+
+
+<h3 id="orgd54dc1f">
+<span class="section-number-3">2.6</span>
+ elisp代码
+</h3>
+
+
+<div class="outline-text-3" id="text-2-6">
+
+
+<p>
+
+完整的elisp package参考我的 
+<a href="https://github.com/Kinneyzhang/.emacs.d/blob/master/elisp/init-org-jekyll.el#L15">init-org-jekyll.el</a>
+。
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org51506b9" class="outline-2">
+
+
+<h2 id="org51506b9">
+<span class="section-number-2">3</span>
+ 参考文档
+</h2>
+
+
+<div class="outline-text-2" id="text-3">
+
+
+<ul class="org-ul">
+
+
+<li>
+<a href="https://orgmode.org/worg/org-tutorials/org-jekyll.html">Using org to Blog with Jekyll | by Worg</a>
+</li>
+
+
+<li>
+<a href="http://xshaun.github.io/jekyll-bootstrap/2014/08/27/jekyllbootstrap5-jekyll-introduction">Jekyll简介及工作原理</a>
+</li>
+
+
+<li>
+<a href="https://segmentfault.com/a/1190000008313904">用Org-mode和Jekyll写博客</a>
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org4d7fe60" class="outline-2">
+
+
+<h2 id="org4d7fe60">
+<span class="section-number-2">4</span>
+ 更新!
+</h2>
+
+
+<div class="outline-text-2" id="text-4">
+</div>
+
+
+<div id="outline-container-org3e64eaf" class="outline-3">
+
+
+<h3 id="org3e64eaf">
+<span class="section-number-3">4.1</span>
+ Oct 21, 2019
+</h3>
+
+
+<div class="outline-text-3" id="text-4-1">
+
+
+<p>
+
+我的workflow使用了 
+<a href="https://huangxuan.me/">Hux Blog</a>
+ 默认的CSS，而默认的样式为markdown转html提供了相关样式支持，没有对org-mode的支持，这是需要添加“缺失样式“的原因。但是，这种方法太不优雅，并且我并不喜欢hux的默认样式。我希望自己可以控制整个org-mode导出效果，这样可以使用很多 
+<a href="https://emacs-china.org/t/org-mode-html/10120">漂亮的样式</a>
+ 来渲染orgmode。
+
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-plaintext">.
+├── bootstrap.css
+├── bootstrap.min.css
+├── hux-blog.css
+├── hux-blog.min.css
+└── my-org.css
+</pre>
+
+
+</div>
+
+
+
+<p>
+以上为css目录的内容，hux-blog文件中存放了站点的所有样式，包括网站的基本结构和文章的渲染。
+</p>
+
+
+
+<p>
+解决方法：
+</p>
+
+
+<ul class="org-ul">
+
+
+<li>
+找出默认hux-blog CSS中与文章渲染的相关css注释掉。在hux中，所有包含 
+<code>.post-container</code>
+ 的样式为文章渲染样式。
+</li>
+
+
+<li>
+将用于orgmode导出渲染的 
+<code>my-org.css</code>
+ 所有样式前面加上 
+<code>.post-container</code>
+ 。
+</li>
+
+
+<li>
+在html的header中引入 
+<code>my-org.css</code>
+ 样式文件。
+</li>
+
+
+</ul>
+
+
+
+<p>
+以上方案，仅以hux为例，读者可以作为思路的参考。具体问题请具体分析。
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+<div class="adsense-post mt-2">
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+	data-ad-layout="in-article"
+	data-ad-format="fluid"
+	data-ad-client="ca-pub-3231589012114037"
+	data-ad-slot="4961388030"></ins>
+
+	
+<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+<div class="comment-block mt-4">
+<script src="/assets/js/valine.min.js"></script>
+<div id="vcomments"></div>
+<script>new Valine({
+el: '#vcomments',
+appId: 'jVMbXK6tJDtPCzR3Mp0V5L6V-gzGzoHsz',
+appKey: 'SX4oRFXp8K7KgeGhKTTDy3VI',
+visitor: true,
+notify: true,
+verify: false,
+avatar: 'identicon',
+placeholder: '留下你的评论吧～'
+})</script>
+</div>
+</div>
+</div>
+<aside class="col-md-4 col-lg-4 col-xl-4">
+<div id="sidebar">
+<div id="side-friend" class="mt-4">
+<h3 class="border-bottom">友情链接</h3>
+<p>
+<strong>独立博客是一座座孤岛，里面藏着丰富有趣的灵魂。友链是孤岛的桥梁，欢迎常串门儿～</strong>
+</p>
+<div class="ml-2">
+<span>
+<strong>»  </strong>
+<a href="https://hiwannz.com">见字如面</a>
+ · 来这里和我见面
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://www.91the.top">IT玩客</a>
+ · 几个同道中人记录工作中的经验、问题和交流，旨在记录、总结点滴，给未来的自己
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://www.boatsky.com">太空船博客</a>
+ · 西法前端个人博客
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://mikukonai.com">Project Aurora</a>
+ · 怕什么真理无穷，进一步有进一步的欢喜
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://diygod.me">Hi, DIYgod</a>
+ · 写代码是热爱，写到世界充满爱
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://www.huhexian.com">青山绿水</a>
+ · 高中生胡和先的个人博客, 主要分享自己的生活故事, 对世间百态的简单看法, 同时分享简单好玩的新奇玩意, 分享生活与你的美。
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://macplay.github.io">MacPlay</a>
+ · Share something interesting about byte ocean
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://blog.xjqxz.top">Dogge's blog</a>
+ · 向往未来
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://betterman.xyz">青衫不是山</a>
+ · To be a betterman
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://achuan.io">阿川的个人博客</a>
+ · 执着于理想, 纯粹于当下
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://lotabout.me">三点水</a>
+ · 不积小流, 无以成江海
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://beyondstars.xyz">探索子</a>
+ · 越过星空去探索
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://www.meitubk.com/">美图博客</a>
+ · 本博客纯娱乐, 用来听听音乐、看看美图、写写代码、聊聊人生而已
+</span>
+<br/>
+</div>
+</div>
+<div class="mt-4">
+<h3 class="border-bottom">关注我</h3>
+<span>
+Github: 
+<a href="https://github.com/Kinneyzhang/">https://github.com/Kinneyzhang/</a>
+</span>
+<br/>
+<span>
+RSS: 
+<a href="https://geekinney.com/feed.xml">https://geekinney.com/feed.xml</a>
+</span>
+</div>
+<div class="adsense-side mt-2">
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+	data-ad-layout="in-article"
+	data-ad-format="fluid"
+	data-ad-client="ca-pub-3231589012114037"
+	data-ad-slot="9630125312"></ins>
+
+	
+<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<footer class="mt-2">
+<small>
+©2019-2020 戈楷旎 | Licensed under 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="知识共享许可协议" style="border-width:0" src="/assets/image/license.png"/>
+</a>
+ | Powered by Geekblog
+</small>
+</footer>
+</div>
+</div>
+</div>
+<script src="/assets/js/jQuery.min.js"></script>
+<script>$(document).ready(function(){
+	 var theme = sessionStorage.getItem("theme");
+	 if(theme=="dark"){
+	   document.getElementById("pagestyle").href="/assets/css/dark.css";
+	 }else if(theme=="light"){
+	   document.getElementById("pagestyle").href="/assets/css/light.css";
+	 }else{
+	   sessionStorage.setItem("theme","light");
+	 }});</script>
+</body>
+</html>
