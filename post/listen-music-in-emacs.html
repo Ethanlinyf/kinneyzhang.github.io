@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="/assets/css/font.min.css"/>
 <link id="pagestyle" rel="stylesheet" href="/assets/css/light.css"/>
+<link rel="stylesheet" href="/assets/css/APlayer.min.css"/>
 <script data-ad-client="ca-pub-3231589012114037" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-149578968-1', 'auto');ga('send', 'pageview');</script>
 </head>
@@ -71,34 +72,34 @@ And happy hacking emacs!
 
 
 <li>
-<a href="#org1450dfb">1. mpd安装及配置(macos)</a>
+<a href="#org9b11d99">1. mpd安装及配置(macos)</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org7547984">1.1. 安装</a>
+<a href="#orga7f939a">1.1. 安装</a>
 </li>
 
 
 <li>
-<a href="#orgae69711">1.2. 创建配置文件</a>
+<a href="#org9dd88a1">1.2. 创建配置文件</a>
 </li>
 
 
 <li>
-<a href="#org07395d3">1.3. 编辑配置</a>
+<a href="#orgd37b6c6">1.3. 编辑配置</a>
 </li>
 
 
 <li>
-<a href="#orgb4eee27">1.4. 使用命令</a>
+<a href="#org1db43c5">1.4. 使用命令</a>
 </li>
 
 
 <li>
-<a href="#orgc1fed95">1.5. 注意点</a>
+<a href="#org20e3563">1.5. 注意点</a>
 </li>
 
 
@@ -109,19 +110,19 @@ And happy hacking emacs!
 
 
 <li>
-<a href="#org9884e1d">2. mingus安装及使用</a>
+<a href="#org904e28d">2. mingus安装及使用</a>
 
 
 <ul>
 
 
 <li>
-<a href="#orgdf58fd4">2.1. 安装</a>
+<a href="#orgc72fd34">2.1. 安装</a>
 </li>
 
 
 <li>
-<a href="#org80874db">2.2. 使用</a>
+<a href="#orge6b0f45">2.2. 使用</a>
 </li>
 
 
@@ -132,12 +133,12 @@ And happy hacking emacs!
 
 
 <li>
-<a href="#orge103163">3. 效果</a>
+<a href="#org2c7b72d">3. 效果</a>
 </li>
 
 
 <li>
-<a href="#orgc512116">4. 参考文档</a>
+<a href="#orgb4023d7">4. 参考文档</a>
 </li>
 
 
@@ -179,10 +180,10 @@ Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音�
 
 
 
-<div id="outline-container-org1450dfb" class="outline-2">
+<div id="outline-container-org9b11d99" class="outline-2">
 
 
-<h2 id="org1450dfb">
+<h2 id="org9b11d99">
 <span class="section-number-2">1</span>
  mpd安装及配置(macos)
 </h2>
@@ -192,10 +193,10 @@ Music Player Daemon(mpd)是一个开源、灵活、功能强大的server端音�
 </div>
 
 
-<div id="outline-container-org7547984" class="outline-3">
+<div id="outline-container-orga7f939a" class="outline-3">
 
 
-<h3 id="org7547984">
+<h3 id="orga7f939a">
 <span class="section-number-3">1.1</span>
  安装
 </h3>
@@ -237,10 +238,10 @@ Mac用户可以很方便的使用homebrew安装mpd
 
 
 
-<div id="outline-container-orgae69711" class="outline-3">
+<div id="outline-container-org9dd88a1" class="outline-3">
 
 
-<h3 id="orgae69711">
+<h3 id="org9dd88a1">
 <span class="section-number-3">1.2</span>
  创建配置文件
 </h3>
@@ -279,10 +280,10 @@ $ touch ~/.mpd/{mpd.conf,mpd.db,mpd.log,mpd.pid,mpdstate}
 
 
 
-<div id="outline-container-org07395d3" class="outline-3">
+<div id="outline-container-orgd37b6c6" class="outline-3">
 
 
-<h3 id="org07395d3">
+<h3 id="orgd37b6c6">
 <span class="section-number-3">1.3</span>
  编辑配置
 </h3>
@@ -350,10 +351,10 @@ audio_output {
 
 
 
-<div id="outline-container-orgb4eee27" class="outline-3">
+<div id="outline-container-org1db43c5" class="outline-3">
 
 
-<h3 id="orgb4eee27">
+<h3 id="org1db43c5">
 <span class="section-number-3">1.4</span>
  使用命令
 </h3>
@@ -381,10 +382,10 @@ $ mpd update  # 更新
 
 
 
-<div id="outline-container-orgc1fed95" class="outline-3">
+<div id="outline-container-org20e3563" class="outline-3">
 
 
-<h3 id="orgc1fed95">
+<h3 id="org20e3563">
 <span class="section-number-3">1.5</span>
  注意点
 </h3>
@@ -421,10 +422,10 @@ linux系统参考
 
 
 
-<div id="outline-container-org9884e1d" class="outline-2">
+<div id="outline-container-org904e28d" class="outline-2">
 
 
-<h2 id="org9884e1d">
+<h2 id="org904e28d">
 <span class="section-number-2">2</span>
  mingus安装及使用
 </h2>
@@ -434,10 +435,10 @@ linux系统参考
 </div>
 
 
-<div id="outline-container-orgdf58fd4" class="outline-3">
+<div id="outline-container-orgc72fd34" class="outline-3">
 
 
-<h3 id="orgdf58fd4">
+<h3 id="orgc72fd34">
 <span class="section-number-3">2.1</span>
  安装
 </h3>
@@ -472,10 +473,10 @@ mingus基本上是零配置，我只绑定了一个快捷键进入mingus主界�
 
 
 
-<div id="outline-container-org80874db" class="outline-3">
+<div id="outline-container-orge6b0f45" class="outline-3">
 
 
-<h3 id="org80874db">
+<h3 id="orge6b0f45">
 <span class="section-number-3">2.2</span>
  使用
 </h3>
@@ -527,10 +528,10 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 
 
 
-<div id="outline-container-orge103163" class="outline-2">
+<div id="outline-container-org2c7b72d" class="outline-2">
 
 
-<h2 id="orge103163">
+<h2 id="org2c7b72d">
 <span class="section-number-2">3</span>
  效果
 </h2>
@@ -556,10 +557,10 @@ mingus有三个主界面"Mingus Help", "Mingus", "Mingus Browser"，可以使用
 </div>
 
 
-<div id="outline-container-orgc512116" class="outline-2">
+<div id="outline-container-orgb4023d7" class="outline-2">
 
 
-<h2 id="orgc512116">
+<h2 id="orgb4023d7">
 <span class="section-number-2">4</span>
  参考文档
 </h2>
@@ -615,8 +616,10 @@ placeholder: '留下你的评论吧～'
 </div>
 <aside class="col-md-4 col-lg-4 col-xl-4">
 <div id="sidebar">
+<div id="side-music" class="mt-4">
+<meting-js server="netease" type="playlist" id="3778678"></meting-js>
+</div>
 <div id="side-friend" class="mt-4">
-<h3 class="border-bottom">友情链接</h3>
 <p>
 <strong>独立博客是一座座孤岛，里面藏着丰富有趣的灵魂。友链是孤岛的桥梁，欢迎常串门儿～</strong>
 </p>
@@ -702,7 +705,6 @@ placeholder: '留下你的评论吧～'
 </div>
 </div>
 <div class="mt-4">
-<h3 class="border-bottom">关注我</h3>
 <span>
 Github: 
 <a href="https://github.com/Kinneyzhang/">https://github.com/Kinneyzhang/</a>
@@ -746,6 +748,8 @@ RSS:
 </div>
 </div>
 <script src="/assets/js/jQuery.min.js"></script>
+<script src="/assets/js/APlayer.min.js"></script>
+<script src="/assets/js/Meting.min.js"></script>
 <script>$(document).ready(function(){
 	 var theme = sessionStorage.getItem("theme");
 	 if(theme=="dark"){

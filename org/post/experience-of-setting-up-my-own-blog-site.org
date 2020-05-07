@@ -41,3 +41,4 @@ OrgMode的 =org-publish= 原生支持批量org文件导出为HTML和添加导出
  * 20200314:使用valine统计文章阅读量。
  * 20200425:博客技术改版，使用自己开发的 Geekblog package 搭建。
  * 20200426:使用Google Adsense。
+ * 20200507:增加侧边栏音乐播放插件。

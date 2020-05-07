@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="/assets/css/font.min.css"/>
 <link id="pagestyle" rel="stylesheet" href="/assets/css/light.css"/>
+<link rel="stylesheet" href="/assets/css/APlayer.min.css"/>
 <script data-ad-client="ca-pub-3231589012114037" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-149578968-1', 'auto');ga('send', 'pageview');</script>
 </head>
@@ -153,15 +154,17 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
 <a href="/post/blog-light-and-dark-theme-switch.html">博客亮/暗色主题切换</a>
 </h2>
 <p>
-我的博客为亮色主题，晚间浏览时光线太强，于是想实现在亮色与暗色主题间的自由切换。实现原理参考了这里，即通过改变引入的css实现主题切换。(文末有彩蛋 ->->)下面是具体的实现步骤： 1.在适当位置引入切换按钮。每次点击时触发switchTheme 函数，实现主题切换。 2.在head 标签间引入博客主题的css文件，我的默认为light .... 
-<a href="/post/blog-light-and-dark-theme-switch.html">「阅读全文」</a>
+我的博客为亮色主题，晚间浏览时光线太强，于是想实现在亮色与暗色主题间的自由切换。实现原理参考了这里，即通过改变引入的css实现主题切换。下面是具体的实现步骤： 1.在适当位置引入切换按钮。每次点击时触发switchTheme 函数，实现主题切换。 2.在head 标签间引入博客主题的css文件，我的默认为light.css 。 3.在
+</ .... <a href="/post/blog-light-and-dark-theme-switch.html">
+「阅读全文」
+</a>
 </p>
 <p>
 <code>
 <a href="/category.html">博客</a>
 </code>
 <span class="post-div-meta dim">
-<span>546字 · </span>
+<span>521字 · </span>
 <span class="post-date">2020-02-19</span>
 </span>
 </p>
@@ -197,7 +200,7 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
 <a href="/category.html">博客</a>
 </code>
 <span class="post-div-meta dim">
-<span>1185字 · </span>
+<span>1197字 · </span>
 <span class="post-date">2019-11-26</span>
 </span>
 </p>
@@ -333,8 +336,10 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
 </div>
 <aside class="col-md-4 col-lg-4 col-xl-4">
 <div id="sidebar">
+<div id="side-music" class="mt-4">
+<meting-js server="netease" type="playlist" id="3778678"></meting-js>
+</div>
 <div id="side-friend" class="mt-4">
-<h3 class="border-bottom">友情链接</h3>
 <p>
 <strong>独立博客是一座座孤岛，里面藏着丰富有趣的灵魂。友链是孤岛的桥梁，欢迎常串门儿～</strong>
 </p>
@@ -420,7 +425,6 @@ MacOS系统使用mov作为默认视频格式，mov格式的缺点是文件体积
 </div>
 </div>
 <div class="mt-4">
-<h3 class="border-bottom">关注我</h3>
 <span>
 Github: 
 <a href="https://github.com/Kinneyzhang/">https://github.com/Kinneyzhang/</a>
@@ -464,6 +468,8 @@ RSS:
 </div>
 </div>
 <script src="/assets/js/jQuery.min.js"></script>
+<script src="/assets/js/APlayer.min.js"></script>
+<script src="/assets/js/Meting.min.js"></script>
 <script>$(document).ready(function(){
 	 var theme = sessionStorage.getItem("theme");
 	 if(theme=="dark"){

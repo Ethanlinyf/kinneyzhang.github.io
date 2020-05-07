@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="/assets/css/font.min.css"/>
 <link id="pagestyle" rel="stylesheet" href="/assets/css/light.css"/>
+<link rel="stylesheet" href="/assets/css/APlayer.min.css"/>
 <script data-ad-client="ca-pub-3231589012114037" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-149578968-1', 'auto');ga('send', 'pageview');</script>
 </head>
@@ -71,22 +72,22 @@ And happy hacking emacs!
 
 
 <li>
-<a href="#org59234e5">1. 使用方法</a>
+<a href="#org3662aee">1. 使用方法</a>
 </li>
 
 
 <li>
-<a href="#org443b6fa">2. 解析思路</a>
+<a href="#org26abe11">2. 解析思路</a>
 </li>
 
 
 <li>
-<a href="#org3c68fa3">3. 完整代码</a>
+<a href="#org2448b65">3. 完整代码</a>
 </li>
 
 
 <li>
-<a href="#org2ec09ba">4. 应用场景</a>
+<a href="#orgd7cad58">4. 应用场景</a>
 </li>
 
 
@@ -110,10 +111,10 @@ And happy hacking emacs!
 
 
 
-<div id="outline-container-org59234e5" class="outline-2">
+<div id="outline-container-org3662aee" class="outline-2">
 
 
-<h2 id="org59234e5">
+<h2 id="org3662aee">
 <span class="section-number-2">1</span>
  使用方法
 </h2>
@@ -183,10 +184,10 @@ And happy hacking emacs!
 
 
 
-<div id="outline-container-org443b6fa" class="outline-2">
+<div id="outline-container-org26abe11" class="outline-2">
 
 
-<h2 id="org443b6fa">
+<h2 id="org26abe11">
 <span class="section-number-2">2</span>
  解析思路
 </h2>
@@ -263,10 +264,10 @@ And happy hacking emacs!
 
 
 
-<div id="outline-container-org3c68fa3" class="outline-2">
+<div id="outline-container-org2448b65" class="outline-2">
 
 
-<h2 id="org3c68fa3">
+<h2 id="org2448b65">
 <span class="section-number-2">3</span>
  完整代码
 </h2>
@@ -394,10 +395,10 @@ And happy hacking emacs!
 
 
 
-<div id="outline-container-org2ec09ba" class="outline-2">
+<div id="outline-container-orgd7cad58" class="outline-2">
 
 
-<h2 id="org2ec09ba">
+<h2 id="orgd7cad58">
 <span class="section-number-2">4</span>
  应用场景
 </h2>
@@ -459,8 +460,10 @@ placeholder: '留下你的评论吧～'
 </div>
 <aside class="col-md-4 col-lg-4 col-xl-4">
 <div id="sidebar">
+<div id="side-music" class="mt-4">
+<meting-js server="netease" type="playlist" id="3778678"></meting-js>
+</div>
 <div id="side-friend" class="mt-4">
-<h3 class="border-bottom">友情链接</h3>
 <p>
 <strong>独立博客是一座座孤岛，里面藏着丰富有趣的灵魂。友链是孤岛的桥梁，欢迎常串门儿～</strong>
 </p>
@@ -546,7 +549,6 @@ placeholder: '留下你的评论吧～'
 </div>
 </div>
 <div class="mt-4">
-<h3 class="border-bottom">关注我</h3>
 <span>
 Github: 
 <a href="https://github.com/Kinneyzhang/">https://github.com/Kinneyzhang/</a>
@@ -590,6 +592,8 @@ RSS:
 </div>
 </div>
 <script src="/assets/js/jQuery.min.js"></script>
+<script src="/assets/js/APlayer.min.js"></script>
+<script src="/assets/js/Meting.min.js"></script>
 <script>$(document).ready(function(){
 	 var theme = sessionStorage.getItem("theme");
 	 if(theme=="dark"){
