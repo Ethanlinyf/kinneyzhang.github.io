@@ -10,7 +10,7 @@
  * 读过的最爱的书是: /*[[https://book.douban.com/subject/6781808/][《杀死一只知更鸟》]]*/
  * 最喜爱的日文歌是: /*[[https://www.bilibili.com/video/av3108239][God knows]]*/
  * 最爱听的韩文歌手是: /*[[https://music.163.com/#/artist?id=160947][IU]]*/
- * 最喜欢的日漫是: /*[[https://www.bilibili.com/bangumi/media/md24120616][《凉宫春日的忧郁》]]*/
+ * 最喜欢的日漫是: /*[[https://www.bilibili.com/bangumi/media/md1177/?from=search&seid=2519849805582432897][《CLANNAD》]]*/
  * 最喜欢的动漫角色是: /*[[https://search.bilibili.com/all?keyword=平泽唯][平泽唯]]*/
  * 最喜欢听的播客是: /*[[https://www.ximalaya.com/yinyue/8583636/][《大内密谈》]]*/
  * 最崇拜的计算机hacker是: /*[[https://zh.wikipedia.org/wiki/理查德·斯托曼][Richard Stallman]]*/
