@@ -1,0 +1,329 @@
+#+TITLE: Emacs中的HTML模版语言
+#+DATE: 2020-05-10 17:23:35
+#+CATEGORY: Emacs
+#+STARTUP: showall
+#+OPTIONS: toc:t H:3 num:3
+
+  PP-html是使用elisp开发的html模版语言库。它借鉴了部分 [[https://shopify.github.io/liquid/][Liquid template language]] 的设计思路，包括对象，标签和过滤器三部分。通过书写elisp的S表达式，读者可以快速便捷地构建简单html片段或复杂的html页面。其中 =:include= 和 =:extend= (包含和继承) 标签使得模块化构建html成为可能，提高了代码重用率。
+
+* 安装
+  克隆此代码仓库，然后在emacs配置中添加如下两行：
+
+  #+BEGIN_SRC emacs-lisp
+  (add-to-list 'load-path "<path-to-pp-html>")
+  (require 'pp-html)
+  #+END_SRC
+
+* 使用
+
+** 基础
+   pp-html使用elisp的S表达式来构建html代码，使用 =pp-html= 函数对S表达式求值。下面有一些简单的例子，便于理解基本的使用方法。
+   
+*** 单个
+   单个S表达式的构成为：(html标签 多个属性键值 内容)。其中html标签是必须的，其余可缺省。属性键值对的书写语法为Plist形式。特别地是，对CSS选择器设置了语法糖，用 "." 表示 "class"，"@" 表示 "id"，其值为符号后面的内容。对于无值属性(例如 async)有两种写法：1.(:async nil) 2.直接写:async，要求不能是最后一个属性。
+   
+   #+BEGIN_SRC emacs-lisp
+   (pp-html '(a "content"))
+   (pp-html '(a @id .class))
+   (pp-html '(a :id "id" :class "class"))
+   (pp-html '(a :href "url" :target "_blank" "content"))
+   (pp-html '(link :async :rel "stylesheet" :href "url" :async2 nil))
+   #+END_SRC
+
+   #+begin_src html
+   <a>content</a>
+   <a id="id" class="class"></a>
+   <a id="id" class="class"></a>
+   <a href="url" target="_blank">content</a>
+   <link async rel="stylesheet" href "url" async2/>
+   #+end_src   
+
+*** 并列
+   并列的多条html直接用括号包含。
+   
+   #+BEGIN_SRC emacs-lisp
+   (pp-html
+    '((div .div1 "div-content")
+      (p "paragraph")
+      (a :href "url" "a-content")
+      (img :src "path")
+      (ul .org-ul
+	  (li "1")
+	  (li "2")
+	  (li "3"))))
+   #+END_SRC
+
+   #+begin_src html
+   <div class="div1">div-content</div>
+   <p>paragraph</p>
+   <a href="url">a-content</a>
+   <img src="path"/>
+   <ul class="org-ul">
+     <li>1</li>
+     <li>2</li>
+     <li>3</li>
+   </ul>
+   #+end_src
+   
+*** 嵌套
+   在同一html标签的S表达式内代表该标签的子标签，否则为兄弟标签。
+   
+   #+BEGIN_SRC emacs-lisp
+   (pp-html
+    '(div .container
+	  (div .row
+	       (div .col-8
+		    (p "paragraph 1"))
+	       (div .col-4
+		    (p "paragraph 2")))))
+   #+END_SRC
+
+   #+begin_src html
+   <div class="container">
+     <div class="row">
+       <div class="col-8">
+	 <p>paragraph 1</p>
+       </div>
+       <div class="col-4">
+	 <p>paragraph 2</p>
+       </div>
+     </div>
+   </div>
+   #+end_src
+
+** 对象
+   对象告诉pp-html在页面何处显示对象的值。它包括两部分：变量求值和函数求值。可以使用 =pp-html-eval= 函数获取对象的值。
+
+*** 变量求值
+   变量求值的基本语法是在变量前加上"$"符号。
+   
+   #+BEGIN_SRC emacs-lisp
+   (let ((var1 "happy hacking emacs"))
+     (pp-html-eval '$var1))
+   #+END_SRC
+
+   #+begin_src html
+   happy hacking emacs
+   #+end_src
+
+   变量可应用于S表达式的任何部分。
+
+   #+BEGIN_SRC emacs-lisp
+   (let ((url "https://geekinney.com/")
+	 (name "戈楷旎"))
+     (pp-html '(a :href $url $name)))
+   #+END_SRC
+
+   #+begin_src html
+   <a href="https://geekinney.com/">戈楷旎</a>
+   #+end_src
+
+   *特别地，对于Plist对象使用"."来获取属性值。*
+   
+   #+BEGIN_SRC emacs-lisp :wrap src html
+   (let ((site '(:name "戈楷旎" :domain "geekinney.com" :author "Geekinney")))
+     (pp-html '(div .site-info
+		    (p $site.name)
+		    (p $site.domain)
+		    (p $site.author))))
+   #+END_SRC
+
+   #+begin_src html
+   <div class="site-info">
+     <p>戈楷旎</p>
+     <p>geekinney.com</p>
+     <p>Geekinney</p>
+   </div>
+   #+end_src
+
+*** 函数求值
+   函数求值的S表达式语法为 ($ <function> <args...>), 函数的参数也可写成变量形式。
+
+   #+BEGIN_SRC emacs-lisp
+   (let ((var1 "happy")
+	 (var2 " hacking"))
+     (pp-html-eval '($ concat $var1 $var2 " emacs")))
+   #+END_SRC
+
+   #+begin_src html
+   happy hacking emacs
+   #+end_src
+
+   函数可嵌套调用。
+
+   #+BEGIN_SRC emacs-lisp
+   (let ((var1 "now")
+	 (var2 " is ")
+	 (now '(current-time)))
+     (pp-html-eval '($ concat (upcase $var1) $var2 (format-time-string "%Y-%m-%d" $now))))
+   #+END_SRC
+
+   #+begin_src html
+   NOW is 2020-05-10
+   #+end_src
+
+   同理，函数也可用于S表达式的任何部分，这样pp-html就可以任意使用elisp丰富强大的函数库了。
+
+** 标签
+   pp-html支持基本的逻辑标签，逻辑标签简化了函数的写法。
+   
+*** assign
+    定义变量，相当于elisp的let或setq。
+
+    #+BEGIN_SRC emacs-lisp :wrap src html
+    (pp-html-parse
+     '((:assign str1 "happy"
+		str2 "hacking"
+		str3 "emacs")
+       (p ($ concat $str1 " " $str2 " " $str3))))
+    #+END_SRC
+
+    #+begin_src html
+    <p>happy hacking emacs</p>
+    #+end_src
+
+*** if
+    if条件判断
+    #+BEGIN_SRC emacs-lisp :wrap src html
+    (pp-html
+     '((:assign bool nil)
+       (:if $bool (p "true")
+	    (p "false"))))
+    #+END_SRC
+
+    #+begin_src html
+    <p>false</p>
+    #+end_src
+
+*** unless
+    unless条件判断
+    #+BEGIN_SRC emacs-lisp :wrap src html
+    (pp-html
+     '((:assign bool nil)
+       (:unless $bool (p "true")
+	    (p "false"))))
+    #+END_SRC
+
+    #+begin_src html
+    <p>true</p>
+    #+end_src
+
+*** cond
+    分支条件判断
+    #+BEGIN_SRC emacs-lisp :wrap src html
+    (pp-html
+     '((:assign case "case3")
+       (:cond
+	($ string= $case "case1") (p "case1 branch")
+	($ string= $case "case2") (p "case2 branch")
+	($ string= $case "case3") (p "case3 branch")
+	t (p "default branch"))))
+    #+END_SRC
+
+    #+begin_src html
+    <p>case3 branch</p>
+    #+end_src
+
+*** for
+    for循环
+    #+BEGIN_SRC emacs-lisp :wrap src html
+    (pp-html
+     '((:assign editors ("vim" "emacs" "vscode"))
+       (ul
+	(:for editor in $editors
+	      (li :id $editor $editor)))))
+    #+END_SRC
+
+    #+begin_src html
+    <ul>
+      <li id="vim">vim</li>
+      <li id="emacs">emacs</li>
+      <li id="vscode">vscode</li>
+    </ul>
+    #+end_src
+
+*** include
+    代码块包含
+    #+BEGIN_SRC emacs-lisp :wrap src html
+    (setq block1
+	  '(p "block1 content"
+	      (a :href "url" "content")))
+
+    (setq block2
+	  '(div .block2
+		(p "block2 content")
+		(:include $block1)))
+
+    (pp-html block2)
+    #+END_SRC
+
+    #+begin_src html
+    <div class="block2">
+      <p>block2 content</p>
+      <p>
+	block1 content
+	<a href="url">content</a>
+      </p>
+    </div>
+    #+end_src
+
+*** extend 
+    代码块继承
+    #+BEGIN_SRC emacs-lisp :wrap src html
+    (setq base-block '(p .base
+			 (:block block-name (span "base content")))
+	  extend-block1 '(:extend $base-block
+				  (:block block-name))
+	  extend-block2 '(:extend $base-block
+				  (:block block-name
+					  (span "extended content"))))
+    (pp-html
+     '((div "extend the default"
+	    (:include $extend-block1))
+       (div "extend with new"
+	    (:include $extend-block2))))
+    #+END_SRC
+
+    #+begin_src html
+    <div>
+      extend the default
+      <p class="base">
+	<span>base content</span>
+      </p>
+    </div>
+    <div>
+      extend with new
+      <p class="base">
+	<span>extended content</span>
+      </p>
+    </div>
+    #+end_src
+
+** 过滤器
+   过滤器的语法形式为 (/ <value> <:filter args> ...)。过滤器作用于<value>，可以有参数，也可以没有。
+
+*** 自定义过滤器
+    pp-html支持自定义过滤器，使用 =pp-html-define-filter= 函数，它有两个参数：过滤器名称和过滤函数。例：
+
+    #+BEGIN_SRC emacs-lisp :wrap src html
+    (pp-html-define-filter :add 'pp-html-filter-add)
+    (defun pp-html-filter-add (value arg)
+      "Add a value to a number"
+      (let ((arg (if (stringp arg)
+		     (string-to-number arg)
+		   arg)))
+	(+ value arg)))
+    #+END_SRC
+    
+*** 内置过滤器：   
+    *abs*
+
+    #+BEGIN_SRC emacs-lisp :wrap src html
+    (pp-html-eval '(/ -5 :abs)) ;; => 5
+    #+END_SRC
+
+    *add*
+
+    #+BEGIN_SRC emacs-lisp :wrap src html
+    (pp-html-eval '(/ 4 :add 5)) ;; => 9
+    #+END_SRC

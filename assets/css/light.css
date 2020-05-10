@@ -7,7 +7,6 @@ html {
 
 body {
     font-family: 'Noto Sans SC', sans-serif;
-    /* Arial,"TIBch", "Classic Grotesque W01", "Helvetica Neue", "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif; */
     -webkit-font-smoothing:antialiased;
     /* background-image:url('/static/img/dot-grid.png'); */
     /* background-color: white; */
@@ -429,22 +428,19 @@ pre{
     border-radius: 2px;
     padding:14px 16px;
     background-color:#f8f8f8;
-    /* border: 1px solid RGB(213,213,213); */
-    font-family: monospace, sans-serif;
+    border: 1px solid RGB(213,213,213);
+    font-family: 'Source Code Pro', monospace;
     line-height: 1.3em;
     overflow:auto;
     /* box-shadow: 3px 3px 3px #eee; */
 }
 code {
     padding: 2px;
-    font-weight: 500;
     border-radius: 2px;
     border: 0.5px solid RGB(213,213,213);
     background-color: #f8f8f8;
-    font-family: monospace, sans-serif;
-}
-pre code {
-    border: 0;
+    color: #444;
+    font-family: 'Source Code Pro', monospace;
 }
 #org-div-home-and-up {
     font-size: 70%;
