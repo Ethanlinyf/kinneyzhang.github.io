@@ -1,14 +1,18 @@
-#+TITLE: Emacs中的HTML模版语言
-#+DATE: 2020-05-10 17:23:35
+#+TITLE: [New Package] Emacs中的HTML模版语言
+#+DATE: 2020-05-10
 #+CATEGORY: Emacs
 #+STARTUP: showall
 #+OPTIONS: toc:t H:3 num:3
 
-  PP-html是使用elisp开发的html模版语言库。它借鉴了部分 [[https://shopify.github.io/liquid/][Liquid template language]] 的设计思路，包括对象，标签和过滤器三部分。通过书写elisp的S表达式，读者可以快速便捷地构建简单html片段或复杂的html页面。其中 =:include= 和 =:extend= (包含和继承) 标签使得模块化构建html成为可能，提高了代码重用率。
+[[https://github.com/Kinneyzhang/pp-html.git][pp-html]] 是使用elisp开发的html模版语言。它借鉴了部分 [[https://shopify.github.io/liquid/][Liquid template language]] 的设计思路，包括对象，标签和过滤器三部分。通过书写elisp的S表达式，读者可以快速便捷地构建简单html片段或复杂的html页面。其中 =:include= 和 =:extend= (包含和继承) 标签使得模块化构建html成为可能，提高了代码重用率。
 
 * 安装
-  克隆此代码仓库，然后在emacs配置中添加如下两行：
+  克隆此代码仓库:
+  #+BEGIN_SRC shell
+  $ git clone https://github.com/Kinneyzhang/pp-html.git <path-to-pp-html>
+  #+END_SRC
 
+  然后在emacs配置中添加如下两行:
   #+BEGIN_SRC emacs-lisp
   (add-to-list 'load-path "<path-to-pp-html>")
   (require 'pp-html)
@@ -19,26 +23,28 @@
 ** 基础
    pp-html使用elisp的S表达式来构建html代码，使用 =pp-html= 函数对S表达式求值。下面有一些简单的例子，便于理解基本的使用方法。
    
-*** 单个
-   单个S表达式的构成为：(html标签 多个属性键值 内容)。其中html标签是必须的，其余可缺省。属性键值对的书写语法为Plist形式。特别地是，对CSS选择器设置了语法糖，用 "." 表示 "class"，"@" 表示 "id"，其值为符号后面的内容。对于无值属性(例如 async)有两种写法：1.(:async nil) 2.直接写:async，要求不能是最后一个属性。
+*** 单个html
+   单个S表达式的构成为: =(html标签 多个属性键值对 内容)= 。
+
+   其中html标签是必须的，其余可缺省。属性键值对的书写语法为Plist形式。特别地是，对CSS选择器设置了语法糖，用 "." 表示 "class"，"@" 表示 "id"，其值为符号后面的内容。对于无值属性(例如 async)有两种写法：1. (:async nil) 2. 直接写:async，要求不能是最后一个属性。
    
    #+BEGIN_SRC emacs-lisp
    (pp-html '(a "content"))
    (pp-html '(a @id .class))
    (pp-html '(a :id "id" :class "class"))
-   (pp-html '(a :href "url" :target "_blank" "content"))
-   (pp-html '(link :async :rel "stylesheet" :href "url" :async2 nil))
+   (pp-html '(a .test :href "url" :target "_blank" "content"))
+   (pp-html '(link :async :rel "stylesheet" :href "url" :async nil))
    #+END_SRC
 
    #+begin_src html
    <a>content</a>
    <a id="id" class="class"></a>
    <a id="id" class="class"></a>
-   <a href="url" target="_blank">content</a>
-   <link async rel="stylesheet" href "url" async2/>
+   <a class="test" href="url" target="_blank">content</a>
+   <link async rel="stylesheet" href "url" async/>
    #+end_src   
 
-*** 并列
+*** 并列html
    并列的多条html直接用括号包含。
    
    #+BEGIN_SRC emacs-lisp
@@ -65,7 +71,7 @@
    </ul>
    #+end_src
    
-*** 嵌套
+*** 嵌套html
    在同一html标签的S表达式内代表该标签的子标签，否则为兄弟标签。
    
    #+BEGIN_SRC emacs-lisp
@@ -118,6 +124,7 @@
    <a href="https://geekinney.com/">戈楷旎</a>
    #+end_src
 
+*** 对象属性求值
    *特别地，对于Plist对象使用"."来获取属性值。*
    
    #+BEGIN_SRC emacs-lisp :wrap src html
@@ -315,15 +322,73 @@
 	(+ value arg)))
     #+END_SRC
     
-*** 内置过滤器：   
-    *abs*
-
+*** 内置过滤器
+    *abs*: 取绝对值
     #+BEGIN_SRC emacs-lisp :wrap src html
     (pp-html-eval '(/ -5 :abs)) ;; => 5
     #+END_SRC
 
-    *add*
-
+    *add*: 加上一个数
     #+BEGIN_SRC emacs-lisp :wrap src html
     (pp-html-eval '(/ 4 :add 5)) ;; => 9
     #+END_SRC
+
+    *append*: 结合两个列表
+    #+BEGIN_SRC emacs-lisp
+    (let ((list1 '(1 2 3))
+	  (list2 '(5 6 7)))
+      (pp-html-eval '(/ $list1 :append $list2))) ;; => (1 2 3 5 6 7)
+    #+END_SRC
+
+    *capitalize*: 第一个单词首字母大写
+    #+BEGIN_SRC emacs-lisp
+    (pp-html-eval '(/ "happy hacking emacs!" :capitalize)) ;; => Happy hacking emacs!
+    #+END_SRC
+
+    *compact*: 删除列表中所有的nil
+    #+BEGIN_SRC emacs-lisp
+    (let ((lst '(nil 1 2 nil 3 4 nil)))
+      (pp-html-eval '(/ $lst :compact))) ;; => (1 2 3 4)
+    #+END_SRC
+
+    *concat*: 字符串连接
+    #+BEGIN_SRC emacs-lisp
+    (let ((str1 "happy hacking ")
+	  (str2 "emacs"))
+      (pp-html-eval '(/ $str1 :concat $str2))) ;; => happy hacking emacs
+    #+END_SRC
+
+    *default*: 不是nil或空字符串，设为默认值
+    #+BEGIN_SRC emacs-lisp
+    (let ((str1 "")
+	  (str2 "new value")
+	  (lst1 '(1 2 3))
+	  (lst2 nil))
+      (pp-html-eval '(/ $str1 :default "default value")) ;; => default value
+      (pp-html-eval '(/ $str2 :default "default value")) ;; => new value
+      (pp-html-eval '(/ $lst1 :default (4 5 6))) ;; => (1 2 3)
+      (pp-html-eval '(/ $lst2 :default (4 5 6))) ;; => (4 5 6)
+      )
+    #+END_SRC
+
+    *escape*: html特殊字符转义
+    #+BEGIN_SRC emacs-lisp
+    (pp-html-eval '(/ "Have you read 'James & the Giant Peach'?" :escape)) ;; => Have you read &apos;James &amp; the Giant Peach&apos;?
+    #+END_SRC
+
+    *join*: 使用分隔符连接列表中字符串
+    #+BEGIN_SRC emacs-lisp
+    (let ((lst '("happy" "hacking" "emacs")))
+      (pp-html-eval '(/ $lst :join "-"))) ;; => happy-hacking-emacs
+    #+END_SRC
+
+    *More useful filters is on the way!*
+
+* 说明
+  我的 [[https://geekinney.com/][个人博客]] 就是基于 =pp-html= 构建的，我将构建博客的代码组织成了emacs包: =geekblog= ，目前处理代码优化整理阶段，敬请关注 [[https://github.com/Kinneyzhang][我的Github]] 或博客。
+
+  pp-html为本人写的第一个emacs包，可能有不成熟的地方，希望读者诸君、emacs大牛批评指正。关于package未来功能的拓展和集成，也可以给我提建议(issue或博客留言)。
+
+* 计划
+  * [ ] 内置更多有用的过滤器。
+  * [ ] pp-html-reverse: 反向解析html字符串为pp-html的S表达式形式。

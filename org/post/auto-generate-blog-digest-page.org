@@ -9,7 +9,7 @@
 
 先来看看折腾的效果：
 
-https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/post-digest-page.png
+[[https://geekinney-1258820352.cos.ap-hongkong.myqcloud.com/geekblog/img/post-digest-page.png]]
 
 由于摘要页对排版有一定的要求，所以纯orgMode导出不能满足需求，我采取的办法是在orgMode中直接插入html。和Markdown不同，orgMode中插入html需要将代码包裹在 =#+begin_export html= 和 =#+end_export= 之间。
 

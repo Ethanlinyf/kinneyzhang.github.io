@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>[New Package] Emacs中的HTML模版语言</title>
+<meta name="generator" content="GeekBlog"/>
+<meta name="author" content="Geekinney"/>
+<meta name="description" content="Emacs is a lifestyle  :-)<br>And happy hacking emacs!"/>
+<link rel="shortcut icon" href="/assets/image/favicon.ico"/>
+<link rel="bookmark" href="/assets/image/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/assets/css/font.min.css"/>
+<link id="pagestyle" rel="stylesheet" href="/assets/css/light.css"/>
+<link rel="stylesheet" href="/assets/css/APlayer.min.css"/>
+<script data-ad-client="ca-pub-3231589012114037" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-149578968-1', 'auto');ga('send', 'pageview');</script>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<header id="topheader">
+<a id="logo" href="/">戈楷旎</a>
+<p class="description">
+Emacs is a lifestyle  :-)
+<br>
+And happy hacking emacs!
+</p>
+</header>
+<nav id="topmenu">
+<a href="/">主页</a>
+<a href="/archive.html">归档</a>
+<a href="/category.html">分类</a>
+<a href="/about.html">关于</a>
+<a href="/message.html">留言</a>
+</nav>
+</div>
+</div>
+</div>
+<main class="container">
+<div class="row">
+<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+<div id="post-content">
+<header>
+<h1 class="title">[New Package] Emacs中的HTML模版语言</h1>
+</header>
+<div id="post-info">
+<p>
+「
+<span>分类: Emacs · </span>
+<span>字数: 1821 · </span>
+<span class="leancloud_visitors" id="/post/html-template-language-in-emacs.html" data-flag-title="[New Package] Emacs中的HTML模版语言">
+<span class="post-meta-item-text">阅读 </span>
+<span class="leancloud-visitors-count">...</span>
+ 次
+</span>
+」
+</p>
+</div>
+<div id="main-content">
+<nav id="table-of-contents">
+
+
+<h2>Table of Contents</h2>
+
+
+<div id="text-table-of-contents">
+
+
+<ul>
+
+
+<li>
+<a href="#orgb1f78af">1. 安装</a>
+</li>
+
+
+<li>
+<a href="#orge6dad58">2. 使用</a>
+
+
+<ul>
+
+
+<li>
+<a href="#orgad4bac0">2.1. 基础</a>
+
+
+<ul>
+
+
+<li>
+<a href="#orged2533d">2.1.1. 单个html</a>
+</li>
+
+
+<li>
+<a href="#org3abcad1">2.1.2. 并列html</a>
+</li>
+
+
+<li>
+<a href="#orgbe99d5b">2.1.3. 嵌套html</a>
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+<li>
+<a href="#org65603ea">2.2. 对象</a>
+
+
+<ul>
+
+
+<li>
+<a href="#org44df45c">2.2.1. 变量求值</a>
+</li>
+
+
+<li>
+<a href="#org70d3150">2.2.2. 对象属性求值</a>
+</li>
+
+
+<li>
+<a href="#org2eebf35">2.2.3. 函数求值</a>
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+<li>
+<a href="#org00cfad7">2.3. 标签</a>
+
+
+<ul>
+
+
+<li>
+<a href="#orge4d3770">2.3.1. assign</a>
+</li>
+
+
+<li>
+<a href="#org85ade4c">2.3.2. if</a>
+</li>
+
+
+<li>
+<a href="#orga5a502e">2.3.3. unless</a>
+</li>
+
+
+<li>
+<a href="#org379586a">2.3.4. cond</a>
+</li>
+
+
+<li>
+<a href="#org112861f">2.3.5. for</a>
+</li>
+
+
+<li>
+<a href="#org40cf267">2.3.6. include</a>
+</li>
+
+
+<li>
+<a href="#org55e96a2">2.3.7. extend</a>
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+<li>
+<a href="#org9a9416d">2.4. 过滤器</a>
+
+
+<ul>
+
+
+<li>
+<a href="#orga643b1a">2.4.1. 自定义过滤器</a>
+</li>
+
+
+<li>
+<a href="#org5fc733c">2.4.2. 内置过滤器</a>
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+<li>
+<a href="#org1ff47d6">3. 说明</a>
+</li>
+
+
+<li>
+<a href="#org29ae509">4. 计划</a>
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+</nav>
+
+
+<p>
+
+
+<a href="https://github.com/Kinneyzhang/pp-html.git">pp-html</a>
+是使用elisp开发的html模版语言。它借鉴了部分 
+<a href="https://shopify.github.io/liquid/">Liquid template language</a>
+ 的设计思路，包括对象，标签和过滤器三部分。通过书写elisp的S表达式，读者可以快速便捷地构建简单html片段或复杂的html页面。其中 
+<code>:include</code>
+ 和 
+<code>:extend</code>
+ (包含和继承) 标签使得模块化构建html成为可能，提高了代码重用率。
+
+</p>
+
+
+
+<div id="outline-container-orgb1f78af" class="outline-2">
+
+
+<h2 id="orgb1f78af">
+<span class="section-number-2">1</span>
+ 安装
+</h2>
+
+
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+克隆此代码仓库:
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-shell">$ git clone https://github.com/Kinneyzhang/pp-html.git &lt;path-to-pp-html&gt;
+</pre>
+
+
+</div>
+
+
+
+<p>
+然后在emacs配置中添加如下两行:
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(add-to-list 'load-path "&lt;path-to-pp-html&gt;")
+(require 'pp-html)
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-orge6dad58" class="outline-2">
+
+
+<h2 id="orge6dad58">
+<span class="section-number-2">2</span>
+ 使用
+</h2>
+
+
+<div class="outline-text-2" id="text-2">
+</div>
+
+
+<div id="outline-container-orgad4bac0" class="outline-3">
+
+
+<h3 id="orgad4bac0">
+<span class="section-number-3">2.1</span>
+ 基础
+</h3>
+
+
+<div class="outline-text-3" id="text-2-1">
+
+
+<p>
+
+pp-html使用elisp的S表达式来构建html代码，使用 
+<code>pp-html</code>
+ 函数对S表达式求值。下面有一些简单的例子，便于理解基本的使用方法。
+
+</p>
+
+
+</div>
+
+
+
+<div id="outline-container-orged2533d" class="outline-4">
+
+
+<h4 id="orged2533d">
+<span class="section-number-4">2.1.1</span>
+ 单个html
+</h4>
+
+
+<div class="outline-text-4" id="text-2-1-1">
+
+
+<p>
+
+单个S表达式的构成为: 
+<code>(html标签 多个属性键值对 内容)</code>
+ 。
+
+</p>
+
+
+
+<p>
+其中html标签是必须的，其余可缺省。属性键值对的书写语法为Plist形式。特别地是，对CSS选择器设置了语法糖，用 "." 表示 "class"，"@" 表示 "id"，其值为符号后面的内容。对于无值属性(例如 async)有两种写法：1. (:async nil) 2. 直接写:async，要求不能是最后一个属性。
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(pp-html '(a "content"))
+(pp-html '(a @id .class))
+(pp-html '(a :id "id" :class "class"))
+(pp-html '(a .test :href "url" :target "_blank" "content"))
+(pp-html '(link :async :rel "stylesheet" :href "url" :async nil))
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">&lt;a&gt;content&lt;/a&gt;
+&lt;a id="id" class="class"&gt;&lt;/a&gt;
+&lt;a id="id" class="class"&gt;&lt;/a&gt;
+&lt;a class="test" href="url" target="_blank"&gt;content&lt;/a&gt;
+&lt;link async rel="stylesheet" href "url" async/&gt;
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org3abcad1" class="outline-4">
+
+
+<h4 id="org3abcad1">
+<span class="section-number-4">2.1.2</span>
+ 并列html
+</h4>
+
+
+<div class="outline-text-4" id="text-2-1-2">
+
+
+<p>
+并列的多条html直接用括号包含。
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(pp-html
+ '((div .div1 "div-content")
+   (p "paragraph")
+   (a :href "url" "a-content")
+   (img :src "path")
+   (ul .org-ul
+       (li "1")
+       (li "2")
+       (li "3"))))
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">&lt;div class="div1"&gt;div-content&lt;/div&gt;
+&lt;p&gt;paragraph&lt;/p&gt;
+&lt;a href="url"&gt;a-content&lt;/a&gt;
+&lt;img src="path"/&gt;
+&lt;ul class="org-ul"&gt;
+  &lt;li&gt;1&lt;/li&gt;
+  &lt;li&gt;2&lt;/li&gt;
+  &lt;li&gt;3&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-orgbe99d5b" class="outline-4">
+
+
+<h4 id="orgbe99d5b">
+<span class="section-number-4">2.1.3</span>
+ 嵌套html
+</h4>
+
+
+<div class="outline-text-4" id="text-2-1-3">
+
+
+<p>
+在同一html标签的S表达式内代表该标签的子标签，否则为兄弟标签。
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(pp-html
+ '(div .container
+       (div .row
+	    (div .col-8
+		 (p "paragraph 1"))
+	    (div .col-4
+		 (p "paragraph 2")))))
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">&lt;div class="container"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-8"&gt;
+      &lt;p&gt;paragraph 1&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="col-4"&gt;
+      &lt;p&gt;paragraph 2&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org65603ea" class="outline-3">
+
+
+<h3 id="org65603ea">
+<span class="section-number-3">2.2</span>
+ 对象
+</h3>
+
+
+<div class="outline-text-3" id="text-2-2">
+
+
+<p>
+
+对象告诉pp-html在页面何处显示对象的值。它包括两部分：变量求值和函数求值。可以使用 
+<code>pp-html-eval</code>
+ 函数获取对象的值。
+
+</p>
+
+
+</div>
+
+
+
+<div id="outline-container-org44df45c" class="outline-4">
+
+
+<h4 id="org44df45c">
+<span class="section-number-4">2.2.1</span>
+ 变量求值
+</h4>
+
+
+<div class="outline-text-4" id="text-2-2-1">
+
+
+<p>
+变量求值的基本语法是在变量前加上"$"符号。
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(let ((var1 "happy hacking emacs"))
+  (pp-html-eval '$var1))
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">happy hacking emacs
+</pre>
+
+
+</div>
+
+
+
+<p>
+变量可应用于S表达式的任何部分。
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(let ((url "https://geekinney.com/")
+      (name "戈楷旎"))
+  (pp-html '(a :href $url $name)))
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">&lt;a href="https://geekinney.com/"&gt;戈楷旎&lt;/a&gt;
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org70d3150" class="outline-4">
+
+
+<h4 id="org70d3150">
+<span class="section-number-4">2.2.2</span>
+ 对象属性求值
+</h4>
+
+
+<div class="outline-text-4" id="text-2-2-2">
+
+
+<p>
+
+
+<b>特别地，对于Plist对象使用"."来获取属性值。</b>
+
+
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(let ((site '(:name "戈楷旎" :domain "geekinney.com" :author "Geekinney")))
+  (pp-html '(div .site-info
+		 (p $site.name)
+		 (p $site.domain)
+		 (p $site.author))))
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">&lt;div class="site-info"&gt;
+  &lt;p&gt;戈楷旎&lt;/p&gt;
+  &lt;p&gt;geekinney.com&lt;/p&gt;
+  &lt;p&gt;Geekinney&lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org2eebf35" class="outline-4">
+
+
+<h4 id="org2eebf35">
+<span class="section-number-4">2.2.3</span>
+ 函数求值
+</h4>
+
+
+<div class="outline-text-4" id="text-2-2-3">
+
+
+<p>
+函数求值的S表达式语法为 ($ &lt;function&gt; &lt;args&#x2026;&gt;), 函数的参数也可写成变量形式。
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(let ((var1 "happy")
+      (var2 " hacking"))
+  (pp-html-eval '($ concat $var1 $var2 " emacs")))
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">happy hacking emacs
+</pre>
+
+
+</div>
+
+
+
+<p>
+函数可嵌套调用。
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(let ((var1 "now")
+      (var2 " is ")
+      (now '(current-time)))
+  (pp-html-eval '($ concat (upcase $var1) $var2 (format-time-string "%Y-%m-%d" $now))))
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">NOW is 2020-05-10
+</pre>
+
+
+</div>
+
+
+
+<p>
+同理，函数也可用于S表达式的任何部分，这样pp-html就可以任意使用elisp丰富强大的函数库了。
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org00cfad7" class="outline-3">
+
+
+<h3 id="org00cfad7">
+<span class="section-number-3">2.3</span>
+ 标签
+</h3>
+
+
+<div class="outline-text-3" id="text-2-3">
+
+
+<p>
+pp-html支持基本的逻辑标签，逻辑标签简化了函数的写法。
+</p>
+
+
+</div>
+
+
+
+<div id="outline-container-orge4d3770" class="outline-4">
+
+
+<h4 id="orge4d3770">
+<span class="section-number-4">2.3.1</span>
+ assign
+</h4>
+
+
+<div class="outline-text-4" id="text-2-3-1">
+
+
+<p>
+定义变量，相当于elisp的let或setq。
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(pp-html-parse
+ '((:assign str1 "happy"
+	    str2 "hacking"
+	    str3 "emacs")
+   (p ($ concat $str1 " " $str2 " " $str3))))
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">&lt;p&gt;happy hacking emacs&lt;/p&gt;
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org85ade4c" class="outline-4">
+
+
+<h4 id="org85ade4c">
+<span class="section-number-4">2.3.2</span>
+ if
+</h4>
+
+
+<div class="outline-text-4" id="text-2-3-2">
+
+
+<p>
+if条件判断
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(pp-html
+ '((:assign bool nil)
+   (:if $bool (p "true")
+	(p "false"))))
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">&lt;p&gt;false&lt;/p&gt;
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-orga5a502e" class="outline-4">
+
+
+<h4 id="orga5a502e">
+<span class="section-number-4">2.3.3</span>
+ unless
+</h4>
+
+
+<div class="outline-text-4" id="text-2-3-3">
+
+
+<p>
+unless条件判断
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(pp-html
+ '((:assign bool nil)
+   (:unless $bool (p "true")
+	(p "false"))))
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">&lt;p&gt;true&lt;/p&gt;
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org379586a" class="outline-4">
+
+
+<h4 id="org379586a">
+<span class="section-number-4">2.3.4</span>
+ cond
+</h4>
+
+
+<div class="outline-text-4" id="text-2-3-4">
+
+
+<p>
+分支条件判断
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(pp-html
+ '((:assign case "case3")
+   (:cond
+    ($ string= $case "case1") (p "case1 branch")
+    ($ string= $case "case2") (p "case2 branch")
+    ($ string= $case "case3") (p "case3 branch")
+    t (p "default branch"))))
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">&lt;p&gt;case3 branch&lt;/p&gt;
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org112861f" class="outline-4">
+
+
+<h4 id="org112861f">
+<span class="section-number-4">2.3.5</span>
+ for
+</h4>
+
+
+<div class="outline-text-4" id="text-2-3-5">
+
+
+<p>
+for循环
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(pp-html
+ '((:assign editors ("vim" "emacs" "vscode"))
+   (ul
+    (:for editor in $editors
+	  (li :id $editor $editor)))))
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">&lt;ul&gt;
+  &lt;li id="vim"&gt;vim&lt;/li&gt;
+  &lt;li id="emacs"&gt;emacs&lt;/li&gt;
+  &lt;li id="vscode"&gt;vscode&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org40cf267" class="outline-4">
+
+
+<h4 id="org40cf267">
+<span class="section-number-4">2.3.6</span>
+ include
+</h4>
+
+
+<div class="outline-text-4" id="text-2-3-6">
+
+
+<p>
+代码块包含
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(setq block1
+      '(p "block1 content"
+	  (a :href "url" "content")))
+
+(setq block2
+      '(div .block2
+	    (p "block2 content")
+	    (:include $block1)))
+
+(pp-html block2)
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">&lt;div class="block2"&gt;
+  &lt;p&gt;block2 content&lt;/p&gt;
+  &lt;p&gt;
+    block1 content
+    &lt;a href="url"&gt;content&lt;/a&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org55e96a2" class="outline-4">
+
+
+<h4 id="org55e96a2">
+<span class="section-number-4">2.3.7</span>
+ extend
+</h4>
+
+
+<div class="outline-text-4" id="text-2-3-7">
+
+
+<p>
+代码块继承
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(setq base-block '(p .base
+		     (:block block-name (span "base content")))
+      extend-block1 '(:extend $base-block
+			      (:block block-name))
+      extend-block2 '(:extend $base-block
+			      (:block block-name
+				      (span "extended content"))))
+(pp-html
+ '((div "extend the default"
+	(:include $extend-block1))
+   (div "extend with new"
+	(:include $extend-block2))))
+</pre>
+
+
+</div>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-html">&lt;div&gt;
+  extend the default
+  &lt;p class="base"&gt;
+    &lt;span&gt;base content&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  extend with new
+  &lt;p class="base"&gt;
+    &lt;span&gt;extended content&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org9a9416d" class="outline-3">
+
+
+<h3 id="org9a9416d">
+<span class="section-number-3">2.4</span>
+ 过滤器
+</h3>
+
+
+<div class="outline-text-3" id="text-2-4">
+
+
+<p>
+过滤器的语法形式为 (/ &lt;value&gt; &lt;:filter args&gt; &#x2026;)。过滤器作用于&lt;value&gt;，可以有参数，也可以没有。
+</p>
+
+
+</div>
+
+
+
+<div id="outline-container-orga643b1a" class="outline-4">
+
+
+<h4 id="orga643b1a">
+<span class="section-number-4">2.4.1</span>
+ 自定义过滤器
+</h4>
+
+
+<div class="outline-text-4" id="text-2-4-1">
+
+
+<p>
+
+pp-html支持自定义过滤器，使用 
+<code>pp-html-define-filter</code>
+ 函数，它有两个参数：过滤器名称和过滤函数。例：
+
+</p>
+
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(pp-html-define-filter :add 'pp-html-filter-add)
+(defun pp-html-filter-add (value arg)
+  "Add a value to a number"
+  (let ((arg (if (stringp arg)
+		 (string-to-number arg)
+	       arg)))
+    (+ value arg)))
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org5fc733c" class="outline-4">
+
+
+<h4 id="org5fc733c">
+<span class="section-number-4">2.4.2</span>
+ 内置过滤器
+</h4>
+
+
+<div class="outline-text-4" id="text-2-4-2">
+
+
+<p>
+
+
+<b>abs</b>
+: 取绝对值
+
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(pp-html-eval '(/ -5 :abs)) ;; =&gt; 5
+</pre>
+
+
+</div>
+
+
+
+<p>
+
+
+<b>add</b>
+: 加上一个数
+
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(pp-html-eval '(/ 4 :add 5)) ;; =&gt; 9
+</pre>
+
+
+</div>
+
+
+
+<p>
+
+
+<b>append</b>
+: 结合两个列表
+
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(let ((list1 '(1 2 3))
+      (list2 '(5 6 7)))
+  (pp-html-eval '(/ $list1 :append $list2))) ;; =&gt; (1 2 3 5 6 7)
+</pre>
+
+
+</div>
+
+
+
+<p>
+
+
+<b>capitalize</b>
+: 第一个单词首字母大写
+
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(pp-html-eval '(/ "happy hacking emacs!" :capitalize)) ;; =&gt; Happy hacking emacs!
+</pre>
+
+
+</div>
+
+
+
+<p>
+
+
+<b>compact</b>
+: 删除列表中所有的nil
+
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(let ((lst '(nil 1 2 nil 3 4 nil)))
+  (pp-html-eval '(/ $lst :compact))) ;; =&gt; (1 2 3 4)
+</pre>
+
+
+</div>
+
+
+
+<p>
+
+
+<b>concat</b>
+: 字符串连接
+
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(let ((str1 "happy hacking ")
+      (str2 "emacs"))
+  (pp-html-eval '(/ $str1 :concat $str2))) ;; =&gt; happy hacking emacs
+</pre>
+
+
+</div>
+
+
+
+<p>
+
+
+<b>default</b>
+: 不是nil或空字符串，设为默认值
+
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(let ((str1 "")
+      (str2 "new value")
+      (lst1 '(1 2 3))
+      (lst2 nil))
+  (pp-html-eval '(/ $str1 :default "default value")) ;; =&gt; default value
+  (pp-html-eval '(/ $str2 :default "default value")) ;; =&gt; new value
+  (pp-html-eval '(/ $lst1 :default (4 5 6))) ;; =&gt; (1 2 3)
+  (pp-html-eval '(/ $lst2 :default (4 5 6))) ;; =&gt; (4 5 6)
+  )
+</pre>
+
+
+</div>
+
+
+
+<p>
+
+
+<b>escape</b>
+: html特殊字符转义
+
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(pp-html-eval '(/ "Have you read 'James &amp; the Giant Peach'?" :escape)) ;; =&gt; Have you read &amp;apos;James &amp;amp; the Giant Peach&amp;apos;?
+</pre>
+
+
+</div>
+
+
+
+<p>
+
+
+<b>join</b>
+: 使用分隔符连接列表中字符串
+
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(let ((lst '("happy" "hacking" "emacs")))
+  (pp-html-eval '(/ $lst :join "-"))) ;; =&gt; happy-hacking-emacs
+</pre>
+
+
+</div>
+
+
+
+<p>
+
+
+<b>More useful filters is on the way!</b>
+
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org1ff47d6" class="outline-2">
+
+
+<h2 id="org1ff47d6">
+<span class="section-number-2">3</span>
+ 说明
+</h2>
+
+
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+
+我的 
+<a href="https://geekinney.com/">个人博客</a>
+ 就是基于 
+<code>pp-html</code>
+ 构建的，我将构建博客的代码组织成了emacs包: 
+<code>geekblog</code>
+ ，目前处理代码优化整理阶段，敬请关注 
+<a href="https://github.com/Kinneyzhang">我的Github</a>
+ 或博客。
+
+</p>
+
+
+
+<p>
+pp-html为本人写的第一个emacs包，可能有不成熟的地方，希望读者诸君、emacs大牛批评指正。关于package未来功能的拓展和集成，也可以给我提建议(issue或博客留言)。
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org29ae509" class="outline-2">
+
+
+<h2 id="org29ae509">
+<span class="section-number-2">4</span>
+ 计划
+</h2>
+
+
+<div class="outline-text-2" id="text-4">
+
+
+<ul class="org-ul">
+
+
+<li class="off">
+<code>[&#xa0;]</code>
+ 内置更多有用的过滤器。
+</li>
+
+
+<li class="off">
+<code>[&#xa0;]</code>
+ pp-html-reverse: 反向解析html字符串为pp-html的S表达式形式。
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+<div class="adsense-post mt-2">
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+	data-ad-layout="in-article"
+	data-ad-format="fluid"
+	data-ad-client="ca-pub-3231589012114037"
+	data-ad-slot="4961388030"></ins>
+
+	
+<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+<div class="comment-block mt-4">
+<script src="/assets/js/valine.min.js"></script>
+<div id="vcomments"></div>
+<script>new Valine({
+el: '#vcomments',
+appId: 'jVMbXK6tJDtPCzR3Mp0V5L6V-gzGzoHsz',
+appKey: 'SX4oRFXp8K7KgeGhKTTDy3VI',
+visitor: true,
+notify: true,
+verify: false,
+avatar: 'identicon',
+placeholder: '留下你的评论吧～'
+})</script>
+</div>
+</div>
+</div>
+<aside class="col-md-4 col-lg-4 col-xl-4">
+<div id="sidebar">
+<div id="side-music" class="mt-4">
+<meting-js server="netease" type="playlist" id="3778678"></meting-js>
+</div>
+<div id="side-friend" class="mt-4">
+<p>
+<strong>独立博客是一座座孤岛，里面藏着丰富有趣的灵魂。友链是孤岛的桥梁，欢迎常串门儿～</strong>
+</p>
+<div class="ml-2">
+<span>
+<strong>»  </strong>
+<a href="https://hiwannz.com">见字如面</a>
+ · 来这里和我见面
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://www.91the.top">IT玩客</a>
+ · 几个同道中人记录工作中的经验、问题和交流，旨在记录、总结点滴，给未来的自己
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://www.boatsky.com">太空船博客</a>
+ · 西法前端个人博客
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://mikukonai.com">Project Aurora</a>
+ · 怕什么真理无穷，进一步有进一步的欢喜
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://diygod.me">Hi, DIYgod</a>
+ · 写代码是热爱，写到世界充满爱
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://www.huhexian.com">青山绿水</a>
+ · 高中生胡和先的个人博客, 主要分享自己的生活故事, 对世间百态的简单看法, 同时分享简单好玩的新奇玩意, 分享生活与你的美。
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://macplay.github.io">MacPlay</a>
+ · Share something interesting about byte ocean
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://blog.xjqxz.top">Dogge's blog</a>
+ · 向往未来
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://betterman.xyz">青衫不是山</a>
+ · To be a betterman
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://achuan.io">阿川的个人博客</a>
+ · 执着于理想, 纯粹于当下
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://lotabout.me">三点水</a>
+ · 不积小流, 无以成江海
+</span>
+<br/>
+<span>
+<strong>»  </strong>
+<a href="https://beyondstars.xyz">探索子</a>
+ · 越过星空去探索
+</span>
+<br/>
+</div>
+</div>
+<div class="mt-4">
+<span>
+<strong>Github: </strong>
+<a href="https://github.com/Kinneyzhang/">https://github.com/Kinneyzhang/</a>
+</span>
+<br/>
+<span>
+<strong>RSS: </strong>
+<a href="https://geekinney.com/feed.xml">https://geekinney.com/feed.xml</a>
+</span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<footer class="mt-2">
+<small>
+©2019-2020 戈楷旎 | Licensed under 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img alt="知识共享许可协议" style="border-width:0" src="/assets/image/license.png"/>
+</a>
+ | Powered by Geekblog
+</small>
+</footer>
+</div>
+</div>
+</div>
+<script src="/assets/js/jQuery.min.js"></script>
+<script src="/assets/js/APlayer.min.js"></script>
+<script src="/assets/js/Meting.min.js"></script>
+<script>$(document).ready(function(){
+	 var theme = sessionStorage.getItem("theme");
+	 if(theme=="dark"){
+	   document.getElementById("pagestyle").href="/assets/css/dark.css";
+	 }else if(theme=="light"){
+	   document.getElementById("pagestyle").href="/assets/css/light.css";
+	 }else{
+	   sessionStorage.setItem("theme","light");
+	 }});</script>
+</body>
+</html>
