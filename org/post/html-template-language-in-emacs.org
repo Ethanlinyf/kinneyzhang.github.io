@@ -1,4 +1,4 @@
-#+TITLE: [New Package] 基于Emacs-Lisp的HTML模版语言
+#+TITLE: 基于Emacs-Lisp的HTML模版语言
 #+DATE: 2020-05-10
 #+CATEGORY: Emacs
 #+STARTUP: showall
