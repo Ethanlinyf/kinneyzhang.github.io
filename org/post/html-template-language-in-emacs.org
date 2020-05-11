@@ -1,4 +1,4 @@
-#+TITLE: [New Package] Emacs中的HTML模版语言
+#+TITLE: [New Package] 基于Emacs-Lisp的HTML模版语言
 #+DATE: 2020-05-10
 #+CATEGORY: Emacs
 #+STARTUP: showall
@@ -23,7 +23,7 @@
 ** 基础
    pp-html使用elisp的S表达式来构建html代码，使用 =pp-html= 函数对S表达式求值。下面有一些简单的例子，便于理解基本的使用方法。
    
-*** 单个html
+*** 单个S表达式
    单个S表达式的构成为: =(html标签 多个属性键值对 内容)= 。
 
    其中html标签是必须的，其余可缺省。属性键值对的书写语法为Plist形式。特别地是，对CSS选择器设置了语法糖，用 "." 表示 "class"，"@" 表示 "id"，其值为符号后面的内容。对于无值属性(例如 async)有两种写法：1. (:async nil) 2. 直接写:async，要求不能是最后一个属性。
@@ -44,8 +44,8 @@
    <link async rel="stylesheet" href "url" async/>
    #+end_src   
 
-*** 并列html
-   并列的多条html直接用括号包含。
+*** 并列S表达式
+   并列的多个S表达式直接用括号包含。
    
    #+BEGIN_SRC emacs-lisp
    (pp-html
@@ -71,8 +71,8 @@
    </ul>
    #+end_src
    
-*** 嵌套html
-   在同一html标签的S表达式内代表该标签的子标签，否则为兄弟标签。
+*** 嵌套S表达式
+   在同一html标签的S表达式内代表该元素的子元素，否则为兄弟元素。
    
    #+BEGIN_SRC emacs-lisp
    (pp-html
@@ -98,7 +98,7 @@
    #+end_src
 
 ** 对象
-   对象告诉pp-html在页面何处显示对象的值。它包括两部分：变量求值和函数求值。可以使用 =pp-html-eval= 函数获取对象的值。
+   对象告诉pp-html在页面何处显示对象的值。它包括三类：变量求值、对象属性求值和函数求值。可以使用 =pp-html-eval= 函数获取对象的值。
 
 *** 变量求值
    变量求值的基本语法是在变量前加上"$"符号。
@@ -156,16 +156,18 @@
    happy hacking emacs
    #+end_src
 
-   函数可嵌套调用。
+   函数可嵌套调用，或直接写，两种写法等价。
 
    #+BEGIN_SRC emacs-lisp
    (let ((var1 "now")
 	 (var2 " is ")
 	 (now '(current-time)))
+     (pp-html-eval '($ concat ($ upcase $var1) $var2 ($ format-time-string "%Y-%m-%d" $now)))
      (pp-html-eval '($ concat (upcase $var1) $var2 (format-time-string "%Y-%m-%d" $now))))
    #+END_SRC
 
    #+begin_src html
+   NOW is 2020-05-10
    NOW is 2020-05-10
    #+end_src
 
@@ -178,7 +180,7 @@
     定义变量，相当于elisp的let或setq。
 
     #+BEGIN_SRC emacs-lisp :wrap src html
-    (pp-html-parse
+    (pp-html
      '((:assign str1 "happy"
 		str2 "hacking"
 		str3 "emacs")
@@ -382,12 +384,106 @@
       (pp-html-eval '(/ $lst :join "-"))) ;; => happy-hacking-emacs
     #+END_SRC
 
-    *More useful filters is on the way!*
+    ...... *More useful filters is on the way!*
+
+** 综合
+   综合以上语法的例子:
+   #+BEGIN_SRC emacs-lisp :wrap src html
+   (setq base-block
+	 '(;; 变量赋值，也可用let或setq
+	   (:assign name "geekinney blog"
+		    description "Emacs is a lifestyle :-) And happy hacking emacs!"
+		    menus ((:path "/" :name "Index")
+			   (:path "/archive" :name "Archive")
+			   (:path "/category" :name "Category")
+			   (:path "/about" :name "About"))
+		    comment-p t
+		    comment-type "disqus"
+		    valine-block (p "this is valine block")
+		    disqus-block (p "this is disqus block"))
+	   (body
+	    (header @topheader
+		    ;; 变量求值
+		    (a @logo :href "/" $name)
+		    (p .description $description))
+	    (nav @topmenu
+		 ;; for循环 和 属性求值
+		 (:for menu in $menus
+		       (a :href $menu.path $menu.name)))
+	    ;; CSS选择器语法糖
+	    (main .container
+		  (div .row
+		       (div .col-12 .col-sm-12 .col-md-8 .col-lg-8
+			    ;; 函数求值和嵌套
+			    (p ($ concat "Function: the site name is " ($ upcase $name)))
+			    ;; 过滤器嵌套
+			    (p (/ "Filter: the site name is " :concat (/ $name :capitalize)))
+			    ;; 连续过滤
+			    (p (/ ("happy" "hacking" "emacs") :join " " :capitalize :concat "!"))
+			    ;; if条件判断
+			    (:if comment-p
+				 ;; cond分支 和 :inlude标签
+				 (:cond
+				  ($ string= $comment-type "valine") (:include $valine-block)
+				  ($ string= $comment-type "disqus") (:include $disqus-block)
+				  t nil)
+				 (p "The comment is closed!"))))
+		  (div .row
+		       (div .col-md-4 .col-lg-4
+			    (aside @sidebar
+				   ;; 默认区块
+				   (:block side-block
+					   (p "this is base sidebar")))))))))
+
+   (pp-html
+    '(:extend $base-block
+	      ;; 区块继承
+	      (:block side-block
+		      (p "this is extended sidebar"))))
+    #+END_SRC
+
+    #+begin_src html
+    <body>
+      <header id="topheader">
+	<a id="logo" href="/">geekinney blog</a>
+	<p class="description">Emacs is a lifestyle :-) And happy hacking emacs!</p>
+      </header>
+      <nav id="topmenu">
+	<a href="/">Index</a>
+	<a href="/archive">Archive</a>
+	<a href="/category">Category</a>
+	<a href="/about">About</a>
+      </nav>
+      <main class="container">
+	<div class="row">
+	  <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+	    <p>Function: the site name is GEEKINNEY BLOG</p>
+	    <p>Filter: the site name is Geekinney blog</p>
+	    <p>Happy hacking emacs!</p>
+	    <p>this is disqus block</p>
+	  </div>
+	</div>
+	<div class="row">
+	  <div class="col-md-4 col-lg-4">
+	    <aside id="sidebar">
+	      <p>this is extended sidebar</p>
+	    </aside>
+	  </div>
+	</div>
+      </main>
+    </body>
+    #+end_src
 
 * 说明
-  我的 [[https://geekinney.com/][个人博客]] 就是基于 =pp-html= 构建的，我将构建博客的代码组织成了emacs包: =geekblog= ，目前处理代码优化整理阶段，敬请关注 [[https://github.com/Kinneyzhang][我的Github]] 或博客。
 
-  pp-html为本人写的第一个emacs包，可能有不成熟的地方，希望读者诸君、emacs大牛批评指正。关于package未来功能的拓展和集成，也可以给我提建议(issue或博客留言)。
+** 预览调试
+   =pp-html-test= 函数可以在view buffer中预览生成的格式化html。 =pp-html-parse= 函数可以查看解析完所有逻辑标签后的S表达式。这两个函数便于调试代码。
+
+** XML支持
+   pp-html还额外支持生成xml。与html不同，xml没有单元素(img,link...)，所以更简单。使用方法为设置 =pp-html= 函数的第二个参数为t。
+   
+** 构建博客
+  我的 [[https://geekinney.com/][个人博客]] 就是基于 =pp-html= 构建的，我将构建博客的代码组织成了emacs包: =geekblog= ，目前处理代码优化整理阶段，敬请关注 [[https://github.com/Kinneyzhang][我的Github]] 或博客。
 
 * 计划
   * [ ] 内置更多有用的过滤器。

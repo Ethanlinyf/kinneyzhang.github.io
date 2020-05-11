@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>[New Package] Emacs中的HTML模版语言</title>
+<title>[New Package] 基于Emacs-Lisp的HTML模版语言</title>
 <meta name="generator" content="GeekBlog"/>
 <meta name="author" content="Geekinney"/>
 <meta name="description" content="Emacs is a lifestyle  :-)<br>And happy hacking emacs!"/>
@@ -43,14 +43,14 @@ And happy hacking emacs!
 <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
 <div id="post-content">
 <header>
-<h1 class="title">[New Package] Emacs中的HTML模版语言</h1>
+<h1 class="title">[New Package] 基于Emacs-Lisp的HTML模版语言</h1>
 </header>
 <div id="post-info">
 <p>
 「
 <span>分类: Emacs · </span>
-<span>字数: 1821 · </span>
-<span class="leancloud_visitors" id="/post/html-template-language-in-emacs.html" data-flag-title="[New Package] Emacs中的HTML模版语言">
+<span>字数: 2257 · </span>
+<span class="leancloud_visitors" id="/post/html-template-language-in-emacs.html" data-flag-title="[New Package] 基于Emacs-Lisp的HTML模版语言">
 <span class="post-meta-item-text">阅读 </span>
 <span class="leancloud-visitors-count">...</span>
  次
@@ -72,36 +72,36 @@ And happy hacking emacs!
 
 
 <li>
-<a href="#orgb1f78af">1. 安装</a>
+<a href="#org8346195">1. 安装</a>
 </li>
 
 
 <li>
-<a href="#orge6dad58">2. 使用</a>
+<a href="#org36985fe">2. 使用</a>
 
 
 <ul>
 
 
 <li>
-<a href="#orgad4bac0">2.1. 基础</a>
+<a href="#orgb84266e">2.1. 基础</a>
 
 
 <ul>
 
 
 <li>
-<a href="#orged2533d">2.1.1. 单个html</a>
+<a href="#org4044072">2.1.1. 单个S表达式</a>
 </li>
 
 
 <li>
-<a href="#org3abcad1">2.1.2. 并列html</a>
+<a href="#orgbaded7c">2.1.2. 并列S表达式</a>
 </li>
 
 
 <li>
-<a href="#orgbe99d5b">2.1.3. 嵌套html</a>
+<a href="#orgf4711de">2.1.3. 嵌套S表达式</a>
 </li>
 
 
@@ -112,24 +112,24 @@ And happy hacking emacs!
 
 
 <li>
-<a href="#org65603ea">2.2. 对象</a>
+<a href="#org75fdc35">2.2. 对象</a>
 
 
 <ul>
 
 
 <li>
-<a href="#org44df45c">2.2.1. 变量求值</a>
+<a href="#orgc2ffa83">2.2.1. 变量求值</a>
 </li>
 
 
 <li>
-<a href="#org70d3150">2.2.2. 对象属性求值</a>
+<a href="#orgdef5a7d">2.2.2. 对象属性求值</a>
 </li>
 
 
 <li>
-<a href="#org2eebf35">2.2.3. 函数求值</a>
+<a href="#org761f209">2.2.3. 函数求值</a>
 </li>
 
 
@@ -140,44 +140,44 @@ And happy hacking emacs!
 
 
 <li>
-<a href="#org00cfad7">2.3. 标签</a>
+<a href="#org3e30f5b">2.3. 标签</a>
 
 
 <ul>
 
 
 <li>
-<a href="#orge4d3770">2.3.1. assign</a>
+<a href="#orge1f9f0a">2.3.1. assign</a>
 </li>
 
 
 <li>
-<a href="#org85ade4c">2.3.2. if</a>
+<a href="#orgcb12a1e">2.3.2. if</a>
 </li>
 
 
 <li>
-<a href="#orga5a502e">2.3.3. unless</a>
+<a href="#orgca61fe5">2.3.3. unless</a>
 </li>
 
 
 <li>
-<a href="#org379586a">2.3.4. cond</a>
+<a href="#org63e53ef">2.3.4. cond</a>
 </li>
 
 
 <li>
-<a href="#org112861f">2.3.5. for</a>
+<a href="#orgfc5da11">2.3.5. for</a>
 </li>
 
 
 <li>
-<a href="#org40cf267">2.3.6. include</a>
+<a href="#org647bdd9">2.3.6. include</a>
 </li>
 
 
 <li>
-<a href="#org55e96a2">2.3.7. extend</a>
+<a href="#org456eb99">2.3.7. extend</a>
 </li>
 
 
@@ -188,19 +188,19 @@ And happy hacking emacs!
 
 
 <li>
-<a href="#org9a9416d">2.4. 过滤器</a>
+<a href="#orgdd0534e">2.4. 过滤器</a>
 
 
 <ul>
 
 
 <li>
-<a href="#orga643b1a">2.4.1. 自定义过滤器</a>
+<a href="#org2608a01">2.4.1. 自定义过滤器</a>
 </li>
 
 
 <li>
-<a href="#org5fc733c">2.4.2. 内置过滤器</a>
+<a href="#org6be083e">2.4.2. 内置过滤器</a>
 </li>
 
 
@@ -210,6 +210,11 @@ And happy hacking emacs!
 </li>
 
 
+<li>
+<a href="#org9dc672b">2.5. 综合</a>
+</li>
+
+
 </ul>
 
 
@@ -217,12 +222,35 @@ And happy hacking emacs!
 
 
 <li>
-<a href="#org1ff47d6">3. 说明</a>
+<a href="#org5527531">3. 说明</a>
+
+
+<ul>
+
+
+<li>
+<a href="#org4a14e1a">3.1. 预览调试</a>
 </li>
 
 
 <li>
-<a href="#org29ae509">4. 计划</a>
+<a href="#orgc7e8dc2">3.2. XML支持</a>
+</li>
+
+
+<li>
+<a href="#org8f3e463">3.3. 构建博客</a>
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+<li>
+<a href="#org8835244">4. 计划</a>
 </li>
 
 
@@ -239,7 +267,7 @@ And happy hacking emacs!
 
 
 <a href="https://github.com/Kinneyzhang/pp-html.git">pp-html</a>
-是使用elisp开发的html模版语言。它借鉴了部分 
+ 是使用elisp开发的html模版语言。它借鉴了部分 
 <a href="https://shopify.github.io/liquid/">Liquid template language</a>
  的设计思路，包括对象，标签和过滤器三部分。通过书写elisp的S表达式，读者可以快速便捷地构建简单html片段或复杂的html页面。其中 
 <code>:include</code>
@@ -251,10 +279,10 @@ And happy hacking emacs!
 
 
 
-<div id="outline-container-orgb1f78af" class="outline-2">
+<div id="outline-container-org8346195" class="outline-2">
 
 
-<h2 id="orgb1f78af">
+<h2 id="org8346195">
 <span class="section-number-2">1</span>
  安装
 </h2>
@@ -302,10 +330,10 @@ And happy hacking emacs!
 
 
 
-<div id="outline-container-orge6dad58" class="outline-2">
+<div id="outline-container-org36985fe" class="outline-2">
 
 
-<h2 id="orge6dad58">
+<h2 id="org36985fe">
 <span class="section-number-2">2</span>
  使用
 </h2>
@@ -315,10 +343,10 @@ And happy hacking emacs!
 </div>
 
 
-<div id="outline-container-orgad4bac0" class="outline-3">
+<div id="outline-container-orgb84266e" class="outline-3">
 
 
-<h3 id="orgad4bac0">
+<h3 id="orgb84266e">
 <span class="section-number-3">2.1</span>
  基础
 </h3>
@@ -340,12 +368,12 @@ pp-html使用elisp的S表达式来构建html代码，使用
 
 
 
-<div id="outline-container-orged2533d" class="outline-4">
+<div id="outline-container-org4044072" class="outline-4">
 
 
-<h4 id="orged2533d">
+<h4 id="org4044072">
 <span class="section-number-4">2.1.1</span>
- 单个html
+ 单个S表达式
 </h4>
 
 
@@ -404,12 +432,12 @@ pp-html使用elisp的S表达式来构建html代码，使用
 
 
 
-<div id="outline-container-org3abcad1" class="outline-4">
+<div id="outline-container-orgbaded7c" class="outline-4">
 
 
-<h4 id="org3abcad1">
+<h4 id="orgbaded7c">
 <span class="section-number-4">2.1.2</span>
- 并列html
+ 并列S表达式
 </h4>
 
 
@@ -417,7 +445,7 @@ pp-html使用elisp的S表达式来构建html代码，使用
 
 
 <p>
-并列的多条html直接用括号包含。
+并列的多个S表达式直接用括号包含。
 </p>
 
 
@@ -466,12 +494,12 @@ pp-html使用elisp的S表达式来构建html代码，使用
 
 
 
-<div id="outline-container-orgbe99d5b" class="outline-4">
+<div id="outline-container-orgf4711de" class="outline-4">
 
 
-<h4 id="orgbe99d5b">
+<h4 id="orgf4711de">
 <span class="section-number-4">2.1.3</span>
- 嵌套html
+ 嵌套S表达式
 </h4>
 
 
@@ -479,7 +507,7 @@ pp-html使用elisp的S表达式来构建html代码，使用
 
 
 <p>
-在同一html标签的S表达式内代表该标签的子标签，否则为兄弟标签。
+在同一html标签的S表达式内代表该元素的子元素，否则为兄弟元素。
 </p>
 
 
@@ -530,10 +558,10 @@ pp-html使用elisp的S表达式来构建html代码，使用
 
 
 
-<div id="outline-container-org65603ea" class="outline-3">
+<div id="outline-container-org75fdc35" class="outline-3">
 
 
-<h3 id="org65603ea">
+<h3 id="org75fdc35">
 <span class="section-number-3">2.2</span>
  对象
 </h3>
@@ -544,7 +572,7 @@ pp-html使用elisp的S表达式来构建html代码，使用
 
 <p>
 
-对象告诉pp-html在页面何处显示对象的值。它包括两部分：变量求值和函数求值。可以使用 
+对象告诉pp-html在页面何处显示对象的值。它包括三类：变量求值、对象属性求值和函数求值。可以使用 
 <code>pp-html-eval</code>
  函数获取对象的值。
 
@@ -555,10 +583,10 @@ pp-html使用elisp的S表达式来构建html代码，使用
 
 
 
-<div id="outline-container-org44df45c" class="outline-4">
+<div id="outline-container-orgc2ffa83" class="outline-4">
 
 
-<h4 id="org44df45c">
+<h4 id="orgc2ffa83">
 <span class="section-number-4">2.2.1</span>
  变量求值
 </h4>
@@ -632,10 +660,10 @@ pp-html使用elisp的S表达式来构建html代码，使用
 
 
 
-<div id="outline-container-org70d3150" class="outline-4">
+<div id="outline-container-orgdef5a7d" class="outline-4">
 
 
-<h4 id="org70d3150">
+<h4 id="orgdef5a7d">
 <span class="section-number-4">2.2.2</span>
  对象属性求值
 </h4>
@@ -690,10 +718,10 @@ pp-html使用elisp的S表达式来构建html代码，使用
 
 
 
-<div id="outline-container-org2eebf35" class="outline-4">
+<div id="outline-container-org761f209" class="outline-4">
 
 
-<h4 id="org2eebf35">
+<h4 id="org761f209">
 <span class="section-number-4">2.2.3</span>
  函数求值
 </h4>
@@ -733,7 +761,7 @@ pp-html使用elisp的S表达式来构建html代码，使用
 
 
 <p>
-函数可嵌套调用。
+函数可嵌套调用，或直接写，两种写法等价。
 </p>
 
 
@@ -744,6 +772,7 @@ pp-html使用elisp的S表达式来构建html代码，使用
 <pre class="src src-emacs-lisp">(let ((var1 "now")
       (var2 " is ")
       (now '(current-time)))
+  (pp-html-eval '($ concat ($ upcase $var1) $var2 ($ format-time-string "%Y-%m-%d" $now)))
   (pp-html-eval '($ concat (upcase $var1) $var2 (format-time-string "%Y-%m-%d" $now))))
 </pre>
 
@@ -756,6 +785,7 @@ pp-html使用elisp的S表达式来构建html代码，使用
 
 
 <pre class="src src-html">NOW is 2020-05-10
+NOW is 2020-05-10
 </pre>
 
 
@@ -778,10 +808,10 @@ pp-html使用elisp的S表达式来构建html代码，使用
 
 
 
-<div id="outline-container-org00cfad7" class="outline-3">
+<div id="outline-container-org3e30f5b" class="outline-3">
 
 
-<h3 id="org00cfad7">
+<h3 id="org3e30f5b">
 <span class="section-number-3">2.3</span>
  标签
 </h3>
@@ -799,10 +829,10 @@ pp-html支持基本的逻辑标签，逻辑标签简化了函数的写法。
 
 
 
-<div id="outline-container-orge4d3770" class="outline-4">
+<div id="outline-container-orge1f9f0a" class="outline-4">
 
 
-<h4 id="orge4d3770">
+<h4 id="orge1f9f0a">
 <span class="section-number-4">2.3.1</span>
  assign
 </h4>
@@ -820,7 +850,7 @@ pp-html支持基本的逻辑标签，逻辑标签简化了函数的写法。
 <div class="org-src-container">
 
 
-<pre class="src src-emacs-lisp">(pp-html-parse
+<pre class="src src-emacs-lisp">(pp-html
  '((:assign str1 "happy"
 	    str2 "hacking"
 	    str3 "emacs")
@@ -849,10 +879,10 @@ pp-html支持基本的逻辑标签，逻辑标签简化了函数的写法。
 
 
 
-<div id="outline-container-org85ade4c" class="outline-4">
+<div id="outline-container-orgcb12a1e" class="outline-4">
 
 
-<h4 id="org85ade4c">
+<h4 id="orgcb12a1e">
 <span class="section-number-4">2.3.2</span>
  if
 </h4>
@@ -897,10 +927,10 @@ if条件判断
 
 
 
-<div id="outline-container-orga5a502e" class="outline-4">
+<div id="outline-container-orgca61fe5" class="outline-4">
 
 
-<h4 id="orga5a502e">
+<h4 id="orgca61fe5">
 <span class="section-number-4">2.3.3</span>
  unless
 </h4>
@@ -945,10 +975,10 @@ unless条件判断
 
 
 
-<div id="outline-container-org379586a" class="outline-4">
+<div id="outline-container-org63e53ef" class="outline-4">
 
 
-<h4 id="org379586a">
+<h4 id="org63e53ef">
 <span class="section-number-4">2.3.4</span>
  cond
 </h4>
@@ -996,10 +1026,10 @@ unless条件判断
 
 
 
-<div id="outline-container-org112861f" class="outline-4">
+<div id="outline-container-orgfc5da11" class="outline-4">
 
 
-<h4 id="org112861f">
+<h4 id="orgfc5da11">
 <span class="section-number-4">2.3.5</span>
  for
 </h4>
@@ -1049,10 +1079,10 @@ for循环
 
 
 
-<div id="outline-container-org40cf267" class="outline-4">
+<div id="outline-container-org647bdd9" class="outline-4">
 
 
-<h4 id="org40cf267">
+<h4 id="org647bdd9">
 <span class="section-number-4">2.3.6</span>
  include
 </h4>
@@ -1109,10 +1139,10 @@ for循环
 
 
 
-<div id="outline-container-org55e96a2" class="outline-4">
+<div id="outline-container-org456eb99" class="outline-4">
 
 
-<h4 id="org55e96a2">
+<h4 id="org456eb99">
 <span class="section-number-4">2.3.7</span>
  extend
 </h4>
@@ -1179,10 +1209,10 @@ for循环
 
 
 
-<div id="outline-container-org9a9416d" class="outline-3">
+<div id="outline-container-orgdd0534e" class="outline-3">
 
 
-<h3 id="org9a9416d">
+<h3 id="orgdd0534e">
 <span class="section-number-3">2.4</span>
  过滤器
 </h3>
@@ -1200,10 +1230,10 @@ for循环
 
 
 
-<div id="outline-container-orga643b1a" class="outline-4">
+<div id="outline-container-org2608a01" class="outline-4">
 
 
-<h4 id="orga643b1a">
+<h4 id="org2608a01">
 <span class="section-number-4">2.4.1</span>
  自定义过滤器
 </h4>
@@ -1245,10 +1275,10 @@ pp-html支持自定义过滤器，使用
 
 
 
-<div id="outline-container-org5fc733c" class="outline-4">
+<div id="outline-container-org6be083e" class="outline-4">
 
 
-<h4 id="org5fc733c">
+<h4 id="org6be083e">
 <span class="section-number-4">2.4.2</span>
  内置过滤器
 </h4>
@@ -1453,7 +1483,7 @@ pp-html支持自定义过滤器，使用
 
 <p>
 
-
+&#x2026;&#x2026; 
 <b>More useful filters is on the way!</b>
 
 
@@ -1469,20 +1499,214 @@ pp-html支持自定义过滤器，使用
 </div>
 
 
+
+<div id="outline-container-org9dc672b" class="outline-3">
+
+
+<h3 id="org9dc672b">
+<span class="section-number-3">2.5</span>
+ 综合
+</h3>
+
+
+<div class="outline-text-3" id="text-2-5">
+
+
+<p>
+综合以上语法的例子:
+</p>
+
+
+<div class="org-src-container">
+
+
+<pre class="src src-emacs-lisp">(setq base-block
+      '(;; 变量赋值，也可用let或setq
+	(:assign name "geekinney blog"
+		 description "Emacs is a lifestyle :-) And happy hacking emacs!"
+		 menus ((:path "/" :name "Index")
+			(:path "/archive" :name "Archive")
+			(:path "/category" :name "Category")
+			(:path "/about" :name "About"))
+		 comment-p t
+		 comment-type "disqus"
+		 valine-block (p "this is valine block")
+		 disqus-block (p "this is disqus block"))
+	(body
+	 (header @topheader
+		 ;; 变量求值
+		 (a @logo :href "/" $name)
+		 (p .description $description))
+	 (nav @topmenu
+	      ;; for循环 和 属性求值
+	      (:for menu in $menus
+		    (a :href $menu.path $menu.name)))
+	 ;; CSS选择器语法糖
+	 (main .container
+	       (div .row
+		    (div .col-12 .col-sm-12 .col-md-8 .col-lg-8
+			 ;; 函数求值和嵌套
+			 (p ($ concat "Function: the site name is " ($ upcase $name)))
+			 ;; 过滤器嵌套
+			 (p (/ "Filter: the site name is " :concat (/ $name :capitalize)))
+			 ;; 连续过滤
+			 (p (/ ("happy" "hacking" "emacs") :join " " :capitalize :concat "!"))
+			 ;; if条件判断
+			 (:if comment-p
+			      ;; cond分支 和 :inlude标签
+			      (:cond
+			       ($ string= $comment-type "valine") (:include $valine-block)
+			       ($ string= $comment-type "disqus") (:include $disqus-block)
+			       t nil)
+			      (p "The comment is closed!"))))
+	       (div .row
+		    (div .col-md-4 .col-lg-4
+			 (aside @sidebar
+				;; 默认区块
+				(:block side-block
+					(p "this is base sidebar")))))))))
+
+(pp-html
+ '(:extend $base-block
+	   ;; 区块继承
+	   (:block side-block
+		   (p "this is extended sidebar"))))
+</pre>
+
+
 </div>
 
 
 
-<div id="outline-container-org1ff47d6" class="outline-2">
+<div class="org-src-container">
 
 
-<h2 id="org1ff47d6">
+<pre class="src src-html">&lt;body&gt;
+  &lt;header id="topheader"&gt;
+    &lt;a id="logo" href="/"&gt;geekinney blog&lt;/a&gt;
+    &lt;p class="description"&gt;Emacs is a lifestyle :-) And happy hacking emacs!&lt;/p&gt;
+  &lt;/header&gt;
+  &lt;nav id="topmenu"&gt;
+    &lt;a href="/"&gt;Index&lt;/a&gt;
+    &lt;a href="/archive"&gt;Archive&lt;/a&gt;
+    &lt;a href="/category"&gt;Category&lt;/a&gt;
+    &lt;a href="/about"&gt;About&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;main class="container"&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="col-12 col-sm-12 col-md-8 col-lg-8"&gt;
+	&lt;p&gt;Function: the site name is GEEKINNEY BLOG&lt;/p&gt;
+	&lt;p&gt;Filter: the site name is Geekinney blog&lt;/p&gt;
+	&lt;p&gt;Happy hacking emacs!&lt;/p&gt;
+	&lt;p&gt;this is disqus block&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="col-md-4 col-lg-4"&gt;
+	&lt;aside id="sidebar"&gt;
+	  &lt;p&gt;this is extended sidebar&lt;/p&gt;
+	&lt;/aside&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+</pre>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org5527531" class="outline-2">
+
+
+<h2 id="org5527531">
 <span class="section-number-2">3</span>
  说明
 </h2>
 
 
 <div class="outline-text-2" id="text-3">
+</div>
+
+
+<div id="outline-container-org4a14e1a" class="outline-3">
+
+
+<h3 id="org4a14e1a">
+<span class="section-number-3">3.1</span>
+ 预览调试
+</h3>
+
+
+<div class="outline-text-3" id="text-3-1">
+
+
+<p>
+
+
+<code>pp-html-test</code>
+ 函数可以在view buffer中预览生成的格式化html。 
+<code>pp-html-parse</code>
+ 函数可以查看解析完所有逻辑标签后的S表达式。这两个函数便于调试代码。
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-orgc7e8dc2" class="outline-3">
+
+
+<h3 id="orgc7e8dc2">
+<span class="section-number-3">3.2</span>
+ XML支持
+</h3>
+
+
+<div class="outline-text-3" id="text-3-2">
+
+
+<p>
+
+pp-html还额外支持生成xml。与html不同，xml没有单元素(img,link&#x2026;)，所以更简单。使用方法为设置 
+<code>pp-html</code>
+ 函数的第二个参数为t。
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="outline-container-org8f3e463" class="outline-3">
+
+
+<h3 id="org8f3e463">
+<span class="section-number-3">3.3</span>
+ 构建博客
+</h3>
+
+
+<div class="outline-text-3" id="text-3-3">
 
 
 <p>
@@ -1500,23 +1724,20 @@ pp-html支持自定义过滤器，使用
 </p>
 
 
-
-<p>
-pp-html为本人写的第一个emacs包，可能有不成熟的地方，希望读者诸君、emacs大牛批评指正。关于package未来功能的拓展和集成，也可以给我提建议(issue或博客留言)。
-</p>
-
-
 </div>
 
 
 </div>
 
 
+</div>
 
-<div id="outline-container-org29ae509" class="outline-2">
 
 
-<h2 id="org29ae509">
+<div id="outline-container-org8835244" class="outline-2">
+
+
+<h2 id="org8835244">
 <span class="section-number-2">4</span>
  计划
 </h2>
